@@ -10,5 +10,5 @@ Fixed [ReliquaryMainPropExcelConfigData.json](https://github.com/Dimbreath/Gensh
 ## Credits
 
 [Grasscutter](https://github.com/Grasscutters/Grasscutter) <br/>
-[Dimbreath)](https://github.com/Dimbreath) <br/>
+[Dimbreath](https://github.com/Dimbreath) <br/>
 [radioegor146](https://github.com/radioegor146) <br/>
