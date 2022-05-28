@@ -1,10 +1,9 @@
 # Grasscutter_Resources
-> <em>Resource Version - "Certain Anime Game" 2.6.0</em>
+> <em>Resource Version - "Certain Anime Game" 2.7.0</em>
 
-- ExcelBinOutput
-  * Fixed [ReliquaryMainPropExcelConfigData.json](https://github.com/Dimbreath/GenshinData/blob/104c21c6530885e450975b13830639e9ca649799/ExcelBinOutput/ReliquaryMainPropExcelConfigData.json) & [ReliquaryAffixExcelConfigData.json](https://github.com/Dimbreath/GenshinData/blob/a92b5842daa911c095f47ef235b2bcd4b388d65a/ExcelBinOutput/ReliquaryAffixExcelConfigData.json)
-- BinOutput
-- Scripts
+- ExcelBinOutput [Fixed camelCase -> PascalCase]
+- BinOutput [Uses 2.6 Raz BinOutput but added Yelan & Shinobu Files from GenshinData]
+- Scripts [Lua From [lilmayofuksu/animepython](https://github.com/lilmayofuksu/animepython) - 2.6.51)
 - Readable
 - Subtitle
 - TextMap
@@ -18,3 +17,4 @@
  - [Dimbreath](https://github.com/Dimbreath) <br/>
  - [radioegor146](https://github.com/radioegor146) <br/>
  - [TheLostTree](https://github.com/TheLostTree) <br/>
+ - [lilmayofuksu](https://github.com/lilmayofuksu/animepython)
