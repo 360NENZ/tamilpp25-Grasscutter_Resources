@@ -1,4 +1,4 @@
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1
+local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
 L0_1 = {}
 L0_1.group_id = 220129003
 L1_1 = {}
@@ -35,23 +35,8 @@ L4_1.y = 0.0
 L4_1.z = 0.0
 L3_1.rot = L4_1
 L3_1.level = 1
-L4_1 = {}
-L4_1.config_id = 3007
-L4_1.gadget_id = 70900201
-L5_1 = {}
-L5_1.x = -452.06
-L5_1.y = 1.029
-L5_1.z = -37.655
-L4_1.pos = L5_1
-L5_1 = {}
-L5_1.x = 0.0
-L5_1.y = 0.0
-L5_1.z = 0.0
-L4_1.rot = L5_1
-L4_1.level = 1
 L1_1[1] = L2_1
 L1_1[2] = L3_1
-L1_1[3] = L4_1
 gadgets = L1_1
 L1_1 = {}
 L2_1 = {}
@@ -157,10 +142,8 @@ L3_1.monsters = L4_1
 L4_1 = {}
 L5_1 = 3003
 L6_1 = 3004
-L7_1 = 3007
 L4_1[1] = L5_1
 L4_1[2] = L6_1
-L4_1[3] = L7_1
 L3_1.gadgets = L4_1
 L4_1 = {}
 L5_1 = 3005
@@ -368,21 +351,6 @@ function L1_1(A0_2, A1_2)
   L3_2 = A0_2
   L4_2 = {}
   L4_2.config_id = 3004
-  L2_2 = L2_2(L3_2, L4_2)
-  if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : kill_entity_by_configId"
-    L2_2(L3_2, L4_2)
-    L2_2 = -1
-    return L2_2
-  end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.KillEntityByConfigId
-  L3_2 = A0_2
-  L4_2 = {}
-  L4_2.config_id = 3007
   L2_2 = L2_2(L3_2, L4_2)
   if 0 ~= L2_2 then
     L2_2 = ScriptLib

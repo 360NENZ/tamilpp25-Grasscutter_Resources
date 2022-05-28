@@ -89,23 +89,7 @@ L3_1.x = 60.013
 L3_1.y = 61.266
 L3_1.z = 128.094
 L2_1.pos = L3_1
-L3_1 = {}
-L3_1.config_id = 6007
-L4_1 = RegionShape
-L4_1 = L4_1.CUBIC
-L3_1.shape = L4_1
-L4_1 = {}
-L4_1.x = 20.0
-L4_1.y = 15.0
-L4_1.z = 30.0
-L3_1.size = L4_1
-L4_1 = {}
-L4_1.x = 10.619
-L4_1.y = 54.469
-L4_1.z = 127.53
-L3_1.pos = L4_1
 L1_1[1] = L2_1
-L1_1[2] = L3_1
 regions = L1_1
 L1_1 = {}
 L2_1 = {}
@@ -117,7 +101,6 @@ L2_1.event = L3_1
 L2_1.source = ""
 L2_1.condition = "condition_EVENT_ENTER_REGION_6001"
 L2_1.action = "action_EVENT_ENTER_REGION_6001"
-L2_1.trigger_count = 0
 L3_1 = {}
 L3_1.config_id = 1006002
 L3_1.name = "ANY_MONSTER_DIE_6002"
@@ -145,21 +128,10 @@ L5_1.event = L6_1
 L5_1.source = "finish"
 L5_1.condition = ""
 L5_1.action = "action_EVENT_TIMER_EVENT_6004"
-L6_1 = {}
-L6_1.config_id = 1006007
-L6_1.name = "ENTER_REGION_6007"
-L7_1 = EventType
-L7_1 = L7_1.EVENT_ENTER_REGION
-L6_1.event = L7_1
-L6_1.source = ""
-L6_1.condition = "condition_EVENT_ENTER_REGION_6007"
-L6_1.action = "action_EVENT_ENTER_REGION_6007"
-L6_1.trigger_count = 0
 L1_1[1] = L2_1
 L1_1[2] = L3_1
 L1_1[3] = L4_1
 L1_1[4] = L5_1
-L1_1[5] = L6_1
 triggers = L1_1
 L1_1 = {}
 variables = L1_1
@@ -203,23 +175,8 @@ L4_1[2] = L6_1
 L4_1[3] = L7_1
 L3_1.triggers = L4_1
 L3_1.rand_weight = 100
-L4_1 = {}
-L5_1 = {}
-L4_1.monsters = L5_1
-L5_1 = {}
-L4_1.gadgets = L5_1
-L5_1 = {}
-L6_1 = 6007
-L5_1[1] = L6_1
-L4_1.regions = L5_1
-L5_1 = {}
-L6_1 = "ENTER_REGION_6007"
-L5_1[1] = L6_1
-L4_1.triggers = L5_1
-L4_1.rand_weight = 100
 L1_1[1] = L2_1
 L1_1[2] = L3_1
-L1_1[3] = L4_1
 suites = L1_1
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
@@ -253,18 +210,6 @@ function L1_1(A0_2, A1_2)
   L3_2 = A0_2
   L4_2 = 220127006
   L5_2 = 2
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = ScriptLib
-  L2_2 = L2_2.AddExtraGroupSuite
-  L3_2 = A0_2
-  L4_2 = 220127006
-  L5_2 = 3
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = ScriptLib
-  L2_2 = L2_2.RemoveExtraGroupSuite
-  L3_2 = A0_2
-  L4_2 = 220127006
-  L5_2 = 1
   L2_2(L3_2, L4_2, L5_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.SetGroupGadgetStateByConfigId
@@ -332,12 +277,6 @@ function L1_1(A0_2, A1_2)
     L2_2 = -1
     return L2_2
   end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.RemoveExtraGroupSuite
-  L3_2 = A0_2
-  L4_2 = 220127006
-  L5_2 = 3
-  L2_2(L3_2, L4_2, L5_2)
   L2_2 = 0
   return L2_2
 end
@@ -450,73 +389,3 @@ function L1_1(A0_2, A1_2)
   return L2_2
 end
 action_EVENT_TIMER_EVENT_6004 = L1_1
-function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2
-  L2_2 = A1_2.param1
-  if L2_2 ~= 6007 then
-    L2_2 = false
-    return L2_2
-  end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.GetRegionEntityCount
-  L3_2 = A0_2
-  L4_2 = {}
-  L5_2 = A1_2.source_eid
-  L4_2.region_eid = L5_2
-  L5_2 = EntityType
-  L5_2 = L5_2.AVATAR
-  L4_2.entity_type = L5_2
-  L2_2 = L2_2(L3_2, L4_2)
-  if L2_2 < 0 then
-    L2_2 = false
-    return L2_2
-  end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.GetGadgetStateByConfigId
-  L3_2 = A0_2
-  L4_2 = 220127002
-  L5_2 = 2071
-  L2_2 = L2_2(L3_2, L4_2, L5_2)
-  if 302 ~= L2_2 then
-    L2_2 = false
-    return L2_2
-  end
-  L2_2 = true
-  return L2_2
-end
-condition_EVENT_ENTER_REGION_6007 = L1_1
-function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
-  L2_2 = ScriptLib
-  L2_2 = L2_2.RemoveExtraGroupSuite
-  L3_2 = A0_2
-  L4_2 = 220127006
-  L5_2 = 2
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = ScriptLib
-  L2_2 = L2_2.SetGroupGadgetStateByConfigId
-  L3_2 = A0_2
-  L4_2 = 220127002
-  L5_2 = 2071
-  L6_2 = GadgetState
-  L6_2 = L6_2.GearStop
-  L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
-  if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : set_gadget_state_by_GroupId_ConfigId"
-    L2_2(L3_2, L4_2)
-    L2_2 = -1
-    return L2_2
-  end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.AddExtraGroupSuite
-  L3_2 = A0_2
-  L4_2 = 220127006
-  L5_2 = 1
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = 0
-  return L2_2
-end
-action_EVENT_ENTER_REGION_6007 = L1_1

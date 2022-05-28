@@ -137,29 +137,7 @@ L2_1.event = L3_1
 L2_1.source = ""
 L2_1.condition = ""
 L2_1.action = "action_EVENT_ENTER_REGION_442005"
-L3_1 = {}
-L3_1.config_id = 1442007
-L3_1.name = "GROUP_LOAD_442007"
-L4_1 = EventType
-L4_1 = L4_1.EVENT_GROUP_LOAD
-L3_1.event = L4_1
-L3_1.source = ""
-L3_1.condition = "condition_EVENT_GROUP_LOAD_442007"
-L3_1.action = "action_EVENT_GROUP_LOAD_442007"
-L3_1.trigger_count = 0
-L4_1 = {}
-L4_1.config_id = 1442008
-L4_1.name = "ANY_GADGET_DIE_442008"
-L5_1 = EventType
-L5_1 = L5_1.EVENT_ANY_GADGET_DIE
-L4_1.event = L5_1
-L4_1.source = ""
-L4_1.condition = "condition_EVENT_ANY_GADGET_DIE_442008"
-L4_1.action = "action_EVENT_ANY_GADGET_DIE_442008"
-L4_1.trigger_count = 0
 L1_1[1] = L2_1
-L1_1[2] = L3_1
-L1_1[3] = L4_1
 triggers = L1_1
 L1_1 = {}
 variables = L1_1
@@ -203,10 +181,6 @@ L3_1.gadgets = L4_1
 L4_1 = {}
 L3_1.regions = L4_1
 L4_1 = {}
-L5_1 = "GROUP_LOAD_442007"
-L6_1 = "ANY_GADGET_DIE_442008"
-L4_1[1] = L5_1
-L4_1[2] = L6_1
 L3_1.triggers = L4_1
 L3_1.rand_weight = 100
 L1_1[1] = L2_1
@@ -224,72 +198,3 @@ function L1_1(A0_2, A1_2)
   return L2_2
 end
 action_EVENT_ENTER_REGION_442005 = L1_1
-function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2
-  L2_2 = ScriptLib
-  L2_2 = L2_2.GetGadgetStateByConfigId
-  L3_2 = A0_2
-  L4_2 = 133106442
-  L5_2 = 442003
-  L2_2 = L2_2(L3_2, L4_2, L5_2)
-  if L2_2 == -1 then
-    L2_2 = true
-    return L2_2
-  end
-  L2_2 = false
-  return L2_2
-end
-condition_EVENT_GROUP_LOAD_442007 = L1_1
-function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = ScriptLib
-  L2_2 = L2_2.KillEntityByConfigId
-  L3_2 = A0_2
-  L4_2 = {}
-  L4_2.config_id = 442001
-  L2_2 = L2_2(L3_2, L4_2)
-  if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : kill_entity_by_configId"
-    L2_2(L3_2, L4_2)
-    L2_2 = -1
-    return L2_2
-  end
-  L2_2 = 0
-  return L2_2
-end
-action_EVENT_GROUP_LOAD_442007 = L1_1
-function L1_1(A0_2, A1_2)
-  local L2_2
-  L2_2 = A1_2.param1
-  if 442003 ~= L2_2 then
-    L2_2 = false
-    return L2_2
-  end
-  L2_2 = true
-  return L2_2
-end
-condition_EVENT_ANY_GADGET_DIE_442008 = L1_1
-function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = ScriptLib
-  L2_2 = L2_2.KillEntityByConfigId
-  L3_2 = A0_2
-  L4_2 = {}
-  L4_2.config_id = 442001
-  L2_2 = L2_2(L3_2, L4_2)
-  if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : kill_entity_by_configId"
-    L2_2(L3_2, L4_2)
-    L2_2 = -1
-    return L2_2
-  end
-  L2_2 = 0
-  return L2_2
-end
-action_EVENT_ANY_GADGET_DIE_442008 = L1_1

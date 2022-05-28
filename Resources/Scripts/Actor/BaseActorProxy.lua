@@ -1313,11 +1313,8 @@ function L1_1(A0_2, A1_2)
   L2_2(L3_2)
 end
 L0_1.SetBlackScreenValue = L1_1
-function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2, A5_2, A6_2, A7_2, A8_2, A9_2, A10_2)
-  local L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2
-  if A10_2 == nil then
-    A10_2 = false
-  end
+function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2, A5_2, A6_2, A7_2, A8_2, A9_2)
+  local L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2
   if A8_2 ~= nil or A9_2 ~= nil then
     if A8_2 == nil then
       A8_2 = false
@@ -1325,34 +1322,32 @@ function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2, A5_2, A6_2, A7_2, A8_2, A9_2, A10_2)
     if A9_2 == nil then
       A9_2 = false
     end
-    L11_2 = A0_2.uActor
-    L12_2 = L11_2
-    L11_2 = L11_2.ShowBlackScreenOptional
-    L13_2 = A1_2
-    L14_2 = A2_2
-    L15_2 = A3_2
-    L16_2 = A4_2
-    L17_2 = A5_2
-    L18_2 = A6_2
-    L19_2 = A7_2
-    L20_2 = A8_2
-    L21_2 = A9_2
-    L22_2 = A10_2
-    L11_2(L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2)
+    L10_2 = A0_2.uActor
+    L11_2 = L10_2
+    L10_2 = L10_2.ShowBlackScreenOptional
+    L12_2 = A1_2
+    L13_2 = A2_2
+    L14_2 = A3_2
+    L15_2 = A4_2
+    L16_2 = A5_2
+    L17_2 = A6_2
+    L18_2 = A7_2
+    L19_2 = A8_2
+    L20_2 = A9_2
+    L10_2(L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2)
     return
   end
-  L11_2 = A0_2.uActor
-  L12_2 = L11_2
-  L11_2 = L11_2.ShowBlackScreen
-  L13_2 = A1_2
-  L14_2 = A2_2
-  L15_2 = A3_2
-  L16_2 = A4_2
-  L17_2 = A5_2
-  L18_2 = A6_2
-  L19_2 = A7_2
-  L20_2 = A10_2
-  L11_2(L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2)
+  L10_2 = A0_2.uActor
+  L11_2 = L10_2
+  L10_2 = L10_2.ShowBlackScreen
+  L12_2 = A1_2
+  L13_2 = A2_2
+  L14_2 = A3_2
+  L15_2 = A4_2
+  L16_2 = A5_2
+  L17_2 = A6_2
+  L18_2 = A7_2
+  L10_2(L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2)
 end
 L0_1.ShowBlackScreen = L1_1
 function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2)

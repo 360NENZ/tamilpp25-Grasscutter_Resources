@@ -269,13 +269,6 @@ function L8_1(A0_2, A1_2)
   L5_2 = 3
   L6_2 = false
   L2_2(L3_2, L4_2, L5_2, L6_2)
-  L2_2 = actorMgr
-  L3_2 = L2_2
-  L2_2 = L2_2.DestroyEntityActor
-  L4_2 = "Q1914408TriggerSee"
-  L5_2 = 3
-  L6_2 = false
-  L2_2(L3_2, L4_2, L5_2, L6_2)
 end
 L1_1.OnMainCanceled = L8_1
 function L8_1(A0_2, A1_2)
@@ -578,7 +571,7 @@ function L8_1(A0_2, A1_2)
   L4_2 = A1_2
   L5_2 = L6_1.Npc1044Data
   L5_2 = L5_2.id
-  L6_2 = 4
+  L6_2 = 5
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.GetQuestNpcActor
@@ -895,10 +888,16 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubStart1914407 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = print
   L3_2 = "OnSubFinish1914407"
   L2_2(L3_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.NarratorOnlyTaskByData
+  L4_2 = L7_1.NarratorWithId2
+  L5_2 = nil
+  L6_2 = 19144
+  L2_2(L3_2, L4_2, L5_2, L6_2)
 end
 L1_1.OnSubFinish1914407 = L8_1
 function L8_1(A0_2, A1_2)
@@ -993,31 +992,6 @@ function L8_1(A0_2, A1_2)
   L5_2 = L5_2.CreateActorWithPos
   L7_2 = "Q1914408Trigger"
   L8_2 = "Actor/Gadget/Q1914408Trigger"
-  L9_2 = 70900002
-  L10_2 = 0
-  L11_2 = sceneData
-  L12_2 = L11_2
-  L11_2 = L11_2.GetDummyPoint
-  L13_2 = 3
-  L14_2 = "Q1914408_guide"
-  L11_2 = L11_2(L12_2, L13_2, L14_2)
-  L11_2 = L11_2.pos
-  L12_2 = sceneData
-  L13_2 = L12_2
-  L12_2 = L12_2.GetDummyPoint
-  L14_2 = 3
-  L15_2 = "Q1914408_guide"
-  L12_2 = L12_2(L13_2, L14_2, L15_2)
-  L12_2 = L12_2.rot
-  L13_2 = true
-  L14_2 = false
-  L15_2 = 3
-  L5_2(L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2)
-  L5_2 = actorMgr
-  L6_2 = L5_2
-  L5_2 = L5_2.CreateActorWithPos
-  L7_2 = "Q1914408TriggerSee"
-  L8_2 = "Actor/Gadget/Q1914408TriggerSee"
   L9_2 = 70900002
   L10_2 = 0
   L11_2 = sceneData

@@ -175,10 +175,18 @@ function L7_1(A0_2, A1_2)
 end
 L1_1.InvokeOnInteraction = L7_1
 function L7_1(A0_2, A1_2)
-  local L2_2, L3_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L2_2 = print
   L3_2 = "OnSubStart102801"
   L2_2(L3_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.PlayCutsceneIndex
+  L4_2 = 10310301
+  L5_2 = nil
+  L6_2 = nil
+  L7_2 = nil
+  L8_2 = false
+  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2)
 end
 L1_1.OnSubStart102801 = L7_1
 function L7_1(A0_2, A1_2)

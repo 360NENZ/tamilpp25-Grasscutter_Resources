@@ -194,6 +194,22 @@ function L1_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.SetGroupVariableValueByGroup
   L3_2 = A0_2
+  L4_2 = "Start"
+  L5_2 = 1
+  L6_2 = 220131012
+  L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
+  if 0 ~= L2_2 then
+    L2_2 = ScriptLib
+    L2_2 = L2_2.PrintContextLog
+    L3_2 = A0_2
+    L4_2 = "@@ LUA_WARNING : set_groupVariable_by_group"
+    L2_2(L3_2, L4_2)
+    L2_2 = -1
+    return L2_2
+  end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.SetGroupVariableValueByGroup
+  L3_2 = A0_2
   L4_2 = "Stage"
   L5_2 = 4
   L6_2 = 220131016
@@ -207,6 +223,28 @@ function L1_1(A0_2, A1_2)
     L2_2 = -1
     return L2_2
   end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.SetGroupVariableValueByGroup
+  L3_2 = A0_2
+  L4_2 = "Stage"
+  L5_2 = 2
+  L6_2 = 220131019
+  L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
+  if 0 ~= L2_2 then
+    L2_2 = ScriptLib
+    L2_2 = L2_2.PrintContextLog
+    L3_2 = A0_2
+    L4_2 = "@@ LUA_WARNING : set_groupVariable_by_group"
+    L2_2(L3_2, L4_2)
+    L2_2 = -1
+    return L2_2
+  end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.AddExtraGroupSuite
+  L3_2 = A0_2
+  L4_2 = 220131010
+  L5_2 = 2
+  L2_2(L3_2, L4_2, L5_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.SetGroupVariableValueByGroup
   L3_2 = A0_2
@@ -236,28 +274,6 @@ function L1_1(A0_2, A1_2)
     L2_2 = L2_2.PrintContextLog
     L3_2 = A0_2
     L4_2 = "@@ LUA_WARNING : set_gadget_state_by_GroupId_ConfigId"
-    L2_2(L3_2, L4_2)
-    L2_2 = -1
-    return L2_2
-  end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.AddExtraGroupSuite
-  L3_2 = A0_2
-  L4_2 = 220131015
-  L5_2 = 2
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = ScriptLib
-  L2_2 = L2_2.SetGroupVariableValueByGroup
-  L3_2 = A0_2
-  L4_2 = "Stage"
-  L5_2 = 2
-  L6_2 = 220131019
-  L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
-  if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : set_groupVariable_by_group"
     L2_2(L3_2, L4_2)
     L2_2 = -1
     return L2_2

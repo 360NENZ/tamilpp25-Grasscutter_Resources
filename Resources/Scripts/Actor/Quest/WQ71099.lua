@@ -759,7 +759,7 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubStart7109911 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = print
   L3_2 = "OnSubFinish7109911"
   L2_2(L3_2)
@@ -795,25 +795,6 @@ function L8_1(A0_2, A1_2)
   L5_2 = 0
   L6_2 = true
   L2_2(L3_2, L4_2, L5_2, L6_2)
-  L2_2 = actorMgr
-  L3_2 = L2_2
-  L2_2 = L2_2.CreateActorWithPos
-  L4_2 = "Q7109911Trigger"
-  L5_2 = "Actor/Gadget/Q7109911Trigger"
-  L6_2 = 70900002
-  L7_2 = 0
-  L8_2 = {}
-  L8_2.x = -569.238
-  L8_2.y = 242.016
-  L8_2.z = 316.075
-  L9_2 = {}
-  L9_2.x = 0.0
-  L9_2.y = 45.087
-  L9_2.z = 0.0
-  L10_2 = true
-  L11_2 = false
-  L12_2 = 3
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2)
 end
 L1_1.OnSubFinish7109911 = L8_1
 return L1_1

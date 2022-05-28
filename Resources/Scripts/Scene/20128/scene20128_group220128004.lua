@@ -863,8 +863,8 @@ L52_1.config_id = 4056
 L52_1.gadget_id = 70800129
 L53_1 = {}
 L53_1.x = 44.068
-L53_1.y = -7.523
-L53_1.z = 12.456
+L53_1.y = -10.018
+L53_1.z = 9.975
 L52_1.pos = L53_1
 L53_1 = {}
 L53_1.x = 90.0
@@ -1644,7 +1644,81 @@ L6_1 = {}
 L7_1 = "CYRogue_Team_Rotate_Camera"
 L6_1[1] = L7_1
 L4_1[L5_1] = L6_1
+L5_1 = {}
+L6_1 = 4145
+L5_1.config_id = L6_1
+L6_1 = "shape"
+L7_1 = "RegionShape"
+L7_1 = _ENV[L7_1]
+L8_1 = "POLYGON"
+L7_1 = L7_1[L8_1]
+L5_1[L6_1] = L7_1
+L6_1 = {}
+L7_1 = 3.9
+L6_1.x = L7_1
+L6_1.y = -43.99
+L7_1 = 0.118
+L6_1.z = L7_1
+L5_1.pos = L6_1
+L6_1 = "height"
+L7_1 = 40.0
+L5_1[L6_1] = L7_1
+L6_1 = "point_array"
+L7_1 = {}
+L8_1 = {}
+L9_1 = -10.089
+L8_1.x = L9_1
+L9_1 = 17.674
+L8_1.y = L9_1
+L9_1 = {}
+L10_1 = -10.042
+L9_1.x = L10_1
+L10_1 = -17.434
+L9_1.y = L10_1
+L10_1 = {}
+L11_1 = 17.507
+L10_1.x = L11_1
+L11_1 = -17.437
+L10_1.y = L11_1
+L11_1 = {}
+L12_1 = 17.889
+L11_1.x = L12_1
+L12_1 = 17.628
+L11_1.y = L12_1
+L7_1[1] = L8_1
+L7_1[2] = L9_1
+L7_1[3] = L10_1
+L7_1[4] = L11_1
+L5_1[L6_1] = L7_1
+L6_1 = {}
+L7_1 = 4146
+L6_1.config_id = L7_1
+L7_1 = "shape"
+L8_1 = "RegionShape"
+L8_1 = _ENV[L8_1]
+L9_1 = "CUBIC"
+L8_1 = L8_1[L9_1]
+L6_1[L7_1] = L8_1
+L7_1 = "size"
+L8_1 = {}
+L9_1 = 5.0
+L8_1.x = L9_1
+L9_1 = 10.0
+L8_1.y = L9_1
+L9_1 = 40.0
+L8_1.z = L9_1
+L6_1[L7_1] = L8_1
+L7_1 = {}
+L8_1 = -17.467
+L7_1.x = L8_1
+L8_1 = -38.597
+L7_1.y = L8_1
+L8_1 = 1.204
+L7_1.z = L8_1
+L6_1.pos = L7_1
 L3_1[1] = L4_1
+L3_1[2] = L5_1
+L3_1[3] = L6_1
 _ENV[L2_1] = L3_1
 L2_1 = "triggers"
 L3_1 = {}
@@ -2759,28 +2833,25 @@ L53_1 = "action"
 L54_1 = "action_EVENT_TIME_AXIS_PASS_4144"
 L52_1[L53_1] = L54_1
 L53_1 = {}
-L54_1 = 1004146
+L54_1 = 1004145
 L53_1.config_id = L54_1
 L54_1 = "name"
-L55_1 = "QUEST_FINISH_4146"
+L55_1 = "ENTER_REGION_4145"
 L53_1[L54_1] = L55_1
 L54_1 = "event"
 L55_1 = "EventType"
 L55_1 = _ENV[L55_1]
-L56_1 = "EVENT_QUEST_FINISH"
+L56_1 = "EVENT_ENTER_REGION"
 L55_1 = L55_1[L56_1]
 L53_1[L54_1] = L55_1
 L54_1 = "source"
-L55_1 = "102905"
-L53_1[L54_1] = L55_1
-L54_1 = "condition"
 L55_1 = ""
 L53_1[L54_1] = L55_1
-L54_1 = "action"
-L55_1 = "action_EVENT_QUEST_FINISH_4146"
+L54_1 = "condition"
+L55_1 = "condition_EVENT_ENTER_REGION_4145"
 L53_1[L54_1] = L55_1
-L54_1 = "trigger_count"
-L55_1 = 0
+L54_1 = "action"
+L55_1 = "action_EVENT_ENTER_REGION_4145"
 L53_1[L54_1] = L55_1
 L3_1[1] = L4_1
 L3_1[2] = L5_1
@@ -2833,27 +2904,49 @@ L3_1[48] = L51_1
 L3_1[49] = L52_1
 L3_1[50] = L53_1
 L4_1 = {}
-L5_1 = 1004147
+L5_1 = 1004146
 L4_1.config_id = L5_1
 L5_1 = "name"
-L6_1 = "TIME_AXIS_PASS_4147"
+L6_1 = "ENTER_REGION_4146"
 L4_1[L5_1] = L6_1
 L5_1 = "event"
 L6_1 = "EventType"
 L6_1 = _ENV[L6_1]
-L7_1 = "EVENT_TIME_AXIS_PASS"
+L7_1 = "EVENT_ENTER_REGION"
 L6_1 = L6_1[L7_1]
 L4_1[L5_1] = L6_1
 L5_1 = "source"
 L6_1 = ""
 L4_1[L5_1] = L6_1
 L5_1 = "condition"
-L6_1 = "condition_EVENT_TIME_AXIS_PASS_4147"
+L6_1 = "condition_EVENT_ENTER_REGION_4146"
 L4_1[L5_1] = L6_1
 L5_1 = "action"
-L6_1 = "action_EVENT_TIME_AXIS_PASS_4147"
+L6_1 = "action_EVENT_ENTER_REGION_4146"
 L4_1[L5_1] = L6_1
+L5_1 = {}
+L6_1 = 1004147
+L5_1.config_id = L6_1
+L6_1 = "name"
+L7_1 = "TIME_AXIS_PASS_4147"
+L5_1[L6_1] = L7_1
+L6_1 = "event"
+L7_1 = "EventType"
+L7_1 = _ENV[L7_1]
+L8_1 = "EVENT_TIME_AXIS_PASS"
+L7_1 = L7_1[L8_1]
+L5_1[L6_1] = L7_1
+L6_1 = "source"
+L7_1 = ""
+L5_1[L6_1] = L7_1
+L6_1 = "condition"
+L7_1 = "condition_EVENT_TIME_AXIS_PASS_4147"
+L5_1[L6_1] = L7_1
+L6_1 = "action"
+L7_1 = "action_EVENT_TIME_AXIS_PASS_4147"
+L5_1[L6_1] = L7_1
 L3_1[51] = L4_1
+L3_1[52] = L5_1
 _ENV[L2_1] = L3_1
 L2_1 = "variables"
 L3_1 = {}
@@ -3080,7 +3173,11 @@ L4_1.gadgets = L5_1
 L5_1 = "regions"
 L6_1 = {}
 L7_1 = 4091
+L8_1 = 4145
+L9_1 = 4146
 L6_1[1] = L7_1
+L6_1[2] = L8_1
+L6_1[3] = L9_1
 L4_1[L5_1] = L6_1
 L5_1 = "triggers"
 L6_1 = {}
@@ -3089,8 +3186,9 @@ L8_1 = "VARIABLE_CHANGE_4011"
 L9_1 = "VARIABLE_CHANGE_4108"
 L10_1 = "VARIABLE_CHANGE_4133"
 L11_1 = "TIME_AXIS_PASS_4140"
-L12_1 = "QUEST_FINISH_4146"
-L13_1 = "TIME_AXIS_PASS_4147"
+L12_1 = "ENTER_REGION_4145"
+L13_1 = "ENTER_REGION_4146"
+L14_1 = "TIME_AXIS_PASS_4147"
 L6_1[1] = L7_1
 L6_1[2] = L8_1
 L6_1[3] = L9_1
@@ -3098,6 +3196,7 @@ L6_1[4] = L10_1
 L6_1[5] = L11_1
 L6_1[6] = L12_1
 L6_1[7] = L13_1
+L6_1[8] = L14_1
 L4_1[L5_1] = L6_1
 L5_1 = "rand_weight"
 L6_1 = 100
@@ -6823,45 +6922,113 @@ function L3_1(A0_2, A1_2)
   return L2_2
 end
 _ENV[L2_1] = L3_1
-L2_1 = "action_EVENT_QUEST_FINISH_4146"
+L2_1 = "condition_EVENT_ENTER_REGION_4145"
 function L3_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
-  L2_2 = ScriptLib
-  L2_2 = L2_2.SetGadgetStateByConfigId
-  L3_2 = A0_2
-  L4_2 = 4009
-  L5_2 = GadgetState
-  L5_2 = L5_2.GearStart
-  L2_2 = L2_2(L3_2, L4_2, L5_2)
-  if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : set_gadget_state_by_configId"
-    L2_2(L3_2, L4_2)
-    L2_2 = -1
+  L2_2 = A1_2.param1
+  if L2_2 ~= 4145 then
+    L2_2 = false
     return L2_2
   end
   L2_2 = ScriptLib
-  L2_2 = L2_2.SetGadgetStateByConfigId
+  L2_2 = L2_2.GetRegionEntityCount
   L3_2 = A0_2
-  L4_2 = 4012
-  L5_2 = GadgetState
-  L5_2 = L5_2.GearStart
+  L4_2 = {}
+  L5_2 = A1_2.source_eid
+  L4_2.region_eid = L5_2
+  L5_2 = EntityType
+  L5_2 = L5_2.AVATAR
+  L4_2.entity_type = L5_2
+  L2_2 = L2_2(L3_2, L4_2)
+  if L2_2 < 1 then
+    L2_2 = false
+    return L2_2
+  end
+  L2_2 = true
+  return L2_2
+end
+_ENV[L2_1] = L3_1
+L2_1 = "action_EVENT_ENTER_REGION_4145"
+function L3_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
+  L2_2 = ScriptLib
+  L2_2 = L2_2.AssignPlayerShowTemplateReminder
+  L3_2 = A0_2
+  L4_2 = 177
+  L5_2 = {}
+  L6_2 = {}
+  L5_2.param_uid_vec = L6_2
+  L6_2 = {}
+  L5_2.param_vec = L6_2
+  L6_2 = {}
+  L7_2 = A0_2.uid
+  L6_2[1] = L7_2
+  L5_2.uid_vec = L6_2
   L2_2 = L2_2(L3_2, L4_2, L5_2)
   if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : set_gadget_state_by_configId"
-    L2_2(L3_2, L4_2)
     L2_2 = -1
     return L2_2
   end
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintContextLog
   L3_2 = A0_2
-  L4_2 = "@@ Quest 102905 Finish!!!"
+  L4_2 = "@@ Trigger Tutorial!!!"
+  L2_2(L3_2, L4_2)
+  L2_2 = 0
+  return L2_2
+end
+_ENV[L2_1] = L3_1
+L2_1 = "condition_EVENT_ENTER_REGION_4146"
+function L3_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2, L5_2
+  L2_2 = A1_2.param1
+  if L2_2 ~= 4146 then
+    L2_2 = false
+    return L2_2
+  end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.GetRegionEntityCount
+  L3_2 = A0_2
+  L4_2 = {}
+  L5_2 = A1_2.source_eid
+  L4_2.region_eid = L5_2
+  L5_2 = EntityType
+  L5_2 = L5_2.AVATAR
+  L4_2.entity_type = L5_2
+  L2_2 = L2_2(L3_2, L4_2)
+  if L2_2 < 1 then
+    L2_2 = false
+    return L2_2
+  end
+  L2_2 = true
+  return L2_2
+end
+_ENV[L2_1] = L3_1
+L2_1 = "action_EVENT_ENTER_REGION_4146"
+function L3_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
+  L2_2 = ScriptLib
+  L2_2 = L2_2.AssignPlayerShowTemplateReminder
+  L3_2 = A0_2
+  L4_2 = 177
+  L5_2 = {}
+  L6_2 = {}
+  L5_2.param_uid_vec = L6_2
+  L6_2 = {}
+  L5_2.param_vec = L6_2
+  L6_2 = {}
+  L7_2 = A0_2.uid
+  L6_2[1] = L7_2
+  L5_2.uid_vec = L6_2
+  L2_2 = L2_2(L3_2, L4_2, L5_2)
+  if 0 ~= L2_2 then
+    L2_2 = -1
+    return L2_2
+  end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.PrintContextLog
+  L3_2 = A0_2
+  L4_2 = "@@ Trigger Tutorial!!!"
   L2_2(L3_2, L4_2)
   L2_2 = 0
   return L2_2

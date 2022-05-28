@@ -383,51 +383,45 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish103002 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L2_2 = print
   L3_2 = "OnSubStart103003"
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.ActionSafeCall
-  function L4_2(A0_3)
-    local L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3
-    L2_3 = A0_3
-    L1_3 = A0_3.CreateQuestNpc
-    L3_3 = A1_2
-    L4_3 = L6_1.Npc1049Data
-    L4_3 = L4_3.id
-    L5_3 = 0
-    L1_3(L2_3, L3_3, L4_3, L5_3)
-    L2_3 = A0_3
-    L1_3 = A0_3.CreateQuestNpc
-    L3_3 = A1_2
-    L4_3 = L6_1.Npc1044Data
-    L4_3 = L4_3.id
-    L5_3 = 0
-    L1_3(L2_3, L3_3, L4_3, L5_3)
-    L2_3 = A0_3
-    L1_3 = A0_3.CreateQuestNpc
-    L3_3 = A1_2
-    L4_3 = L6_1.Npc12544Data
-    L4_3 = L4_3.id
-    L5_3 = 0
-    L1_3(L2_3, L3_3, L4_3, L5_3)
-    L2_3 = A0_3
-    L1_3 = A0_3.GetQuestNpcActor
-    L3_3 = L6_1.Npc1044Data
-    L3_3 = L3_3.alias
-    L1_3 = L1_3(L2_3, L3_3)
-    L3_3 = L1_3
-    L2_3 = L1_3.DoFreeStyle
-    L4_3 = 4100
-    L5_3 = true
-    L6_3 = nil
-    L7_3 = true
-    L8_3 = true
-    L9_3 = false
-    L2_3(L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3)
-  end
-  L2_2(L3_2, L4_2)
+  L2_2 = A0_2.NpcCreateWithActionSafeCall
+  L4_2 = A1_2
+  L5_2 = 0
+  L6_2 = L6_1.Npc1049Data
+  L6_2 = L6_2.id
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.NpcCreateWithActionSafeCall
+  L4_2 = A1_2
+  L5_2 = 0
+  L6_2 = L6_1.Npc1044Data
+  L6_2 = L6_2.id
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.GetQuestNpcActor
+  L4_2 = L6_1.Npc1044Data
+  L4_2 = L4_2.alias
+  L2_2 = L2_2(L3_2, L4_2)
+  L4_2 = L2_2
+  L3_2 = L2_2.DoFreeStyle
+  L5_2 = 4100
+  L6_2 = true
+  L7_2 = nil
+  L8_2 = true
+  L9_2 = true
+  L10_2 = false
+  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.CreateQuestNpc
+  L5_2 = A1_2
+  L6_2 = L6_1.Npc12544Data
+  L6_2 = L6_2.id
+  L7_2 = 0
+  L3_2(L4_2, L5_2, L6_2, L7_2)
 end
 L1_1.OnSubStart103003 = L8_1
 function L8_1(A0_2, A1_2)
@@ -941,7 +935,7 @@ function L8_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.ActionSafeCall
   function L4_2(A0_3)
-    local L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3
+    local L1_3, L2_3, L3_3, L4_3, L5_3
     L2_3 = A0_3
     L1_3 = A0_3.NarratorOnlyTaskByData
     L3_3 = L7_1.AbyssKaiche
@@ -959,52 +953,12 @@ function L8_1(A0_2, A1_2)
     L1_3 = A0_3.TakeBlackScreenControl
     L1_3(L2_3)
     L2_3 = A0_3
-    L1_3 = A0_3.CallDelay
-    L3_3 = 2
-    function L4_3(A0_4)
-      local L1_4, L2_4, L3_4
-      L2_4 = A0_4
-      L1_4 = A0_4.SetBlackScreenValue
-      L3_4 = 0.2
-      L1_4(L2_4, L3_4)
-    end
-    L1_3(L2_3, L3_3, L4_3)
+    L1_3 = A0_3.SetBlackScreenValue
+    L3_3 = 0.5
+    L1_3(L2_3, L3_3)
     L2_3 = A0_3
     L1_3 = A0_3.CallDelay
-    L3_3 = 4
-    function L4_3(A0_4)
-      local L1_4, L2_4, L3_4
-      L2_4 = A0_4
-      L1_4 = A0_4.SetBlackScreenValue
-      L3_4 = 0.4
-      L1_4(L2_4, L3_4)
-    end
-    L1_3(L2_3, L3_3, L4_3)
-    L2_3 = A0_3
-    L1_3 = A0_3.CallDelay
-    L3_3 = 6
-    function L4_3(A0_4)
-      local L1_4, L2_4, L3_4
-      L2_4 = A0_4
-      L1_4 = A0_4.SetBlackScreenValue
-      L3_4 = 0.6
-      L1_4(L2_4, L3_4)
-    end
-    L1_3(L2_3, L3_3, L4_3)
-    L2_3 = A0_3
-    L1_3 = A0_3.CallDelay
-    L3_3 = 8
-    function L4_3(A0_4)
-      local L1_4, L2_4, L3_4
-      L2_4 = A0_4
-      L1_4 = A0_4.SetBlackScreenValue
-      L3_4 = 0.8
-      L1_4(L2_4, L3_4)
-    end
-    L1_3(L2_3, L3_3, L4_3)
-    L2_3 = A0_3
-    L1_3 = A0_3.CallDelay
-    L3_3 = 10
+    L3_3 = 3
     function L4_3(A0_4)
       local L1_4, L2_4, L3_4
       L2_4 = A0_4
@@ -1013,78 +967,6 @@ function L8_1(A0_2, A1_2)
       L1_4(L2_4, L3_4)
     end
     L1_3(L2_3, L3_3, L4_3)
-    L1_3 = globalActor
-    L2_3 = L1_3
-    L1_3 = L1_3.AvatarMoveToRoute
-    L3_3 = {}
-    L4_3 = sceneData
-    L5_3 = L4_3
-    L4_3 = L4_3.GetDummyPoint
-    L6_3 = 20129
-    L7_3 = "Q103022_Walk1"
-    L4_3 = L4_3(L5_3, L6_3, L7_3)
-    L4_3 = L4_3.pos
-    L5_3 = sceneData
-    L6_3 = L5_3
-    L5_3 = L5_3.GetDummyPoint
-    L7_3 = 20129
-    L8_3 = "Q103022_Walk1"
-    L5_3 = L5_3(L6_3, L7_3, L8_3)
-    L5_3 = L5_3.pos
-    L3_3[1] = L4_3
-    L3_3[2] = L5_3
-    L4_3 = true
-    function L5_3()
-      local L0_4, L1_4, L2_4, L3_4, L4_4, L5_4, L6_4, L7_4
-      L0_4 = globalActor
-      L1_4 = L0_4
-      L0_4 = L0_4.AvatarMoveToRoute
-      L2_4 = {}
-      L3_4 = sceneData
-      L4_4 = L3_4
-      L3_4 = L3_4.GetDummyPoint
-      L5_4 = 20129
-      L6_4 = "Q103022_Walk2"
-      L3_4 = L3_4(L4_4, L5_4, L6_4)
-      L3_4 = L3_4.pos
-      L4_4 = sceneData
-      L5_4 = L4_4
-      L4_4 = L4_4.GetDummyPoint
-      L6_4 = 20129
-      L7_4 = "Q103022_Walk2"
-      L4_4 = L4_4(L5_4, L6_4, L7_4)
-      L4_4 = L4_4.pos
-      L2_4[1] = L3_4
-      L2_4[2] = L4_4
-      L3_4 = true
-      function L4_4()
-        local L0_5, L1_5, L2_5, L3_5, L4_5, L5_5, L6_5, L7_5
-        L0_5 = globalActor
-        L1_5 = L0_5
-        L0_5 = L0_5.AvatarMoveToRoute
-        L2_5 = {}
-        L3_5 = sceneData
-        L4_5 = L3_5
-        L3_5 = L3_5.GetDummyPoint
-        L5_5 = 20129
-        L6_5 = "Q103022_Walk3"
-        L3_5 = L3_5(L4_5, L5_5, L6_5)
-        L3_5 = L3_5.pos
-        L4_5 = sceneData
-        L5_5 = L4_5
-        L4_5 = L4_5.GetDummyPoint
-        L6_5 = 20129
-        L7_5 = "Q103022_Walk3"
-        L4_5 = L4_5(L5_5, L6_5, L7_5)
-        L4_5 = L4_5.pos
-        L2_5[1] = L3_5
-        L2_5[2] = L4_5
-        L3_5 = true
-        L0_5(L1_5, L2_5, L3_5)
-      end
-      L0_4(L1_4, L2_4, L3_4, L4_4)
-    end
-    L1_3(L2_3, L3_3, L4_3, L5_3)
   end
   L2_2(L3_2, L4_2)
 end
@@ -1098,13 +980,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = A0_2.FreeBlackScreenControl
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.SetBlackScreenValue
+  L2_2 = A0_2.SetBlackScreen
   L4_2 = 0
   L2_2(L3_2, L4_2)
-  L2_2 = globalActor
-  L3_2 = L2_2
-  L2_2 = L2_2.StopAvatarMove
-  L2_2(L3_2)
 end
 L1_1.OnSubFinish103022 = L8_1
 function L8_1(A0_2, A1_2)
@@ -1116,13 +994,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = A0_2.FreeBlackScreenControl
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.SetBlackScreenValue
+  L2_2 = A0_2.SetBlackScreen
   L4_2 = 0
   L2_2(L3_2, L4_2)
-  L2_2 = globalActor
-  L3_2 = L2_2
-  L2_2 = L2_2.StopAvatarMove
-  L2_2(L3_2)
 end
 L1_1.OnSubFailed103022 = L8_1
 function L8_1(A0_2, A1_2)
@@ -1241,7 +1115,7 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubStart103026 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
+  local L2_2, L3_2, L4_2, L5_2
   L2_2 = print
   L3_2 = "OnSubFinish103026"
   L2_2(L3_2)
@@ -1251,9 +1125,16 @@ function L8_1(A0_2, A1_2)
   L4_2 = L4_2.alias
   L5_2 = 20129
   L2_2(L3_2, L4_2, L5_2)
+end
+L1_1.OnSubFinish103026 = L8_1
+function L8_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2, L5_2, L6_2
+  L2_2 = print
+  L3_2 = "OnSubStart103027"
+  L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.TransmitPlayerByQuestId
-  L4_2 = 103027
+  L2_2 = A0_2.TransmitPlayerById
+  L4_2 = A1_2
   L5_2 = 1
   function L6_2(A0_3)
     local L1_3, L2_3, L3_3, L4_3, L5_3
@@ -1265,13 +1146,6 @@ function L8_1(A0_2, A1_2)
     L1_3(L2_3, L3_3, L4_3, L5_3)
   end
   L2_2(L3_2, L4_2, L5_2, L6_2)
-end
-L1_1.OnSubFinish103026 = L8_1
-function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = print
-  L3_2 = "OnSubStart103027"
-  L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.ActionSafeCall
   function L4_2(A0_3)

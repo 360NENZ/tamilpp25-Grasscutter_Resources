@@ -224,26 +224,47 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.ActorDestroy = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L2_2 = print
   L3_2 = "OnSubStart1914801"
   L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Npc12536Data
+  L5_2 = L6_1.Coop_ShinobuData
   L5_2 = L5_2.id
-  L6_2 = 2
+  L6_2 = 1
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
-  L2_2 = A0_2.RequestCoopInteractionFromSubStartPoint
-  L4_2 = 106501
-  L5_2 = 1914801
-  L2_2(L3_2, L4_2, L5_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.ActionSafeCall
-  function L4_2(A0_3)
-    local L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3
+  L2_2 = A0_2.GetQuestNpcActor
+  L4_2 = L6_1.Coop_ShinobuData
+  L4_2 = L4_2.alias
+  L2_2 = L2_2(L3_2, L4_2)
+  L4_2 = L2_2
+  L3_2 = L2_2.DoFreeStyle
+  L5_2 = 1120
+  L6_2 = true
+  L7_2 = nil
+  L8_2 = true
+  L9_2 = true
+  L10_2 = false
+  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.CreateQuestNpc
+  L5_2 = A1_2
+  L6_2 = L6_1.Npc12536Data
+  L6_2 = L6_2.id
+  L7_2 = 2
+  L3_2(L4_2, L5_2, L6_2, L7_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.RequestCoopInteractionFromSubStartPoint
+  L5_2 = 106501
+  L6_2 = 1914801
+  L3_2(L4_2, L5_2, L6_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.ActionSafeCall
+  function L5_2(A0_3)
+    local L1_3, L2_3, L3_3, L4_3, L5_3
     L2_3 = A0_3
     L1_3 = A0_3.CreateQuestNpc
     L3_3 = A1_2
@@ -251,22 +272,8 @@ function L8_1(A0_2, A1_2)
     L4_3 = L4_3.id
     L5_3 = 1
     L1_3(L2_3, L3_3, L4_3, L5_3)
-    L2_3 = A0_3
-    L1_3 = A0_3.GetQuestNpcActor
-    L3_3 = L6_1.Coop_ShinobuData
-    L3_3 = L3_3.alias
-    L1_3 = L1_3(L2_3, L3_3)
-    L3_3 = L1_3
-    L2_3 = L1_3.DoFreeStyle
-    L4_3 = 1120
-    L5_3 = true
-    L6_3 = nil
-    L7_3 = true
-    L8_3 = true
-    L9_3 = false
-    L2_3(L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3)
   end
-  L2_2(L3_2, L4_2)
+  L3_2(L4_2, L5_2)
 end
 L1_1.OnSubStart1914801 = L8_1
 function L8_1(A0_2, A1_2)
@@ -357,7 +364,7 @@ function L8_1(A0_2, A1_2)
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.DoFreeStyle
-  L5_2 = 1040
+  L5_2 = 1140
   L6_2 = true
   L7_2 = nil
   L8_2 = true
@@ -431,7 +438,7 @@ function L8_1(A0_2, A1_2)
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.DoFreeStyle
-  L5_2 = 1040
+  L5_2 = 1140
   L6_2 = true
   L7_2 = nil
   L8_2 = true
@@ -484,7 +491,7 @@ function L8_1(A0_2, A1_2)
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.DoFreeStyle
-  L5_2 = 1040
+  L5_2 = 1140
   L6_2 = true
   L7_2 = nil
   L8_2 = true
@@ -558,54 +565,40 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish1914808 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
   L2_2 = print
   L3_2 = "OnSubStart1914805"
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.GetQuestNpcActor
-  L4_2 = L6_1.Npc12276Data
-  L4_2 = L4_2.alias
-  L2_2 = L2_2(L3_2, L4_2)
-  L4_2 = L2_2
-  L3_2 = L2_2.DoFreeStyle
-  L5_2 = 1040
-  L6_2 = true
-  L7_2 = nil
-  L8_2 = true
-  L9_2 = true
-  L10_2 = false
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.RequestCoopInteractionFromSubStartPoint
-  L5_2 = 106501
-  L6_2 = 1914805
-  L3_2(L4_2, L5_2, L6_2)
-  L3_2 = actorMgr
-  L4_2 = L3_2
-  L3_2 = L3_2.CreateActorWithPos
-  L5_2 = "Q1914805Trigger"
-  L6_2 = "Actor/Gadget/Q1914805Trigger"
-  L7_2 = 70900002
-  L8_2 = 0
+  L2_2 = A0_2.RequestCoopInteractionFromSubStartPoint
+  L4_2 = 106501
+  L5_2 = 1914805
+  L2_2(L3_2, L4_2, L5_2)
+  L2_2 = actorMgr
+  L3_2 = L2_2
+  L2_2 = L2_2.CreateActorWithPos
+  L4_2 = "Q1914805Trigger"
+  L5_2 = "Actor/Gadget/Q1914805Trigger"
+  L6_2 = 70900002
+  L7_2 = 0
+  L8_2 = sceneData
+  L9_2 = L8_2
+  L8_2 = L8_2.GetDummyPoint
+  L10_2 = 3
+  L11_2 = "Q1914805_C1914805_N12512"
+  L8_2 = L8_2(L9_2, L10_2, L11_2)
+  L8_2 = L8_2.pos
   L9_2 = sceneData
   L10_2 = L9_2
   L9_2 = L9_2.GetDummyPoint
   L11_2 = 3
   L12_2 = "Q1914805_C1914805_N12512"
   L9_2 = L9_2(L10_2, L11_2, L12_2)
-  L9_2 = L9_2.pos
-  L10_2 = sceneData
-  L11_2 = L10_2
-  L10_2 = L10_2.GetDummyPoint
+  L9_2 = L9_2.rot
+  L10_2 = true
+  L11_2 = false
   L12_2 = 3
-  L13_2 = "Q1914805_C1914805_N12512"
-  L10_2 = L10_2(L11_2, L12_2, L13_2)
-  L10_2 = L10_2.rot
-  L11_2 = true
-  L12_2 = false
-  L13_2 = 3
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
+  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2)
 end
 L1_1.OnSubStart1914805 = L8_1
 function L8_1(A0_2, A1_2)

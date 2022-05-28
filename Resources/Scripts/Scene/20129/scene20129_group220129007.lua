@@ -42,28 +42,40 @@ L1_1[2] = L3_1
 gadgets = L1_1
 L1_1 = {}
 L2_1 = {}
-L2_1.config_id = 7004
+L2_1.config_id = 7001
 L3_1 = RegionShape
 L3_1 = L3_1.SPHERE
 L2_1.shape = L3_1
-L2_1.radius = 35
+L2_1.radius = 30
 L3_1 = {}
-L3_1.x = 323.411
-L3_1.y = 200.112
-L3_1.z = 723.523
+L3_1.x = 326.088
+L3_1.y = 200.012
+L3_1.z = 720.744
 L2_1.pos = L3_1
+L3_1 = {}
+L3_1.config_id = 7004
+L4_1 = RegionShape
+L4_1 = L4_1.SPHERE
+L3_1.shape = L4_1
+L3_1.radius = 35
+L4_1 = {}
+L4_1.x = 323.411
+L4_1.y = 200.112
+L4_1.z = 723.523
+L3_1.pos = L4_1
 L1_1[1] = L2_1
+L1_1[2] = L3_1
 regions = L1_1
 L1_1 = {}
 L2_1 = {}
 L2_1.config_id = 1007001
-L2_1.name = "DUNGEON_SETTLE_7001"
+L2_1.name = "ENTER_REGION_7001"
 L3_1 = EventType
-L3_1 = L3_1.EVENT_DUNGEON_SETTLE
+L3_1 = L3_1.EVENT_ENTER_REGION
 L2_1.event = L3_1
 L2_1.source = ""
-L2_1.condition = "condition_EVENT_DUNGEON_SETTLE_7001"
-L2_1.action = "action_EVENT_DUNGEON_SETTLE_7001"
+L2_1.condition = "condition_EVENT_ENTER_REGION_7001"
+L2_1.action = "action_EVENT_ENTER_REGION_7001"
 L3_1 = {}
 L3_1.config_id = 1007004
 L3_1.name = "ENTER_REGION_7004"
@@ -93,11 +105,13 @@ L4_1 = 7002
 L3_1[1] = L4_1
 L2_1.gadgets = L3_1
 L3_1 = {}
-L4_1 = 7004
+L4_1 = 7001
+L5_1 = 7004
 L3_1[1] = L4_1
+L3_1[2] = L5_1
 L2_1.regions = L3_1
 L3_1 = {}
-L4_1 = "DUNGEON_SETTLE_7001"
+L4_1 = "ENTER_REGION_7001"
 L5_1 = "ENTER_REGION_7004"
 L3_1[1] = L4_1
 L3_1[2] = L5_1
@@ -119,16 +133,30 @@ L1_1[1] = L2_1
 L1_1[2] = L3_1
 suites = L1_1
 function L1_1(A0_2, A1_2)
-  local L2_2
+  local L2_2, L3_2, L4_2, L5_2
   L2_2 = A1_2.param1
-  if 1 ~= L2_2 then
+  if L2_2 ~= 7001 then
+    L2_2 = false
+    return L2_2
+  end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.GetRegionEntityCount
+  L3_2 = A0_2
+  L4_2 = {}
+  L5_2 = A1_2.source_eid
+  L4_2.region_eid = L5_2
+  L5_2 = EntityType
+  L5_2 = L5_2.AVATAR
+  L4_2.entity_type = L5_2
+  L2_2 = L2_2(L3_2, L4_2)
+  if L2_2 < 1 then
     L2_2 = false
     return L2_2
   end
   L2_2 = true
   return L2_2
 end
-condition_EVENT_DUNGEON_SETTLE_7001 = L1_1
+condition_EVENT_ENTER_REGION_7001 = L1_1
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
   L2_2 = ScriptLib
@@ -149,7 +177,7 @@ function L1_1(A0_2, A1_2)
   L2_2 = 0
   return L2_2
 end
-action_EVENT_DUNGEON_SETTLE_7001 = L1_1
+action_EVENT_ENTER_REGION_7001 = L1_1
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
   L2_2 = A1_2.param1

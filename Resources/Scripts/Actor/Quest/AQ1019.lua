@@ -35,8 +35,6 @@ L1_1.OnDataLoaded = L8_1
 function L8_1(A0_2)
   local L1_2, L2_2
   L1_2 = {}
-  L2_2 = A0_2.OnSubStart101906
-  L1_2["101906"] = L2_2
   L2_2 = A0_2.OnSubStart101901
   L1_2["101901"] = L2_2
   L2_2 = A0_2.OnSubStart101902
@@ -53,8 +51,6 @@ L1_1.OnSubStartHandlerBuild = L8_1
 function L8_1(A0_2)
   local L1_2, L2_2
   L1_2 = {}
-  L2_2 = A0_2.OnSubFinish101906
-  L1_2["101906"] = L2_2
   L2_2 = A0_2.OnSubFinish101901
   L1_2["101901"] = L2_2
   L2_2 = A0_2.OnSubFinish101902
@@ -149,20 +145,6 @@ function L8_1(A0_2, A1_2, A2_2, A3_2)
 end
 L1_1.NpcCreateWithActionSafeCall = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2
-  L2_2 = print
-  L3_2 = "OnSubStart101906"
-  L2_2(L3_2)
-end
-L1_1.OnSubStart101906 = L8_1
-function L8_1(A0_2, A1_2)
-  local L2_2, L3_2
-  L2_2 = print
-  L3_2 = "OnSubFinish101906"
-  L2_2(L3_2)
-end
-L1_1.OnSubFinish101906 = L8_1
-function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
   L2_2 = print
   L3_2 = "OnSubStart101901"
@@ -250,9 +232,6 @@ function L8_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.TryPauseCurAutoNarrator
   L2_2(L3_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.ClearNarratorTask
-  L2_2(L3_2)
 end
 L1_1.OnSubStart101902 = L8_1
 function L8_1(A0_2, A1_2)
@@ -314,7 +293,7 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubStart101903 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = print
   L3_2 = "OnSubFinish101903"
   L2_2(L3_2)
@@ -331,45 +310,45 @@ function L8_1(A0_2, A1_2)
   end
   L2_2(L3_2, L4_2)
   L3_2 = A0_2
-  L2_2 = A0_2.TransmitPlayerWithTextById
+  L2_2 = A0_2.TransmitPlayerById
   L4_2 = A1_2
   L5_2 = 1
-  L6_2 = nil
-  L7_2 = 1
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2)
+  function L6_2(A0_3)
+    local L1_3, L2_3, L3_3, L4_3, L5_3
+    L2_3 = A0_3
+    L1_3 = A0_3.CreateQuestNpcById
+    L3_3 = 101904
+    L4_3 = L6_1.Npc1030Data
+    L4_3 = L4_3.id
+    L5_3 = 0
+    L1_3(L2_3, L3_3, L4_3, L5_3)
+    L2_3 = A0_3
+    L1_3 = A0_3.RequestInteraction
+    L3_3 = L6_1.Npc1030Data
+    L3_3 = L3_3.alias
+    L1_3(L2_3, L3_3)
+  end
+  L2_2(L3_2, L4_2, L5_2, L6_2)
 end
 L1_1.OnSubFinish101903 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
+  local L2_2, L3_2, L4_2
   L2_2 = print
   L3_2 = "OnSubStart101904"
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.CreateQuestNpc
-  L4_2 = A1_2
-  L5_2 = L6_1.Npc1030Data
-  L5_2 = L5_2.id
-  L6_2 = 0
-  L2_2(L3_2, L4_2, L5_2, L6_2)
-  L2_2 = actorMgr
-  L3_2 = L2_2
-  L2_2 = L2_2.CreateActorWithPos
-  L4_2 = "Q1019Trigger4"
-  L5_2 = "Actor/Gadget/Q1019Trigger4"
-  L6_2 = 70900002
-  L7_2 = 0
-  L8_2 = {}
-  L8_2.x = -2.954
-  L8_2.y = 5.892
-  L8_2.z = -53.576
-  L9_2 = {}
-  L9_2.x = 0.0
-  L9_2.y = 0.0
-  L9_2.z = 0.0
-  L10_2 = true
-  L11_2 = false
-  L12_2 = 20130
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2)
+  L2_2 = A0_2.LevelLoadFinishSafeCall
+  function L4_2(A0_3)
+    local L1_3, L2_3, L3_3, L4_3, L5_3
+    L2_3 = A0_3
+    L1_3 = A0_3.CreateQuestNpc
+    L3_3 = A1_2
+    L4_3 = L6_1.Npc1030Data
+    L4_3 = L4_3.id
+    L5_3 = 0
+    L1_3(L2_3, L3_3, L4_3, L5_3)
+  end
+  L2_2(L3_2, L4_2)
 end
 L1_1.OnSubStart101904 = L8_1
 function L8_1(A0_2, A1_2)

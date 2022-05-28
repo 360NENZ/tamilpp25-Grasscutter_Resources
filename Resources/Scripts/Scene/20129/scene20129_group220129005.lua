@@ -6,13 +6,13 @@ L2_1 = {}
 L2_1.config_id = 5001
 L2_1.monster_id = 23010101
 L3_1 = {}
-L3_1.x = 329.966
+L3_1.x = 326.106
 L3_1.y = 200.12
-L3_1.z = 280.922
+L3_1.z = 272.223
 L2_1.pos = L3_1
 L3_1 = {}
 L3_1.x = 0.0
-L3_1.y = 226.849
+L3_1.y = 315.308
 L3_1.z = 0.0
 L2_1.rot = L3_1
 L2_1.level = 1
@@ -22,9 +22,9 @@ L3_1 = {}
 L3_1.config_id = 5003
 L3_1.monster_id = 23010601
 L4_1 = {}
-L4_1.x = 332.137
+L4_1.x = 329.916
 L4_1.y = 200.025
-L4_1.z = 269.863
+L4_1.z = 269.296
 L3_1.pos = L4_1
 L4_1 = {}
 L4_1.x = 0.0
@@ -166,35 +166,15 @@ function L1_1(A0_2, A1_2)
 end
 condition_EVENT_ANY_MONSTER_DIE_5002 = L1_1
 function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
+  local L2_2, L3_2, L4_2, L5_2
   L2_2 = ScriptLib
   L2_2 = L2_2.AddExtraGroupSuite
   L3_2 = A0_2
   L4_2 = 220129005
   L5_2 = 3
   L2_2(L3_2, L4_2, L5_2)
-  L2_2 = {}
-  L2_2.x = 326
-  L2_2.y = 200
-  L2_2.z = 279
-  L3_2 = ScriptLib
-  L3_2 = L3_2.ShowReminderRadius
-  L4_2 = A0_2
-  L5_2 = 201290401
-  L6_2 = L2_2
-  L7_2 = 60
-  L3_2 = L3_2(L4_2, L5_2, L6_2, L7_2)
-  if 0 ~= L3_2 then
-    L3_2 = ScriptLib
-    L3_2 = L3_2.PrintContextLog
-    L4_2 = A0_2
-    L5_2 = "@@ LUA_WARNING : active_reminder_ui_bypos"
-    L3_2(L4_2, L5_2)
-    L3_2 = -1
-    return L3_2
-  end
-  L3_2 = 0
-  return L3_2
+  L2_2 = 0
+  return L2_2
 end
 action_EVENT_ANY_MONSTER_DIE_5002 = L1_1
 function L1_1(A0_2, A1_2)
@@ -212,7 +192,7 @@ function L1_1(A0_2, A1_2)
 end
 condition_EVENT_ANY_MONSTER_DIE_5007 = L1_1
 function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = ScriptLib
   L2_2 = L2_2.AddQuestProgress
   L3_2 = A0_2
@@ -233,6 +213,23 @@ function L1_1(A0_2, A1_2)
   L4_2 = 220129030
   L5_2 = 2
   L2_2(L3_2, L4_2, L5_2)
+  L2_2 = ScriptLib
+  L2_2 = L2_2.RemoveEntityByConfigId
+  L3_2 = A0_2
+  L4_2 = 220129005
+  L5_2 = EntityType
+  L5_2 = L5_2.GADGET
+  L6_2 = 5004
+  L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
+  if 0 ~= L2_2 then
+    L2_2 = ScriptLib
+    L2_2 = L2_2.PrintContextLog
+    L3_2 = A0_2
+    L4_2 = "@@ LUA_WARNING : remove_gadget_by_configid"
+    L2_2(L3_2, L4_2)
+    L2_2 = -1
+    return L2_2
+  end
   L2_2 = 0
   return L2_2
 end

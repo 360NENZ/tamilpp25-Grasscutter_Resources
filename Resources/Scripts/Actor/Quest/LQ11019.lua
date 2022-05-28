@@ -287,12 +287,6 @@ function L9_1(A0_2, A1_2)
     L4_2 = L7_1.Gadget70710689Data
     L4_2 = L4_2.alias
     L2_2(L3_2, L4_2)
-  elseif A1_2 == 15 then
-    L2_2 = globalActor
-    L3_2 = L2_2
-    L2_2 = L2_2.ChangeWeather
-    L4_2 = "BigWorld/Weather_ClearSky"
-    L2_2(L3_2, L4_2)
   end
 end
 L1_1.InvokeOnInteraction = L9_1
@@ -403,7 +397,7 @@ function L9_1(A0_2)
   L5_2 = L2_2
   L6_2 = L3_2
   L4_2 = L4_2(L5_2, L6_2)
-  if 12 < L4_2 then
+  if 10 < L4_2 then
     L5_2 = print
     L6_2 = "\232\173\166\231\164\186-\229\164\170\232\191\156\228\186\134"
     L5_2(L6_2)
@@ -416,55 +410,37 @@ function L9_1(A0_2)
       L6_2 = "\232\183\159\228\184\162\228\186\134"
       L5_2(L6_2)
       L6_2 = A0_2
-      L5_2 = A0_2.GetSubQuestState
-      L7_2 = 1101903
-      L5_2 = L5_2(L6_2, L7_2)
-      if L5_2 ~= 2 then
-        L5_2 = print
-        L6_2 = "\229\143\150\230\182\136 CheckNpcDistance"
-        L5_2(L6_2)
-        return
-      else
-        L1_2.PatrolPosNum = 0
-        L1_2.NarratorTag = 0
-        L6_2 = A0_2
-        L5_2 = A0_2.StopNarrator
-        L5_2(L6_2)
-        L6_2 = A0_2
-        L5_2 = A0_2.ClearNarratorTask
-        L5_2(L6_2)
-        L5_2 = globalActor
-        L6_2 = L5_2
-        L5_2 = L5_2.StopLocalAvatar
-        L5_2(L6_2)
-        L6_2 = A0_2
-        L5_2 = A0_2.EnablePlayerInput
-        L7_2 = false
-        L5_2(L6_2, L7_2)
-        L6_2 = A0_2
-        L5_2 = A0_2.NarratorOnlyTaskByData
-        L7_2 = L8_1.NarratorWithId1101903
-        function L8_2()
-          local L0_3, L1_3, L2_3, L3_3
-          L0_3 = actorUtils
-          L0_3 = L0_3.FinishQuestID
-          L1_3 = true
-          L2_3 = 1101903
-          L0_3(L1_3, L2_3)
-          L0_3 = actorMgr
-          L1_3 = L0_3
-          L0_3 = L0_3.GetActor
-          L2_3 = "11019"
-          L0_3 = L0_3(L1_3, L2_3)
-          L2_3 = L0_3
-          L1_3 = L0_3.EnablePlayerInput
-          L3_3 = true
-          L1_3(L2_3, L3_3)
-        end
-        L9_2 = 11019
-        L5_2(L6_2, L7_2, L8_2, L9_2)
-        return
+      L5_2 = A0_2.StopNarrator
+      L5_2(L6_2)
+      L6_2 = A0_2
+      L5_2 = A0_2.ClearNarratorTask
+      L5_2(L6_2)
+      L6_2 = A0_2
+      L5_2 = A0_2.NarratorOnlyTaskByData
+      L7_2 = L8_1.NarratorWithId1101903
+      function L8_2()
+        local L0_3, L1_3, L2_3
+        L0_3 = actorUtils
+        L0_3 = L0_3.FinishQuestID
+        L1_3 = true
+        L2_3 = 1101903
+        L0_3(L1_3, L2_3)
       end
+      L9_2 = 11019
+      L5_2(L6_2, L7_2, L8_2, L9_2)
+      L6_2 = A0_2
+      L5_2 = A0_2.CallDelay
+      L7_2 = 5
+      function L8_2()
+        local L0_3, L1_3, L2_3
+        L0_3 = actorUtils
+        L0_3 = L0_3.FinishQuestID
+        L1_3 = true
+        L2_3 = 1101903
+        L0_3(L1_3, L2_3)
+      end
+      L5_2(L6_2, L7_2, L8_2)
+      return
     end
     L6_2 = A0_2
     L5_2 = A0_2.CallDelay
@@ -515,7 +491,7 @@ function L9_1(A0_2)
   L4_2 = 1101905
   L5_2 = 1048
   L6_2 = 2
-  L7_2 = 7
+  L7_2 = 5
   L8_2 = 1
   L1_2(L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2)
 end
@@ -752,10 +728,6 @@ function L9_1(A0_2, A1_2)
   L4_2 = A0_2.ActorDestroy
   L6_2 = "Q1101903Trigger"
   L4_2(L5_2, L6_2)
-  L5_2 = A0_2
-  L4_2 = A0_2.EnablePlayerInput
-  L6_2 = true
-  L4_2(L5_2, L6_2)
 end
 L1_1.OnSubStart1101905 = L9_1
 function L9_1(A0_2, A1_2)
@@ -875,7 +847,7 @@ function L9_1(A0_2, A1_2)
 end
 L1_1.OnSubStart1101903 = L9_1
 function L9_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
+  local L2_2, L3_2, L4_2, L5_2
   L2_2 = print
   L3_2 = "OnSubFinish1101903"
   L2_2(L3_2)
@@ -895,7 +867,7 @@ function L9_1(A0_2, A1_2)
   L2_2 = A0_2.SafeDestroyQuestNpc
   L4_2 = L6_1.Npc2067Data
   L4_2 = L4_2.alias
-  L5_2 = 0
+  L5_2 = 3
   L2_2(L3_2, L4_2, L5_2)
   L3_2 = A0_2
   L2_2 = A0_2.GetQuestNpcActor
@@ -919,39 +891,13 @@ function L9_1(A0_2, A1_2)
   L5_2 = L3_2
   L4_2 = L3_2.DoFreeStateTrigger
   L4_2(L5_2)
-  L5_2 = L3_2
-  L4_2 = L3_2.SetWalkSpeedRatio
-  L6_2 = 0.8
-  L4_2(L5_2, L6_2)
 end
 L1_1.OnSubFinish1101903 = L9_1
 function L9_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
   L2_2 = print
   L3_2 = "OnSubFailed1101903"
   L2_2(L3_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.UnCallFunc
-  L4_2 = A0_2.CheckNpcDistance
-  L2_2(L3_2, L4_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.UnCallFunc
-  L4_2 = A0_2.CheckGap
-  L2_2(L3_2, L4_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.ShowBlackScreen
-  L4_2 = 0.5
-  L5_2 = 3
-  L6_2 = 0.5
-  L7_2 = nil
-  L8_2 = nil
-  L9_2 = nil
-  L10_2 = L8_1.TextmapId
-  L10_2 = L10_2.id1
-  L11_2 = false
-  L12_2 = true
-  L13_2 = true
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
   L3_2 = A0_2
   L2_2 = A0_2.TransmitPlayerWithTextById
   L4_2 = A1_2
@@ -1006,7 +952,7 @@ function L9_1(A0_2, A1_2)
   L5_2 = 1101904
   L6_2 = 1048
   L7_2 = 1
-  L8_2 = 15
+  L8_2 = 10
   L9_2 = 1
   L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2)
   L3_2 = A0_2
@@ -1016,32 +962,20 @@ function L9_1(A0_2, A1_2)
   L2_2 = A0_2.ClearNarratorTask
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.GetQuestNpcActor
-  L4_2 = L6_1.Npc12507Data
-  L4_2 = L4_2.alias
-  L2_2 = L2_2(L3_2, L4_2)
-  L4_2 = L2_2
-  L3_2 = L2_2.ResetWalkSpeedRatio
-  L3_2(L4_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.ExitTailMode
-  L3_2(L4_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.UnCallFunc
-  L5_2 = A0_2.CheckNpcDistance
-  L3_2(L4_2, L5_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.UnCallFunc
-  L5_2 = A0_2.CheckGap
-  L3_2(L4_2, L5_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.ActorDestroy
-  L5_2 = "Q1101903Trigger"
-  L3_2(L4_2, L5_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.EnablePlayerInput
-  L5_2 = true
-  L3_2(L4_2, L5_2)
+  L2_2 = A0_2.ExitTailMode
+  L2_2(L3_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.UnCallFunc
+  L4_2 = A0_2.CheckNpcDistance
+  L2_2(L3_2, L4_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.UnCallFunc
+  L4_2 = A0_2.CheckGap
+  L2_2(L3_2, L4_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.ActorDestroy
+  L4_2 = "Q1101903Trigger"
+  L2_2(L3_2, L4_2)
 end
 L1_1.OnSubStart1101904 = L9_1
 function L9_1(A0_2, A1_2)
@@ -1502,24 +1436,6 @@ function L9_1(A0_2, A1_2)
   L4_2 = L4_2.alias
   L5_2 = 3
   L2_2(L3_2, L4_2, L5_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.CallDelay
-  L4_2 = 1
-  function L5_2(A0_3)
-    local L1_3, L2_3, L3_3, L4_3, L5_3
-    L2_3 = A0_3
-    L1_3 = A0_3.NarratorOnlyTaskByData
-    L3_3 = L8_1.NarratorWithId1101905
-    L4_3 = nil
-    L5_3 = 11019
-    L1_3(L2_3, L3_3, L4_3, L5_3)
-  end
-  L2_2(L3_2, L4_2, L5_2)
-  L2_2 = globalActor
-  L3_2 = L2_2
-  L2_2 = L2_2.ChangeWeather
-  L4_2 = "BigWorld/Weather_Rain_Light"
-  L2_2(L3_2, L4_2)
 end
 L1_1.OnSubFinish1101912 = L9_1
 function L9_1(A0_2, A1_2)
@@ -1607,10 +1523,6 @@ function L9_1(A0_2, A1_2)
   L4_2 = L4_2.alias
   L5_2 = 3
   L2_2(L3_2, L4_2, L5_2)
-  L2_2 = globalActor
-  L3_2 = L2_2
-  L2_2 = L2_2.LeaveAllWeather
-  L2_2(L3_2)
 end
 L1_1.OnSubFinish1101913 = L9_1
 function L9_1(A0_2, A1_2)
@@ -1742,10 +1654,6 @@ function L9_1(A0_2, A1_2)
   L5_2 = 1
   L6_2 = true
   L2_2(L3_2, L4_2, L5_2, L6_2)
-  L2_2 = globalActor
-  L3_2 = L2_2
-  L2_2 = L2_2.LeaveAllWeather
-  L2_2(L3_2)
 end
 L1_1.OnSubStart1101915 = L9_1
 function L9_1(A0_2, A1_2)
@@ -1825,10 +1733,6 @@ function L9_1(A0_2, A1_2)
   L11_2 = false
   L12_2 = 3
   L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2)
-  L2_2 = globalActor
-  L3_2 = L2_2
-  L2_2 = L2_2.LeaveAllWeather
-  L2_2(L3_2)
 end
 L1_1.OnSubStart1101918 = L9_1
 function L9_1(A0_2, A1_2)

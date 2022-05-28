@@ -529,6 +529,20 @@ function L7_1(A0_2, A1_2)
     return L2_2
   end
   L2_2 = ScriptLib
+  L2_2 = L2_2.ShowReminder
+  L3_2 = A0_2
+  L4_2 = 400020
+  L2_2 = L2_2(L3_2, L4_2)
+  if 0 ~= L2_2 then
+    L2_2 = ScriptLib
+    L2_2 = L2_2.PrintContextLog
+    L3_2 = A0_2
+    L4_2 = "@@ LUA_WARNING : active_reminder_ui"
+    L2_2(L3_2, L4_2)
+    L2_2 = -1
+    return L2_2
+  end
+  L2_2 = ScriptLib
   L2_2 = L2_2.SetGroupVariableValueByGroup
   L3_2 = A0_2
   L4_2 = "Open"

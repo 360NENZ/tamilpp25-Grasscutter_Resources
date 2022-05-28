@@ -105,12 +105,12 @@ L3_1.shape = L4_1
 L4_1 = {}
 L4_1.x = 50.0
 L4_1.y = 20.0
-L4_1.z = 60.0
+L4_1.z = 30.0
 L3_1.size = L4_1
 L4_1 = {}
 L4_1.x = 19.444
 L4_1.y = 49.403
-L4_1.z = 106.428
+L4_1.z = 79.993
 L3_1.pos = L4_1
 L1_1[1] = L2_1
 L1_1[2] = L3_1
@@ -171,7 +171,7 @@ L8_1 = EventType
 L8_1 = L8_1.EVENT_ENTER_REGION
 L7_1.event = L8_1
 L7_1.source = ""
-L7_1.condition = "condition_EVENT_ENTER_REGION_11011"
+L7_1.condition = ""
 L7_1.action = "action_EVENT_ENTER_REGION_11011"
 L7_1.trigger_count = 0
 L1_1[1] = L2_1
@@ -187,17 +187,11 @@ L2_1.configId = 1
 L2_1.name = "gameState"
 L2_1.value = 0
 L2_1.no_refresh = true
-L3_1 = {}
-L3_1.configId = 2
-L3_1.name = "isClear"
-L3_1.value = 0
-L3_1.no_refresh = true
 L1_1[1] = L2_1
-L1_1[2] = L3_1
 variables = L1_1
 L1_1 = {}
 L1_1.suite = 1
-L1_1.end_suite = 5
+L1_1.end_suite = 0
 L1_1.rand_suite = false
 init_config = L1_1
 L1_1 = {}
@@ -267,21 +261,10 @@ L7_1 = "ANY_MONSTER_DIE_11005"
 L6_1[1] = L7_1
 L5_1.triggers = L6_1
 L5_1.rand_weight = 100
-L6_1 = {}
-L7_1 = {}
-L6_1.monsters = L7_1
-L7_1 = {}
-L6_1.gadgets = L7_1
-L7_1 = {}
-L6_1.regions = L7_1
-L7_1 = {}
-L6_1.triggers = L7_1
-L6_1.rand_weight = 100
 L1_1[1] = L2_1
 L1_1[2] = L3_1
 L1_1[3] = L4_1
 L1_1[4] = L5_1
-L1_1[5] = L6_1
 suites = L1_1
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2
@@ -366,46 +349,15 @@ function L1_1(A0_2, A1_2)
     return L2_2
   end
   L2_2 = ScriptLib
-  L2_2 = L2_2.GoToGroupSuite
+  L2_2 = L2_2.SetGroupDead
   L3_2 = A0_2
-  L4_2 = 220127011
-  L5_2 = 5
-  L2_2 = L2_2(L3_2, L4_2, L5_2)
+  L4_2 = 0
+  L2_2 = L2_2(L3_2, L4_2)
   if 0 ~= L2_2 then
     L2_2 = ScriptLib
     L2_2 = L2_2.PrintContextLog
     L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : goto_groupSuite"
-    L2_2(L3_2, L4_2)
-    L2_2 = -1
-    return L2_2
-  end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.SetGroupVariableValue
-  L3_2 = A0_2
-  L4_2 = "gameState"
-  L5_2 = 3
-  L2_2 = L2_2(L3_2, L4_2, L5_2)
-  if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : set_groupVariable"
-    L2_2(L3_2, L4_2)
-    L2_2 = -1
-    return L2_2
-  end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.SetGroupVariableValue
-  L3_2 = A0_2
-  L4_2 = "isClear"
-  L5_2 = 1
-  L2_2 = L2_2(L3_2, L4_2, L5_2)
-  if 0 ~= L2_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.PrintContextLog
-    L3_2 = A0_2
-    L4_2 = "@@ LUA_WARNING : set_groupVariable"
+    L4_2 = "@@ LUA_WARNING : set_group_die"
     L2_2(L3_2, L4_2)
     L2_2 = -1
     return L2_2
@@ -507,26 +459,6 @@ function L1_1(A0_2, A1_2)
   return L2_2
 end
 action_EVENT_ANY_MONSTER_DIE_11010 = L1_1
-function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
-  L2_2 = A1_2.param1
-  if L2_2 ~= 11011 then
-    L2_2 = false
-    return L2_2
-  end
-  L2_2 = ScriptLib
-  L2_2 = L2_2.GetGroupVariableValue
-  L3_2 = A0_2
-  L4_2 = "gameState"
-  L2_2 = L2_2(L3_2, L4_2)
-  if L2_2 ~= 2 then
-    L2_2 = false
-    return L2_2
-  end
-  L2_2 = true
-  return L2_2
-end
-condition_EVENT_ENTER_REGION_11011 = L1_1
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = ScriptLib

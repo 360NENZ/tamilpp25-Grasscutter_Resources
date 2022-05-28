@@ -1,75 +1,11 @@
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1
+local L0_1, L1_1, L2_1, L3_1, L4_1
 L0_1 = {}
 L0_1.group_id = 220129011
-function L1_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
-  L1_2 = ScriptLib
-  L1_2 = L1_2.PrintContextLog
-  L2_2 = A0_2
-  L3_2 = "SLC_Active_Portal:run func"
-  L1_2(L2_2, L3_2)
-  L1_2 = ScriptLib
-  L1_2 = L1_2.GetGadgetConfigId
-  L2_2 = A0_2
-  L3_2 = {}
-  L4_2 = A0_2.source_entity_id
-  L3_2.gadget_eid = L4_2
-  L1_2 = L1_2(L2_2, L3_2)
-  if L1_2 == 11002 then
-    L1_2 = ScriptLib
-    L1_2 = L1_2.PrintContextLog
-    L2_2 = A0_2
-    L3_2 = "SLC_Active_Portal:\232\167\166\229\143\145\228\188\160\233\128\129"
-    L1_2(L2_2, L3_2)
-    L1_2 = ScriptLib
-    L1_2 = L1_2.CreateGadget
-    L2_2 = A0_2
-    L3_2 = {}
-    L3_2.config_id = 11003
-    L1_2(L2_2, L3_2)
-  end
-  L1_2 = 0
-  return L1_2
-end
-SLC_Active_Portal = L1_1
 L1_1 = {}
 monsters = L1_1
 L1_1 = {}
 npcs = L1_1
 L1_1 = {}
-L2_1 = {}
-L2_1.config_id = 11002
-L2_1.gadget_id = 70800140
-L3_1 = {}
-L3_1.x = -456.436
-L3_1.y = -1.932
-L3_1.z = -85.815
-L2_1.pos = L3_1
-L3_1 = {}
-L3_1.x = 0.0
-L3_1.y = 0.0
-L3_1.z = 0.0
-L2_1.rot = L3_1
-L2_1.level = 1
-L3_1 = GadgetState
-L3_1 = L3_1.ChestLocked
-L2_1.state = L3_1
-L3_1 = {}
-L3_1.config_id = 11003
-L3_1.gadget_id = 70800172
-L4_1 = {}
-L4_1.x = -456.436
-L4_1.y = -1.932
-L4_1.z = -85.836
-L3_1.pos = L4_1
-L4_1 = {}
-L4_1.x = 0.0
-L4_1.y = 0.0
-L4_1.z = 0.0
-L3_1.rot = L4_1
-L3_1.level = 1
-L1_1[1] = L2_1
-L1_1[2] = L3_1
 gadgets = L1_1
 L1_1 = {}
 L2_1 = {}
@@ -120,26 +56,7 @@ L4_1 = "ENTER_REGION_11001"
 L3_1[1] = L4_1
 L2_1.triggers = L3_1
 L2_1.rand_weight = 100
-L3_1 = {}
-L4_1 = {}
-L3_1.monsters = L4_1
-L4_1 = {}
-L5_1 = 11002
-L6_1 = 11003
-L4_1[1] = L5_1
-L4_1[2] = L6_1
-L3_1.gadgets = L4_1
-L4_1 = {}
-L5_1 = 11001
-L4_1[1] = L5_1
-L3_1.regions = L4_1
-L4_1 = {}
-L5_1 = "ENTER_REGION_11001"
-L4_1[1] = L5_1
-L3_1.triggers = L4_1
-L3_1.rand_weight = 100
 L1_1[1] = L2_1
-L1_1[2] = L3_1
 suites = L1_1
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
@@ -167,19 +84,12 @@ function L1_1(A0_2, A1_2)
 end
 condition_EVENT_ENTER_REGION_11001 = L1_1
 function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
+  local L2_2, L3_2, L4_2
   L2_2 = ScriptLib
   L2_2 = L2_2.EnterWeatherArea
   L3_2 = A0_2
   L4_2 = 10098
   L2_2(L3_2, L4_2)
-  L2_2 = ScriptLib
-  L2_2 = L2_2.SetGroupVariableValueByGroup
-  L3_2 = A0_2
-  L4_2 = "time"
-  L5_2 = 1
-  L6_2 = 220129014
-  L2_2(L3_2, L4_2, L5_2, L6_2)
   L2_2 = 0
   return L2_2
 end

@@ -103,7 +103,7 @@ function L1_1(A0_2, A1_2)
 end
 condition_EVENT_ANY_MONSTER_DIE_6002 = L1_1
 function L1_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2
   L2_2 = ScriptLib
   L2_2 = L2_2.AddQuestProgress
   L3_2 = A0_2
@@ -114,6 +114,23 @@ function L1_1(A0_2, A1_2)
     L2_2 = L2_2.PrintContextLog
     L3_2 = A0_2
     L4_2 = "@@ LUA_WARNING : add_quest_progress"
+    L2_2(L3_2, L4_2)
+    L2_2 = -1
+    return L2_2
+  end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.RemoveEntityByConfigId
+  L3_2 = A0_2
+  L4_2 = 220129006
+  L5_2 = EntityType
+  L5_2 = L5_2.GADGET
+  L6_2 = 6003
+  L2_2 = L2_2(L3_2, L4_2, L5_2, L6_2)
+  if 0 ~= L2_2 then
+    L2_2 = ScriptLib
+    L2_2 = L2_2.PrintContextLog
+    L3_2 = A0_2
+    L4_2 = "@@ LUA_WARNING : remove_gadget_by_configid"
     L2_2(L3_2, L4_2)
     L2_2 = -1
     return L2_2

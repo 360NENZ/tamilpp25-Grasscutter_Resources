@@ -758,10 +758,10 @@ function L2_1(A0_2, A1_2)
     L5_2.z = 495.6303
     L4_2.look_pos = L5_2
     L4_2.duration = 2
-    L4_2.is_force = true
+    L4_2.is_force = false
     L4_2.is_broadcast = false
     L4_2.is_recover_keep_current = true
-    L4_2.delay = 0
+    L4_2.delay = 1
     L4_2.is_set_follow_pos = false
     L5_2 = {}
     L5_2.x = 0

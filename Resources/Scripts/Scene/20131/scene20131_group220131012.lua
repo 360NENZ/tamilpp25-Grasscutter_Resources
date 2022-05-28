@@ -76,30 +76,66 @@ L1_1[1] = L2_1
 gadgets = L1_1
 L1_1 = {}
 L2_1 = {}
-L2_1.config_id = 12009
+L2_1.config_id = 12008
 L3_1 = RegionShape
-L3_1 = L3_1.SPHERE
+L3_1 = L3_1.CUBIC
 L2_1.shape = L3_1
-L2_1.radius = 3
 L3_1 = {}
-L3_1.x = 130.287
-L3_1.y = -6.488
-L3_1.z = -52.045
+L3_1.x = 5.0
+L3_1.y = 80.0
+L3_1.z = 80.0
+L2_1.size = L3_1
+L3_1 = {}
+L3_1.x = 88.936
+L3_1.y = 0.787
+L3_1.z = -15.438
 L2_1.pos = L3_1
+L3_1 = {}
+L3_1.config_id = 12009
+L4_1 = RegionShape
+L4_1 = L4_1.SPHERE
+L3_1.shape = L4_1
+L3_1.radius = 3
+L4_1 = {}
+L4_1.x = 130.287
+L4_1.y = -6.488
+L4_1.z = -52.045
+L3_1.pos = L4_1
 L1_1[1] = L2_1
+L1_1[2] = L3_1
 regions = L1_1
 L1_1 = {}
 L2_1 = {}
-L2_1.config_id = 1012009
-L2_1.name = "ENTER_REGION_12009"
+L2_1.config_id = 1012007
+L2_1.name = "VARIABLE_CHANGE_12007"
 L3_1 = EventType
-L3_1 = L3_1.EVENT_ENTER_REGION
+L3_1 = L3_1.EVENT_VARIABLE_CHANGE
 L2_1.event = L3_1
 L2_1.source = ""
-L2_1.condition = "condition_EVENT_ENTER_REGION_12009"
-L2_1.action = "action_EVENT_ENTER_REGION_12009"
-L2_1.trigger_count = 0
+L2_1.condition = "condition_EVENT_VARIABLE_CHANGE_12007"
+L2_1.action = "action_EVENT_VARIABLE_CHANGE_12007"
+L3_1 = {}
+L3_1.config_id = 1012008
+L3_1.name = "ENTER_REGION_12008"
+L4_1 = EventType
+L4_1 = L4_1.EVENT_ENTER_REGION
+L3_1.event = L4_1
+L3_1.source = ""
+L3_1.condition = "condition_EVENT_ENTER_REGION_12008"
+L3_1.action = ""
+L4_1 = {}
+L4_1.config_id = 1012009
+L4_1.name = "ENTER_REGION_12009"
+L5_1 = EventType
+L5_1 = L5_1.EVENT_ENTER_REGION
+L4_1.event = L5_1
+L4_1.source = ""
+L4_1.condition = "condition_EVENT_ENTER_REGION_12009"
+L4_1.action = "action_EVENT_ENTER_REGION_12009"
+L4_1.trigger_count = 0
 L1_1[1] = L2_1
+L1_1[2] = L3_1
+L1_1[3] = L4_1
 triggers = L1_1
 L1_1 = {}
 L2_1 = {}
@@ -146,46 +182,6 @@ L3_1.rot = L4_1
 L3_1.level = 1
 L2_1[1] = L3_1
 L1_1.gadgets = L2_1
-L2_1 = {}
-L3_1 = {}
-L3_1.config_id = 12008
-L4_1 = RegionShape
-L4_1 = L4_1.CUBIC
-L3_1.shape = L4_1
-L4_1 = {}
-L4_1.x = 5.0
-L4_1.y = 80.0
-L4_1.z = 80.0
-L3_1.size = L4_1
-L4_1 = {}
-L4_1.x = 88.936
-L4_1.y = 0.787
-L4_1.z = -15.438
-L3_1.pos = L4_1
-L2_1[1] = L3_1
-L1_1.regions = L2_1
-L2_1 = {}
-L3_1 = {}
-L3_1.config_id = 1012007
-L3_1.name = "VARIABLE_CHANGE_12007"
-L4_1 = EventType
-L4_1 = L4_1.EVENT_VARIABLE_CHANGE
-L3_1.event = L4_1
-L3_1.source = ""
-L3_1.condition = "condition_EVENT_VARIABLE_CHANGE_12007"
-L3_1.action = "action_EVENT_VARIABLE_CHANGE_12007"
-L4_1 = {}
-L4_1.config_id = 1012008
-L4_1.name = "ENTER_REGION_12008"
-L5_1 = EventType
-L5_1 = L5_1.EVENT_ENTER_REGION
-L4_1.event = L5_1
-L4_1.source = ""
-L4_1.condition = "condition_EVENT_ENTER_REGION_12008"
-L4_1.action = ""
-L2_1[1] = L3_1
-L2_1[2] = L4_1
-L1_1.triggers = L2_1
 garbages = L1_1
 L1_1 = {}
 L1_1.suite = 1
@@ -211,8 +207,10 @@ L4_1 = 12009
 L3_1[1] = L4_1
 L2_1.regions = L3_1
 L3_1 = {}
-L4_1 = "ENTER_REGION_12009"
+L4_1 = "VARIABLE_CHANGE_12007"
+L5_1 = "ENTER_REGION_12009"
 L3_1[1] = L4_1
+L3_1[2] = L5_1
 L2_1.triggers = L3_1
 L2_1.rand_weight = 100
 L3_1 = {}
@@ -221,8 +219,12 @@ L3_1.monsters = L4_1
 L4_1 = {}
 L3_1.gadgets = L4_1
 L4_1 = {}
+L5_1 = 12008
+L4_1[1] = L5_1
 L3_1.regions = L4_1
 L4_1 = {}
+L5_1 = "ENTER_REGION_12008"
+L4_1[1] = L5_1
 L3_1.triggers = L4_1
 L3_1.rand_weight = 100
 L4_1 = {}
@@ -250,6 +252,64 @@ L1_1[2] = L3_1
 L1_1[3] = L4_1
 L1_1[4] = L5_1
 suites = L1_1
+function L1_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2
+  L2_2 = A1_2.param1
+  L3_2 = A1_2.param2
+  if L2_2 == L3_2 then
+    L2_2 = false
+    return L2_2
+  end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.GetGroupVariableValue
+  L3_2 = A0_2
+  L4_2 = "Start"
+  L2_2 = L2_2(L3_2, L4_2)
+  if L2_2 ~= 1 then
+    L2_2 = false
+    return L2_2
+  end
+  L2_2 = true
+  return L2_2
+end
+condition_EVENT_VARIABLE_CHANGE_12007 = L1_1
+function L1_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2, L5_2
+  L2_2 = ScriptLib
+  L2_2 = L2_2.AddExtraGroupSuite
+  L3_2 = A0_2
+  L4_2 = 220131012
+  L5_2 = 2
+  L2_2(L3_2, L4_2, L5_2)
+  L2_2 = 0
+  return L2_2
+end
+action_EVENT_VARIABLE_CHANGE_12007 = L1_1
+function L1_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2, L5_2
+  L2_2 = A1_2.param1
+  if L2_2 ~= 12008 then
+    L2_2 = false
+    return L2_2
+  end
+  L2_2 = ScriptLib
+  L2_2 = L2_2.GetRegionEntityCount
+  L3_2 = A0_2
+  L4_2 = {}
+  L5_2 = A1_2.source_eid
+  L4_2.region_eid = L5_2
+  L5_2 = EntityType
+  L5_2 = L5_2.AVATAR
+  L4_2.entity_type = L5_2
+  L2_2 = L2_2(L3_2, L4_2)
+  if L2_2 < 1 then
+    L2_2 = false
+    return L2_2
+  end
+  L2_2 = true
+  return L2_2
+end
+condition_EVENT_ENTER_REGION_12008 = L1_1
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
   L2_2 = A1_2.param1
