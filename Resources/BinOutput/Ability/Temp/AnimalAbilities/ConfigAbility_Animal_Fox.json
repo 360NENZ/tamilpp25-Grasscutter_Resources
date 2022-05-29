@@ -1,260 +1,226 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Fox_AIStateInitial",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            1
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                103,
-                202
-              ]
-            }
-          ]
-        },
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            2
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                101,
-                102,
-                201
-              ]
-            }
-          ]
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Fox_AIStateInitial",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        1
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                103,
+                                202
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        2
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                101,
+                                102,
+                                201
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Fox_Random",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Run",
-            "Disappear"
-          ],
-          "modifierName": "Random_MoveSpeedRatio"
-        }
-      ],
-      "abilitySpecials": {
-        "RandomSpeed": {
-          "type": "float",
-          "dynamicValue": 0.0
-        }
-      },
-      "modifiers": {
-        "Random_MoveSpeedRatio": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "properties": {
-            "Animator_MoveSpeedRatio": {
-              "isFormula": false,
-              "isDynamic": true,
-              "dynamicKey": "RandomSpeed"
-            }
-          }
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.SetRandomOverrideMapValue",
-          "valueRangeMax": 0.25,
-          "overrideMapKey": "RandomSpeed"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Fox_GetUp",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "WanderState",
-          "value": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Fox_GetDown",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "WanderState"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Fox_Disappear",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Disappear",
-            "Disappear2"
-          ],
-          "modifierName": "DisappearTimer"
-        }
-      ],
-      "modifiers": {
-        "DisappearTimer": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.StartDither",
-              "duration": 3.0
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Fox_Random",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Run",
+                        "Disappear"
+                    ],
+                    "GAIGOBCNNEE": "Random_MoveSpeedRatio"
+                }
+            ],
+            "EDDGGPMFDGK": {
+                "RandomSpeed": 0.0
             },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "Disappear",
-              "value": true
+            "HNEIEGHMLKH": {
+                "Random_MoveSpeedRatio": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FFOHEEFOELN": {
+                        "Animator_MoveSpeedRatio": "RandomSpeed"
+                    }
+                }
             },
-            {
-              "$type": "MoleMole.Config.KillSelf",
-              "duration": 2.5,
-              "banDrop": true,
-              "banExp": true,
-              "killSelfType": "Disappear"
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Fox_AwareTigger",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            101
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
+            "KCICDEJLIJD": [
                 {
-                  "$type": "MoleMole.Config.ByTargetPositionToSelfPosition",
-                  "logic": "GreaterOrEqual",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 5.0
-                  }
+                    "$type": "SetRandomOverrideMapValue",
+                    "MOCGLDDNLKO": 0.25,
+                    "OGAHELLALBB": "RandomSpeed"
                 }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "AwareTrigger"
-              }
-            }
-          ]
+            ]
         }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Fox_02_GoToMHPoint",
-      "modifiers": {
-        "Animal_Fox_02_CheckPlayerArround": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.Predicated",
-              "otherTargets": {
-                "$type": "MoleMole.Config.SelectTargetsByShape",
-                "shapeName": "CircleR5",
-                "campTargetType": "Enemy",
-                "sizeRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                }
-              },
-              "targetPredicates": [
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Fox_GetUp",
+            "HKBHLMNEMKM": [
                 {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ]
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "WanderState",
+                    "value": true
                 }
-              ],
-              "successActions": [
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Fox_GetDown",
+            "HKBHLMNEMKM": [
                 {
-                  "$type": "MoleMole.Config.SetNeuronEnable",
-                  "neuronName": "SURROUND",
-                  "enable": true
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "WanderState"
                 }
-              ]
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Fox_Disappear",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Disappear",
+                        "Disappear2"
+                    ],
+                    "GAIGOBCNNEE": "DisappearTimer"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "DisappearTimer": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "StartDither",
+                            "duration": 3.0
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "Disappear",
+                            "value": true
+                        },
+                        {
+                            "$type": "KillSelf",
+                            "duration": 2.5,
+                            "BEKKIHBPHGD": true,
+                            "EOIGEKNINFE": true,
+                            "PGGBJIDIINM": "Disappear"
+                        }
+                    ]
+                }
             }
-          ]
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "modifierName": "Animal_Fox_02_CheckPlayerArround"
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Fox_AwareTigger",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        101
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetPositionToSelfPosition",
+                                    "GMFCOCAJBDM": "GreaterOrEqual",
+                                    "value": 5.0
+                                }
+                            ],
+                            "triggerID": "AwareTrigger"
+                        }
+                    ]
+                }
+            ]
         }
-      ]
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Fox_02_GoToMHPoint",
+            "HNEIEGHMLKH": {
+                "Animal_Fox_02_CheckPlayerArround": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 1.0,
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "Predicated",
+                            "GILFKOBKGLI": {
+                                "$type": "SelectTargetsByShape",
+                                "JBKKOJLJHDK": "CircleR5",
+                                "ONPOPLLHJLE": "Enemy",
+                                "CJJABKCAIEB": 1.0
+                            },
+                            "ELDBAFHCOBL": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ]
+                                }
+                            ],
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "SetNeuronEnable",
+                                    "EPADBCOELIH": "SURROUND",
+                                    "enable": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "AttachModifier",
+                    "GAIGOBCNNEE": "Animal_Fox_02_CheckPlayerArround"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Fox_02_Alert",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetNeuronEnable",
+                    "EPADBCOELIH": "SURROUND",
+                    "enable": true
+                }
+            ]
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Fox_02_Alert",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetNeuronEnable",
-          "neuronName": "SURROUND",
-          "enable": true
-        }
-      ]
-    }
-  }
 ]

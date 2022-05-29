@@ -1,2505 +1,1598 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Gear_ElementField_FireController",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "modifierName": "Default"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "gadgetState": 201,
-          "modifierName": "Element_Handle"
-        }
-      ],
-      "abilitySpecials": {
-        "CounterStage": {
-          "type": "float",
-          "dynamicValue": 0.0
-        }
-      },
-      "modifiers": {
+    {
         "Default": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          }
-        },
-        "Element_Handle": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.5
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "otherTargets": {
-                "$type": "MoleMole.Config.SelectTargetsByShape",
-                "shapeName": "CircleR100",
-                "campTargetType": "All",
-                "sizeRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                }
-              },
-              "doOffStage": true,
-              "predicates": [
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Gear_ElementField_FireController",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ]
-                }
-              ],
-              "modifierName": "Fire_Summonor"
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "otherTargets": {
-                "$type": "MoleMole.Config.SelectTargetsByShape",
-                "shapeName": "CircleR100",
-                "campTargetType": "All",
-                "sizeRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                }
-              },
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ]
-                }
-              ],
-              "modifierName": "Fire_AntiSummonor"
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "otherTargets": {
-                "$type": "MoleMole.Config.SelectTargetsByShape",
-                "shapeName": "CircleR100",
-                "campTargetType": "All",
-                "sizeRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                }
-              },
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ]
-                }
-              ],
-              "modifierName": "Fire_Summonor"
-            }
-          ]
-        },
-        "Fire_Summonor": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.2
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "target": "CurLocalAvatar",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "FIRE_CHARGES",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 100.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetGlobalValueToOverrideMap",
-              "globalValueKey": "FIRE_CHARGES",
-              "overrideMapKey": "CounterStage"
-            },
-            {
-              "$type": "MoleMole.Config.AddElementDurability",
-              "target": "CurTeamAvatars",
-              "doOffStage": true,
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 50.0
-              },
-              "modifierName": "Fire_Damge",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 50.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "HAS_FIRE_DAMAGE",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "compareType": "NoneOrEqual"
-                }
-              ],
-              "modifierName": "Fire_Damge"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "FIRE_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 31.0
-                  }
-                }
-              ],
-              "modifierName": "Fire_Damge"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "FIRE_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 31.0
-                  }
-                }
-              ],
-              "modifierName": "Fire_Damge"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "FIRE_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 61.0
-                  }
-                }
-              ],
-              "modifierName": "Fire_Damge"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "FIRE_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 61.0
-                  }
-                }
-              ],
-              "modifierName": "Fire_Damge"
-            }
-          ]
-        },
-        "Fire_AntiSummonor": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.2
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "target": "CurTeamAvatars",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "FIRE_CHARGES",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "target": "CurTeamAvatars",
-              "modifierName": "Fire_Damge"
-            }
-          ]
-        },
-        "Remove_Fire": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.0
-          },
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "doOffStage": true,
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -10.0
-              },
-              "key": "FIRE_CHARGES",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 100.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        },
-        "Fire_Damge": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "elementType": "Fire",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 50.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "doOffStage": true,
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "HAS_FIRE_DAMAGE",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "FIRE_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 30.0
-                  },
-                  "compareType": "LessAndEqual"
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Element_Fire_Level_01"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "FIRE_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 30.0
-                  },
-                  "compareType": "MoreThan"
+                    "$type": "AttachToGadgetStateMixin",
+                    "GAIGOBCNNEE": "Default"
                 },
                 {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "FIRE_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 60.0
-                  },
-                  "compareType": "LessAndEqual"
+                    "$type": "AttachToGadgetStateMixin",
+                    "IJNIFFOPHNJ": 201,
+                    "GAIGOBCNNEE": "Element_Handle"
                 }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Element_Fire_Level_02"
-              }
+            ],
+            "EDDGGPMFDGK": {
+                "CounterStage": 0.0
             },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "FIRE_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 60.0
-                  },
-                  "compareType": "MoreThan"
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Element_Fire_Level_03"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.DungeonFogEffects",
-              "muteRemoteAction": true,
-              "enable": true,
-              "cameraFogEffectName": "Eff_Camera_Fire",
-              "playerFogEffectName": ""
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "doOffStage": true,
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -1.0
-              },
-              "key": "HAS_FIRE_DAMAGE",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.DungeonFogEffects",
-              "muteRemoteAction": true,
-              "cameraFogEffectName": "Eff_Camera_Fire",
-              "playerFogEffectName": ""
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.DamageByAttackValue",
-              "target": "CurLocalAvatar",
-              "attacker": "Self",
-              "attackInfo": {
-                "attackTag": "",
-                "attenuationTag": "",
-                "attenuationGroup": "default",
-                "attackProperty": {
-                  "damagePercentage": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "damagePercentageRatio": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "elementType": "Fire",
-                  "elementDurability": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 50.0
-                  },
-                  "enBreak": 0.0,
-                  "damageExtra": {
-                    "isFormula": false,
-                    "isDynamic": true,
-                    "dynamicKey": "CounterStage"
-                  }
+            "HNEIEGHMLKH": {
+                "Default": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0
                 },
-                "hitPattern": {
-                  "onHitEffectName": "none",
-                  "hitImpulseType": "LV2",
-                  "overrideHitImpulse": {
-                    "hitLevel": "Light",
-                    "hitImpulseX": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 600.0
-                    },
-                    "hitImpulseY": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 800.0
-                    }
-                  },
-                  "hitHaltTimeScale": 0.05
+                "Element_Handle": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 0.5,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GILFKOBKGLI": {
+                                "$type": "SelectTargetsByShape",
+                                "JBKKOJLJHDK": "CircleR100",
+                                "ONPOPLLHJLE": "All",
+                                "CJJABKCAIEB": 1.0
+                            },
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ]
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Fire_Summonor"
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GILFKOBKGLI": {
+                                "$type": "SelectTargetsByShape",
+                                "JBKKOJLJHDK": "CircleR100",
+                                "ONPOPLLHJLE": "All",
+                                "CJJABKCAIEB": 1.0
+                            },
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ]
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Fire_AntiSummonor"
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GILFKOBKGLI": {
+                                "$type": "SelectTargetsByShape",
+                                "JBKKOJLJHDK": "CircleR100",
+                                "ONPOPLLHJLE": "All",
+                                "CJJABKCAIEB": 1.0
+                            },
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ]
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Fire_Summonor"
+                        }
+                    ]
+                },
+                "Fire_Summonor": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "FIRE_CHARGES",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 100.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "SetGlobalValueToOverrideMap",
+                            "BPCFCANOMNH": "FIRE_CHARGES",
+                            "OGAHELLALBB": "CounterStage"
+                        },
+                        {
+                            "$type": "AddElementDurability",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "ACOKKHADPOJ": true,
+                            "value": 50.0,
+                            "GAIGOBCNNEE": "Fire_Damge",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 50.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "HAS_FIRE_DAMAGE",
+                                    "value": 0.0,
+                                    "ONPJJFKDCED": "NoneOrEqual"
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Fire_Damge"
+                        },
+                        {
+                            "$type": "RemoveModifier",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "FIRE_CHARGES",
+                                    "value": 31.0
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Fire_Damge"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "FIRE_CHARGES",
+                                    "value": 31.0
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Fire_Damge"
+                        },
+                        {
+                            "$type": "RemoveModifier",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "FIRE_CHARGES",
+                                    "value": 61.0
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Fire_Damge"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "FIRE_CHARGES",
+                                    "value": 61.0
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Fire_Damge"
+                        }
+                    ]
+                },
+                "Fire_AntiSummonor": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "FIRE_CHARGES",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "RemoveModifier",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "GAIGOBCNNEE": "Fire_Damge"
+                        }
+                    ]
+                },
+                "Remove_Fire": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 2.0,
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "ACOKKHADPOJ": true,
+                            "value": -10.0,
+                            "HJJEAOMEOFI": "FIRE_CHARGES",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 100.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                },
+                "Fire_Damge": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 1.0,
+                    "elementType": "Fire",
+                    "elementDurability": 50.0,
+                    "IKKMDDLDLIN": 2.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "ACOKKHADPOJ": true,
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "HAS_FIRE_DAMAGE",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "FIRE_CHARGES",
+                                    "value": 30.0,
+                                    "ONPJJFKDCED": "LessAndEqual"
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Element_Fire_Level_01"
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "FIRE_CHARGES",
+                                    "value": 30.0,
+                                    "ONPJJFKDCED": "MoreThan"
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "FIRE_CHARGES",
+                                    "value": 60.0,
+                                    "ONPJJFKDCED": "LessAndEqual"
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Element_Fire_Level_02"
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "FIRE_CHARGES",
+                                    "value": 60.0,
+                                    "ONPJJFKDCED": "MoreThan"
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Element_Fire_Level_03"
+                        },
+                        {
+                            "$type": "DungeonFogEffects",
+                            "POKMJEIDNJF": true,
+                            "enable": true,
+                            "CCMDJPGKKBM": "Eff_Camera_Fire",
+                            "IHNBFFJNAKI": ""
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "ACOKKHADPOJ": true,
+                            "value": -1.0,
+                            "HJJEAOMEOFI": "HAS_FIRE_DAMAGE",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "DungeonFogEffects",
+                            "POKMJEIDNJF": true,
+                            "CCMDJPGKKBM": "Eff_Camera_Fire",
+                            "IHNBFFJNAKI": ""
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "DamageByAttackValue",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "OKHOMILNNBL": "Self",
+                            "attackInfo": {
+                                "attackTag": "",
+                                "attenuationTag": "",
+                                "attenuationGroup": "default",
+                                "attackProperty": {
+                                    "bonusCriticalHurt": 0.0,
+                                    "damagePercentageRatio": 0.0,
+                                    "elementType": "Fire",
+                                    "elementDurability": 50.0,
+                                    "enBreak": 0.0,
+                                    "damageExtra": "CounterStage"
+                                },
+                                "hitPattern": {
+                                    "onHitEffectName": "none",
+                                    "hitImpulseType": "LV2",
+                                    "overrideHitImpulse": {
+                                        "hitLevel": "Light",
+                                        "HPOPMELEPEB": 600.0,
+                                        "hitImpulseY": 800.0
+                                    },
+                                    "hitHaltTimeScale": 0.05000000074505806
+                                }
+                            }
+                        }
+                    ],
+                    "NDHIFGEGBAC": [
+                        {
+                            "$type": "RemoveModifier",
+                            "ACOKKHADPOJ": true,
+                            "GAIGOBCNNEE": "Remove_Fire"
+                        }
+                    ],
+                    "NPEJFLBOAAN": [
+                        {
+                            "$type": "ApplyModifier",
+                            "ACOKKHADPOJ": true,
+                            "GAIGOBCNNEE": "Remove_Fire"
+                        }
+                    ]
                 }
-              }
             }
-          ],
-          "onAvatarIn": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "doOffStage": true,
-              "modifierName": "Remove_Fire"
-            }
-          ],
-          "onAvatarOut": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "doOffStage": true,
-              "modifierName": "Remove_Fire"
-            }
-          ]
         }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Gear_ElementField_IceController",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "modifierName": "Default"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "gadgetState": 201,
-          "modifierName": "Element_Handle"
-        }
-      ],
-      "abilitySpecials": {
-        "CounterStage": {
-          "type": "float",
-          "dynamicValue": 0.0
-        }
-      },
-      "modifiers": {
+    },
+    {
         "Default": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          }
-        },
-        "Element_Handle": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "target": "Team",
-              "doOffStage": true,
-              "modifierName": "UNIQUE_Ice_Summonor"
-            },
-            {
-              "$type": "MoleMole.Config.CreateGadget",
-              "lifeByOwnerIsAlive": true,
-              "gadgetID": 70330016
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "target": "Team",
-              "modifierName": "UNIQUE_Ice_Summonor"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "target": "CurTeamAvatars",
-              "modifierName": "UNIQUE_Ice_SpeedSlow"
-            }
-          ]
-        },
-        "UNIQUE_Ice_Summonor": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 5.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "target": "CurTeamAvatars",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "SLOW_CHARGES",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "target": "CurLocalAvatar",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -0.05
-              },
-              "key": "SLOW_CHARGES",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -0.7
-              }
-            },
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "target": "CurLocalAvatar",
-              "modifierName": "UNIQUE_Ice_Charge_Controller"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "target": "CurLocalAvatar",
-              "doOffStage": true,
-              "modifierName": "UNIQUE_Ice_Charge_Controller"
-            }
-          ]
-        },
-        "UNIQUE_Ice_Charge_Controller": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValueToOverrideMap",
-              "globalValueKey": "SLOW_CHARGES",
-              "overrideMapKey": "CounterStage"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "modifierName": "UNIQUE_Ice_SpeedSlow"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "doOffStage": true,
-              "modifierName": "UNIQUE_Ice_SpeedSlow"
-            }
-          ],
-          "onAvatarIn": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "modifierName": "Remove_Slow"
-            },
-            {
-              "$type": "MoleMole.Config.SetGlobalValueToOverrideMap",
-              "globalValueKey": "SLOW_CHARGES",
-              "overrideMapKey": "CounterStage"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "modifierName": "UNIQUE_Ice_SpeedSlow"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "doOffStage": true,
-              "predicates": [
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Gear_ElementField_IceController",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByNot",
-                  "predicates": [
-                    {
-                      "$type": "MoleMole.Config.ByTargetGlobalValue",
-                      "key": "SLOW_CHARGES",
-                      "value": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": -0.05
-                      },
-                      "compareType": "MoreThan"
-                    }
-                  ]
-                }
-              ],
-              "modifierName": "UNIQUE_Ice_SpeedSlow"
-            }
-          ],
-          "onAvatarOut": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "doOffStage": true,
-              "modifierName": "Remove_Slow"
-            }
-          ]
-        },
-        "Remove_Slow": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.0
-          },
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "doOffStage": true,
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.05
-              },
-              "key": "SLOW_CHARGES",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -0.7
-              }
-            }
-          ]
-        },
-        "UNIQUE_Ice_SpeedSlow": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementType": "Ice",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 50.0
-          },
-          "properties": {
-            "Animator_MoveSpeedRatio": {
-              "isFormula": false,
-              "isDynamic": true,
-              "dynamicKey": "CounterStage"
-            }
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "SLOW_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": -0.2
-                  },
-                  "compareType": "MoreThan"
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Element_Ice_Level_01"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "SLOW_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": -0.5
-                  },
-                  "compareType": "MoreThan"
+                    "$type": "AttachToGadgetStateMixin",
+                    "GAIGOBCNNEE": "Default"
                 },
                 {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "SLOW_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": -0.2
-                  },
-                  "compareType": "LessAndEqual"
+                    "$type": "AttachToGadgetStateMixin",
+                    "IJNIFFOPHNJ": 201,
+                    "GAIGOBCNNEE": "Element_Handle"
                 }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Element_Ice_Level_02"
-              }
+            ],
+            "EDDGGPMFDGK": {
+                "CounterStage": 0.0
             },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "SLOW_CHARGES",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": -0.5
-                  },
-                  "compareType": "LessAndEqual"
+            "HNEIEGHMLKH": {
+                "Default": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0
+                },
+                "Element_Handle": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "NPHOOPNDCAC": "Team",
+                            "ACOKKHADPOJ": true,
+                            "GAIGOBCNNEE": "UNIQUE_Ice_Summonor"
+                        },
+                        {
+                            "$type": "CreateGadget",
+                            "NJEOPILMKCN": true,
+                            "CABLIPAKCGB": 70330016
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "RemoveModifier",
+                            "NPHOOPNDCAC": "Team",
+                            "GAIGOBCNNEE": "UNIQUE_Ice_Summonor"
+                        },
+                        {
+                            "$type": "RemoveModifier",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "GAIGOBCNNEE": "UNIQUE_Ice_SpeedSlow"
+                        }
+                    ]
+                },
+                "UNIQUE_Ice_Summonor": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 5.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "SLOW_CHARGES",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "value": -0.05000000074505806,
+                            "HJJEAOMEOFI": "SLOW_CHARGES",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": -0.699999988079071
+                        },
+                        {
+                            "$type": "RemoveModifier",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "GAIGOBCNNEE": "UNIQUE_Ice_Charge_Controller"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "ACOKKHADPOJ": true,
+                            "GAIGOBCNNEE": "UNIQUE_Ice_Charge_Controller"
+                        }
+                    ]
+                },
+                "UNIQUE_Ice_Charge_Controller": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetGlobalValueToOverrideMap",
+                            "BPCFCANOMNH": "SLOW_CHARGES",
+                            "OGAHELLALBB": "CounterStage"
+                        },
+                        {
+                            "$type": "RemoveModifier",
+                            "GAIGOBCNNEE": "UNIQUE_Ice_SpeedSlow"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "ACOKKHADPOJ": true,
+                            "GAIGOBCNNEE": "UNIQUE_Ice_SpeedSlow"
+                        }
+                    ],
+                    "NDHIFGEGBAC": [
+                        {
+                            "$type": "RemoveModifier",
+                            "GAIGOBCNNEE": "Remove_Slow"
+                        },
+                        {
+                            "$type": "SetGlobalValueToOverrideMap",
+                            "BPCFCANOMNH": "SLOW_CHARGES",
+                            "OGAHELLALBB": "CounterStage"
+                        },
+                        {
+                            "$type": "RemoveModifier",
+                            "GAIGOBCNNEE": "UNIQUE_Ice_SpeedSlow"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByNot",
+                                    "predicates": [
+                                        {
+                                            "$type": "ByTargetGlobalValue",
+                                            "HJJEAOMEOFI": "SLOW_CHARGES",
+                                            "value": -0.05000000074505806,
+                                            "ONPJJFKDCED": "MoreThan"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "GAIGOBCNNEE": "UNIQUE_Ice_SpeedSlow"
+                        }
+                    ],
+                    "NPEJFLBOAAN": [
+                        {
+                            "$type": "ApplyModifier",
+                            "ACOKKHADPOJ": true,
+                            "GAIGOBCNNEE": "Remove_Slow"
+                        }
+                    ]
+                },
+                "Remove_Slow": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 2.0,
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "ACOKKHADPOJ": true,
+                            "value": 0.05000000074505806,
+                            "HJJEAOMEOFI": "SLOW_CHARGES",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": -0.699999988079071
+                        }
+                    ]
+                },
+                "UNIQUE_Ice_SpeedSlow": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementType": "Ice",
+                    "elementDurability": 50.0,
+                    "FFOHEEFOELN": {
+                        "Animator_MoveSpeedRatio": "CounterStage"
+                    },
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "SLOW_CHARGES",
+                                    "value": -0.20000000298023224,
+                                    "ONPJJFKDCED": "MoreThan"
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Element_Ice_Level_01"
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "SLOW_CHARGES",
+                                    "value": -0.5,
+                                    "ONPJJFKDCED": "MoreThan"
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "SLOW_CHARGES",
+                                    "value": -0.20000000298023224,
+                                    "ONPJJFKDCED": "LessAndEqual"
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Element_Ice_Level_02"
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "SLOW_CHARGES",
+                                    "value": -0.5,
+                                    "ONPJJFKDCED": "LessAndEqual"
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Element_Ice_Level_03"
+                        }
+                    ]
                 }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Element_Ice_Level_03"
-              }
             }
-          ]
         }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Gear_ElementField_ElectricController",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "modifierName": "Default"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "gadgetState": 201,
-          "modifierName": "Phase1"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "gadgetState": 201,
-          "modifierName": "Thunder_Summonor"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "gadgetState": 202,
-          "modifierName": "Phase2"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "gadgetState": 202,
-          "modifierName": "Thunder_Summonor_Phase2"
-        }
-      ],
-      "modifiers": {
+    },
+    {
         "Default": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "target": "Team",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -5.0
-              },
-              "key": "IN_THUNDER_AREA",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        },
-        "GetPos_Phase1": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.1
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.7
-              },
-              "successActions": [
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Gear_ElementField_ElectricController",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.SetGlobalPos",
-                  "target": "Applier",
-                  "key": "ThunderPos",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornBySelf",
-                    "bornRandom": {
-                      "$type": "MoleMole.Config.BornRandomFromCenter",
-                      "minRandomRange": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 2.0
-                      },
-                      "maxRandomRange": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 2.0
-                      }
-                    }
-                  }
+                    "$type": "AttachToGadgetStateMixin",
+                    "GAIGOBCNNEE": "Default"
                 },
                 {
-                  "$type": "MoleMole.Config.AddGlobalValue",
-                  "target": "Applier",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  },
-                  "key": "First_Thunder",
-                  "useLimitRange": true,
-                  "maxValue": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  },
-                  "minValue": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.SetGlobalPos",
-              "target": "Applier",
-              "key": "ThunderPos2",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornBySelf",
-                "bornRandom": {
-                  "$type": "MoleMole.Config.BornRandomFromCenter",
-                  "minRandomRange": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 8.0
-                  },
-                  "maxRandomRange": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 18.0
-                  }
-                }
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetGlobalPos",
-              "target": "Applier",
-              "key": "ThunderPos3",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornBySelf",
-                "bornRandom": {
-                  "$type": "MoleMole.Config.BornRandomFromCenter",
-                  "minRandomRange": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 8.0
-                  },
-                  "maxRandomRange": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 18.0
-                  }
-                }
-              }
-            },
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.5
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.SetGlobalPos",
-                  "target": "Applier",
-                  "key": "ThunderPos4",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornBySelf",
-                    "bornRandom": {
-                      "$type": "MoleMole.Config.BornRandomFromCenter",
-                      "minRandomRange": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 8.0
-                      },
-                      "maxRandomRange": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 18.0
-                      }
-                    }
-                  }
+                    "$type": "AttachToGadgetStateMixin",
+                    "IJNIFFOPHNJ": 201,
+                    "GAIGOBCNNEE": "Phase1"
                 },
                 {
-                  "$type": "MoleMole.Config.AddGlobalValue",
-                  "target": "Applier",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  },
-                  "key": "Second_Thunder",
-                  "useLimitRange": true,
-                  "maxValue": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  },
-                  "minValue": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.5
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.SetGlobalPos",
-                  "target": "Applier",
-                  "key": "ThunderPos5",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornBySelf",
-                    "bornRandom": {
-                      "$type": "MoleMole.Config.BornRandomFromCenter",
-                      "minRandomRange": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 8.0
-                      },
-                      "maxRandomRange": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 18.0
-                      }
-                    }
-                  }
+                    "$type": "AttachToGadgetStateMixin",
+                    "IJNIFFOPHNJ": 201,
+                    "GAIGOBCNNEE": "Thunder_Summonor"
                 },
                 {
-                  "$type": "MoleMole.Config.AddGlobalValue",
-                  "target": "Applier",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  },
-                  "key": "Third_Thunder",
-                  "useLimitRange": true,
-                  "maxValue": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  },
-                  "minValue": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "Thunder_Summonor": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 12.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "target": "CurLocalAvatar",
-              "modifierName": "GetPos_Phase1"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "Thunder_Hit"
-            },
-            {
-              "$type": "MoleMole.Config.SetAvatarHitBuckets",
-              "overrideAvatarHitBucketSetting": {
-                "meleeBucketCount": 4
-              }
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "target": "CurLocalAvatar",
-              "modifierName": "GetPos_Phase1"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "Thunder_Hit"
-            }
-          ]
-        },
-        "Thunder_Hit": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.5
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "First_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Ambor_AlertCircle"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Ambor_AlertCircle"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos2",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Ambor_AlertCircle"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos3",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "Second_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Ambor_AlertCircle"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos4",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "Third_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Ambor_AlertCircle"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos5",
-                "directionKey": ""
-              }
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "First_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_ThunderFall_01"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "First_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackSphere",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "positionKey": "ThunderPos",
-                    "directionKey": ""
-                  },
-                  "radius": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 2.5
-                  }
+                    "$type": "AttachToGadgetStateMixin",
+                    "IJNIFFOPHNJ": 202,
+                    "GAIGOBCNNEE": "Phase2"
                 },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.0
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementType": "Electric",
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 50.0
-                    },
-                    "strikeType": "Default",
-                    "enBreak": 500.0
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV4",
-                    "overrideHitImpulse": {
-                      "hitLevel": "Heavy",
-                      "hitImpulseX": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 50.0
-                      },
-                      "hitImpulseY": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 800.0
-                      }
-                    },
-                    "hitHaltTimeScale": 0.05
-                  }
-                }
-              },
-              "targetType": "Enemy"
-            },
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "predicates": [
                 {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "First_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
+                    "$type": "AttachToGadgetStateMixin",
+                    "IJNIFFOPHNJ": 202,
+                    "GAIGOBCNNEE": "Thunder_Summonor_Phase2"
                 }
-              ],
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.65
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.CreateGadget",
-                  "doOffStage": true,
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "offset": {
-                      "x": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "y": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 1.0
-                      },
-                      "z": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      }
-                    },
-                    "positionKey": "ThunderPos",
-                    "directionKey": ""
-                  },
-                  "gadgetID": 70900269,
-                  "campID": 4001,
-                  "campTargetType": "Enemy"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_ThunderFall_01"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos2",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackSphere",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "positionKey": "ThunderPos2",
-                    "directionKey": ""
-                  },
-                  "radius": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 2.5
-                  }
+            ],
+            "HNEIEGHMLKH": {
+                "Default": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "NPHOOPNDCAC": "Team",
+                            "value": -5.0,
+                            "HJJEAOMEOFI": "IN_THUNDER_AREA",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 2.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
                 },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.0
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementType": "Electric",
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 50.0
-                    },
-                    "strikeType": "Default",
-                    "enBreak": 500.0
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV4",
-                    "overrideHitImpulse": {
-                      "hitLevel": "Heavy",
-                      "hitImpulseX": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 50.0
-                      },
-                      "hitImpulseY": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 800.0
-                      }
-                    },
-                    "hitHaltTimeScale": 0.05
-                  }
-                }
-              },
-              "targetType": "Enemy"
-            },
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.65
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.CreateGadget",
-                  "doOffStage": true,
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "offset": {
-                      "x": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "y": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 1.0
-                      },
-                      "z": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      }
-                    },
-                    "positionKey": "ThunderPos2",
-                    "directionKey": ""
-                  },
-                  "gadgetID": 70900269,
-                  "campID": 4001,
-                  "campTargetType": "Enemy"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_ThunderFall_01"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos3",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackSphere",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "positionKey": "ThunderPos3",
-                    "directionKey": ""
-                  },
-                  "radius": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 2.5
-                  }
+                "GetPos_Phase1": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "Randomed",
+                            "PLKDGIELEEF": 0.699999988079071,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "SetGlobalPos",
+                                    "NPHOOPNDCAC": "Applier",
+                                    "HJJEAOMEOFI": "ThunderPos",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornBySelf",
+                                        "HAGMNJAHNLG": {
+                                            "$type": "BornRandomFromCenter",
+                                            "LJCNOPEIJEF": 2.0,
+                                            "MFBOELKCPDP": 2.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "$type": "AddGlobalValue",
+                                    "NPHOOPNDCAC": "Applier",
+                                    "value": 1.0,
+                                    "HJJEAOMEOFI": "First_Thunder",
+                                    "EODOIECEPEF": true,
+                                    "JDHHMBHOOEC": 1.0,
+                                    "KHAHOELDONA": 0.0
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "SetGlobalPos",
+                            "NPHOOPNDCAC": "Applier",
+                            "HJJEAOMEOFI": "ThunderPos2",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornBySelf",
+                                "HAGMNJAHNLG": {
+                                    "$type": "BornRandomFromCenter",
+                                    "LJCNOPEIJEF": 8.0,
+                                    "MFBOELKCPDP": 18.0
+                                }
+                            }
+                        },
+                        {
+                            "$type": "SetGlobalPos",
+                            "NPHOOPNDCAC": "Applier",
+                            "HJJEAOMEOFI": "ThunderPos3",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornBySelf",
+                                "HAGMNJAHNLG": {
+                                    "$type": "BornRandomFromCenter",
+                                    "LJCNOPEIJEF": 8.0,
+                                    "MFBOELKCPDP": 18.0
+                                }
+                            }
+                        },
+                        {
+                            "$type": "Randomed",
+                            "PLKDGIELEEF": 0.5,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "SetGlobalPos",
+                                    "NPHOOPNDCAC": "Applier",
+                                    "HJJEAOMEOFI": "ThunderPos4",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornBySelf",
+                                        "HAGMNJAHNLG": {
+                                            "$type": "BornRandomFromCenter",
+                                            "LJCNOPEIJEF": 8.0,
+                                            "MFBOELKCPDP": 18.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "$type": "AddGlobalValue",
+                                    "NPHOOPNDCAC": "Applier",
+                                    "value": 1.0,
+                                    "HJJEAOMEOFI": "Second_Thunder",
+                                    "EODOIECEPEF": true,
+                                    "JDHHMBHOOEC": 1.0,
+                                    "KHAHOELDONA": 0.0
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "Randomed",
+                            "PLKDGIELEEF": 0.5,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "SetGlobalPos",
+                                    "NPHOOPNDCAC": "Applier",
+                                    "HJJEAOMEOFI": "ThunderPos5",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornBySelf",
+                                        "HAGMNJAHNLG": {
+                                            "$type": "BornRandomFromCenter",
+                                            "LJCNOPEIJEF": 8.0,
+                                            "MFBOELKCPDP": 18.0
+                                        }
+                                    }
+                                },
+                                {
+                                    "$type": "AddGlobalValue",
+                                    "NPHOOPNDCAC": "Applier",
+                                    "value": 1.0,
+                                    "HJJEAOMEOFI": "Third_Thunder",
+                                    "EODOIECEPEF": true,
+                                    "JDHHMBHOOEC": 1.0,
+                                    "KHAHOELDONA": 0.0
+                                }
+                            ]
+                        }
+                    ]
                 },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.0
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementType": "Electric",
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 50.0
-                    },
-                    "strikeType": "Default",
-                    "enBreak": 500.0
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV4",
-                    "overrideHitImpulse": {
-                      "hitLevel": "Heavy",
-                      "hitImpulseX": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 50.0
-                      },
-                      "hitImpulseY": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 800.0
-                      }
-                    },
-                    "hitHaltTimeScale": 0.05
-                  }
-                }
-              },
-              "targetType": "Enemy"
-            },
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.65
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.CreateGadget",
-                  "doOffStage": true,
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "offset": {
-                      "x": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "y": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 1.0
-                      },
-                      "z": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      }
-                    },
-                    "positionKey": "ThunderPos3",
-                    "directionKey": ""
-                  },
-                  "gadgetID": 70900269,
-                  "campID": 4001,
-                  "campTargetType": "Enemy"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "Second_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_ThunderFall_01"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos4",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "Second_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackSphere",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "positionKey": "ThunderPos4",
-                    "directionKey": ""
-                  },
-                  "radius": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 2.5
-                  }
+                "Thunder_Summonor": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 12.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "GAIGOBCNNEE": "GetPos_Phase1"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "Thunder_Hit"
+                        },
+                        {
+                            "$type": "SetAvatarHitBuckets",
+                            "FJAAOJKKHMA": {
+                                "PDCNJGNGAEA": 4
+                            }
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "ApplyModifier",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "GAIGOBCNNEE": "GetPos_Phase1"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "Thunder_Hit"
+                        }
+                    ]
                 },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.0
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementType": "Electric",
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 50.0
-                    },
-                    "strikeType": "Default",
-                    "enBreak": 500.0
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV4",
-                    "overrideHitImpulse": {
-                      "hitLevel": "Heavy",
-                      "hitImpulseX": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 50.0
-                      },
-                      "hitImpulseY": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 800.0
-                      }
-                    },
-                    "hitHaltTimeScale": 0.05
-                  }
-                }
-              },
-              "targetType": "Enemy"
-            },
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "Second_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.65
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.CreateGadget",
-                  "doOffStage": true,
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "offset": {
-                      "x": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "y": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 1.0
-                      },
-                      "z": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      }
-                    },
-                    "positionKey": "ThunderPos4",
-                    "directionKey": ""
-                  },
-                  "gadgetID": 70900269,
-                  "campID": 4001,
-                  "campTargetType": "Enemy"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "Third_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_ThunderFall_01"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos5",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "Third_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackSphere",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "positionKey": "ThunderPos5",
-                    "directionKey": ""
-                  },
-                  "radius": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 2.5
-                  }
+                "Thunder_Hit": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 2.5,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "First_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos2",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos3",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "Second_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos4",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "Third_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos5",
+                                "MICIJLHMIIH": ""
+                            }
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "FireEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "First_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "First_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackSphere",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "GDENJEFPMGC": "ThunderPos",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "ICGFCBOFFDI": 2.5
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 1.0,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementType": "Electric",
+                                        "elementDurability": 50.0,
+                                        "strikeType": "Default",
+                                        "enBreak": 500.0
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV4",
+                                        "overrideHitImpulse": {
+                                            "hitLevel": "Heavy",
+                                            "HPOPMELEPEB": 50.0,
+                                            "hitImpulseY": 800.0
+                                        },
+                                        "hitHaltTimeScale": 0.05000000074505806
+                                    }
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        },
+                        {
+                            "$type": "Randomed",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "First_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "PLKDGIELEEF": 0.6499999761581421,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "CreateGadget",
+                                    "ACOKKHADPOJ": true,
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "offset": {
+                                            "AEAAJCIDPED": 0.0,
+                                            "KAAPLGBEDPM": 1.0,
+                                            "PHDCJAHHIOG": 0.0
+                                        },
+                                        "GDENJEFPMGC": "ThunderPos",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "CABLIPAKCGB": 70900269,
+                                    "DOLAJLACEDF": 4001,
+                                    "ONPOPLLHJLE": "Enemy"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos2",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackSphere",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "GDENJEFPMGC": "ThunderPos2",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "ICGFCBOFFDI": 2.5
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 1.0,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementType": "Electric",
+                                        "elementDurability": 50.0,
+                                        "strikeType": "Default",
+                                        "enBreak": 500.0
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV4",
+                                        "overrideHitImpulse": {
+                                            "hitLevel": "Heavy",
+                                            "HPOPMELEPEB": 50.0,
+                                            "hitImpulseY": 800.0
+                                        },
+                                        "hitHaltTimeScale": 0.05000000074505806
+                                    }
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        },
+                        {
+                            "$type": "Randomed",
+                            "PLKDGIELEEF": 0.6499999761581421,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "CreateGadget",
+                                    "ACOKKHADPOJ": true,
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "offset": {
+                                            "AEAAJCIDPED": 0.0,
+                                            "KAAPLGBEDPM": 1.0,
+                                            "PHDCJAHHIOG": 0.0
+                                        },
+                                        "GDENJEFPMGC": "ThunderPos2",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "CABLIPAKCGB": 70900269,
+                                    "DOLAJLACEDF": 4001,
+                                    "ONPOPLLHJLE": "Enemy"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos3",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackSphere",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "GDENJEFPMGC": "ThunderPos3",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "ICGFCBOFFDI": 2.5
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 1.0,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementType": "Electric",
+                                        "elementDurability": 50.0,
+                                        "strikeType": "Default",
+                                        "enBreak": 500.0
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV4",
+                                        "overrideHitImpulse": {
+                                            "hitLevel": "Heavy",
+                                            "HPOPMELEPEB": 50.0,
+                                            "hitImpulseY": 800.0
+                                        },
+                                        "hitHaltTimeScale": 0.05000000074505806
+                                    }
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        },
+                        {
+                            "$type": "Randomed",
+                            "PLKDGIELEEF": 0.6499999761581421,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "CreateGadget",
+                                    "ACOKKHADPOJ": true,
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "offset": {
+                                            "AEAAJCIDPED": 0.0,
+                                            "KAAPLGBEDPM": 1.0,
+                                            "PHDCJAHHIOG": 0.0
+                                        },
+                                        "GDENJEFPMGC": "ThunderPos3",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "CABLIPAKCGB": 70900269,
+                                    "DOLAJLACEDF": 4001,
+                                    "ONPOPLLHJLE": "Enemy"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "Second_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos4",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "Second_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackSphere",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "GDENJEFPMGC": "ThunderPos4",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "ICGFCBOFFDI": 2.5
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 1.0,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementType": "Electric",
+                                        "elementDurability": 50.0,
+                                        "strikeType": "Default",
+                                        "enBreak": 500.0
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV4",
+                                        "overrideHitImpulse": {
+                                            "hitLevel": "Heavy",
+                                            "HPOPMELEPEB": 50.0,
+                                            "hitImpulseY": 800.0
+                                        },
+                                        "hitHaltTimeScale": 0.05000000074505806
+                                    }
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        },
+                        {
+                            "$type": "Randomed",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "Second_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "PLKDGIELEEF": 0.6499999761581421,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "CreateGadget",
+                                    "ACOKKHADPOJ": true,
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "offset": {
+                                            "AEAAJCIDPED": 0.0,
+                                            "KAAPLGBEDPM": 1.0,
+                                            "PHDCJAHHIOG": 0.0
+                                        },
+                                        "GDENJEFPMGC": "ThunderPos4",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "CABLIPAKCGB": 70900269,
+                                    "DOLAJLACEDF": 4001,
+                                    "ONPOPLLHJLE": "Enemy"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "Third_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos5",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "Third_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackSphere",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "GDENJEFPMGC": "ThunderPos5",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "ICGFCBOFFDI": 2.5
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 1.0,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementType": "Electric",
+                                        "elementDurability": 50.0,
+                                        "strikeType": "Default",
+                                        "enBreak": 500.0
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV4",
+                                        "overrideHitImpulse": {
+                                            "hitLevel": "Heavy",
+                                            "HPOPMELEPEB": 50.0,
+                                            "hitImpulseY": 800.0
+                                        },
+                                        "hitHaltTimeScale": 0.05000000074505806
+                                    }
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        },
+                        {
+                            "$type": "Randomed",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "Third_Thunder",
+                                    "value": 1.0
+                                }
+                            ],
+                            "PLKDGIELEEF": 0.6499999761581421,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "CreateGadget",
+                                    "ACOKKHADPOJ": true,
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "offset": {
+                                            "AEAAJCIDPED": 0.0,
+                                            "KAAPLGBEDPM": 1.0,
+                                            "PHDCJAHHIOG": 0.0
+                                        },
+                                        "GDENJEFPMGC": "ThunderPos5",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "CABLIPAKCGB": 70900269,
+                                    "DOLAJLACEDF": 4001,
+                                    "ONPOPLLHJLE": "Enemy"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": -1.0,
+                            "HJJEAOMEOFI": "First_Thunder",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": -1.0,
+                            "HJJEAOMEOFI": "Second_Thunder",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": -1.0,
+                            "HJJEAOMEOFI": "Third_Thunder",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
                 },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.0
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementType": "Electric",
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 50.0
-                    },
-                    "strikeType": "Default",
-                    "enBreak": 500.0
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV4",
-                    "overrideHitImpulse": {
-                      "hitLevel": "Heavy",
-                      "hitImpulseX": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 50.0
-                      },
-                      "hitImpulseY": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 800.0
-                      }
-                    },
-                    "hitHaltTimeScale": 0.05
-                  }
-                }
-              },
-              "targetType": "Enemy"
-            },
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "Third_Thunder",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.65
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.CreateGadget",
-                  "doOffStage": true,
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "offset": {
-                      "x": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "y": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 1.0
-                      },
-                      "z": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      }
-                    },
-                    "positionKey": "ThunderPos5",
-                    "directionKey": ""
-                  },
-                  "gadgetID": 70900269,
-                  "campID": 4001,
-                  "campTargetType": "Enemy"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -1.0
-              },
-              "key": "First_Thunder",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -1.0
-              },
-              "key": "Second_Thunder",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -1.0
-              },
-              "key": "Third_Thunder",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        },
-        "Phase1": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "target": "Team",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 5.0
-              },
-              "key": "IN_THUNDER_AREA",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        },
-        "Phase2": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "target": "Team",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 5.0
-              },
-              "key": "IN_THUNDER_AREA",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        },
-        "Thunder_Summonor_Phase2": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 30.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "target": "Team",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -5.0
-              },
-              "key": "IN_THUNDER_AREA",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "Thunder_Hit_Phase2"
-            }
-          ]
-        },
-        "Thunder_Hit_Phase2": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 5.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.5
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "Thunder_Trace"
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "Thunder_Trace"
-            }
-          ]
-        },
-        "GetPos_Phase2": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.1
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetGlobalPos",
-              "target": "Applier",
-              "key": "ThunderPos_Phase2",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornBySelf",
-                "bornRandom": {
-                  "$type": "MoleMole.Config.BornRandomFromCenter",
-                  "minRandomRange": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  },
-                  "maxRandomRange": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "Thunder_Trace": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.45
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "target": "CurLocalAvatar",
-              "modifierName": "GetPos_Phase2"
-            },
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Ambor_AlertCircle"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos_Phase2",
-                "directionKey": ""
-              }
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_ThunderFall_01"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                "positionKey": "ThunderPos_Phase2",
-                "directionKey": ""
-              }
-            },
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackSphere",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "positionKey": "ThunderPos_Phase2",
-                    "directionKey": ""
-                  },
-                  "radius": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 2.5
-                  }
+                "Phase1": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "NPHOOPNDCAC": "Team",
+                            "value": 5.0,
+                            "HJJEAOMEOFI": "IN_THUNDER_AREA",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
                 },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.0
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementType": "Electric",
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 50.0
-                    },
-                    "strikeType": "Default",
-                    "enBreak": 500.0
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV4",
-                    "overrideHitImpulse": {
-                      "hitLevel": "Heavy",
-                      "hitImpulseX": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 50.0
-                      },
-                      "hitImpulseY": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 800.0
-                      }
-                    },
-                    "hitHaltTimeScale": 0.05
-                  }
+                "Phase2": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "NPHOOPNDCAC": "Team",
+                            "value": 5.0,
+                            "HJJEAOMEOFI": "IN_THUNDER_AREA",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 2.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                },
+                "Thunder_Summonor_Phase2": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 30.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "NPHOOPNDCAC": "Team",
+                            "value": -5.0,
+                            "HJJEAOMEOFI": "IN_THUNDER_AREA",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 2.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "Thunder_Hit_Phase2"
+                        }
+                    ]
+                },
+                "Thunder_Hit_Phase2": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 5.0,
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 0.5,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "Thunder_Trace"
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "Thunder_Trace"
+                        }
+                    ]
+                },
+                "GetPos_Phase2": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetGlobalPos",
+                            "NPHOOPNDCAC": "Applier",
+                            "HJJEAOMEOFI": "ThunderPos_Phase2",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornBySelf",
+                                "HAGMNJAHNLG": {
+                                    "$type": "BornRandomFromCenter",
+                                    "LJCNOPEIJEF": 1.0,
+                                    "MFBOELKCPDP": 1.0
+                                }
+                            }
+                        }
+                    ]
+                },
+                "Thunder_Trace": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.44999998807907104,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "GAIGOBCNNEE": "GetPos_Phase2"
+                        },
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos_Phase2",
+                                "MICIJLHMIIH": ""
+                            }
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByGlobalValue",
+                                "GDENJEFPMGC": "ThunderPos_Phase2",
+                                "MICIJLHMIIH": ""
+                            }
+                        },
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackSphere",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "GDENJEFPMGC": "ThunderPos_Phase2",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "ICGFCBOFFDI": 2.5
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 1.0,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementType": "Electric",
+                                        "elementDurability": 50.0,
+                                        "strikeType": "Default",
+                                        "enBreak": 500.0
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV4",
+                                        "overrideHitImpulse": {
+                                            "hitLevel": "Heavy",
+                                            "HPOPMELEPEB": 50.0,
+                                            "hitImpulseY": 800.0
+                                        },
+                                        "hitHaltTimeScale": 0.05000000074505806
+                                    }
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        },
+                        {
+                            "$type": "Randomed",
+                            "PLKDGIELEEF": 0.6499999761581421,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "CreateGadget",
+                                    "ACOKKHADPOJ": true,
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByGlobalValue",
+                                        "offset": {
+                                            "AEAAJCIDPED": 0.0,
+                                            "KAAPLGBEDPM": 1.0,
+                                            "PHDCJAHHIOG": 0.0
+                                        },
+                                        "GDENJEFPMGC": "ThunderPos_Phase2",
+                                        "MICIJLHMIIH": ""
+                                    },
+                                    "CABLIPAKCGB": 70900269,
+                                    "DOLAJLACEDF": 4001,
+                                    "ONPOPLLHJLE": "Enemy"
+                                }
+                            ]
+                        }
+                    ]
                 }
-              },
-              "targetType": "Enemy"
-            },
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.65
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.CreateGadget",
-                  "doOffStage": true,
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByGlobalValue",
-                    "offset": {
-                      "x": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "y": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 1.0
-                      },
-                      "z": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      }
-                    },
-                    "positionKey": "ThunderPos_Phase2",
-                    "directionKey": ""
-                  },
-                  "gadgetID": 70900269,
-                  "campID": 4001,
-                  "campTargetType": "Enemy"
-                }
-              ]
             }
-          ]
         }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Gear_ElementField_WaterController",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "modifierName": "Default"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToGadgetStateMixin",
-          "gadgetState": 201,
-          "modifierName": "Element_Handle"
-        }
-      ],
-      "abilitySpecials": {
-        "CounterStage": {
-          "type": "float",
-          "dynamicValue": 0.0
-        }
-      },
-      "modifiers": {
+    },
+    {
         "Default": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          }
-        },
-        "Element_Handle": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 10.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "target": "CurTeamAvatars",
-              "doOffStage": true,
-              "modifierName": "UNIQUE_Water_Summonor"
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Gear_ElementField_WaterController",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToGadgetStateMixin",
+                    "GAIGOBCNNEE": "Default"
+                },
+                {
+                    "$type": "AttachToGadgetStateMixin",
+                    "IJNIFFOPHNJ": 201,
+                    "GAIGOBCNNEE": "Element_Handle"
+                }
+            ],
+            "EDDGGPMFDGK": {
+                "CounterStage": 0.0
             },
-            {
-              "$type": "MoleMole.Config.CreateGadget",
-              "lifeByOwnerIsAlive": true,
-              "gadgetID": 70330016
+            "HNEIEGHMLKH": {
+                "Default": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0
+                },
+                "Element_Handle": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 10.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "ACOKKHADPOJ": true,
+                            "GAIGOBCNNEE": "UNIQUE_Water_Summonor"
+                        },
+                        {
+                            "$type": "CreateGadget",
+                            "NJEOPILMKCN": true,
+                            "CABLIPAKCGB": 70330016
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "RemoveModifier",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "GAIGOBCNNEE": "UNIQUE_Water_Summonor"
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "CreateGadget",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornBySelf",
+                                "JBPCKOKLHEB": true
+                            },
+                            "CABLIPAKCGB": 70330015
+                        }
+                    ]
+                },
+                "UNIQUE_Water_Summonor": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementType": "Water",
+                    "elementDurability": 55.0,
+                    "DDLOLBGNLEF": false
+                }
             }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "target": "CurTeamAvatars",
-              "modifierName": "UNIQUE_Water_Summonor"
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.CreateGadget",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornBySelf",
-                "onGround": true
-              },
-              "gadgetID": 70330015
-            }
-          ]
-        },
-        "UNIQUE_Water_Summonor": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "elementType": "Water",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 55.0
-          },
-          "isElementDurabilityMutable": false
         }
-      }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Gear_ElementField_Bullet",
+            "HNEIEGHMLKH": {
+                "Normal": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "OGFFGLGEOGF": [
+                        {
+                            "$type": "KillSelf"
+                        },
+                        {
+                            "$type": "RemoveUniqueModifier",
+                            "NPHOOPNDCAC": "Team",
+                            "GAIGOBCNNEE": "UNIQUE_Ice_Summonor"
+                        },
+                        {
+                            "$type": "RemoveUniqueModifier",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "GAIGOBCNNEE": "UNIQUE_Ice_SpeedSlow"
+                        },
+                        {
+                            "$type": "RemoveUniqueModifier",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "GAIGOBCNNEE": "UNIQUE_Ice_Charge_Controller"
+                        },
+                        {
+                            "$type": "RemoveUniqueModifier",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "GAIGOBCNNEE": "UNIQUE_Water_Summonor"
+                        },
+                        {
+                            "$type": "DebugLog",
+                            "ACOKKHADPOJ": true,
+                            "CBEDAJEGJBM": "onKillActions Start!!!!!!++++++++++++++++++++++"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "Normal"
+                }
+            ]
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Gear_ElementField_Bullet",
-      "modifiers": {
-        "Normal": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onKill": [
-            {
-              "$type": "MoleMole.Config.KillSelf"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveUniqueModifier",
-              "target": "Team",
-              "modifierName": "UNIQUE_Ice_Summonor"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveUniqueModifier",
-              "target": "CurTeamAvatars",
-              "modifierName": "UNIQUE_Ice_SpeedSlow"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveUniqueModifier",
-              "target": "CurTeamAvatars",
-              "modifierName": "UNIQUE_Ice_Charge_Controller"
-            },
-            {
-              "$type": "MoleMole.Config.RemoveUniqueModifier",
-              "target": "CurTeamAvatars",
-              "modifierName": "UNIQUE_Water_Summonor"
-            },
-            {
-              "$type": "MoleMole.Config.DebugLog",
-              "doOffStage": true,
-              "content": "onKillActions Start!!!!!!++++++++++++++++++++++"
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "Normal"
-        }
-      ]
-    }
-  }
 ]

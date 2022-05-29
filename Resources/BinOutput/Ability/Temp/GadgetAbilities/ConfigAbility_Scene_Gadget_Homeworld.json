@@ -1,636 +1,397 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_Normal",
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.SetGlobalValue",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          },
-          "key": "_ABILITY_Djinn_Advance",
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_Normal",
+            "KCICDEJLIJD": [
+                {
+                    "$type": "SetGlobalValue",
+                    "value": 0.0,
+                    "HJJEAOMEOFI": "_ABILITY_Djinn_Advance",
+                    "JDHHMBHOOEC": 0.0,
+                    "KHAHOELDONA": 0.0
+                }
+            ]
         }
-      ]
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_Advance",
+            "KCICDEJLIJD": [
+                {
+                    "$type": "SetGlobalValue",
+                    "value": 1.0,
+                    "HJJEAOMEOFI": "_ABILITY_Djinn_Advance",
+                    "JDHHMBHOOEC": 0.0,
+                    "KHAHOELDONA": 0.0
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_AdvanceWithCloud",
+            "KCICDEJLIJD": [
+                {
+                    "$type": "SetGlobalValue",
+                    "value": 1.0,
+                    "HJJEAOMEOFI": "_ABILITY_Djinn_Advance",
+                    "JDHHMBHOOEC": 0.0,
+                    "KHAHOELDONA": 0.0
+                },
+                {
+                    "$type": "EnablePartControl",
+                    "JEBAOIKDKPN": [
+                        "CloudRoot"
+                    ],
+                    "enable": true
+                },
+                {
+                    "$type": "SetPartControlTarget",
+                    "GILFKOBKGLI": {
+                        "$type": "SelectTargetsByTag",
+                        "tag": "Homeworld_Standard_MainBuilding"
+                    },
+                    "JEBAOIKDKPN": [
+                        "CloudRoot"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_01_Ability",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Appear"
+                    ],
+                    "GAIGOBCNNEE": "AppearState"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Idle"
+                    ],
+                    "GAIGOBCNNEE": "IdleState"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Show02Loop"
+                    ],
+                    "GAIGOBCNNEE": "SleepState"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Talk"
+                    ],
+                    "GAIGOBCNNEE": "TalkState"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "AppearState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Djinn_Show"
+                        }
+                    ]
+                },
+                "SleepState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Djinn_Sleep",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "KJNJNKLLNCN": "DjinnSleepPoint"
+                            }
+                        }
+                    ]
+                },
+                "IdleState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 15.0,
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "_Show_Mode",
+                            "EODOIECEPEF": true,
+                            "FACHGOPKJKE": true,
+                            "JDHHMBHOOEC": 20.0,
+                            "KHAHOELDONA": 1.0
+                        },
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_Show_Mode",
+                                    "value": 10.0,
+                                    "ONPJJFKDCED": "LessAndEqual"
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_ABILITY_Djinn_Advance",
+                                    "value": 0.0
+                                }
+                            ],
+                            "triggerID": "Show01",
+                            "IFJLLJJCLNC": true
+                        },
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_Show_Mode",
+                                    "value": 7.0,
+                                    "ONPJJFKDCED": "LessAndEqual"
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_ABILITY_Djinn_Advance",
+                                    "value": 1.0
+                                }
+                            ],
+                            "triggerID": "Show01",
+                            "IFJLLJJCLNC": true
+                        },
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_Show_Mode",
+                                    "value": 7.0,
+                                    "JDHHMBHOOEC": 11.0,
+                                    "ONPJJFKDCED": "Between"
+                                },
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_ABILITY_Djinn_Advance",
+                                    "value": 1.0
+                                }
+                            ],
+                            "triggerID": "Show02",
+                            "IFJLLJJCLNC": true
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_Show_Mode",
+                                    "value": 11.0,
+                                    "ONPJJFKDCED": "MoreThanAndEqual"
+                                }
+                            ],
+                            "GAIGOBCNNEE": "ShowEmotion"
+                        }
+                    ]
+                },
+                "TalkState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "ShowEmotion"
+                        }
+                    ]
+                },
+                "ShowEmotion": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 1.0,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "AttachModifierToSelfGlobalValueMixin",
+                            "BPCFCANOMNH": "_ABILITY_Djinn_Comfort",
+                            "FEGIOIGELHB": 0.0,
+                            "CMEDACODLEA": [
+                                0.5,
+                                3.5,
+                                6.5,
+                                9.5,
+                                10.5
+                            ],
+                            "MIEPCOONDEM": [
+                                "Level1",
+                                "Level2",
+                                "Level3",
+                                "Level4"
+                            ]
+                        }
+                    ]
+                },
+                "Level1": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Djinn_Feeling_01"
+                        }
+                    ]
+                },
+                "Level2": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Djinn_Feeling_02"
+                        }
+                    ]
+                },
+                "Level3": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Djinn_Feeling_03"
+                        }
+                    ]
+                },
+                "Level4": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Djinn_Feeling_04"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "SetGlobalValue",
+                    "value": 0.0,
+                    "HJJEAOMEOFI": "_ABILITY_Djinn_Comfort",
+                    "JDHHMBHOOEC": 0.0,
+                    "KHAHOELDONA": 0.0
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "ShowEmotion"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_02_Ability",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Appear"
+                    ],
+                    "GAIGOBCNNEE": "AppearState"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Idle"
+                    ],
+                    "GAIGOBCNNEE": "IdleState"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Show02Loop"
+                    ],
+                    "GAIGOBCNNEE": "SleepState"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "AppearState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Djinn_Show"
+                        }
+                    ]
+                },
+                "SleepState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Djinn_Sleep",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "KJNJNKLLNCN": "DjinnSleepPoint"
+                            }
+                        }
+                    ]
+                },
+                "IdleState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 15.0,
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "_Show_Mode",
+                            "EODOIECEPEF": true,
+                            "FACHGOPKJKE": true,
+                            "JDHHMBHOOEC": 10.0,
+                            "KHAHOELDONA": 1.0
+                        },
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_Show_Mode",
+                                    "value": 7.0,
+                                    "ONPJJFKDCED": "LessAndEqual"
+                                }
+                            ],
+                            "triggerID": "Show01",
+                            "IFJLLJJCLNC": true
+                        },
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_Show_Mode",
+                                    "value": 7.0,
+                                    "JDHHMBHOOEC": 11.0,
+                                    "ONPJJFKDCED": "Between"
+                                }
+                            ],
+                            "triggerID": "Show02",
+                            "IFJLLJJCLNC": true
+                        }
+                    ]
+                }
+            }
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_Advance",
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.SetGlobalValue",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "key": "_ABILITY_Djinn_Advance",
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_AdvanceWithCloud",
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.SetGlobalValue",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "key": "_ABILITY_Djinn_Advance",
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
-        },
-        {
-          "$type": "MoleMole.Config.EnablePartControl",
-          "partRootNames": [
-            "CloudRoot"
-          ],
-          "enable": true
-        },
-        {
-          "$type": "MoleMole.Config.SetPartControlTarget",
-          "otherTargets": {
-            "$type": "MoleMole.Config.SelectTargetsByTag",
-            "tag": "Homeworld_Standard_MainBuilding"
-          },
-          "partRootNames": [
-            "CloudRoot"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_01_Ability",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Appear"
-          ],
-          "modifierName": "AppearState"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Idle"
-          ],
-          "modifierName": "IdleState"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Show02Loop"
-          ],
-          "modifierName": "SleepState"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Talk"
-          ],
-          "modifierName": "TalkState"
-        }
-      ],
-      "modifiers": {
-        "AppearState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Djinn_Show"
-              }
-            }
-          ]
-        },
-        "SleepState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Djinn_Sleep"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "attachPointName": "DjinnSleepPoint"
-              }
-            }
-          ]
-        },
-        "IdleState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 15.0
-          },
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "_Show_Mode",
-              "useLimitRange": true,
-              "randomInRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 20.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_Show_Mode",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 10.0
-                  },
-                  "compareType": "LessAndEqual"
-                },
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_ABILITY_Djinn_Advance",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "Show01"
-              },
-              "MPTriggerOnRemote": true
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_Show_Mode",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 7.0
-                  },
-                  "compareType": "LessAndEqual"
-                },
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_ABILITY_Djinn_Advance",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "Show01"
-              },
-              "MPTriggerOnRemote": true
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_Show_Mode",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 7.0
-                  },
-                  "maxValue": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 11.0
-                  },
-                  "compareType": "Between"
-                },
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_ABILITY_Djinn_Advance",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "Show02"
-              },
-              "MPTriggerOnRemote": true
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_Show_Mode",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 11.0
-                  },
-                  "compareType": "MoreThanAndEqual"
-                }
-              ],
-              "modifierName": "ShowEmotion"
-            }
-          ]
-        },
-        "TalkState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "ShowEmotion"
-            }
-          ]
-        },
-        "ShowEmotion": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.AttachModifierToSelfGlobalValueMixin",
-              "globalValueKey": "_ABILITY_Djinn_Comfort",
-              "defaultGlobalValueOnCreate": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "valueSteps": [
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.5
-                },
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 3.5
-                },
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 6.5
-                },
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 9.5
-                },
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 10.5
-                }
-              ],
-              "modifierNameSteps": [
-                "Level1",
-                "Level2",
-                "Level3",
-                "Level4"
-              ]
-            }
-          ]
-        },
-        "Level1": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Djinn_Feeling_01"
-              }
-            }
-          ]
-        },
-        "Level2": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Djinn_Feeling_02"
-              }
-            }
-          ]
-        },
-        "Level3": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Djinn_Feeling_03"
-              }
-            }
-          ]
-        },
-        "Level4": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Djinn_Feeling_04"
-              }
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.SetGlobalValue",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          },
-          "key": "_ABILITY_Djinn_Comfort",
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "ShowEmotion"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_NPCObj_Ani_Djinn_02_Ability",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Appear"
-          ],
-          "modifierName": "AppearState"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Idle"
-          ],
-          "modifierName": "IdleState"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Show02Loop"
-          ],
-          "modifierName": "SleepState"
-        }
-      ],
-      "modifiers": {
-        "AppearState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Djinn_Show"
-              }
-            }
-          ]
-        },
-        "SleepState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Djinn_Sleep"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "attachPointName": "DjinnSleepPoint"
-              }
-            }
-          ]
-        },
-        "IdleState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 15.0
-          },
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "_Show_Mode",
-              "useLimitRange": true,
-              "randomInRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 10.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_Show_Mode",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 7.0
-                  },
-                  "compareType": "LessAndEqual"
-                }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "Show01"
-              },
-              "MPTriggerOnRemote": true
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_Show_Mode",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 7.0
-                  },
-                  "maxValue": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 11.0
-                  },
-                  "compareType": "Between"
-                }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "Show02"
-              },
-              "MPTriggerOnRemote": true
-            }
-          ]
-        }
-      }
-    }
-  }
 ]

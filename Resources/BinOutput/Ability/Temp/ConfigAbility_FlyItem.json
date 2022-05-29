@@ -1,101 +1,72 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Activity_FlyItem",
-      "modifiers": {
-        "UNIQUE_Flying_SpeedUp_Team": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 30.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "target": "Team",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Widget_FlySpeedUp_Use_Loop"
-              }
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Activity_FlyItem",
+            "HNEIEGHMLKH": {
+                "UNIQUE_Flying_SpeedUp_Team": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "GMIMMDOGGIO": 30.0,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "NPHOOPNDCAC": "Team",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Widget_FlySpeedUp_Use_Loop"
+                        },
+                        {
+                            "$type": "AttachModifier",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "GAIGOBCNNEE": "AttachEffect_Fly"
+                        }
+                    ]
+                },
+                "AttachEffect_Fly": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "AttachToStateIDMixin",
+                            "stateIDs": [
+                                "Fly",
+                                "Fall"
+                            ],
+                            "GAIGOBCNNEE": "AttachEffect_Fly_FireEffect"
+                        }
+                    ],
+                    "FFOHEEFOELN": {
+                        "Actor_FlyForwardSpeedMaxRatio": 0.30000001192092896
+                    },
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Widget_FlySpeedUp_Use"
+                        }
+                    ]
+                },
+                "AttachEffect_Fly_FireEffect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "NPHOOPNDCAC": "Team",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Widget_FlySpeedUp"
+                        }
+                    ]
+                }
             },
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "target": "CurTeamAvatars",
-              "modifierName": "AttachEffect_Fly"
-            }
-          ]
-        },
-        "AttachEffect_Fly": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.AttachToStateIDMixin",
-              "stateIDs": [
-                "Fly",
-                "Fall"
-              ],
-              "modifierName": "AttachEffect_Fly_FireEffect"
-            }
-          ],
-          "properties": {
-            "Actor_FlyForwardSpeedMaxRatio": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.3
-            }
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "target": "CurLocalAvatar",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Widget_FlySpeedUp_Use"
-              }
-            }
-          ]
-        },
-        "AttachEffect_Fly_FireEffect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "target": "Team",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Widget_FlySpeedUp"
-              }
-            }
-          ]
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "NPHOOPNDCAC": "Team",
+                    "GAIGOBCNNEE": "UNIQUE_Flying_SpeedUp_Team"
+                }
+            ],
+            "FEFIHIEHDOM": true
         }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "target": "Team",
-          "modifierName": "UNIQUE_Flying_SpeedUp_Team"
-        }
-      ],
-      "isDynamicAbility": true
     }
-  }
 ]

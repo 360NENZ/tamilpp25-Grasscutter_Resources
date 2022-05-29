@@ -1,492 +1,437 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_SitDown",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseInt",
-          "intID": "ActionState",
-          "value": 1
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_Prone",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseInt",
-          "intID": "ActionState",
-          "value": 2
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_StandUp",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseInt",
-          "intID": "ActionState"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_AIStateInitial",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            1
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                102,
-                103
-              ]
-            }
-          ]
-        },
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            101
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                112,
-                113
-              ]
-            }
-          ]
-        },
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            2,
-            12
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                201,
-                202,
-                203
-              ]
-            }
-          ]
-        },
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            201
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                211,
-                212,
-                213
-              ]
-            }
-          ]
-        },
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            3,
-            13
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                301,
-                302
-              ]
-            }
-          ]
-        },
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            301
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                311,
-                312
-              ]
-            }
-          ]
-        }
-      ],
-      "modifiers": {
-        "UNIQUE_Invincible": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "Invincible"
-        },
-        "DenyLockOn": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "DenyLockOn"
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "modifierName": "UNIQUE_Invincible"
-        },
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "modifierName": "DenyLockOn"
-        },
-        {
-          "$type": "MoleMole.Config.AttachAbilityStateResistance",
-          "resistanceListID": 11001
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_BeHit",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            1,
-            2,
-            3,
-            101,
-            201,
-            202,
-            301,
-            302,
-            12,
-            13
-          ],
-          "modifierName": "BeHitCount"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Disappear"
-          ],
-          "modifierName": "Disappear"
-        },
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            5,
-            501
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "FleeCountDown"
-            }
-          ]
-        }
-      ],
-      "modifiers": {
-        "BeHitCount": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onBeingHit": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorFloat",
-              "floatID": "DodgeWeight",
-              "useRandomValue": true,
-              "randomValueMin": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "randomValueMax": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.Predicated",
-              "target": "Target",
-              "targetPredicates": [
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_SitDown",
+            "HKBHLMNEMKM": [
                 {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar",
-                    "Monster",
-                    "Gadget",
-                    "Bullet"
-                  ]
+                    "$type": "SetPoseInt",
+                    "intID": "ActionState",
+                    "weight": 1
                 }
-              ],
-              "successActions": [
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_Prone",
+            "HKBHLMNEMKM": [
                 {
-                  "$type": "MoleMole.Config.SetAnimatorTrigger",
-                  "triggerID": {
-                    "isDynamic": false,
-                    "fixedValue": "BeHitTrigger"
-                  }
+                    "$type": "SetPoseInt",
+                    "intID": "ActionState",
+                    "weight": 2
                 }
-              ],
-              "failActions": [
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_StandUp",
+            "HKBHLMNEMKM": [
                 {
-                  "$type": "MoleMole.Config.SetPoseBool",
-                  "boolID": "FleeState",
-                  "value": true
+                    "$type": "SetPoseInt",
+                    "intID": "ActionState"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_AIStateInitial",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        1
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                102,
+                                103
+                            ]
+                        }
+                    ]
                 },
                 {
-                  "$type": "MoleMole.Config.SetAnimatorBool",
-                  "boolID": "FleeState",
-                  "value": true
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        101
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                112,
+                                113
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        2,
+                        12
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                201,
+                                202,
+                                203
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        201
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                211,
+                                212,
+                                213
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        3,
+                        13
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                301,
+                                302
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        301
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                311,
+                                312
+                            ]
+                        }
+                    ]
                 }
-              ]
+            ],
+            "HNEIEGHMLKH": {
+                "UNIQUE_Invincible": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "state": "Invincible"
+                },
+                "DenyLockOn": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "DenyLockOn"
+                }
             },
-            {
-              "$type": "MoleMole.Config.SetPoseInt",
-              "intID": "ActionState"
-            }
-          ]
-        },
-        "Disappear": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.StartDither",
-              "duration": 3.0
-            },
-            {
-              "$type": "MoleMole.Config.KillSelf",
-              "duration": 2.0,
-              "banDrop": true,
-              "banExp": true,
-              "killSelfType": "Disappear"
-            }
-          ]
-        },
-        "FleeCountDown": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 30.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "FleeState"
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "FleeState"
-            }
-          ]
+            "KCICDEJLIJD": [
+                {
+                    "$type": "AttachModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Invincible"
+                },
+                {
+                    "$type": "AttachModifier",
+                    "GAIGOBCNNEE": "DenyLockOn"
+                },
+                {
+                    "$type": "AttachAbilityStateResistance",
+                    "KPGAIMMIKDA": 11001
+                }
+            ]
         }
-      }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_BeHit",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        1,
+                        2,
+                        3,
+                        101,
+                        201,
+                        202,
+                        301,
+                        302,
+                        12,
+                        13
+                    ],
+                    "GAIGOBCNNEE": "BeHitCount"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Disappear"
+                    ],
+                    "GAIGOBCNNEE": "Disappear"
+                },
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        5,
+                        501
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "FleeCountDown"
+                        }
+                    ]
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "BeHitCount": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "onBeingHit": [
+                        {
+                            "$type": "SetAnimatorFloat",
+                            "floatID": "DodgeWeight",
+                            "NPDHFAKOCJC": true,
+                            "JDGCMDOIDDI": 0.0,
+                            "KGAKOONKNAD": 1.0
+                        },
+                        {
+                            "$type": "Predicated",
+                            "NPHOOPNDCAC": "Target",
+                            "ELDBAFHCOBL": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar",
+                                        "Monster",
+                                        "Gadget",
+                                        "Bullet"
+                                    ]
+                                }
+                            ],
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "SetAnimatorTrigger",
+                                    "triggerID": "BeHitTrigger"
+                                }
+                            ],
+                            "BMIOBLGLPIM": [
+                                {
+                                    "$type": "SetPoseBool",
+                                    "HHFIHBEAPAP": "FleeState",
+                                    "value": true
+                                },
+                                {
+                                    "$type": "SetAnimatorBool",
+                                    "HHFIHBEAPAP": "FleeState",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "SetPoseInt",
+                            "intID": "ActionState"
+                        }
+                    ]
+                },
+                "Disappear": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "StartDither",
+                            "duration": 3.0
+                        },
+                        {
+                            "$type": "KillSelf",
+                            "duration": 2.0,
+                            "BEKKIHBPHGD": true,
+                            "EOIGEKNINFE": true,
+                            "PGGBJIDIINM": "Disappear"
+                        }
+                    ]
+                },
+                "FleeCountDown": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 30.0,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "FleeState"
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "FleeState"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_CautiousRunning",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        402
+                    ],
+                    "GAIGOBCNNEE": "CautiousRunSpeedModifier"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Disappear_Cautious"
+                    ],
+                    "GAIGOBCNNEE": "Disappear_Cautious"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "CautiousRunSpeedModifier": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetAnimatorFloat",
+                            "floatID": "MoveSpeedRatio",
+                            "value": 1.5
+                        },
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "FleeState",
+                            "value": true
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "FleeState",
+                            "value": true
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "DisappearCautious",
+                            "value": true
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetAnimatorFloat",
+                            "floatID": "MoveSpeedRatio",
+                            "value": 1.0
+                        }
+                    ]
+                },
+                "Disappear_Cautious": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "StartDither",
+                            "duration": 5.0
+                        },
+                        {
+                            "$type": "KillSelf",
+                            "duration": 1.0,
+                            "BEKKIHBPHGD": true,
+                            "EOIGEKNINFE": true,
+                            "PGGBJIDIINM": "Disappear"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_TurnToSurround",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "Surround",
+                    "value": true
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_OutOfSurround",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "Surround"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Cat_CatFeedPointRegister",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "HungryAction",
+                        "HungryAfterAction"
+                    ],
+                    "GAIGOBCNNEE": "CatFeedPointRegister"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "CatFeedPointRegister": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "RegisterAIActionPoint",
+                            "pointType": "CatFeedPoint"
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "ReleaseAIActionPoint",
+                            "pointType": "CatFeedPoint"
+                        }
+                    ],
+                    "OGFFGLGEOGF": [
+                        {
+                            "$type": "ReleaseAIActionPoint",
+                            "pointType": "CatFeedPoint"
+                        }
+                    ]
+                }
+            }
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_CautiousRunning",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            402
-          ],
-          "modifierName": "CautiousRunSpeedModifier"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Disappear_Cautious"
-          ],
-          "modifierName": "Disappear_Cautious"
-        }
-      ],
-      "modifiers": {
-        "CautiousRunSpeedModifier": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorFloat",
-              "floatID": "MoveSpeedRatio",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.5
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "FleeState",
-              "value": true
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "FleeState",
-              "value": true
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "DisappearCautious",
-              "value": true
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorFloat",
-              "floatID": "MoveSpeedRatio",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ]
-        },
-        "Disappear_Cautious": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.StartDither",
-              "duration": 5.0
-            },
-            {
-              "$type": "MoleMole.Config.KillSelf",
-              "duration": 1.0,
-              "banDrop": true,
-              "banExp": true,
-              "killSelfType": "Disappear"
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_TurnToSurround",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "Surround",
-          "value": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_OutOfSurround",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "Surround"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Cat_CatFeedPointRegister",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "HungryAction",
-            "HungryAfterAction"
-          ],
-          "modifierName": "CatFeedPointRegister"
-        }
-      ],
-      "modifiers": {
-        "CatFeedPointRegister": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.RegisterAIActionPoint",
-              "pointType": "CatFeedPoint"
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.ReleaseAIActionPoint",
-              "pointType": "CatFeedPoint"
-            }
-          ],
-          "onKill": [
-            {
-              "$type": "MoleMole.Config.ReleaseAIActionPoint",
-              "pointType": "CatFeedPoint"
-            }
-          ]
-        }
-      }
-    }
-  }
 ]

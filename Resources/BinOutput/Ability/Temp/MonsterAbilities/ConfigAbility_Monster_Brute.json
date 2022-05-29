@@ -1,163 +1,138 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Brute_None_Turn",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "TurnRight"
-          ],
-          "startNormalizedTime": 0.27,
-          "endNormalizedTime": 0.78,
-          "angularSpeed": 150.0,
-          "attackTrigger": "",
-          "attackDistance": 2.0
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "TurnLeft"
-          ],
-          "startNormalizedTime": 0.15,
-          "endNormalizedTime": 0.71,
-          "angularSpeed": 150.0,
-          "attackTrigger": "",
-          "attackDistance": 2.0
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Brute_None_Alert",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "Sleep"
-        },
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "Sit"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Brute_None_RushAttack",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "RushAttack_BS"
-          ],
-          "startNormalizedTime": 0.75,
-          "angularSpeed": 180.0,
-          "attackTrigger": "",
-          "attackDistance": 2.0
-        },
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "RushAttack_Loop"
-          ],
-          "modifierName": "Rush"
-        },
-        {
-          "$type": "MoleMole.Config.AttackHittingSceneMixin",
-          "onHittingScene": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "CrashTrigger"
-              }
-            }
-          ],
-          "animEventIDs": [
-            "ShieldRush_HitScene"
-          ]
-        }
-      ],
-      "modifiers": {
-        "Rush": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Brute_None_NoWeapon_RushAttack_Dust"
-              }
-            }
-          ],
-          "onAttackLanded": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Brute_None_Turn",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ],
-                  "useEventSource": true
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "TurnRight"
+                    ],
+                    "EOOBFBGMGLD": 0.27000001072883606,
+                    "IMHBEGIKDKB": 0.7799999713897705,
+                    "HENDIIJFPCI": 150.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 2.0
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "TurnLeft"
+                    ],
+                    "EOOBFBGMGLD": 0.15000000596046448,
+                    "IMHBEGIKDKB": 0.7099999785423279,
+                    "HENDIIJFPCI": 150.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 2.0
                 }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "NextSkillTrigger"
-              }
-            }
-          ]
-        },
-        "RushAttack_Roar": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.4
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.1
-          },
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.ActCameraShake",
-              "cameraShake": {
-                "shakeType": "CustomVector",
-                "shakeRange": 0.04,
-                "shakeTime": 0.24,
-                "shakeDir": {
-                  "y": 1.0,
-                  "z": 0.5
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Brute_None_Alert",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "Sleep"
+                },
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "Sit"
                 }
-              }
-            }
-          ]
+            ]
         }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "RushAttack_Roar"
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Brute_None_RushAttack",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "RushAttack_BS"
+                    ],
+                    "EOOBFBGMGLD": 0.75,
+                    "HENDIIJFPCI": 180.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 2.0
+                },
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "RushAttack_Loop"
+                    ],
+                    "GAIGOBCNNEE": "Rush"
+                },
+                {
+                    "$type": "AttackHittingSceneMixin",
+                    "HOAPIHIBOCB": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "CrashTrigger"
+                        }
+                    ],
+                    "MIMLCECCJAL": [
+                        "ShieldRush_HitScene"
+                    ]
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "Rush": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Brute_None_NoWeapon_RushAttack_Dust"
+                        }
+                    ],
+                    "AIJPLNMHBEN": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ],
+                                    "AHLLKFIGNAO": true
+                                }
+                            ],
+                            "triggerID": "NextSkillTrigger"
+                        }
+                    ]
+                },
+                "RushAttack_Roar": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.4000000059604645,
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 0.10000000149011612,
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "ActCameraShake",
+                            "cameraShake": {
+                                "shakeType": "CustomVector",
+                                "shakeRange": 0.03999999910593033,
+                                "shakeTime": 0.23999999463558197,
+                                "shakeDir": {
+                                    "_y": 1.0,
+                                    "_z": 0.5
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "RushAttack_Roar"
+                }
+            ]
         }
-      ]
     }
-  }
 ]

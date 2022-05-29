@@ -1,556 +1,326 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_Standard_Cooking_Ability",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.HomeworldEnterEditorMixin",
-          "editorModifierNames": [
-            "OnHomeEditor"
-          ],
-          "worldModifierNames": [
-            "OnHomeWorld"
-          ]
-        }
-      ],
-      "modifiers": {
-        "OnHomeEditor": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          }
-        },
-        "OnHomeWorld": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "_Homeworld_Cooking",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Fire_State"
-            }
-          ]
-        },
-        "Fire_State": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.AttachModifierToSelfGlobalValueMixin",
-              "globalValueKey": "_Homeworld_Cooking",
-              "defaultGlobalValueOnCreate": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "valueSteps": [
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_Standard_Cooking_Ability",
+            "CHBMMFLIIGH": [
                 {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": -0.5
-                },
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.5
-                },
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.5
+                    "$type": "HomeworldEnterEditorMixin",
+                    "FLAAONCEBCF": [
+                        "OnHomeEditor"
+                    ],
+                    "FJAFNIKIOJM": [
+                        "OnHomeWorld"
+                    ]
                 }
-              ],
-              "modifierNameSteps": [
-                "Fire_Off",
-                "Fire_On"
-              ]
-            }
-          ]
-        },
-        "Fire_Off": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 5.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "_Homeworld_Cooking",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ],
-          "onBeingHit": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByHitElement",
-                  "element": "Fire"
-                }
-              ],
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "_Homeworld_Cooking",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        },
-        "Fire_On": {
-          "modifierName": "",
-          "elementType": "Fire",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 25.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Griller_FireCook_01"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "attachPointName": "FirePoint"
-              }
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "FireBasin_Smoke"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "attachPointName": "FirePoint"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "_Homeworld_Cooking",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_Standard_Cooking_Ability02",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.HomeworldEnterEditorMixin",
-          "editorModifierNames": [
-            "OnHomeEditor"
-          ],
-          "worldModifierNames": [
-            "OnHomeWorld"
-          ]
-        }
-      ],
-      "modifiers": {
-        "OnHomeEditor": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          }
-        },
-        "OnHomeWorld": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "_Homeworld_Cooking",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Fire_State"
-            }
-          ]
-        },
-        "Fire_State": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.AttachModifierToSelfGlobalValueMixin",
-              "globalValueKey": "_Homeworld_Cooking",
-              "defaultGlobalValueOnCreate": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "valueSteps": [
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": -0.5
+            ],
+            "HNEIEGHMLKH": {
+                "OnHomeEditor": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0
                 },
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.5
+                "OnHomeWorld": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "_Homeworld_Cooking",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Fire_State"
+                        }
+                    ]
                 },
-                {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.5
+                "Fire_State": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "AttachModifierToSelfGlobalValueMixin",
+                            "BPCFCANOMNH": "_Homeworld_Cooking",
+                            "FEGIOIGELHB": 0.0,
+                            "CMEDACODLEA": [
+                                -0.5,
+                                0.5,
+                                1.5
+                            ],
+                            "MIEPCOONDEM": [
+                                "Fire_Off",
+                                "Fire_On"
+                            ]
+                        }
+                    ]
+                },
+                "Fire_Off": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 5.0,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "_Homeworld_Cooking",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ],
+                    "onBeingHit": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "predicates": [
+                                {
+                                    "$type": "ByHitElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ],
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "_Homeworld_Cooking",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                },
+                "Fire_On": {
+                    "GAIGOBCNNEE": "",
+                    "elementType": "Fire",
+                    "elementDurability": 25.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Griller_FireCook_01",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "KJNJNKLLNCN": "FirePoint"
+                            }
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "FireBasin_Smoke",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "KJNJNKLLNCN": "FirePoint"
+                            }
+                        },
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "_Homeworld_Cooking",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
                 }
-              ],
-              "modifierNameSteps": [
-                "Fire_Off",
-                "Fire_On"
-              ]
             }
-          ]
-        },
-        "Fire_Off": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 5.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "_Homeworld_Cooking",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ],
-          "onBeingHit": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "predicates": [
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_Standard_Cooking_Ability02",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByHitElement",
-                  "element": "Fire"
+                    "$type": "HomeworldEnterEditorMixin",
+                    "FLAAONCEBCF": [
+                        "OnHomeEditor"
+                    ],
+                    "FJAFNIKIOJM": [
+                        "OnHomeWorld"
+                    ]
                 }
-              ],
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "_Homeworld_Cooking",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
+            ],
+            "HNEIEGHMLKH": {
+                "OnHomeEditor": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0
+                },
+                "OnHomeWorld": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "_Homeworld_Cooking",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Fire_State"
+                        }
+                    ]
+                },
+                "Fire_State": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "AttachModifierToSelfGlobalValueMixin",
+                            "BPCFCANOMNH": "_Homeworld_Cooking",
+                            "FEGIOIGELHB": 0.0,
+                            "CMEDACODLEA": [
+                                -0.5,
+                                0.5,
+                                1.5
+                            ],
+                            "MIEPCOONDEM": [
+                                "Fire_Off",
+                                "Fire_On"
+                            ]
+                        }
+                    ]
+                },
+                "Fire_Off": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 5.0,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "_Homeworld_Cooking",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ],
+                    "onBeingHit": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "predicates": [
+                                {
+                                    "$type": "ByHitElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ],
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "_Homeworld_Cooking",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                },
+                "Fire_On": {
+                    "GAIGOBCNNEE": "",
+                    "elementType": "Fire",
+                    "elementDurability": 25.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_SceneObj_Homeworld_Stoves_01_CookingFire"
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "FireBasin_Smoke",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "KJNJNKLLNCN": "FirePoint"
+                            }
+                        },
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "_Homeworld_Cooking",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                }
             }
-          ]
-        },
-        "Fire_On": {
-          "modifierName": "",
-          "elementType": "Fire",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 25.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_SceneObj_Homeworld_Stoves_01_CookingFire"
-              }
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "FireBasin_Smoke"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "attachPointName": "FirePoint"
-              }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_Standard_Candlelight_Ability",
+            "KCICDEJLIJD": [
+                {
+                    "$type": "AttachEffect",
+                    "JBHFPDMBFHN": "Eff_SceneObj_LYG_Common_Candlestick01_01"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_Standard_Bush_Ability",
+            "HNEIEGHMLKH": {
+                "Restart": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 10.0,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "FireBasin_Smoke",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornType",
+                                "offset": {
+                                    "AEAAJCIDPED": 0.0,
+                                    "KAAPLGBEDPM": -0.20000000298023224,
+                                    "PHDCJAHHIOG": 0.0
+                                },
+                                "JBPCKOKLHEB": true
+                            }
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "GrassMaterial"
+                        }
+                    ]
+                },
+                "GrassMaterial": {
+                    "GAIGOBCNNEE": "",
+                    "elementType": "Grass",
+                    "elementDurability": 30.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "_ABILITY_BURNING_IGNITE_ONLY",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 1.0
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "Restart"
+                        }
+                    ]
+                }
             },
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "_Homeworld_Cooking",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "GrassMaterial"
+                }
+            ],
+            "FEFIHIEHDOM": true
         }
-      }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "SceneObj_Homeworld_Standard_MainBuilding_Ability",
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ChangeTag",
+                    "tag": "Homeworld_Standard_MainBuilding"
+                }
+            ]
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_Standard_Candlelight_Ability",
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.AttachEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_SceneObj_LYG_Common_Candlestick01_01"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_Standard_Bush_Ability",
-      "modifiers": {
-        "Restart": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 10.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "FireBasin_Smoke"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornType",
-                "offset": {
-                  "x": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "y": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": -0.2
-                  },
-                  "z": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                },
-                "onGround": true
-              }
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "GrassMaterial"
-            }
-          ]
-        },
-        "GrassMaterial": {
-          "modifierName": "",
-          "elementType": "Grass",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 30.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "_ABILITY_BURNING_IGNITE_ONLY",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "Restart"
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "GrassMaterial"
-        }
-      ],
-      "isDynamicAbility": true
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "SceneObj_Homeworld_Standard_MainBuilding_Ability",
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ChangeTag",
-          "tag": "Homeworld_Standard_MainBuilding"
-        }
-      ]
-    }
-  }
 ]

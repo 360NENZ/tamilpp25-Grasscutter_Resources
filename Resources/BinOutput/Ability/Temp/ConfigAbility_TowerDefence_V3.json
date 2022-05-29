@@ -1,167 +1,113 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Ability_TowerDefence_V3_Avatar_SkillCDMinus",
-      "abilitySpecials": {
-        "SkillCDMinusRatio": {
-          "type": "float",
-          "dynamicValue": 0.35
-        }
-      },
-      "modifiers": {
-        "M_SkillCDMinus": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "properties": {
-            "Actor_SkillCDMinusRatio": {
-              "isFormula": false,
-              "isDynamic": true,
-              "dynamicKey": "SkillCDMinusRatio"
-            }
-          }
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "M_SkillCDMinus"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Ability_TowerDefence_V3_Avatar_Strengthen",
-      "modifiers": {
-        "M_Strengthen": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "properties": {
-            "Actor_FlyForwardSpeedMaxRatio": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.25
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Ability_TowerDefence_V3_Avatar_SkillCDMinus",
+            "EDDGGPMFDGK": {
+                "SkillCDMinusRatio": 0.3499999940395355
             },
-            "Animator_AttackSpeedRatio": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.25
-            },
-            "Animator_MoveSpeedRatio": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.25
-            }
-          }
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "M_Strengthen"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Ability_TowerDefence_V3_Avatar_Weaken_Monster_Health_Recover",
-      "modifiers": {
-        "M_Weaken_Monster_Health_Recover": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.5
-          },
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.Predicated",
-              "otherTargets": {
-                "$type": "MoleMole.Config.SelectTargetsByShape",
-                "sortType": "Nearest",
-                "shapeName": "CircleR4",
-                "campTargetType": "All",
-                "sizeRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
+            "HNEIEGHMLKH": {
+                "M_SkillCDMinus": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FFOHEEFOELN": {
+                        "Actor_SkillCDMinusRatio": "SkillCDMinusRatio"
+                    }
                 }
-              },
-              "targetPredicates": [
+            },
+            "KCICDEJLIJD": [
                 {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Monster"
-                  ]
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "M_SkillCDMinus"
                 }
-              ],
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.ApplyModifier",
-                  "target": "Target",
-                  "modifierName": "M_Monster_Health_Recover"
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Ability_TowerDefence_V3_Avatar_Strengthen",
+            "HNEIEGHMLKH": {
+                "M_Strengthen": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FFOHEEFOELN": {
+                        "Actor_FlyForwardSpeedMaxRatio": 0.25,
+                        "Animator_AttackSpeedRatio": 0.25,
+                        "Animator_MoveSpeedRatio": 0.25
+                    }
                 }
-              ]
-            }
-          ]
-        },
-        "M_Monster_Health_Recover": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "properties": {
-            "Actor_HealedAddDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": -1.0
-            }
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.DebugLog",
-              "content": "TD_V3: 给怪物上血量回复减弱Modifier"
             },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_AbyssCarpet_Enhanced"
-              }
-            }
-          ]
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "M_Strengthen"
+                }
+            ]
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "M_Weaken_Monster_Health_Recover"
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Ability_TowerDefence_V3_Avatar_Weaken_Monster_Health_Recover",
+            "HNEIEGHMLKH": {
+                "M_Weaken_Monster_Health_Recover": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 0.5,
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "Predicated",
+                            "GILFKOBKGLI": {
+                                "$type": "SelectTargetsByShape",
+                                "AKMLOIFOBPO": "Nearest",
+                                "JBKKOJLJHDK": "CircleR4",
+                                "ONPOPLLHJLE": "All",
+                                "CJJABKCAIEB": 1.0
+                            },
+                            "ELDBAFHCOBL": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Monster"
+                                    ]
+                                }
+                            ],
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "ApplyModifier",
+                                    "NPHOOPNDCAC": "Target",
+                                    "GAIGOBCNNEE": "M_Monster_Health_Recover"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "M_Monster_Health_Recover": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 1.0,
+                    "elementDurability": 100.0,
+                    "FFOHEEFOELN": {
+                        "Actor_HealedAddDelta": -1.0
+                    },
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "DebugLog",
+                            "CBEDAJEGJBM": "TD_V3: 给怪物上血量回复减弱Modifier"
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_AbyssCarpet_Enhanced"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "M_Weaken_Monster_Health_Recover"
+                }
+            ]
         }
-      ]
     }
-  }
 ]

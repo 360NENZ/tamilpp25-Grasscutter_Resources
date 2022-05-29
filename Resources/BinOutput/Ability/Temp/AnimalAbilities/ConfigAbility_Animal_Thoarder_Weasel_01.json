@@ -1,671 +1,497 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_Alert",
-      "modifiers": {
-        "SetSelfAttackTarget": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetSelfAttackTarget",
-              "target": "Caster"
-            }
-          ]
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Thoarder_Weasel_Alert",
+            "HNEIEGHMLKH": {
+                "SetSelfAttackTarget": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetSelfAttackTarget",
+                            "NPHOOPNDCAC": "Caster"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "AddGlobalValue",
+                    "value": 1.0,
+                    "HJJEAOMEOFI": "_IS_WEASEL",
+                    "EODOIECEPEF": true,
+                    "JDHHMBHOOEC": 1.0,
+                    "KHAHOELDONA": 0.0
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "RemoveUniqueModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_Invisible"
+                },
+                {
+                    "$type": "AttachEffect",
+                    "ACOKKHADPOJ": true,
+                    "JBHFPDMBFHN": "Eff_Animal_Thoarder_Weasel_Jump",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornBySelf",
+                        "JBPCKOKLHEB": true
+                    }
+                },
+                {
+                    "$type": "Predicated",
+                    "GILFKOBKGLI": {
+                        "$type": "SelectTargetsBySelfGroup",
+                        "weight": 2
+                    },
+                    "ELDBAFHCOBL": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_IS_MOLE_HOLE",
+                            "value": 1.0
+                        }
+                    ],
+                    "NCNDEAPMKCP": [
+                        {
+                            "$type": "ApplyModifier",
+                            "NPHOOPNDCAC": "Target",
+                            "GAIGOBCNNEE": "SetSelfAttackTarget"
+                        }
+                    ]
+                }
+            ]
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.AddGlobalValue",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "key": "_IS_WEASEL",
-          "useLimitRange": true,
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Thoarder_Weasel_Drill",
+            "HNEIEGHMLKH": {
+                "UNIQUE_Blink_Actions": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Blink_Invincible"
+                        },
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Blink_DenyLockOn"
+                        },
+                        {
+                            "$type": "TriggerSetVisible"
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ]
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "TriggerSetVisible",
+                            "ACDFJMCPFGH": true
+                        }
+                    ]
+                },
+                "Blink_Invincible": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "Invincible"
+                },
+                "Blink_DenyLockOn": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "DenyLockOn"
+                },
+                "TriggerGadgetState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ExecuteGadgetLua",
+                            "JFOEGBAHFAC": 203
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "AddGlobalValue",
+                    "value": 1.0,
+                    "HJJEAOMEOFI": "_IS_WEASEL",
+                    "EODOIECEPEF": true,
+                    "JDHHMBHOOEC": 1.0,
+                    "KHAHOELDONA": 0.0
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Blink_Actions"
+                },
+                {
+                    "$type": "Predicated",
+                    "GILFKOBKGLI": {
+                        "$type": "SelectTargetsBySelfGroup",
+                        "weight": 2
+                    },
+                    "ELDBAFHCOBL": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_IS_MOLE_HOLE",
+                            "value": 1.0
+                        }
+                    ],
+                    "NCNDEAPMKCP": [
+                        {
+                            "$type": "ApplyModifier",
+                            "NPHOOPNDCAC": "Target",
+                            "GAIGOBCNNEE": "TriggerGadgetState"
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "Disappear",
+                            "value": true
+                        }
+                    ]
+                },
+                {
+                    "$type": "KillSelf",
+                    "BEKKIHBPHGD": true,
+                    "EOIGEKNINFE": true,
+                    "PGGBJIDIINM": "Disappear"
+                }
+            ]
         }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_Invisible"
-        },
-        {
-          "$type": "MoleMole.Config.AttachEffect",
-          "doOffStage": true,
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Animal_Thoarder_Weasel_Jump"
-          },
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornBySelf",
-            "onGround": true
-          }
-        },
-        {
-          "$type": "MoleMole.Config.Predicated",
-          "otherTargets": {
-            "$type": "MoleMole.Config.SelectTargetsBySelfGroup",
-            "value": 2
-          },
-          "targetPredicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_IS_MOLE_HOLE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "successActions": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "target": "Target",
-              "modifierName": "SetSelfAttackTarget"
-            }
-          ]
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Thoarder_Weasel_Drill_Exit",
+            "HNEIEGHMLKH": {
+                "Disappear_Invincible": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "Invincible"
+                },
+                "Disappear_DenyLockOn": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "DenyLockOn"
+                },
+                "Disappear_Display": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Disappear_Invincible"
+                        },
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Disappear_DenyLockOn"
+                        },
+                        {
+                            "$type": "TriggerSetVisible"
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "Disappear_Display"
+                },
+                {
+                    "$type": "KillSelf",
+                    "BEKKIHBPHGD": true,
+                    "EOIGEKNINFE": true,
+                    "PGGBJIDIINM": "Disappear"
+                }
+            ]
         }
-      ]
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Thoarder_Weasel_Jump",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        3
+                    ],
+                    "GAIGOBCNNEE": "UNIQUE_Invisible"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "Invisible": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "UNIQUE_Invisible"
+                        }
+                    ]
+                },
+                "UNIQUE_Invisible": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Invincible"
+                        },
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "DenyLockOn"
+                        },
+                        {
+                            "$type": "TriggerSetVisible"
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ]
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "TriggerSetVisible",
+                            "ACDFJMCPFGH": true
+                        }
+                    ]
+                },
+                "Invincible": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "Invincible"
+                },
+                "DenyLockOn": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "DenyLockOn"
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Thoarder_Weasel_Flee",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        901,
+                        911
+                    ],
+                    "GAIGOBCNNEE": "DropMora"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Run",
+                        "Disappear",
+                        "Walk",
+                        "Standby_Walk"
+                    ],
+                    "GAIGOBCNNEE": "Effect"
+                },
+                {
+                    "$type": "DoActionByAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Disappear"
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "Disappear"
+                        }
+                    ]
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "Effect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Animal_Thoarder_Weasel_Walk"
+                        }
+                    ]
+                },
+                "DropMora": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 0.5,
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "DropSubfield",
+                            "OAKHEJLOPGA": "MoraDrop"
+                        }
+                    ]
+                },
+                "Disappear": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 2.0,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "StartDither",
+                            "duration": 3.0
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "RemoveModifier",
+                            "GAIGOBCNNEE": "DropMora"
+                        },
+                        {
+                            "$type": "KillSelf",
+                            "BEKKIHBPHGD": true,
+                            "EOIGEKNINFE": true,
+                            "PGGBJIDIINM": "Disappear"
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "Disappear",
+                            "value": true
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Thoarder_Weasel_ToWander",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "Wander",
+                    "value": true
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Thoarder_Weasel_ToIdle",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "Wander"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Animal_Thoarder_Weasel_State",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        1,
+                        2,
+                        3,
+                        101,
+                        102,
+                        9
+                    ],
+                    "GAIGOBCNNEE": "LockHp"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "LockHp": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "LockHP"
+                },
+                "HideUIBillBoard": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "HideUIBillBoard",
+                            "COCENMAFJGD": true
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "HideUIBillBoard"
+                },
+                {
+                    "$type": "AttachEffect",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_THOARDER_WEASEL_LEVEL01",
+                            "value": 1.0
+                        }
+                    ],
+                    "JBHFPDMBFHN": "Eff_Animal_Thoarder_Weasel_Bag01"
+                },
+                {
+                    "$type": "AttachEffect",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_THOARDER_WEASEL_LEVEL02",
+                            "value": 1.0
+                        }
+                    ],
+                    "JBHFPDMBFHN": "Eff_Animal_Thoarder_Weasel_Bag02"
+                },
+                {
+                    "$type": "AttachEffect",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_THOARDER_WEASEL_LEVEL03",
+                            "value": 1.0
+                        }
+                    ],
+                    "JBHFPDMBFHN": "Eff_Animal_Thoarder_Weasel_Bag03"
+                }
+            ]
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_Drill",
-      "modifiers": {
-        "UNIQUE_Blink_Actions": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Blink_Invincible"
-            },
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Blink_DenyLockOn"
-            },
-            {
-              "$type": "MoleMole.Config.TriggerSetVisible"
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ]
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.TriggerSetVisible",
-              "visible": true
-            }
-          ]
-        },
-        "Blink_Invincible": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "Invincible"
-        },
-        "Blink_DenyLockOn": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "DenyLockOn"
-        },
-        "TriggerGadgetState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ExecuteGadgetLua",
-              "param1": 203
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.AddGlobalValue",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "key": "_IS_WEASEL",
-          "useLimitRange": true,
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "UNIQUE_Blink_Actions"
-        },
-        {
-          "$type": "MoleMole.Config.Predicated",
-          "otherTargets": {
-            "$type": "MoleMole.Config.SelectTargetsBySelfGroup",
-            "value": 2
-          },
-          "targetPredicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_IS_MOLE_HOLE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "successActions": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "target": "Target",
-              "modifierName": "TriggerGadgetState"
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "Disappear",
-              "value": true
-            }
-          ]
-        },
-        {
-          "$type": "MoleMole.Config.KillSelf",
-          "banDrop": true,
-          "banExp": true,
-          "killSelfType": "Disappear"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_Drill_Exit",
-      "modifiers": {
-        "Disappear_Invincible": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "Invincible"
-        },
-        "Disappear_DenyLockOn": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "DenyLockOn"
-        },
-        "Disappear_Display": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Disappear_Invincible"
-            },
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Disappear_DenyLockOn"
-            },
-            {
-              "$type": "MoleMole.Config.TriggerSetVisible"
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ]
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "Disappear_Display"
-        },
-        {
-          "$type": "MoleMole.Config.KillSelf",
-          "banDrop": true,
-          "banExp": true,
-          "killSelfType": "Disappear"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_Jump",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            3
-          ],
-          "modifierName": "UNIQUE_Invisible"
-        }
-      ],
-      "modifiers": {
-        "Invisible": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "UNIQUE_Invisible"
-            }
-          ]
-        },
-        "UNIQUE_Invisible": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Invincible"
-            },
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "DenyLockOn"
-            },
-            {
-              "$type": "MoleMole.Config.TriggerSetVisible"
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ]
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.TriggerSetVisible",
-              "visible": true
-            }
-          ]
-        },
-        "Invincible": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "Invincible"
-        },
-        "DenyLockOn": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "DenyLockOn"
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_Flee",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            901,
-            911
-          ],
-          "modifierName": "DropMora"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "Run",
-            "Disappear",
-            "Walk",
-            "Standby_Walk"
-          ],
-          "modifierName": "Effect"
-        },
-        {
-          "$type": "MoleMole.Config.DoActionByAnimatorStateIDMixin",
-          "stateIDs": [
-            "Disappear"
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "Disappear"
-            }
-          ]
-        }
-      ],
-      "modifiers": {
-        "Effect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Animal_Thoarder_Weasel_Walk"
-              }
-            }
-          ]
-        },
-        "DropMora": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.5
-          },
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.DropSubfield",
-              "subfieldName": "MoraDrop"
-            }
-          ]
-        },
-        "Disappear": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.StartDither",
-              "duration": 3.0
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "modifierName": "DropMora"
-            },
-            {
-              "$type": "MoleMole.Config.KillSelf",
-              "banDrop": true,
-              "banExp": true,
-              "killSelfType": "Disappear"
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "Disappear",
-              "value": true
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_ToWander",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "Wander",
-          "value": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_ToIdle",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "Wander"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_State",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            1,
-            2,
-            3,
-            101,
-            102,
-            9
-          ],
-          "modifierName": "LockHp"
-        }
-      ],
-      "modifiers": {
-        "LockHp": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "LockHP"
-        },
-        "HideUIBillBoard": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.HideUIBillBoard",
-              "hide": true
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "HideUIBillBoard"
-        },
-        {
-          "$type": "MoleMole.Config.AttachEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_THOARDER_WEASEL_LEVEL01",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Animal_Thoarder_Weasel_Bag01"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.AttachEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_THOARDER_WEASEL_LEVEL02",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Animal_Thoarder_Weasel_Bag02"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.AttachEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_THOARDER_WEASEL_LEVEL03",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Animal_Thoarder_Weasel_Bag03"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Animal_Thoarder_Weasel_CustomizedLoot",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            911
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "Debug_Effect"
-            }
-          ]
-        }
-      ],
-      "modifiers": {
-        "Debug_Effect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Sylph_Rock_RockBullet_Body"
-              }
-            }
-          ]
-        }
-      }
-    }
-  }
 ]

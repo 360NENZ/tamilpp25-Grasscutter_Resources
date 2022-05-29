@@ -1,369 +1,316 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_Male_Shovel_SteerAttack",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "NormalAtk"
-          ],
-          "endNormalizedTime": 0.02,
-          "angularSpeed": 270.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "NormalAtk"
-          ],
-          "startNormalizedTime": 0.15,
-          "endNormalizedTime": 0.23,
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "PowerSlam"
-          ],
-          "startNormalizedTime": 0.27,
-          "endNormalizedTime": 0.32,
-          "angularSpeed": 270.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "WildSlam_BS"
-          ],
-          "endNormalizedTime": 0.6,
-          "angularSpeed": 150.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "WildSlam_Loop"
-          ],
-          "angularSpeed": 100.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_Male_Shovel_SteerMove",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "Turn"
-          ],
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Thoarder_Male_Shovel_ShovelAttack_Bullet",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "ShovelAttack"
-          ],
-          "startNormalizedTime": 0.05,
-          "endNormalizedTime": 0.23,
-          "angularSpeed": 240.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "ShovelAttack"
-          ],
-          "startNormalizedTime": 0.4,
-          "endNormalizedTime": 0.42,
-          "angularSpeed": 360.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "bulletID": 42503001,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.35
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.5
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "maxAngleType": "Horizontal",
-              "maxAngle": 15.0
-            },
-            "attachPointName": "WeaponR"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Thoarder_Male_Shovel_StepShake",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ActCameraShake",
-          "cameraShake": {
-            "shakeType": "CustomVector",
-            "shakeRange": 0.06,
-            "shakeTime": 0.09,
-            "shakeDir": {
-              "y": -1.0
-            }
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Thoarder_Male_Shovel_WildSlam_Loop",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "WildSlam_BS",
-            "WildSlam_Loop"
-          ],
-          "modifierName": "WildSlamHitAvatar"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "WildSlam_Loop"
-          ],
-          "modifierName": "WildSlamRushEffect"
-        }
-      ],
-      "modifiers": {
-        "WildSlamHitAvatar": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAttackLanded": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_Male_Shovel_SteerAttack",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ],
-                  "useEventSource": true
-                }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "WildSlamLoopEndTrigger"
-              }
-            }
-          ]
-        },
-        "WildSlamRushEffect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Thoarder_Male_Shovel_WildSlam_Dust"
-              }
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Thoarder_Male_Shovel_WildSlam_RushEffect",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "WildSlam_BS",
-            "WildSlam_Loop"
-          ],
-          "modifierName": "WildSlamHitAvatar"
-        }
-      ],
-      "modifiers": {
-        "WildSlamHitAvatar": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAttackLanded": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "NormalAtk"
+                    ],
+                    "IMHBEGIKDKB": 0.019999999552965164,
+                    "HENDIIJFPCI": 270.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
                 {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ],
-                  "useEventSource": true
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "NormalAtk"
+                    ],
+                    "EOOBFBGMGLD": 0.15000000596046448,
+                    "IMHBEGIKDKB": 0.23000000417232513,
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "PowerSlam"
+                    ],
+                    "EOOBFBGMGLD": 0.27000001072883606,
+                    "IMHBEGIKDKB": 0.3199999928474426,
+                    "HENDIIJFPCI": 270.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "WildSlam_BS"
+                    ],
+                    "IMHBEGIKDKB": 0.6000000238418579,
+                    "HENDIIJFPCI": 150.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "WildSlam_Loop"
+                    ],
+                    "HENDIIJFPCI": 100.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
                 }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "WildSlamLoopEndTrigger"
-              }
-            }
-          ]
+            ]
         }
-      }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_Male_Shovel_SteerMove",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "Turn"
+                    ],
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Thoarder_Male_Shovel_ShovelAttack_Bullet",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "ShovelAttack"
+                    ],
+                    "EOOBFBGMGLD": 0.05000000074505806,
+                    "IMHBEGIKDKB": 0.23000000417232513,
+                    "HENDIIJFPCI": 240.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "ShovelAttack"
+                    ],
+                    "EOOBFBGMGLD": 0.4000000059604645,
+                    "IMHBEGIKDKB": 0.41999998688697815,
+                    "HENDIIJFPCI": 360.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerBullet",
+                    "NGAAOMEHOGE": 42503001,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.3499999940395355,
+                            "PHDCJAHHIOG": 1.5
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "IHHIKIACOML": "Horizontal",
+                            "INCAGGBCJNF": 15.0
+                        },
+                        "KJNJNKLLNCN": "WeaponR"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Thoarder_Male_Shovel_StepShake",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ActCameraShake",
+                    "cameraShake": {
+                        "shakeType": "CustomVector",
+                        "shakeRange": 0.05999999865889549,
+                        "shakeTime": 0.09000000357627869,
+                        "shakeDir": {
+                            "_y": -1.0
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Thoarder_Male_Shovel_WildSlam_Loop",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "WildSlam_BS",
+                        "WildSlam_Loop"
+                    ],
+                    "GAIGOBCNNEE": "WildSlamHitAvatar"
+                },
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "WildSlam_Loop"
+                    ],
+                    "GAIGOBCNNEE": "WildSlamRushEffect"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "WildSlamHitAvatar": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "AIJPLNMHBEN": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ],
+                                    "AHLLKFIGNAO": true
+                                }
+                            ],
+                            "triggerID": "WildSlamLoopEndTrigger"
+                        }
+                    ]
+                },
+                "WildSlamRushEffect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Thoarder_Male_Shovel_WildSlam_Dust"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Thoarder_Male_Shovel_WildSlam_RushEffect",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "WildSlam_BS",
+                        "WildSlam_Loop"
+                    ],
+                    "GAIGOBCNNEE": "WildSlamHitAvatar"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "WildSlamHitAvatar": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "AIJPLNMHBEN": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ],
+                                    "AHLLKFIGNAO": true
+                                }
+                            ],
+                            "triggerID": "WildSlamLoopEndTrigger"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Thoarder_Male_Shovel_WildSlam_RushMove01",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "RushMove",
+                    "FJCBIPKOKMF": {
+                        "$type": "ConfigBornBySelf",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 5.0
+                        }
+                    },
+                    "JLCCGHLNHOI": 2.0,
+                    "GLALMCMAFJF": 2.200000047683716,
+                    "GDCBDDNNPCM": 0.20000000298023224
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Thoarder_Male_Shovel_AuxWeaponTrans",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        1001
+                    ],
+                    "GAIGOBCNNEE": "AuxWeaponTransManager"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "AuxWeaponTransManager": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "AttachToStateIDMixin",
+                            "stateIDs": [
+                                "NormalIdle",
+                                "NormalMove",
+                                "Turn",
+                                "BeHit"
+                            ],
+                            "GAIGOBCNNEE": "Shovel_AuxWeaponTrans"
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "RemoveModifier",
+                            "GAIGOBCNNEE": "Shovel_AuxWeaponTrans"
+                        }
+                    ]
+                },
+                "Shovel_AuxWeaponTrans": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "TriggerAuxWeaponTrans",
+                            "PAHBCOACBAI": true,
+                            "EPBOKNDHCPD": "equip01"
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "TriggerAuxWeaponTrans",
+                            "EPBOKNDHCPD": "equip01"
+                        }
+                    ]
+                }
+            }
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Thoarder_Male_Shovel_WildSlam_RushMove01",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.RushMove",
-          "toPos": {
-            "$type": "MoleMole.Config.ConfigBornBySelf",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 5.0
-              }
-            }
-          },
-          "minRange": 2.0,
-          "maxRange": 2.2,
-          "timeRange": 0.2
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Thoarder_Male_Shovel_AuxWeaponTrans",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            1001
-          ],
-          "modifierName": "AuxWeaponTransManager"
-        }
-      ],
-      "modifiers": {
-        "AuxWeaponTransManager": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.AttachToStateIDMixin",
-              "stateIDs": [
-                "NormalIdle",
-                "NormalMove",
-                "Turn",
-                "BeHit"
-              ],
-              "modifierName": "Shovel_AuxWeaponTrans"
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "modifierName": "Shovel_AuxWeaponTrans"
-            }
-          ]
-        },
-        "Shovel_AuxWeaponTrans": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.TriggerAuxWeaponTrans",
-              "setEnable": true,
-              "equipPart": "equip01"
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.TriggerAuxWeaponTrans",
-              "equipPart": "equip01"
-            }
-          ]
-        }
-      }
-    }
-  }
 ]

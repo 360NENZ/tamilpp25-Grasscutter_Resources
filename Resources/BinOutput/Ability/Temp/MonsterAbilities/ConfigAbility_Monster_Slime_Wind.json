@@ -1,1179 +1,961 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_02_GravityAdjust",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "HitThrow"
-          ],
-          "modifierName": "GravityAdjust"
-        }
-      ],
-      "modifiers": {
-        "GravityAdjust": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.375
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "properties": {
-            "Actor_AddGravityScale": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": -18.0
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_03_GravityAdjust",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "HitThrow"
-          ],
-          "modifierName": "GravityAdjust"
-        }
-      ],
-      "modifiers": {
-        "GravityAdjust": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.6
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "properties": {
-            "Actor_AddGravityScale": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": -20.0
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_02_InAir",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "HitThrowDrop",
-            "HitThrowDrop_BlowUp",
-            "HitThrowDrop_InAir"
-          ],
-          "modifierName": "BlowUpState"
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "BlowUp"
-          ],
-          "angularSpeed": 90.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        }
-      ],
-      "modifiers": {
-        "BlowUpState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.AttachToPoseIDMixin",
-              "poseIDs": [
-                2,
-                102
-              ],
-              "modifierName": "InAirState"
-            }
-          ]
-        },
-        "InAirState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "properties": {
-            "Actor_AddGravityScale": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": -1.9
-            }
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.RemoveVelocityForce",
-              "forces": [
-                "RetreatAirType"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox_InAir"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ]
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox_InAir"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ],
-              "setEnable": true
-            }
-          ],
-          "onBeingHit": [
-            {
-              "$type": "MoleMole.Config.KillSelf",
-              "predicates": [
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_02_GravityAdjust",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByHitImpulse",
-                  "hitImpulse": 0.0
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "HitThrow"
+                    ],
+                    "GAIGOBCNNEE": "GravityAdjust"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "GravityAdjust": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.375,
+                    "elementDurability": 100.0,
+                    "FFOHEEFOELN": {
+                        "Actor_AddGravityScale": -18.0
+                    }
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_03_GravityAdjust",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "HitThrow"
+                    ],
+                    "GAIGOBCNNEE": "GravityAdjust"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "GravityAdjust": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.6000000238418579,
+                    "elementDurability": 100.0,
+                    "FFOHEEFOELN": {
+                        "Actor_AddGravityScale": -20.0
+                    }
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_02_InAir",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "HitThrowDrop",
+                        "HitThrowDrop_BlowUp",
+                        "HitThrowDrop_InAir"
+                    ],
+                    "GAIGOBCNNEE": "BlowUpState"
                 },
                 {
-                  "$type": "MoleMole.Config.ByHitDamage",
-                  "damage": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "BlowUp"
+                    ],
+                    "HENDIIJFPCI": 90.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
                 }
-              ]
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_03_InAir",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "HitThrowDrop",
-            "HitThrowDrop_BlowUp",
-            "HitThrowDrop_InAir",
-            "HitThrowDrop_InAir_Long"
-          ],
-          "modifierName": "BlowUpState"
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "JumpAttack",
-            "BlowUp"
-          ],
-          "startNormalizedTime": 0.86,
-          "angularSpeed": 90.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        }
-      ],
-      "modifiers": {
-        "BlowUpState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.AttachToPoseIDMixin",
-              "poseIDs": [
-                2,
-                102
-              ],
-              "modifierName": "InAirState"
-            }
-          ],
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  },
-                  "forceByCaster": true
+            ],
+            "HNEIEGHMLKH": {
+                "BlowUpState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "AttachToPoseIDMixin",
+                            "poseIDs": [
+                                2,
+                                102
+                            ],
+                            "GAIGOBCNNEE": "InAirState"
+                        }
+                    ]
+                },
+                "InAirState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FFOHEEFOELN": {
+                        "Actor_AddGravityScale": -1.899999976158142
+                    },
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "RemoveVelocityForce",
+                            "forces": [
+                                "RetreatAirType"
+                            ]
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox_InAir"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ]
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox_InAir"
+                            ]
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ],
+                            "PAHBCOACBAI": true
+                        }
+                    ],
+                    "onBeingHit": [
+                        {
+                            "$type": "KillSelf",
+                            "predicates": [
+                                {
+                                    "$type": "ByHitImpulse",
+                                    "DJNJFCLGCMM": 0.0
+                                },
+                                {
+                                    "$type": "ByHitDamage",
+                                    "GOCKFJJFLHN": 0.0
+                                }
+                            ]
+                        }
+                    ]
                 }
-              ],
-              "boolID": "Elite_Modifier",
-              "value": true
             }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "EnableAirAtk"
-            }
-          ]
-        },
-        "InAirState": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.RemoveVelocityForce",
-              "forces": [
-                "RetreatAirType"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox_InAir"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ]
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox_InAir"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ],
-              "setEnable": true
-            }
-          ],
-          "onBeingHit": [
-            {
-              "$type": "MoleMole.Config.KillSelf",
-              "predicates": [
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_03_InAir",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByHitImpulse",
-                  "hitImpulse": 0.0
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "HitThrowDrop",
+                        "HitThrowDrop_BlowUp",
+                        "HitThrowDrop_InAir",
+                        "HitThrowDrop_InAir_Long"
+                    ],
+                    "GAIGOBCNNEE": "BlowUpState"
                 },
                 {
-                  "$type": "MoleMole.Config.ByHitDamage",
-                  "damage": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "JumpAttack",
+                        "BlowUp"
+                    ],
+                    "EOOBFBGMGLD": 0.8600000143051147,
+                    "HENDIIJFPCI": 90.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
                 }
-              ]
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_03_HitThrowToGround",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "EnableAirAtk",
-          "value": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_Die_Dither",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.StartDither",
-          "duration": 0.5
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_02_Die",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Slime_Wind_DieInAir"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.AttachEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Slime_Wind_DieInAir_Trail"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.CreateGadget",
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByTarget"
-          },
-          "gadgetID": 42001010,
-          "campID": 4001,
-          "campTargetType": "All"
-        },
-        {
-          "$type": "MoleMole.Config.ActCameraShake",
-          "cameraShake": {
-            "shakeType": "CustomVector",
-            "shakeRange": 0.06,
-            "shakeTime": 0.15,
-            "shakeDir": {
-              "y": 1.0,
-              "z": 0.5
-            }
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_02_Die_WindZone",
-      "modifiers": {
-        "WindZone": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.5
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.WindZoneMixin",
-              "shapeName": "CircleR4",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByTarget"
-              },
-              "strength": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -10.0
-              },
-              "attenuation": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "innerRadius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "targetType": "All",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetWeight",
-                  "logic": "LesserOrEqual",
-                  "weight": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 100.0
-                  }
+            ],
+            "HNEIEGHMLKH": {
+                "BlowUpState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "AttachToPoseIDMixin",
+                            "poseIDs": [
+                                2,
+                                102
+                            ],
+                            "GAIGOBCNNEE": "InAirState"
+                        }
+                    ],
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                                    "value": 1.0,
+                                    "EODMLMGMLNP": true
+                                }
+                            ],
+                            "HHFIHBEAPAP": "Elite_Modifier",
+                            "value": true
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "EnableAirAtk"
+                        }
+                    ]
+                },
+                "InAirState": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "RemoveVelocityForce",
+                            "forces": [
+                                "RetreatAirType"
+                            ]
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox_InAir"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ]
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox_InAir"
+                            ]
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ],
+                            "PAHBCOACBAI": true
+                        }
+                    ],
+                    "onBeingHit": [
+                        {
+                            "$type": "KillSelf",
+                            "predicates": [
+                                {
+                                    "$type": "ByHitImpulse",
+                                    "DJNJFCLGCMM": 0.0
+                                },
+                                {
+                                    "$type": "ByHitDamage",
+                                    "GOCKFJJFLHN": 0.0
+                                }
+                            ]
+                        }
+                    ]
                 }
-              ],
-              "modifierName": ""
             }
-          ]
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "WindZone"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_03_Die",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.AttachEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Slime_Wind_DieInAir_Trail"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Slime_Wind_DieInAir"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.CreateGadget",
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByTarget"
-          },
-          "gadgetID": 42001011,
-          "campID": 4001,
-          "campTargetType": "All"
-        },
-        {
-          "$type": "MoleMole.Config.ActCameraShake",
-          "cameraShake": {
-            "shakeType": "CustomVector",
-            "shakeRange": 0.16,
-            "shakeTime": 0.15,
-            "shakeDir": {
-              "y": 1.0,
-              "z": 0.5
-            }
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_03_Die_WindZone",
-      "modifiers": {
-        "WindZone": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.5
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.WindZoneMixin",
-              "shapeName": "CircleR8",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByTarget"
-              },
-              "strength": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -15.0
-              },
-              "attenuation": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 3.0
-              },
-              "innerRadius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "targetType": "All",
-              "predicates": [
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_03_HitThrowToGround",
+            "HKBHLMNEMKM": [
                 {
-                  "$type": "MoleMole.Config.ByTargetWeight",
-                  "logic": "LesserOrEqual",
-                  "weight": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 100.0
-                  }
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "EnableAirAtk",
+                    "value": true
                 }
-              ],
-              "modifierName": ""
-            }
-          ]
-        },
-        "Airflow": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 8.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.AirFlowMixin",
-              "gadgetID": 42001016,
-              "campTargetType": "All",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByTarget",
-                "onGround": true
-              }
-            }
-          ],
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Slime_Wind_Airflow"
-              }
-            }
-          ]
+            ]
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "WindZone"
-        },
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "Airflow"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_02_CompressAttack",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "CompressAttack_BS"
-          ],
-          "modifierName": "CompressAtk_BlowUp"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "CompressAttack",
-            "CompressAttack_AS"
-          ],
-          "modifierName": "CompressAtk_Effect"
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "CompressAttack"
-          ],
-          "endNormalizedTime": 0.25,
-          "angularSpeed": 240.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        }
-      ],
-      "modifiers": {
-        "CompressAtk_BlowUp": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox_InAir"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ]
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox_InAir"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ],
-              "setEnable": true
-            }
-          ],
-          "onBeingHit": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "BlowUpDie",
-              "value": true
-            },
-            {
-              "$type": "MoleMole.Config.KillSelf",
-              "predicates": [
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_Die_Dither",
+            "HKBHLMNEMKM": [
                 {
-                  "$type": "MoleMole.Config.ByHitImpulse",
-                  "hitImpulse": 0.0
+                    "$type": "StartDither",
+                    "duration": 0.5
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_02_Die",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_DieInAir"
                 },
                 {
-                  "$type": "MoleMole.Config.ByHitDamage",
-                  "damage": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "CompressAtk_Effect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Slime_Wind_CompressAtk_Trail"
-              }
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.RemoveModifier",
-          "modifierName": "CompressAtk_Effect"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_03_CompressAttack",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "CompressAttack_BS"
-          ],
-          "modifierName": "CompressAtk_BlowUp"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "CompressAttack",
-            "CompressAttack_AS"
-          ],
-          "modifierName": "CompressAtk_Effect"
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "CompressAttack"
-          ],
-          "endNormalizedTime": 0.4,
-          "angularSpeed": 150.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        }
-      ],
-      "modifiers": {
-        "CompressAtk_BlowUp": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox_InAir"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ]
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox_InAir"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ],
-              "setEnable": true
-            }
-          ],
-          "onBeingHit": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "BlowUpDie",
-              "value": true
-            },
-            {
-              "$type": "MoleMole.Config.KillSelf",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByHitImpulse",
-                  "hitImpulse": 0.0
+                    "$type": "AttachEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_DieInAir_Trail"
                 },
                 {
-                  "$type": "MoleMole.Config.ByHitDamage",
-                  "damage": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
+                    "$type": "CreateGadget",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByTarget"
+                    },
+                    "CABLIPAKCGB": 42001010,
+                    "DOLAJLACEDF": 4001,
+                    "ONPOPLLHJLE": "All"
+                },
+                {
+                    "$type": "ActCameraShake",
+                    "cameraShake": {
+                        "shakeType": "CustomVector",
+                        "shakeRange": 0.05999999865889549,
+                        "shakeTime": 0.15000000596046448,
+                        "shakeDir": {
+                            "_y": 1.0,
+                            "_z": 0.5
+                        }
+                    }
                 }
-              ]
-            }
-          ]
-        },
-        "CompressAtk_Effect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Slime_Wind_CompressAtk_Trail"
-              }
-            }
-          ]
+            ]
         }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.RemoveModifier",
-          "modifierName": "CompressAtk_Effect"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_TargetAltitude_Charge",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetAltitude",
-              "logic": "GreaterOrEqual",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 4.0
-              }
-            }
-          ],
-          "boolID": "HitInAir",
-          "value": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_BlowUpToGround",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "JumpAttack_BlowUp",
-            "HitThrowDrop_BlowUp",
-            "HitThrowDrop_InAir"
-          ],
-          "modifierName": "BlowUpEffect"
-        }
-      ],
-      "modifiers": {
-        "BlowUpEffect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Slime_Wind_BlowUpState"
-              }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_02_Die_WindZone",
+            "HNEIEGHMLKH": {
+                "WindZone": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.5,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "WindZoneMixin",
+                            "JBKKOJLJHDK": "CircleR4",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByTarget"
+                            },
+                            "BHELOIADOLH": -10.0,
+                            "HBBLBBPBLGE": 1.0,
+                            "IPDEDFHPHPO": 0.0,
+                            "OJIFKEOCJGB": "All",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetWeight",
+                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "IHCNHDLDFKC": 100.0
+                                }
+                            ],
+                            "GAIGOBCNNEE": ""
+                        }
+                    ]
+                }
             },
-            {
-              "$type": "MoleMole.Config.HideUIBillBoard",
-              "hide": true
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.HideUIBillBoard"
-            }
-          ]
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "WindZone"
+                }
+            ]
         }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "HitInAir"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_AirAtk_Tirgger",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetAnimatorTrigger",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByAnimatorFloat",
-              "logic": "Equal",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 102.0
-              },
-              "parameter": "PoseID"
-            }
-          ],
-          "triggerID": {
-            "isDynamic": false,
-            "fixedValue": "AirAtk"
-          },
-          "MPTriggerOnRemote": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_AirAtk",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByAnimatorFloat",
-              "logic": "Equal",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 102.0
-              },
-              "parameter": "PoseID"
-            }
-          ],
-          "bulletID": 42001007,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.25
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.75
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "maxAngleType": "Horizontal"
-            },
-            "attachPointName": "RootNode"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAudio",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByAnimatorFloat",
-              "logic": "Equal",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 102.0
-              },
-              "parameter": "PoseID"
-            }
-          ],
-          "operation": {
-            "$type": "MoleMole.Config.ConfigAudioEventOp",
-            "operation": {
-              "text": "Play_sfx_monster_slime_03_wind_jumpAtk_attack"
-            }
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_AirAtk_Explode",
-      "modifiers": {
-        "AirAtk_Loop": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Slime_Wind_AirAtk_Missile"
-              }
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "AirAtk_Loop"
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackSphere",
-              "triggerType": "TriggerNoRepeat",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByCollisionPoint"
-              },
-              "radius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_03_Die",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "AttachEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_DieInAir_Trail"
                 },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_DieInAir"
                 },
-                "elementType": "Wind",
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 50.0
+                {
+                    "$type": "CreateGadget",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByTarget"
+                    },
+                    "CABLIPAKCGB": 42001011,
+                    "DOLAJLACEDF": 4001,
+                    "ONPOPLLHJLE": "All"
                 },
-                "strikeType": "Pierce",
-                "enBreak": 80.0
-              },
-              "hitPattern": {
-                "onHitEffectName": "default",
-                "hitImpulseType": "LV3",
-                "hitHaltTimeScale": 0.05
-              },
-              "cameraShake": {
-                "shakeRange": 0.06,
-                "shakeTime": 0.09
-              },
-              "canBeModifiedBy": "OriginOwner"
+                {
+                    "$type": "ActCameraShake",
+                    "cameraShake": {
+                        "shakeType": "CustomVector",
+                        "shakeRange": 0.1599999964237213,
+                        "shakeTime": 0.15000000596046448,
+                        "shakeDir": {
+                            "_y": 1.0,
+                            "_z": 0.5
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_03_Die_WindZone",
+            "HNEIEGHMLKH": {
+                "WindZone": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.5,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "WindZoneMixin",
+                            "JBKKOJLJHDK": "CircleR8",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByTarget"
+                            },
+                            "BHELOIADOLH": -15.0,
+                            "HBBLBBPBLGE": 3.0,
+                            "IPDEDFHPHPO": 0.0,
+                            "OJIFKEOCJGB": "All",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetWeight",
+                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "IHCNHDLDFKC": 100.0
+                                }
+                            ],
+                            "GAIGOBCNNEE": ""
+                        }
+                    ]
+                },
+                "Airflow": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 8.0,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "AirFlowMixin",
+                            "CABLIPAKCGB": 42001016,
+                            "ONPOPLLHJLE": "All",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByTarget",
+                                "JBPCKOKLHEB": true
+                            }
+                        }
+                    ],
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_Airflow"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "WindZone"
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "Airflow"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_02_CompressAttack",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "CompressAttack_BS"
+                    ],
+                    "GAIGOBCNNEE": "CompressAtk_BlowUp"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "CompressAttack",
+                        "CompressAttack_AS"
+                    ],
+                    "GAIGOBCNNEE": "CompressAtk_Effect"
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "CompressAttack"
+                    ],
+                    "IMHBEGIKDKB": 0.25,
+                    "HENDIIJFPCI": 240.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "CompressAtk_BlowUp": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox_InAir"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ]
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox_InAir"
+                            ]
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ],
+                            "PAHBCOACBAI": true
+                        }
+                    ],
+                    "onBeingHit": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "BlowUpDie",
+                            "value": true
+                        },
+                        {
+                            "$type": "KillSelf",
+                            "predicates": [
+                                {
+                                    "$type": "ByHitImpulse",
+                                    "DJNJFCLGCMM": 0.0
+                                },
+                                {
+                                    "$type": "ByHitDamage",
+                                    "GOCKFJJFLHN": 0.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "CompressAtk_Effect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_CompressAtk_Trail"
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "RemoveModifier",
+                    "GAIGOBCNNEE": "CompressAtk_Effect"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_03_CompressAttack",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "CompressAttack_BS"
+                    ],
+                    "GAIGOBCNNEE": "CompressAtk_BlowUp"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "CompressAttack",
+                        "CompressAttack_AS"
+                    ],
+                    "GAIGOBCNNEE": "CompressAtk_Effect"
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "CompressAttack"
+                    ],
+                    "IMHBEGIKDKB": 0.4000000059604645,
+                    "HENDIIJFPCI": 150.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "CompressAtk_BlowUp": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox_InAir"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ]
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox_InAir"
+                            ]
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ],
+                            "PAHBCOACBAI": true
+                        }
+                    ],
+                    "onBeingHit": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "BlowUpDie",
+                            "value": true
+                        },
+                        {
+                            "$type": "KillSelf",
+                            "predicates": [
+                                {
+                                    "$type": "ByHitImpulse",
+                                    "DJNJFCLGCMM": 0.0
+                                },
+                                {
+                                    "$type": "ByHitDamage",
+                                    "GOCKFJJFLHN": 0.0
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "CompressAtk_Effect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_CompressAtk_Trail"
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "RemoveModifier",
+                    "GAIGOBCNNEE": "CompressAtk_Effect"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_TargetAltitude_Charge",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetAltitude",
+                            "GMFCOCAJBDM": "GreaterOrEqual",
+                            "value": 4.0
+                        }
+                    ],
+                    "HHFIHBEAPAP": "HitInAir",
+                    "value": true
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_BlowUpToGround",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "JumpAttack_BlowUp",
+                        "HitThrowDrop_BlowUp",
+                        "HitThrowDrop_InAir"
+                    ],
+                    "GAIGOBCNNEE": "BlowUpEffect"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "BlowUpEffect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_BlowUpState"
+                        },
+                        {
+                            "$type": "HideUIBillBoard",
+                            "COCENMAFJGD": true
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "HideUIBillBoard"
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "HitInAir"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_AirAtk_Tirgger",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetAnimatorTrigger",
+                    "predicates": [
+                        {
+                            "$type": "ByAnimatorFloat",
+                            "GMFCOCAJBDM": "Equal",
+                            "value": 102.0,
+                            "MOCGJNIDDAI": "PoseID"
+                        }
+                    ],
+                    "triggerID": "AirAtk",
+                    "IFJLLJJCLNC": true
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_AirAtk",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerBullet",
+                    "predicates": [
+                        {
+                            "$type": "ByAnimatorFloat",
+                            "GMFCOCAJBDM": "Equal",
+                            "value": 102.0,
+                            "MOCGJNIDDAI": "PoseID"
+                        }
+                    ],
+                    "NGAAOMEHOGE": 42001007,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "KAAPLGBEDPM": 0.25,
+                            "PHDCJAHHIOG": 1.75
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "IHHIKIACOML": "Horizontal"
+                        },
+                        "KJNJNKLLNCN": "RootNode"
+                    }
+                },
+                {
+                    "$type": "TriggerAudio",
+                    "predicates": [
+                        {
+                            "$type": "ByAnimatorFloat",
+                            "GMFCOCAJBDM": "Equal",
+                            "value": 102.0,
+                            "MOCGJNIDDAI": "PoseID"
+                        }
+                    ],
+                    "POCPPGDMDEA": {
+                        "$type": "ConfigAudioEventOp",
+                        "POCPPGDMDEA": {
+                            "text": "Play_sfx_monster_slime_03_wind_jumpAtk_attack"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_AirAtk_Explode",
+            "HNEIEGHMLKH": {
+                "AirAtk_Loop": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_AirAtk_Missile"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "AirAtk_Loop"
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerAttackEvent",
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackSphere",
+                            "lifeTime": "TriggerNoRepeat",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByCollisionPoint"
+                            },
+                            "ICGFCBOFFDI": 1.0
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 1.0,
+                                "damagePercentageRatio": 0.0,
+                                "elementType": "Wind",
+                                "elementDurability": 50.0,
+                                "strikeType": "Pierce",
+                                "enBreak": 80.0
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "default",
+                                "hitImpulseType": "LV3",
+                                "hitHaltTimeScale": 0.05000000074505806
+                            },
+                            "cameraShake": {
+                                "shakeRange": 0.05999999865889549,
+                                "shakeTime": 0.09000000357627869
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                },
+                {
+                    "$type": "RemoveModifier",
+                    "GAIGOBCNNEE": "AirAtk_Loop"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_03_JumpAttack",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "JumpAttack"
+                    ],
+                    "GAIGOBCNNEE": "JumpAttack_InAir"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "JumpAttack_InAir": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "SkillInAir",
+                            "value": true
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "SkillInAir"
+                        }
+                    ]
+                }
             }
-          },
-          "targetType": "Enemy"
-        },
-        {
-          "$type": "MoleMole.Config.RemoveModifier",
-          "modifierName": "AirAtk_Loop"
         }
-      ]
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Slime_Wind_AnimationSteer",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "Turn"
+                    ],
+                    "IMHBEGIKDKB": 0.5400000214576721,
+                    "HENDIIJFPCI": 180.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "NormalAttack"
+                    ],
+                    "IMHBEGIKDKB": 0.25,
+                    "HENDIIJFPCI": 360.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "JumpAttack"
+                    ],
+                    "IMHBEGIKDKB": 0.5,
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
+                }
+            ]
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_03_JumpAttack",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "JumpAttack"
-          ],
-          "modifierName": "JumpAttack_InAir"
-        }
-      ],
-      "modifiers": {
-        "JumpAttack_InAir": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "SkillInAir",
-              "value": true
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "SkillInAir"
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Slime_Wind_AnimationSteer",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "Turn"
-          ],
-          "endNormalizedTime": 0.54,
-          "angularSpeed": 180.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "NormalAttack"
-          ],
-          "endNormalizedTime": 0.25,
-          "angularSpeed": 360.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "JumpAttack"
-          ],
-          "endNormalizedTime": 0.5,
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        }
-      ]
-    }
-  }
 ]

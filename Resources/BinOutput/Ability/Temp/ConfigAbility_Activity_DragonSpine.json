@@ -1,286 +1,223 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "ActivityAbility_DragonSpine_Weapon_Attack",
-      "abilitySpecials": {
-        "AttackRatio": {
-          "type": "float",
-          "dynamicValue": 0.6
-        }
-      },
-      "modifiers": {
-        "UNIQUE_ActivityAbility_DragonSpine_Weapon_Attack": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.ModifyDamageMixin",
-              "ignoreEventInfo": true,
-              "damagePercentageRatio": {
-                "isFormula": false,
-                "isDynamic": true,
-                "dynamicKey": "AttackRatio"
-              },
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetLayoutArea",
-                  "climateType": "Cold",
-                  "areaID": 1
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_DragonSpine_Weapon_Attack",
+            "EDDGGPMFDGK": {
+                "AttackRatio": 0.6000000238418579
+            },
+            "HNEIEGHMLKH": {
+                "UNIQUE_ActivityAbility_DragonSpine_Weapon_Attack": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "ModifyDamageMixin",
+                            "BNNAFHAMNJG": true,
+                            "damagePercentageRatio": "AttackRatio",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetLayoutArea",
+                                    "LFLNMOIEOGI": "Cold",
+                                    "JLPNHDPHDEH": 1
+                                }
+                            ]
+                        }
+                    ]
                 }
-              ]
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_Attack"
-        },
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_Attack"
-        }
-      ],
-      "isDynamicAbility": true
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "ActivityAbility_DragonSpine_Weapon_AntiCold",
-      "abilitySpecials": {
-        "ResistClimateRatio": {
-          "type": "float",
-          "dynamicValue": -0.33
-        }
-      },
-      "modifiers": {
-        "UNIQUE_ActivityAbility_DragonSpine_Weapon_AntiCold": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.ResistClimateMixin",
-              "climateTypes": [
-                "Cold"
-              ],
-              "trend": "Rise",
-              "ratio": {
-                "isFormula": false,
-                "isDynamic": true,
-                "dynamicKey": "ResistClimateRatio"
-              },
-              "type": "Current"
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_AntiCold"
-        },
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_AntiCold"
-        }
-      ],
-      "isDynamicAbility": true
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "ActivityAbility_DragonSpine_Weapon_Critical",
-      "abilitySpecials": {
-        "CriticalDelta": {
-          "type": "float",
-          "dynamicValue": 0.35
-        }
-      },
-      "modifiers": {
-        "UNIQUE_ActivityAbility_DragonSpine_Weapon_Critical": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.ModifyDamageMixin",
-              "ignoreEventInfo": true,
-              "damagePercentageRatio": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "bonusCritical": {
-                "isFormula": false,
-                "isDynamic": true,
-                "dynamicKey": "CriticalDelta"
-              },
-              "predicates": [
+            },
+            "KCICDEJLIJD": [
                 {
-                  "$type": "MoleMole.Config.ByTargetLayoutArea",
-                  "climateType": "Cold",
-                  "areaID": 1
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_Critical"
-        },
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_Critical"
-        }
-      ],
-      "isDynamicAbility": true
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "ActivityAbility_DragonSpine_Weapon_BloodSmash",
-      "abilitySpecials": {
-        "Rate": {
-          "type": "float",
-          "dynamicValue": 0.5
-        }
-      },
-      "modifiers": {
-        "UNIQUE_ActivityAbility_DragonSpine_Weapon_BloodSmash": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.ModifyDamageMixin",
-              "attackTags": [
-                "BloodSmash"
-              ],
-              "damagePercentageRatio": {
-                "isFormula": false,
-                "isDynamic": true,
-                "dynamicKey": "Rate"
-              },
-              "predicates": [
+                    "$type": "RemoveUniqueModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_Attack"
+                },
                 {
-                  "$type": "MoleMole.Config.ByTargetLayoutArea",
-                  "climateType": "Cold",
-                  "areaID": 1
+                    "$type": "AttachModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_Attack"
                 }
-              ]
-            }
-          ]
+            ],
+            "FEFIHIEHDOM": true
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_BloodSmash"
-        },
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_BloodSmash"
-        }
-      ],
-      "isDynamicAbility": true
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "ActivityAbility_DragonSpine_Weapon_CriticalHurt",
-      "abilitySpecials": {
-        "CriticalHurtDelta": {
-          "type": "float",
-          "dynamicValue": 0.7
-        }
-      },
-      "modifiers": {
-        "UNIQUE_ActivityAbility_DragonSpine_Weapon_CriticalHurt": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.ModifyDamageMixin",
-              "ignoreEventInfo": true,
-              "damagePercentageRatio": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "bonusCriticalHurt": {
-                "isFormula": false,
-                "isDynamic": true,
-                "dynamicKey": "CriticalHurtDelta"
-              },
-              "predicates": [
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_DragonSpine_Weapon_AntiCold",
+            "EDDGGPMFDGK": {
+                "ResistClimateRatio": -0.33000001311302185
+            },
+            "HNEIEGHMLKH": {
+                "UNIQUE_ActivityAbility_DragonSpine_Weapon_AntiCold": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "ResistClimateMixin",
+                            "BJICCKMFOII": [
+                                "Cold"
+                            ],
+                            "KOJIMGFIHNP": "Rise",
+                            "ratio": "ResistClimateRatio",
+                            "type": "Current"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
                 {
-                  "$type": "MoleMole.Config.ByTargetLayoutArea",
-                  "climateType": "Cold",
-                  "areaID": 1
+                    "$type": "RemoveUniqueModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_AntiCold"
+                },
+                {
+                    "$type": "AttachModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_AntiCold"
                 }
-              ]
-            }
-          ]
+            ],
+            "FEFIHIEHDOM": true
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_CriticalHurt"
-        },
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "doOffStage": true,
-          "modifierName": "UNIQUE_ActivityAbility_DragonSpine_Weapon_CriticalHurt"
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_DragonSpine_Weapon_Critical",
+            "EDDGGPMFDGK": {
+                "CriticalDelta": 0.3499999940395355
+            },
+            "HNEIEGHMLKH": {
+                "UNIQUE_ActivityAbility_DragonSpine_Weapon_Critical": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "ModifyDamageMixin",
+                            "BNNAFHAMNJG": true,
+                            "damagePercentageRatio": 0.0,
+                            "bonusCritical": "CriticalDelta",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetLayoutArea",
+                                    "LFLNMOIEOGI": "Cold",
+                                    "JLPNHDPHDEH": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "RemoveUniqueModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_Critical"
+                },
+                {
+                    "$type": "AttachModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_Critical"
+                }
+            ],
+            "FEFIHIEHDOM": true
         }
-      ],
-      "isDynamicAbility": true
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_DragonSpine_Weapon_BloodSmash",
+            "EDDGGPMFDGK": {
+                "Rate": 0.5
+            },
+            "HNEIEGHMLKH": {
+                "UNIQUE_ActivityAbility_DragonSpine_Weapon_BloodSmash": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "ModifyDamageMixin",
+                            "NMJGDKCDFOJ": [
+                                "BloodSmash"
+                            ],
+                            "damagePercentageRatio": "Rate",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetLayoutArea",
+                                    "LFLNMOIEOGI": "Cold",
+                                    "JLPNHDPHDEH": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "RemoveUniqueModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_BloodSmash"
+                },
+                {
+                    "$type": "AttachModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_BloodSmash"
+                }
+            ],
+            "FEFIHIEHDOM": true
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "ActivityAbility_DragonSpine_Weapon_CriticalHurt",
+            "EDDGGPMFDGK": {
+                "CriticalHurtDelta": 0.699999988079071
+            },
+            "HNEIEGHMLKH": {
+                "UNIQUE_ActivityAbility_DragonSpine_Weapon_CriticalHurt": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "ModifyDamageMixin",
+                            "BNNAFHAMNJG": true,
+                            "damagePercentageRatio": 0.0,
+                            "ECGLDGPANDI": "CriticalHurtDelta",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetLayoutArea",
+                                    "LFLNMOIEOGI": "Cold",
+                                    "JLPNHDPHDEH": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "RemoveUniqueModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_CriticalHurt"
+                },
+                {
+                    "$type": "AttachModifier",
+                    "ACOKKHADPOJ": true,
+                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_DragonSpine_Weapon_CriticalHurt"
+                }
+            ],
+            "FEFIHIEHDOM": true
+        }
     }
-  }
 ]

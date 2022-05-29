@@ -1,1250 +1,905 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_FireElectricBall",
-      "modifiers": {
-        "UNIQUE_MonsterEliteAffix_DefaultState": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.UseSkillEliteSet",
-              "skillEliteSetID": 1
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ELITEAFFIX_TAG",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "compareType": "NoneOrEqual"
-            }
-          ],
-          "modifierName": "UNIQUE_MonsterEliteAffix_DefaultState"
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "bulletID": 42606001,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornBySelf",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.2
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.2
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget"
-            }
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_ElectricBall_Hit",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "modifierName": "UNIQUE_Cicin_ElectricBall_Loop"
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Cicin_Thunder_ElectricBallAS"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "doOffStage": true,
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackSphere",
-              "triggerType": "TriggerNoRepeat",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByCollisionPoint"
-              },
-              "radius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.5
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "elementType": "Electric",
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 50.0
-                },
-                "strikeType": "Default",
-                "enBreak": 20.0
-              },
-              "hitPattern": {
-                "onHitEffectName": "",
-                "hitImpulseType": "LV2",
-                "hitHaltTimeScale": 0.05
-              },
-              "canBeModifiedBy": "OriginOwner"
-            }
-          },
-          "targetType": "Enemy"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_ElectricBall_Effect",
-      "modifiers": {
-        "UNIQUE_Cicin_ElectricBall_Loop": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementType": "Electric",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 25.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Cicin_Thunder_ElectricBall"
-              }
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.KillSelf"
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "UNIQUE_Cicin_ElectricBall_Loop"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_RushAtkTrigger",
-      "modifiers": {
-        "RushAtkTrigger_Delay1": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.5
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "RushAtkTrigger"
-              }
-            }
-          ]
-        },
-        "RushAtkTrigger_Delay2": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "RushAtkTrigger"
-              }
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetAnimatorTrigger",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_SummonNumberInCicin",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "triggerID": {
-            "isDynamic": false,
-            "fixedValue": "RushAtkTrigger"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_SummonNumberInCicin",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              }
-            }
-          ],
-          "modifierName": "RushAtkTrigger_Delay1"
-        },
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_SummonNumberInCicin",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 3.0
-              }
-            }
-          ],
-          "modifierName": "RushAtkTrigger_Delay2"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_RushAtk",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "RushAtk"
-          ],
-          "modifierName": "Cincin_Thunder_RushAtk"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "RushAtk"
-          ],
-          "modifierName": "Cincin_Thunder_RushAtk_EnableCollider"
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "NormalAtk"
-          ],
-          "endNormalizedTime": 0.75,
-          "angularSpeed": 180.0,
-          "attackTrigger": "",
-          "attackDistance": 1.5
-        }
-      ],
-      "modifiers": {
-        "Cincin_Thunder_RushAtk": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.2
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Cicin_Thunder_ElectricSurround"
-              }
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Cicin_Thunder_ElectricSurroundAS"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "Ordered"
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackSphere",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornBySelf"
-                  },
-                  "radius": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 2.0
-                  }
-                },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.0
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementType": "Electric",
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 25.0
-                    },
-                    "strikeType": "Default",
-                    "enBreak": 25.0
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV2",
-                    "retreatType": "ByTangent",
-                    "hitHaltTimeScale": 0.05
-                  },
-                  "cameraShake": {}
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_FireElectricBall",
+            "HNEIEGHMLKH": {
+                "UNIQUE_MonsterEliteAffix_DefaultState": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "UseSkillEliteSet",
+                            "AFIOIAPCKEJ": 1
+                        }
+                    ]
                 }
-              },
-              "targetType": "Enemy"
-            }
-          ]
-        },
-        "Cincin_Thunder_RushAtk_EnableCollider": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "properties": {
-            "Actor_EndureDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.0
-            }
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.EnablePushColliderName",
-              "pushColliderNames": [
-                "PushCollider"
-              ]
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.EnablePushColliderName",
-              "pushColliderNames": [
-                "PushCollider"
-              ],
-              "setEnable": true
-            }
-          ]
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_TAG",
+                            "value": 0.0,
+                            "ONPJJFKDCED": "NoneOrEqual"
+                        }
+                    ],
+                    "GAIGOBCNNEE": "UNIQUE_MonsterEliteAffix_DefaultState"
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerBullet",
+                    "NGAAOMEHOGE": 42606001,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornBySelf",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.20000000298023224,
+                            "PHDCJAHHIOG": 1.2000000476837158
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget"
+                        }
+                    }
+                }
+            ]
         }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_BlinkState",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "Blink"
-          ],
-          "modifierName": "Blink_State"
-        }
-      ],
-      "modifiers": {
-        "Blink_State": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.RemoveUniqueModifier",
-              "modifierName": "UNIQUE_Cicin_Blink_Actions"
-            }
-          ]
-        },
-        "UNIQUE_Cicin_Blink_Actions": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Blink_Invincible"
-            },
-            {
-              "$type": "MoleMole.Config.AttachModifier",
-              "modifierName": "Blink_DenyLockOn"
-            },
-            {
-              "$type": "MoleMole.Config.TriggerSetVisible"
-            },
-            {
-              "$type": "MoleMole.Config.TriggerHideWeapon",
-              "partNames": [
-                "equip01"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.HideUIBillBoard",
-              "hide": true
-            },
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.EnablePushColliderName",
-              "pushColliderNames": [
-                "PushCollider"
-              ]
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.EnableHitBoxByName",
-              "hitBoxNames": [
-                "HitBox",
-                "HeadBox"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.EnablePushColliderName",
-              "pushColliderNames": [
-                "PushCollider"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.TriggerSetVisible",
-              "visible": true
-            },
-            {
-              "$type": "MoleMole.Config.TriggerHideWeapon",
-              "visible": true,
-              "partNames": [
-                "equip01"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.HideUIBillBoard"
-            }
-          ]
-        },
-        "Blink_Invincible": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "Invincible"
-        },
-        "Blink_DenyLockOn": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "state": "DenyLockOn"
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "UNIQUE_Cicin_Blink_Actions"
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Fatuus_Summoner_Disappear"
-          },
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornBySelf",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          }
-        },
-        {
-          "$type": "MoleMole.Config.ClearLockTarget",
-          "target": "CurLocalAvatar"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_FindBlinkPoint",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TryFindBlinkPointByBorn",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_SummonNumberInCicin",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornBySelfOwner",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.25
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              }
-            }
-          },
-          "limitY": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.5
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TryFindBlinkPointByBorn",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_SummonNumberInCicin",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              }
-            }
-          ],
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornBySelfOwner",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.25
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              }
-            }
-          },
-          "limitY": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.5
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TryFindBlinkPointByBorn",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_SummonNumberInCicin",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 3.0
-              }
-            }
-          ],
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornBySelfOwner",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -2.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.25
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              }
-            }
-          },
-          "limitY": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.5
-          }
-        },
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "Ordered",
-          "value": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_Blink",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.DoBlink"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_BlinkAS",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetSelfAttackTarget",
-          "target": "CurLocalAvatar",
-          "turnToTargetImmediately": true
-        },
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "modifierName": "UNIQUE_Cicin_Blink_Actions"
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Fatuus_Summoner_Appear"
-          },
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornBySelf"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_Die",
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.AddGlobalValue",
-          "target": "Owner",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "key": "_Summon_Count",
-          "useLimitRange": true,
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 3.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
-        }
-      ],
-      "onKill": [
-        {
-          "$type": "MoleMole.Config.AddGlobalValue",
-          "target": "Owner",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": -1.0
-          },
-          "key": "_Summon_Count",
-          "useLimitRange": true,
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 3.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_ThunderShieldCreateEnergy",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.AddGlobalValue",
-          "target": "Owner",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "key": "_ISOwner",
-          "useLimitRange": true,
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
-        },
-        {
-          "$type": "MoleMole.Config.AddGlobalValue",
-          "target": "Owner",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": -1.0
-          },
-          "key": "_Summon_Count",
-          "useLimitRange": true,
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 3.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "bulletID": 42606003,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornBySelf",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          },
-          "trackTarget": "TargetOwner"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_ThunderShieldDie",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.KillSelf",
-          "banDrop": true,
-          "banExp": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_Fury",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.DoActionByAnimatorStateIDMixin",
-          "stateIDs": [
-            "Fury"
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.SetEntityScale",
-              "scale": 2.0
-            }
-          ],
-          "exitActions": [
-            {
-              "$type": "MoleMole.Config.SetEntityScale"
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_Steer",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "NormalAtk"
-          ],
-          "endNormalizedTime": 0.75,
-          "angularSpeed": 180.0,
-          "attackTrigger": "",
-          "attackDistance": 1.5
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "Fury"
-          ],
-          "endNormalizedTime": 4.0,
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 1.5
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_CommonEffect",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAbilityStateMixin",
-          "abilityStates": [
-            "ElementFrozen"
-          ],
-          "modifierName": "FrozenDetect"
-        }
-      ],
-      "modifiers": {
-        "FrozenDetect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.TriggerSetRenderersEnable",
-              "renderNames": [
-                "Wing"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "modifierName": "CommonEffect"
-            },
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "Frozen",
-              "value": true
-            },
-            {
-              "$type": "MoleMole.Config.EnablePushColliderName",
-              "pushColliderNames": [
-                "PushCollider_Frozen"
-              ],
-              "setEnable": true
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.TriggerSetRenderersEnable",
-              "renderNames": [
-                "Wing"
-              ],
-              "setEnable": true
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "CommonEffect"
-            },
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "Frozen"
-            },
-            {
-              "$type": "MoleMole.Config.EnablePushColliderName",
-              "pushColliderNames": [
-                "PushCollider_Frozen"
-              ]
-            }
-          ]
-        },
-        "CommonEffect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Cicin_Thunder_WingElement_L"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "offset": {
-                  "x": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "y": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "z": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_ElectricBall_Hit",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "RemoveUniqueModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Cicin_ElectricBall_Loop"
                 },
-                "attachPointName": "WingLeft"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Cicin_Thunder_WingElement_R"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "offset": {
-                  "x": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "y": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "z": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_ElectricBallAS"
                 },
-                "attachPointName": "WingRight"
-              }
+                {
+                    "$type": "TriggerAttackEvent",
+                    "ACOKKHADPOJ": true,
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackSphere",
+                            "lifeTime": "TriggerNoRepeat",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByCollisionPoint"
+                            },
+                            "ICGFCBOFFDI": 0.5
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 1.0,
+                                "damagePercentageRatio": 0.0,
+                                "elementType": "Electric",
+                                "elementDurability": 50.0,
+                                "strikeType": "Default",
+                                "enBreak": 20.0
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "",
+                                "hitImpulseType": "LV2",
+                                "hitHaltTimeScale": 0.05000000074505806
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_ElectricBall_Effect",
+            "HNEIEGHMLKH": {
+                "UNIQUE_Cicin_ElectricBall_Loop": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementType": "Electric",
+                    "elementDurability": 25.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_ElectricBall"
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "KillSelf"
+                        }
+                    ]
+                }
             },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Cicin_Thunder_BodyElement"
-              }
-            }
-          ]
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Cicin_ElectricBall_Loop"
+                }
+            ]
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "CommonEffect"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_Element",
-      "modifiers": {
-        "Element": {
-          "modifierName": "",
-          "elementType": "Electric",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 50.0
-          },
-          "isElementDurabilityMutable": false
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "Element"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_TriggerOwnerDodge",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerAbility",
-          "target": "Owner",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetPositionToSelfPosition",
-              "logic": "GreaterOrEqual",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 6.0
-              }
-            }
-          ],
-          "abilityName": "Monster_Fatuus_Summoner_FindDodgePoint"
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAbility",
-          "target": "Owner",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetPositionToSelfPosition",
-              "logic": "Lesser",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 6.0
-              }
-            }
-          ],
-          "abilityName": "Monster_Fatuus_Summoner_FindDodgeBackPoint"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_ThunderEnergy",
-      "modifiers": {
-        "ThunderEnergy_Effect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Cicin_Thunder_Disappear"
-              }
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "modifierName": "ThunderEnergy_Effect"
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Cicin_Thunder_DisappearBS"
-          }
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.Predicated",
-          "target": "Target",
-          "targetPredicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ISOwner",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "successActions": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "modifierName": "ThunderEnergy_Effect"
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_RushAtkTrigger",
+            "HNEIEGHMLKH": {
+                "RushAtkTrigger_Delay1": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.5,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "RushAtkTrigger"
+                        }
+                    ]
+                },
+                "RushAtkTrigger_Delay2": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 1.0,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "RushAtkTrigger"
+                        }
+                    ]
+                }
             },
-            {
-              "$type": "MoleMole.Config.KillSelf"
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetAnimatorTrigger",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_SummonNumberInCicin",
+                            "value": 1.0
+                        }
+                    ],
+                    "triggerID": "RushAtkTrigger"
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_SummonNumberInCicin",
+                            "value": 2.0
+                        }
+                    ],
+                    "GAIGOBCNNEE": "RushAtkTrigger_Delay1"
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_SummonNumberInCicin",
+                            "value": 3.0
+                        }
+                    ],
+                    "GAIGOBCNNEE": "RushAtkTrigger_Delay2"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_RushAtk",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "RushAtk"
+                    ],
+                    "GAIGOBCNNEE": "Cincin_Thunder_RushAtk"
+                },
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "RushAtk"
+                    ],
+                    "GAIGOBCNNEE": "Cincin_Thunder_RushAtk_EnableCollider"
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "NormalAtk"
+                    ],
+                    "IMHBEGIKDKB": 0.75,
+                    "HENDIIJFPCI": 180.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 1.5
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "Cincin_Thunder_RushAtk": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 0.20000000298023224,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_ElectricSurround"
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_ElectricSurroundAS"
+                        },
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "Ordered"
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackSphere",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornBySelf"
+                                    },
+                                    "ICGFCBOFFDI": 2.0
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 1.0,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementType": "Electric",
+                                        "elementDurability": 25.0,
+                                        "strikeType": "Default",
+                                        "enBreak": 25.0
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV2",
+                                        "retreatType": "ByTangent",
+                                        "hitHaltTimeScale": 0.05000000074505806
+                                    },
+                                    "cameraShake": {}
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        }
+                    ]
+                },
+                "Cincin_Thunder_RushAtk_EnableCollider": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "FFOHEEFOELN": {
+                        "Actor_EndureDelta": 0.0
+                    },
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "EnablePushColliderName",
+                            "LEHFIPJFKBC": [
+                                "PushCollider"
+                            ]
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "EnablePushColliderName",
+                            "LEHFIPJFKBC": [
+                                "PushCollider"
+                            ],
+                            "PAHBCOACBAI": true
+                        }
+                    ]
+                }
             }
-          ]
         }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Cicin_ThunderEnergyAS",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Cicin_Thunder_DisappearAS"
-          }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_BlinkState",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "Blink"
+                    ],
+                    "GAIGOBCNNEE": "Blink_State"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "Blink_State": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "RemoveUniqueModifier",
+                            "GAIGOBCNNEE": "UNIQUE_Cicin_Blink_Actions"
+                        }
+                    ]
+                },
+                "UNIQUE_Cicin_Blink_Actions": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Blink_Invincible"
+                        },
+                        {
+                            "$type": "AttachModifier",
+                            "GAIGOBCNNEE": "Blink_DenyLockOn"
+                        },
+                        {
+                            "$type": "TriggerSetVisible"
+                        },
+                        {
+                            "$type": "TriggerHideWeapon",
+                            "FLCNICMDANB": [
+                                "equip01"
+                            ]
+                        },
+                        {
+                            "$type": "HideUIBillBoard",
+                            "COCENMAFJGD": true
+                        },
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox"
+                            ]
+                        },
+                        {
+                            "$type": "EnablePushColliderName",
+                            "LEHFIPJFKBC": [
+                                "PushCollider"
+                            ]
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "EnableHitBoxByName",
+                            "EACGOCFODIC": [
+                                "HitBox",
+                                "HeadBox"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "EnablePushColliderName",
+                            "LEHFIPJFKBC": [
+                                "PushCollider"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "TriggerSetVisible",
+                            "ACDFJMCPFGH": true
+                        },
+                        {
+                            "$type": "TriggerHideWeapon",
+                            "ACDFJMCPFGH": true,
+                            "FLCNICMDANB": [
+                                "equip01"
+                            ]
+                        },
+                        {
+                            "$type": "HideUIBillBoard"
+                        }
+                    ]
+                },
+                "Blink_Invincible": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "Invincible"
+                },
+                "Blink_DenyLockOn": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "state": "DenyLockOn"
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Cicin_Blink_Actions"
+                },
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Fatuus_Summoner_Disappear",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornBySelf",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.0
+                        }
+                    }
+                },
+                {
+                    "$type": "ClearLockTarget",
+                    "NPHOOPNDCAC": "CurLocalAvatar"
+                }
+            ]
         }
-      ]
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_FindBlinkPoint",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TryFindBlinkPointByBorn",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_SummonNumberInCicin",
+                            "value": 1.0
+                        }
+                    ],
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornBySelfOwner",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 1.25,
+                            "PHDCJAHHIOG": 2.0
+                        }
+                    },
+                    "ILELFGNFDLO": 2.5
+                },
+                {
+                    "$type": "TryFindBlinkPointByBorn",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_SummonNumberInCicin",
+                            "value": 2.0
+                        }
+                    ],
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornBySelfOwner",
+                        "offset": {
+                            "AEAAJCIDPED": 2.0,
+                            "KAAPLGBEDPM": 1.25,
+                            "PHDCJAHHIOG": 2.0
+                        }
+                    },
+                    "ILELFGNFDLO": 2.5
+                },
+                {
+                    "$type": "TryFindBlinkPointByBorn",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_SummonNumberInCicin",
+                            "value": 3.0
+                        }
+                    ],
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornBySelfOwner",
+                        "offset": {
+                            "AEAAJCIDPED": -2.0,
+                            "KAAPLGBEDPM": 1.25,
+                            "PHDCJAHHIOG": 2.0
+                        }
+                    },
+                    "ILELFGNFDLO": 2.5
+                },
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "Ordered",
+                    "value": true
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_Blink",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "DoBlink"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_BlinkAS",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetSelfAttackTarget",
+                    "NPHOOPNDCAC": "CurLocalAvatar",
+                    "EHOIBKNOCPH": true
+                },
+                {
+                    "$type": "RemoveUniqueModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Cicin_Blink_Actions"
+                },
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Fatuus_Summoner_Appear",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornBySelf"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_Die",
+            "KCICDEJLIJD": [
+                {
+                    "$type": "AddGlobalValue",
+                    "NPHOOPNDCAC": "Owner",
+                    "value": 1.0,
+                    "HJJEAOMEOFI": "_Summon_Count",
+                    "EODOIECEPEF": true,
+                    "JDHHMBHOOEC": 3.0,
+                    "KHAHOELDONA": 0.0
+                }
+            ],
+            "OGFFGLGEOGF": [
+                {
+                    "$type": "AddGlobalValue",
+                    "NPHOOPNDCAC": "Owner",
+                    "value": -1.0,
+                    "HJJEAOMEOFI": "_Summon_Count",
+                    "EODOIECEPEF": true,
+                    "JDHHMBHOOEC": 3.0,
+                    "KHAHOELDONA": 0.0
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_ThunderShieldCreateEnergy",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "AddGlobalValue",
+                    "NPHOOPNDCAC": "Owner",
+                    "value": 1.0,
+                    "HJJEAOMEOFI": "_ISOwner",
+                    "EODOIECEPEF": true,
+                    "JDHHMBHOOEC": 1.0,
+                    "KHAHOELDONA": 0.0
+                },
+                {
+                    "$type": "AddGlobalValue",
+                    "NPHOOPNDCAC": "Owner",
+                    "value": -1.0,
+                    "HJJEAOMEOFI": "_Summon_Count",
+                    "EODOIECEPEF": true,
+                    "JDHHMBHOOEC": 3.0,
+                    "KHAHOELDONA": 0.0
+                },
+                {
+                    "$type": "TriggerBullet",
+                    "NGAAOMEHOGE": 42606003,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornBySelf",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.0
+                        }
+                    },
+                    "ENJEPFDLDDF": "TargetOwner"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_ThunderShieldDie",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "KillSelf",
+                    "BEKKIHBPHGD": true,
+                    "EOIGEKNINFE": true
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_Fury",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "DoActionByAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "Fury"
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "SetEntityScale",
+                            "LALONNAHJDN": 2.0
+                        }
+                    ],
+                    "MCFCEOACJEB": [
+                        {
+                            "$type": "SetEntityScale"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_Steer",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "NormalAtk"
+                    ],
+                    "IMHBEGIKDKB": 0.75,
+                    "HENDIIJFPCI": 180.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 1.5
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "Fury"
+                    ],
+                    "IMHBEGIKDKB": 4.0,
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 1.5
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_CommonEffect",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAbilityStateMixin",
+                    "ELJGGBDOPIL": [
+                        "ElementFrozen"
+                    ],
+                    "GAIGOBCNNEE": "FrozenDetect"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "FrozenDetect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "TriggerSetRenderersEnable",
+                            "GEDDBEFBOKD": [
+                                "Wing"
+                            ]
+                        },
+                        {
+                            "$type": "RemoveModifier",
+                            "GAIGOBCNNEE": "CommonEffect"
+                        },
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "Frozen",
+                            "value": true
+                        },
+                        {
+                            "$type": "EnablePushColliderName",
+                            "LEHFIPJFKBC": [
+                                "PushCollider_Frozen"
+                            ],
+                            "PAHBCOACBAI": true
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "TriggerSetRenderersEnable",
+                            "GEDDBEFBOKD": [
+                                "Wing"
+                            ],
+                            "PAHBCOACBAI": true
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "CommonEffect"
+                        },
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "Frozen"
+                        },
+                        {
+                            "$type": "EnablePushColliderName",
+                            "LEHFIPJFKBC": [
+                                "PushCollider_Frozen"
+                            ]
+                        }
+                    ]
+                },
+                "CommonEffect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_WingElement_L",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "offset": {
+                                    "AEAAJCIDPED": 0.0,
+                                    "KAAPLGBEDPM": 0.0,
+                                    "PHDCJAHHIOG": 0.0
+                                },
+                                "KJNJNKLLNCN": "WingLeft"
+                            }
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_WingElement_R",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "offset": {
+                                    "AEAAJCIDPED": 0.0,
+                                    "KAAPLGBEDPM": 0.0,
+                                    "PHDCJAHHIOG": 0.0
+                                },
+                                "KJNJNKLLNCN": "WingRight"
+                            }
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_BodyElement"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "CommonEffect"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_Element",
+            "HNEIEGHMLKH": {
+                "Element": {
+                    "GAIGOBCNNEE": "",
+                    "elementType": "Electric",
+                    "elementDurability": 50.0,
+                    "DDLOLBGNLEF": false
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "Element"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_TriggerOwnerDodge",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerAbility",
+                    "NPHOOPNDCAC": "Owner",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetPositionToSelfPosition",
+                            "GMFCOCAJBDM": "GreaterOrEqual",
+                            "value": 6.0
+                        }
+                    ],
+                    "abilityName": "Monster_Fatuus_Summoner_FindDodgePoint"
+                },
+                {
+                    "$type": "TriggerAbility",
+                    "NPHOOPNDCAC": "Owner",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetPositionToSelfPosition",
+                            "GMFCOCAJBDM": "Lesser",
+                            "value": 6.0
+                        }
+                    ],
+                    "abilityName": "Monster_Fatuus_Summoner_FindDodgeBackPoint"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_ThunderEnergy",
+            "HNEIEGHMLKH": {
+                "ThunderEnergy_Effect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_Disappear"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "AttachModifier",
+                    "GAIGOBCNNEE": "ThunderEnergy_Effect"
+                },
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_DisappearBS"
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "Predicated",
+                    "NPHOOPNDCAC": "Target",
+                    "ELDBAFHCOBL": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ISOwner",
+                            "value": 1.0
+                        }
+                    ],
+                    "NCNDEAPMKCP": [
+                        {
+                            "$type": "RemoveModifier",
+                            "GAIGOBCNNEE": "ThunderEnergy_Effect"
+                        },
+                        {
+                            "$type": "KillSelf"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Cicin_ThunderEnergyAS",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Cicin_Thunder_DisappearAS"
+                }
+            ]
+        }
     }
-  }
 ]

@@ -1,2449 +1,1797 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_FireRush",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "FireRush_BS1",
-            "FireRush_BS2",
-            "FireRush_Rush_Loop1"
-          ],
-          "startNormalizedTime": 0.6,
-          "angularSpeed": 70.0,
-          "attackTrigger": "",
-          "attackDistance": 3.25
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "FireRush_Rush_Loop2"
-          ],
-          "angularSpeed": 70.0,
-          "attackTrigger": "NextSkillTrigger",
-          "attackDistance": 3.25
-        },
-        {
-          "$type": "MoleMole.Config.AttackHittingSceneMixin",
-          "onHittingScene": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "CrashTrigger"
-              }
-            }
-          ],
-          "animEventIDs": [
-            "FireRush_HitScene"
-          ]
-        },
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "FireRush_BS1",
-            "FireRush_BS2",
-            "FireRush_Rush_Loop1",
-            "FireRush_Rush_Loop2",
-            "FireRush_AS"
-          ],
-          "modifierName": "RushAtkEffect"
-        }
-      ],
-      "modifiers": {
-        "RushAtkEffect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.2
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Hili_Fire_RushAtk"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "attachPointName": "WeaponR"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Hili_Fire_RushAtk_Smoke"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByTarget",
-                "onGround": true
-              }
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "predicates": [
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_FireRush",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_EQUIP_IS_ONFIRE",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ],
-              "modifierName": "RushAtkEffect"
-            }
-          ],
-          "onKill": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "predicates": [
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "FireRush_BS1",
+                        "FireRush_BS2",
+                        "FireRush_Rush_Loop1"
+                    ],
+                    "EOOBFBGMGLD": 0.6000000238418579,
+                    "HENDIIJFPCI": 70.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.25
+                },
                 {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_EQUIP_IS_ONFIRE",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "FireRush_Rush_Loop2"
+                    ],
+                    "HENDIIJFPCI": 70.0,
+                    "NCAENFOANAG": "NextSkillTrigger",
+                    "BBHBLAIEHAJ": 3.25
+                },
+                {
+                    "$type": "AttackHittingSceneMixin",
+                    "HOAPIHIBOCB": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "CrashTrigger"
+                        }
+                    ],
+                    "MIMLCECCJAL": [
+                        "FireRush_HitScene"
+                    ]
+                },
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "FireRush_BS1",
+                        "FireRush_BS2",
+                        "FireRush_Rush_Loop1",
+                        "FireRush_Rush_Loop2",
+                        "FireRush_AS"
+                    ],
+                    "GAIGOBCNNEE": "RushAtkEffect"
                 }
-              ],
-              "modifierName": "RushAtkEffect"
+            ],
+            "HNEIEGHMLKH": {
+                "RushAtkEffect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 0.20000000298023224,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "FireEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_RushAtk",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "KJNJNKLLNCN": "WeaponR"
+                            }
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_RushAtk_Smoke",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByTarget",
+                                "JBPCKOKLHEB": true
+                            }
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "RemoveModifier",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_EQUIP_IS_ONFIRE",
+                                    "value": 0.0
+                                }
+                            ],
+                            "GAIGOBCNNEE": "RushAtkEffect"
+                        }
+                    ],
+                    "OGFFGLGEOGF": [
+                        {
+                            "$type": "RemoveModifier",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_EQUIP_IS_ONFIRE",
+                                    "value": 1.0
+                                }
+                            ],
+                            "GAIGOBCNNEE": "RushAtkEffect"
+                        }
+                    ]
+                }
             }
-          ]
         }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Torch_FireState_OnFire",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.DoActionByPoseIDMixin",
-          "poseIDs": [
-            402
-          ],
-          "enterActions": [
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                451
-              ]
-            }
-          ]
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "equip01_FireState",
-          "value": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Torch_FireState_OffFire",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "equip01_FireState"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Torch_EventPattern",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            401
-          ],
-          "modifierName": "UNIQUE_Hili_Fire_OnFireEventPattern"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            402
-          ],
-          "modifierName": "UNIQUE_Hili_Fire_OffFireEventPattern"
-        }
-      ],
-      "modifiers": {
-        "UNIQUE_Hili_Fire_OnFireEventPattern": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.ReplaceEventPatternMixin",
-              "oldPatterns": [
-                "Monster_Hili_Fire_FireRush_Rush",
-                "Monster_Hili_Fire_FireRush_AS",
-                "Monster_Hili_Fire_NormalAttack",
-                "Monster_Hili_Fire_FireRush_BS"
-              ],
-              "newPatterns": [
-                "Monster_Hili_Fire_FireRush_Rush_Fire",
-                "Monster_Hili_Fire_FireRush_AS_Fire",
-                "Monster_Hili_Fire_NormalAttack_Fire",
-                "Monster_Hili_Fire_FireRush_BS_Fire"
-              ]
-            }
-          ],
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 10.0
-              },
-              "key": "_EQUIP_IS_ONFIRE",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        },
-        "UNIQUE_Hili_Fire_OffFireEventPattern": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.ReplaceEventPatternMixin",
-              "oldPatterns": [
-                "Monster_Hili_Fire_FireRush_Rush_Fire",
-                "Monster_Hili_Fire_FireRush_AS_Fire",
-                "Monster_Hili_Fire_NormalAttack_Fire",
-                "Monster_Hili_Fire_FireRush_BS_Fire"
-              ],
-              "newPatterns": [
-                "Monster_Hili_Fire_FireRush_Rush",
-                "Monster_Hili_Fire_FireRush_AS",
-                "Monster_Hili_Fire_NormalAttack",
-                "Monster_Hili_Fire_FireRush_BS"
-              ]
-            }
-          ],
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -10.0
-              },
-              "key": "_EQUIP_IS_ONFIRE",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Torch_FireUp",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerAbility",
-          "otherTargets": {
-            "$type": "MoleMole.Config.SelectTargetsByEquipParts",
-            "equipPartNames": [
-              "equip01"
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Torch_FireState_OnFire",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "DoActionByPoseIDMixin",
+                    "poseIDs": [
+                        402
+                    ],
+                    "KELPBOLPMNI": [
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                451
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "equip01_FireState",
+                    "value": true
+                }
             ]
-          },
-          "abilityName": "MonEquip_Torch_FireState"
         }
-      ]
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Torch_FireState_OffFire",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "equip01_FireState"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Torch_EventPattern",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        401
+                    ],
+                    "GAIGOBCNNEE": "UNIQUE_Hili_Fire_OnFireEventPattern"
+                },
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        402
+                    ],
+                    "GAIGOBCNNEE": "UNIQUE_Hili_Fire_OffFireEventPattern"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "UNIQUE_Hili_Fire_OnFireEventPattern": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "ReplaceEventPatternMixin",
+                            "LELEMIDJLMK": [
+                                "Monster_Hili_Fire_FireRush_Rush",
+                                "Monster_Hili_Fire_FireRush_AS",
+                                "Monster_Hili_Fire_NormalAttack",
+                                "Monster_Hili_Fire_FireRush_BS"
+                            ],
+                            "ECCHFNODIPH": [
+                                "Monster_Hili_Fire_FireRush_Rush_Fire",
+                                "Monster_Hili_Fire_FireRush_AS_Fire",
+                                "Monster_Hili_Fire_NormalAttack_Fire",
+                                "Monster_Hili_Fire_FireRush_BS_Fire"
+                            ]
+                        }
+                    ],
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": 10.0,
+                            "HJJEAOMEOFI": "_EQUIP_IS_ONFIRE",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                },
+                "UNIQUE_Hili_Fire_OffFireEventPattern": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "ReplaceEventPatternMixin",
+                            "LELEMIDJLMK": [
+                                "Monster_Hili_Fire_FireRush_Rush_Fire",
+                                "Monster_Hili_Fire_FireRush_AS_Fire",
+                                "Monster_Hili_Fire_NormalAttack_Fire",
+                                "Monster_Hili_Fire_FireRush_BS_Fire"
+                            ],
+                            "ECCHFNODIPH": [
+                                "Monster_Hili_Fire_FireRush_Rush",
+                                "Monster_Hili_Fire_FireRush_AS",
+                                "Monster_Hili_Fire_NormalAttack",
+                                "Monster_Hili_Fire_FireRush_BS"
+                            ]
+                        }
+                    ],
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": -10.0,
+                            "HJJEAOMEOFI": "_EQUIP_IS_ONFIRE",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 1.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Torch_FireUp",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerAbility",
+                    "GILFKOBKGLI": {
+                        "$type": "SelectTargetsByEquipParts",
+                        "GNNLGDBFIDI": [
+                            "equip01"
+                        ]
+                    },
+                    "abilityName": "MonEquip_Torch_FireState"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_ShootArrow_WithRandom",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "Aim"
+                    ],
+                    "IMHBEGIKDKB": 2.0,
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "Aim"
+                    ],
+                    "GAIGOBCNNEE": "ShowAimingEffect"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "ShowAimingEffect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Aim_01",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByAttachPoint",
+                                "KJNJNKLLNCN": "WeaponR"
+                            }
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerBullet",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 0.0,
+                            "ONPJJFKDCED": "NoneOrEqual"
+                        }
+                    ],
+                    "NGAAOMEHOGE": 42101003,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.20000000298023224,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.10000000149011612
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "LHNNAGIFPIB": 0.30000001192092896,
+                            "IOIAHLPJDMH": 0.5,
+                            "INCAGGBCJNF": 60.0
+                        },
+                        "KJNJNKLLNCN": "WeaponR"
+                    }
+                },
+                {
+                    "$type": "TriggerBullet",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 1.0
+                        }
+                    ],
+                    "NGAAOMEHOGE": 42101003,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.20000000298023224,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.10000000149011612
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "LGPBCMEFEJB": {
+                                "AEAAJCIDPED": 0.0,
+                                "KAAPLGBEDPM": 0.0,
+                                "PHDCJAHHIOG": 0.0
+                            },
+                            "INCAGGBCJNF": 60.0,
+                            "ACCCPLDEJNB": 30.0
+                        },
+                        "KJNJNKLLNCN": "WeaponR"
+                    }
+                },
+                {
+                    "$type": "TriggerBullet",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 1.0
+                        }
+                    ],
+                    "NGAAOMEHOGE": 42101003,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.20000000298023224,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.10000000149011612
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "LGPBCMEFEJB": {
+                                "AEAAJCIDPED": 0.0,
+                                "KAAPLGBEDPM": 5.0,
+                                "PHDCJAHHIOG": 0.0
+                            },
+                            "INCAGGBCJNF": 60.0,
+                            "ACCCPLDEJNB": 30.0
+                        },
+                        "KJNJNKLLNCN": "WeaponR"
+                    }
+                },
+                {
+                    "$type": "TriggerBullet",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 1.0
+                        }
+                    ],
+                    "NGAAOMEHOGE": 42101003,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.20000000298023224,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.10000000149011612
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "LGPBCMEFEJB": {
+                                "AEAAJCIDPED": 0.0,
+                                "KAAPLGBEDPM": 10.0,
+                                "PHDCJAHHIOG": 0.0
+                            },
+                            "INCAGGBCJNF": 60.0,
+                            "ACCCPLDEJNB": 30.0
+                        },
+                        "KJNJNKLLNCN": "WeaponR"
+                    }
+                },
+                {
+                    "$type": "TriggerBullet",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 1.0
+                        }
+                    ],
+                    "NGAAOMEHOGE": 42101003,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.20000000298023224,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.10000000149011612
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "LGPBCMEFEJB": {
+                                "AEAAJCIDPED": 0.0,
+                                "KAAPLGBEDPM": -5.0,
+                                "PHDCJAHHIOG": 0.0
+                            },
+                            "INCAGGBCJNF": 60.0,
+                            "ACCCPLDEJNB": 30.0
+                        },
+                        "KJNJNKLLNCN": "WeaponR"
+                    }
+                },
+                {
+                    "$type": "TriggerBullet",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 1.0
+                        }
+                    ],
+                    "NGAAOMEHOGE": 42101003,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.20000000298023224,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.10000000149011612
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "LGPBCMEFEJB": {
+                                "AEAAJCIDPED": 0.0,
+                                "KAAPLGBEDPM": -10.0,
+                                "PHDCJAHHIOG": 0.0
+                            },
+                            "INCAGGBCJNF": 60.0,
+                            "ACCCPLDEJNB": 30.0
+                        },
+                        "KJNJNKLLNCN": "WeaponR"
+                    }
+                },
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Arrow_AS"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_Arrow_Damage",
+            "HNEIEGHMLKH": {
+                "FireEffectModifier": {
+                    "GAIGOBCNNEE": "",
+                    "elementType": "Fire",
+                    "elementDurability": 50.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Arrow_Particle"
+                        },
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Arrow_Trail"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "AttachModifier",
+                    "GAIGOBCNNEE": "FireEffectModifier"
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerAttackEvent",
+                    "predicates": [
+                        {
+                            "$type": "ByHasElement",
+                            "GOMLPAOIKJA": "Fire"
+                        },
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "NPHOOPNDCAC": "Owner",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 0.0,
+                            "ONPJJFKDCED": "NoneOrEqual"
+                        }
+                    ],
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackSphere",
+                            "lifeTime": "TriggerNoRepeat",
+                            "MLOEFNBPCCH": "Both",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByCollisionPoint"
+                            },
+                            "ICGFCBOFFDI": 0.75
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 1.5,
+                                "damagePercentageRatio": 0.0,
+                                "elementType": "Fire",
+                                "elementDurability": 50.0,
+                                "strikeType": "Pierce",
+                                "enBreak": 50.0
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "none",
+                                "hitImpulseType": "LV2",
+                                "hitHaltTimeScale": 0.009999999776482582
+                            },
+                            "cameraShake": {
+                                "shakeRange": 0.05999999865889549,
+                                "shakeTime": 0.09000000357627869
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                },
+                {
+                    "$type": "TriggerAttackEvent",
+                    "predicates": [
+                        {
+                            "$type": "ByHasElement",
+                            "GOMLPAOIKJA": "Fire"
+                        },
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "NPHOOPNDCAC": "Owner",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 1.0
+                        }
+                    ],
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackSphere",
+                            "lifeTime": "TriggerNoRepeat",
+                            "MLOEFNBPCCH": "Both",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByCollisionPoint"
+                            },
+                            "ICGFCBOFFDI": 0.75
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 1.0,
+                                "damagePercentageRatio": 0.0,
+                                "elementType": "Fire",
+                                "elementDurability": 50.0,
+                                "strikeType": "Pierce",
+                                "enBreak": 50.0
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "none",
+                                "hitImpulseType": "LV2",
+                                "hitHaltTimeScale": 0.009999999776482582
+                            },
+                            "cameraShake": {
+                                "shakeRange": 0.05999999865889549,
+                                "shakeTime": 0.09000000357627869
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                },
+                {
+                    "$type": "TriggerAttackEvent",
+                    "predicates": [
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "ByHasElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "NPHOOPNDCAC": "Owner",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 0.0,
+                            "ONPJJFKDCED": "NoneOrEqual"
+                        }
+                    ],
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackBox",
+                            "lifeTime": "TriggerNoRepeat",
+                            "MLOEFNBPCCH": "Both",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByCollisionPoint",
+                                "offset": {
+                                    "AEAAJCIDPED": 0.0,
+                                    "KAAPLGBEDPM": 0.0,
+                                    "PHDCJAHHIOG": -0.5
+                                }
+                            },
+                            "size": {
+                                "AEAAJCIDPED": 0.10000000149011612,
+                                "KAAPLGBEDPM": 0.10000000149011612,
+                                "PHDCJAHHIOG": 1.0
+                            }
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 1.0,
+                                "damagePercentageRatio": 0.0,
+                                "elementDurability": 100.0,
+                                "strikeType": "Pierce"
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "default",
+                                "hitImpulseType": "LV1",
+                                "hitHaltTimeScale": 0.009999999776482582
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                },
+                {
+                    "$type": "TriggerAttackEvent",
+                    "predicates": [
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "ByHasElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "NPHOOPNDCAC": "Owner",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "value": 1.0
+                        }
+                    ],
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackBox",
+                            "lifeTime": "TriggerNoRepeat",
+                            "MLOEFNBPCCH": "Both",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByCollisionPoint",
+                                "offset": {
+                                    "AEAAJCIDPED": 0.0,
+                                    "KAAPLGBEDPM": 0.0,
+                                    "PHDCJAHHIOG": -0.5
+                                }
+                            },
+                            "size": {
+                                "AEAAJCIDPED": 0.10000000149011612,
+                                "KAAPLGBEDPM": 0.10000000149011612,
+                                "PHDCJAHHIOG": 1.0
+                            }
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 0.699999988079071,
+                                "damagePercentageRatio": 0.0,
+                                "elementDurability": 100.0,
+                                "strikeType": "Pierce"
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "default",
+                                "hitImpulseType": "LV1",
+                                "hitHaltTimeScale": 0.009999999776482582
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                },
+                {
+                    "$type": "FireEffect",
+                    "predicates": [
+                        {
+                            "$type": "ByHasElement",
+                            "GOMLPAOIKJA": "Fire"
+                        }
+                    ],
+                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_ArrowHit",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByCollisionPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.3499999940395355
+                        }
+                    }
+                },
+                {
+                    "$type": "FireHitEffect",
+                    "predicates": [
+                        {
+                            "$type": "ByHasElement",
+                            "GOMLPAOIKJA": "Fire"
+                        }
+                    ],
+                    "OFIGOLJOGPJ": "",
+                    "MHCHJLOELPF": {
+                        "MCNFNFLLGIH": "Eff_Monster_Hili_Fire_CrossBow_ArrowHit",
+                        "GACILIABHFB": {
+                            "Water": "Eff_Arrow_Fire_Hit_Water"
+                        }
+                    }
+                },
+                {
+                    "$type": "FireHitEffect",
+                    "predicates": [
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "ByHasElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ]
+                        }
+                    ],
+                    "OFIGOLJOGPJ": "Eff_Arrow_Hit_Monster",
+                    "MHCHJLOELPF": {
+                        "MCNFNFLLGIH": "Eff_Arrow_Hit_Earth",
+                        "GACILIABHFB": {
+                            "Water": "Eff_Arrow_Hit_Water"
+                        }
+                    }
+                },
+                {
+                    "$type": "RemoveModifier",
+                    "GAIGOBCNNEE": "FireEffectModifier"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_BombCreate",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "BombCreateBS"
+                    ],
+                    "GAIGOBCNNEE": "BombCreateBS"
+                },
+                {
+                    "$type": "AttachToAnimatorStateIDMixin",
+                    "stateIDs": [
+                        "BombCreateAS"
+                    ],
+                    "GAIGOBCNNEE": "BombCreate"
+                },
+                {
+                    "$type": "AttachToPoseIDMixin",
+                    "poseIDs": [
+                        203
+                    ],
+                    "GAIGOBCNNEE": "UNIQUE_MonsterEliteAffix_BoolReset"
+                }
+            ],
+            "EDDGGPMFDGK": {
+                "RandomHoldTime": 2.0
+            },
+            "HNEIEGHMLKH": {
+                "UNIQUE_MonsterEliteAffix_DefaultState": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "UseSkillEliteSet",
+                            "AFIOIAPCKEJ": 1
+                        }
+                    ]
+                },
+                "UNIQUE_MonsterEliteAffix_BoolReset": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "BombRun"
+                        }
+                    ]
+                },
+                "BombHoldTimer": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": "RandomHoldTime",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "TriggerCreateGadgetToEquipPart",
+                            "CABLIPAKCGB": 42101012,
+                            "EPBOKNDHCPD": "equip03"
+                        },
+                        {
+                            "$type": "TriggerHideWeapon",
+                            "FLCNICMDANB": [
+                                "equip01"
+                            ]
+                        },
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "BombRun",
+                            "value": true
+                        },
+                        {
+                            "$type": "SetPoseInt",
+                            "intID": "equip03",
+                            "weight": 1
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "BombThrow"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "SlimeShaderTriggerTimer"
+                        },
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "_SLIMETHROWED_",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                                    "value": 1.0
+                                },
+                                {
+                                    "$type": "ByAnimatorFloat",
+                                    "GMFCOCAJBDM": "Lesser",
+                                    "value": 200.0,
+                                    "MOCGJNIDDAI": "PoseID"
+                                }
+                            ],
+                            "GAIGOBCNNEE": "Hili_Fire_CrazyBomber"
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "CFIPAGENGPE": true,
+                            "HHFIHBEAPAP": "BombThrow",
+                            "value": true
+                        },
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": -5.0,
+                            "HJJEAOMEOFI": "_ABILITY_RANDOM_HOLDTIME",
+                            "EODOIECEPEF": true,
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                },
+                "Hili_Fire_CrazyBomber": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 15.0,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "EliteTrigger",
+                            "value": true
+                        }
+                    ],
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetPoseBool",
+                            "HHFIHBEAPAP": "EliteTrigger"
+                        },
+                        {
+                            "$type": "ReTriggerAISkillInitialCD",
+                            "FJNGOGJOBEE": [
+                                505
+                            ]
+                        }
+                    ]
+                },
+                "BombCreateBS": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AddGlobalValue",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "_ABILITY_RANDOM_HOLDTIME",
+                            "EODOIECEPEF": true,
+                            "FACHGOPKJKE": true,
+                            "JDHHMBHOOEC": 4.0,
+                            "KHAHOELDONA": 3.0
+                        },
+                        {
+                            "$type": "SetGlobalValueToOverrideMap",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                                    "value": 0.0,
+                                    "ONPJJFKDCED": "NoneOrEqual"
+                                }
+                            ],
+                            "BPCFCANOMNH": "_ABILITY_RANDOM_HOLDTIME",
+                            "OGAHELLALBB": "RandomHoldTime"
+                        },
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "BombCreateTimer"
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "BombCreate"
+                        }
+                    ]
+                },
+                "BombCreateTimer": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 1.7999999523162842,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "CFIPAGENGPE": true,
+                            "HHFIHBEAPAP": "BombCreate",
+                            "value": true
+                        }
+                    ]
+                },
+                "BombCreate": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "ApplyModifier",
+                            "GAIGOBCNNEE": "BombHoldTimer"
+                        },
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "BombThrow"
+                        }
+                    ]
+                },
+                "SlimeShaderTriggerTimer": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 1.5,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "TriggerAbility",
+                            "abilityName": "Hili_Fire_SlimeShaderTrigger"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "HJJEAOMEOFI": "_ELITEAFFIX_TAG",
+                            "value": 0.0,
+                            "ONPJJFKDCED": "NoneOrEqual"
+                        }
+                    ],
+                    "GAIGOBCNNEE": "UNIQUE_MonsterEliteAffix_DefaultState"
+                },
+                {
+                    "$type": "AddGlobalValue",
+                    "value": 0.0,
+                    "HJJEAOMEOFI": "_ABILITY_RANDOM_HOLDTIME",
+                    "EODOIECEPEF": true,
+                    "FACHGOPKJKE": true,
+                    "JDHHMBHOOEC": 3.0,
+                    "KHAHOELDONA": 3.0
+                }
+            ],
+            "OGFFGLGEOGF": [
+                {
+                    "$type": "RemoveModifier",
+                    "GAIGOBCNNEE": "BombHoldTimer"
+                },
+                {
+                    "$type": "ResetAnimatorTrigger",
+                    "triggerID": "BombThrowTrigger"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_BombCreate_Effect",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "BombCreate"
+                    ],
+                    "GAIGOBCNNEE": "BombCreate_Effect_Timer"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "BombCreate_Effect": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 1.5,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "Predicated",
+                            "ELDBAFHCOBL": [
+                                {
+                                    "$type": "BySceneSurfaceType",
+                                    "DFHLFKCMHJD": [
+                                        "Water"
+                                    ]
+                                }
+                            ],
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "AttachEffect",
+                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CreateBomb_Water",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByTarget"
+                                    }
+                                }
+                            ],
+                            "BMIOBLGLPIM": [
+                                {
+                                    "$type": "AttachEffect",
+                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CreateBomb",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByTarget"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "BombCreate_Effect_Timer": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "RemoveModifier",
+                            "GAIGOBCNNEE": "BombCreate_Effect"
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "BombCreate_Effect"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_BombThrow",
+            "HNEIEGHMLKH": {
+                "Hili_Fire_SlimeThrow_ClosePushCollider": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "EnablePushColliderName",
+                            "LEHFIPJFKBC": [
+                                "PushCollider"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerThrowEquipPart",
+                    "EPBOKNDHCPD": "equip03",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByTarget",
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "IHHIKIACOML": "Horizontal",
+                            "INCAGGBCJNF": 30.0
+                        }
+                    }
+                },
+                {
+                    "$type": "TriggerAbility",
+                    "GILFKOBKGLI": {
+                        "$type": "SelectTargetsByChildren",
+                        "DJLKFLJENEG": 1,
+                        "APIAFGPIIHE": 42101012
+                    },
+                    "abilityName": "Hili_Fire_SlimeThrow_BulletTriggerOpen"
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "GILFKOBKGLI": {
+                        "$type": "SelectTargetsByChildren",
+                        "DJLKFLJENEG": 1,
+                        "APIAFGPIIHE": 42101012
+                    },
+                    "GAIGOBCNNEE": "Hili_Fire_SlimeThrow_ClosePushCollider"
+                },
+                {
+                    "$type": "SetPoseBool",
+                    "HHFIHBEAPAP": "BombRun"
+                },
+                {
+                    "$type": "SetPoseInt",
+                    "intID": "equip03"
+                },
+                {
+                    "$type": "SetAnimatorBool",
+                    "HHFIHBEAPAP": "BombThrow"
+                },
+                {
+                    "$type": "AddGlobalValue",
+                    "value": 1.0,
+                    "HJJEAOMEOFI": "_SLIMETHROWED_",
+                    "EODOIECEPEF": true,
+                    "JDHHMBHOOEC": 1.0,
+                    "KHAHOELDONA": 1.0
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_EquipAppear",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerHideWeapon",
+                    "ACDFJMCPFGH": true,
+                    "FLCNICMDANB": [
+                        "equip01"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_BombOnHand",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "BeHit",
+                        "BeHitThrow",
+                        "Die",
+                        "Die_RagDoll",
+                        "Struggle"
+                    ],
+                    "GAIGOBCNNEE": "BombDrop"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "BombDrop": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "TriggerDropEquipParts",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "NPHOOPNDCAC": "Self",
+                                    "HJJEAOMEOFI": "_SLIMETHROWED_",
+                                    "value": 0.0
+                                }
+                            ],
+                            "CNECKEJLJOE": [
+                                "equip03"
+                            ]
+                        },
+                        {
+                            "$type": "SetPoseInt",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "NPHOOPNDCAC": "Self",
+                                    "HJJEAOMEOFI": "_SLIMETHROWED_",
+                                    "value": 0.0
+                                }
+                            ],
+                            "intID": "equip03"
+                        },
+                        {
+                            "$type": "TriggerHideWeapon",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "NPHOOPNDCAC": "Self",
+                                    "HJJEAOMEOFI": "_SLIMETHROWED_",
+                                    "value": 0.0
+                                }
+                            ],
+                            "ACDFJMCPFGH": true,
+                            "FLCNICMDANB": [
+                                "equip01"
+                            ]
+                        },
+                        {
+                            "$type": "DoWatcherSystemAction",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "NPHOOPNDCAC": "Self",
+                                    "HJJEAOMEOFI": "_SLIMETHROWED_",
+                                    "value": 0.0
+                                }
+                            ],
+                            "GPGMPHIIAMD": 82014,
+                            "LNGKALMLMGN": true
+                        },
+                        {
+                            "$type": "SetGlobalValue",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetGlobalValue",
+                                    "NPHOOPNDCAC": "Self",
+                                    "HJJEAOMEOFI": "_SLIMETHROWED_",
+                                    "value": 0.0
+                                }
+                            ],
+                            "value": 1.0,
+                            "HJJEAOMEOFI": "_SLIMETHROWED_",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_BombCreateFail",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetAnimatorTrigger",
+                    "predicates": [
+                        {
+                            "$type": "BySceneSurfaceType",
+                            "DFHLFKCMHJD": [
+                                "Water"
+                            ]
+                        }
+                    ],
+                    "triggerID": "BombCreateFail"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_BombCreateFailWatcher",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "DoWatcherSystemAction",
+                    "GPGMPHIIAMD": 82074,
+                    "LNGKALMLMGN": true
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_SlimeShaderTrigger",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerAbility",
+                    "GILFKOBKGLI": {
+                        "$type": "SelectTargetsByChildren",
+                        "DJLKFLJENEG": 1,
+                        "APIAFGPIIHE": 42101012
+                    },
+                    "abilityName": "Hili_Fire_SlimeThrow_LightUpShader"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_SlimeThrow_BulletTriggerClose",
+            "KCICDEJLIJD": [
+                {
+                    "$type": "EnableBulletCollisionPluginTrigger"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_SlimeThrow_BulletTriggerOpen",
+            "HNEIEGHMLKH": {
+                "UNIQUE_Bomb_LoopEffect": {
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "Predicated",
+                            "ELDBAFHCOBL": [
+                                {
+                                    "$type": "ByHasElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ],
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "AttachEffect",
+                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_Bomb_Trail"
+                                }
+                            ],
+                            "BMIOBLGLPIM": [
+                                {
+                                    "$type": "AttachEffect",
+                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_Bomb_Trail_NoElem"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "EnableBulletCollisionPluginTrigger",
+                    "PAHBCOACBAI": true
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Bomb_LoopEffect"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_SlimeThrow_Element",
+            "EDDGGPMFDGK": {
+                "ShaderTime": 1.0
+            },
+            "HNEIEGHMLKH": {
+                "DieAnimatorTimerModifier": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 10.0,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "FireEffect",
+                            "predicates": [
+                                {
+                                    "$type": "ByHasElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ],
+                            "JBHFPDMBFHN": "Eff_Monster_Slime_Fire_SelfExplosion_Middle_BS"
+                        },
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "DieTrigger"
+                        }
+                    ]
+                },
+                "TimerModifier": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 11.75,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "TriggerAbility",
+                            "abilityName": "Hili_Fire_SlimeThrow_Explode"
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "DieAnimatorTimerModifier"
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "TimerModifier"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_SlimeThrow_Explode",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "RemoveUniqueModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Bomb_LoopEffect"
+                },
+                {
+                    "$type": "FireEffect",
+                    "predicates": [
+                        {
+                            "$type": "BySceneSurfaceType",
+                            "DFHLFKCMHJD": [
+                                "Water"
+                            ]
+                        }
+                    ],
+                    "JBHFPDMBFHN": "Eff_Monster_Brute_None_FireSlimeExplode_None",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByTarget"
+                    }
+                },
+                {
+                    "$type": "TriggerAttackEvent",
+                    "predicates": [
+                        {
+                            "$type": "BySceneSurfaceType",
+                            "DFHLFKCMHJD": [
+                                "Water"
+                            ]
+                        }
+                    ],
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackSphere",
+                            "lifeTime": "TriggerNoRepeat",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByTarget"
+                            },
+                            "ICGFCBOFFDI": 1.0
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 0.5,
+                                "damagePercentageRatio": 0.0,
+                                "elementDurability": 100.0,
+                                "strikeType": "Blunt",
+                                "enBreak": 50.0
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "default",
+                                "hitImpulseType": "LV3",
+                                "hitHaltTimeScale": 0.009999999776482582
+                            },
+                            "cameraShake": {
+                                "shakeRange": 0.20000000298023224,
+                                "shakeTime": 0.30000001192092896,
+                                "shakeDistance": 25.0,
+                                "extension": {
+                                    "rangeAttenuation": 0.8999999761581421
+                                }
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                },
+                {
+                    "$type": "FireEffect",
+                    "predicates": [
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "ByHasElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "BySceneSurfaceType",
+                                    "DFHLFKCMHJD": [
+                                        "Water"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "JBHFPDMBFHN": "Eff_Monster_Brute_None_FireSlimeExplode_None",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByTarget"
+                    }
+                },
+                {
+                    "$type": "TriggerAttackEvent",
+                    "predicates": [
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "ByHasElement",
+                                    "GOMLPAOIKJA": "Fire"
+                                }
+                            ]
+                        },
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "BySceneSurfaceType",
+                                    "DFHLFKCMHJD": [
+                                        "Water"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackSphere",
+                            "lifeTime": "TriggerNoRepeat",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByTarget"
+                            },
+                            "ICGFCBOFFDI": 1.0
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 0.5,
+                                "damagePercentageRatio": 0.0,
+                                "elementDurability": 100.0,
+                                "strikeType": "Blunt",
+                                "enBreak": 50.0
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "default",
+                                "hitImpulseType": "LV3",
+                                "hitHaltTimeScale": 0.009999999776482582
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                },
+                {
+                    "$type": "FireEffect",
+                    "predicates": [
+                        {
+                            "$type": "ByHasElement",
+                            "GOMLPAOIKJA": "Fire"
+                        },
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "BySceneSurfaceType",
+                                    "DFHLFKCMHJD": [
+                                        "Water"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "JBHFPDMBFHN": "Eff_Monster_Brute_None_FireSlimeExplode_Fire",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByTarget"
+                    }
+                },
+                {
+                    "$type": "TriggerAttackEvent",
+                    "predicates": [
+                        {
+                            "$type": "ByHasElement",
+                            "GOMLPAOIKJA": "Fire"
+                        },
+                        {
+                            "$type": "ByNot",
+                            "predicates": [
+                                {
+                                    "$type": "BySceneSurfaceType",
+                                    "DFHLFKCMHJD": [
+                                        "Water"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "DMCJDGELKBC": {
+                        "attackPattern": {
+                            "$type": "ConfigAttackSphere",
+                            "lifeTime": "TriggerNoRepeat",
+                            "NGDMCBABOJA": {
+                                "$type": "ConfigBornByTarget"
+                            },
+                            "ICGFCBOFFDI": 2.0
+                        },
+                        "attackInfo": {
+                            "attackTag": "",
+                            "attenuationTag": "",
+                            "attenuationGroup": "default",
+                            "attackProperty": {
+                                "bonusCriticalHurt": 2.0,
+                                "damagePercentageRatio": 0.0,
+                                "elementType": "Fire",
+                                "elementDurability": 50.0,
+                                "strikeType": "Blunt",
+                                "enBreak": 200.0
+                            },
+                            "hitPattern": {
+                                "onHitEffectName": "default",
+                                "hitImpulseType": "LV5",
+                                "hitHaltTimeScale": 0.05000000074505806
+                            },
+                            "forceCameraShake": true,
+                            "cameraShake": {
+                                "shakeRange": 0.20000000298023224,
+                                "shakeTime": 0.15000000596046448,
+                                "shakeDistance": 35.0
+                            },
+                            "canBeModifiedBy": "OriginOwner"
+                        }
+                    },
+                    "OJIFKEOCJGB": "Enemy"
+                },
+                {
+                    "$type": "KillSelf",
+                    "duration": 1.2999999523162842
+                },
+                {
+                    "$type": "TriggerSetVisible"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_SlimeThrow_HitScene",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "FireHitEffect",
+                    "OFIGOLJOGPJ": "",
+                    "MHCHJLOELPF": {
+                        "MCNFNFLLGIH": "Eff_Monster_Hili_Fire_Bomb_DropToGround",
+                        "GACILIABHFB": {
+                            "Water": "Eff_Monster_Hili_Fire_Slime_Hit_Water"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_SlimeThrow_LightUpShader",
+            "HNEIEGHMLKH": {
+                "ElementModifier": {
+                    "GAIGOBCNNEE": "",
+                    "elementType": "Fire",
+                    "elementDurability": 25.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "FireState"
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "SetAnimatorBool",
+                    "HHFIHBEAPAP": "FireState",
+                    "value": true
+                },
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "ElementModifier"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_BombTurn",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "Turn_Bomb"
+                    ],
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "BombThrow"
+                    ],
+                    "IMHBEGIKDKB": 0.5,
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Hili_Fire_Rush_Turn",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "Turn"
+                    ],
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 12.0
+                }
+            ]
+        }
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_ShootArrow_WithRandom",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "Aim"
-          ],
-          "endNormalizedTime": 2.0,
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "Aim"
-          ],
-          "modifierName": "ShowAimingEffect"
-        }
-      ],
-      "modifiers": {
-        "ShowAimingEffect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Hili_Fire_CrossBow_Aim_01"
-              },
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-                "attachPointName": "WeaponR"
-              }
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "compareType": "NoneOrEqual"
-            }
-          ],
-          "bulletID": 42101003,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.2
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.1
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "randomAngleHor": 0.3,
-              "randomAngleVer": 0.5,
-              "maxAngle": 60.0
-            },
-            "attachPointName": "WeaponR"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "bulletID": 42101003,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.2
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.1
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "angleOffset": {
-                "x": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "y": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "z": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                }
-              },
-              "maxAngle": 60.0,
-              "speedForPredictive": 30.0
-            },
-            "attachPointName": "WeaponR"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "bulletID": 42101003,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.2
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.1
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "angleOffset": {
-                "x": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "y": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 5.0
-                },
-                "z": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                }
-              },
-              "maxAngle": 60.0,
-              "speedForPredictive": 30.0
-            },
-            "attachPointName": "WeaponR"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "bulletID": 42101003,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.2
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.1
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "angleOffset": {
-                "x": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "y": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 10.0
-                },
-                "z": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                }
-              },
-              "maxAngle": 60.0,
-              "speedForPredictive": 30.0
-            },
-            "attachPointName": "WeaponR"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "bulletID": 42101003,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.2
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.1
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "angleOffset": {
-                "x": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "y": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": -5.0
-                },
-                "z": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                }
-              },
-              "maxAngle": 60.0,
-              "speedForPredictive": 30.0
-            },
-            "attachPointName": "WeaponR"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "bulletID": 42101003,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.2
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.1
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "angleOffset": {
-                "x": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "y": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": -10.0
-                },
-                "z": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                }
-              },
-              "maxAngle": 60.0,
-              "speedForPredictive": 30.0
-            },
-            "attachPointName": "WeaponR"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Hili_Fire_CrossBow_Arrow_AS"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_Arrow_Damage",
-      "modifiers": {
-        "FireEffectModifier": {
-          "modifierName": "",
-          "elementType": "Fire",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 50.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Hili_Fire_CrossBow_Arrow_Particle"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Hili_Fire_CrossBow_Arrow_Trail"
-              }
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.AttachModifier",
-          "modifierName": "FireEffectModifier"
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByHasElement",
-              "element": "Fire"
-            },
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "target": "Owner",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "compareType": "NoneOrEqual"
-            }
-          ],
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackSphere",
-              "triggerType": "TriggerNoRepeat",
-              "checkHitLayerType": "Both",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByCollisionPoint"
-              },
-              "radius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.75
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.5
-                },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "elementType": "Fire",
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 50.0
-                },
-                "strikeType": "Pierce",
-                "enBreak": 50.0
-              },
-              "hitPattern": {
-                "onHitEffectName": "none",
-                "hitImpulseType": "LV2",
-                "hitHaltTimeScale": 0.01
-              },
-              "cameraShake": {
-                "shakeRange": 0.06,
-                "shakeTime": 0.09
-              },
-              "canBeModifiedBy": "OriginOwner"
-            }
-          },
-          "targetType": "Enemy"
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByHasElement",
-              "element": "Fire"
-            },
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "target": "Owner",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackSphere",
-              "triggerType": "TriggerNoRepeat",
-              "checkHitLayerType": "Both",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByCollisionPoint"
-              },
-              "radius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.75
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "elementType": "Fire",
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 50.0
-                },
-                "strikeType": "Pierce",
-                "enBreak": 50.0
-              },
-              "hitPattern": {
-                "onHitEffectName": "none",
-                "hitImpulseType": "LV2",
-                "hitHaltTimeScale": 0.01
-              },
-              "cameraShake": {
-                "shakeRange": 0.06,
-                "shakeTime": 0.09
-              },
-              "canBeModifiedBy": "OriginOwner"
-            }
-          },
-          "targetType": "Enemy"
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByHasElement",
-                  "element": "Fire"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "target": "Owner",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "compareType": "NoneOrEqual"
-            }
-          ],
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackBox",
-              "triggerType": "TriggerNoRepeat",
-              "checkHitLayerType": "Both",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByCollisionPoint",
-                "offset": {
-                  "x": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "y": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "z": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": -0.5
-                  }
-                }
-              },
-              "size": {
-                "x": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.1
-                },
-                "y": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.1
-                },
-                "z": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                }
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 100.0
-                },
-                "strikeType": "Pierce"
-              },
-              "hitPattern": {
-                "onHitEffectName": "default",
-                "hitImpulseType": "LV1",
-                "hitHaltTimeScale": 0.01
-              },
-              "canBeModifiedBy": "OriginOwner"
-            }
-          },
-          "targetType": "Enemy"
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByHasElement",
-                  "element": "Fire"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "target": "Owner",
-              "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackBox",
-              "triggerType": "TriggerNoRepeat",
-              "checkHitLayerType": "Both",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByCollisionPoint",
-                "offset": {
-                  "x": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "y": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "z": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": -0.5
-                  }
-                }
-              },
-              "size": {
-                "x": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.1
-                },
-                "y": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.1
-                },
-                "z": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 1.0
-                }
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.7
-                },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 100.0
-                },
-                "strikeType": "Pierce"
-              },
-              "hitPattern": {
-                "onHitEffectName": "default",
-                "hitImpulseType": "LV1",
-                "hitHaltTimeScale": 0.01
-              },
-              "canBeModifiedBy": "OriginOwner"
-            }
-          },
-          "targetType": "Enemy"
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByHasElement",
-              "element": "Fire"
-            }
-          ],
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Hili_Fire_CrossBow_ArrowHit"
-          },
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByCollisionPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.35
-              }
-            }
-          }
-        },
-        {
-          "$type": "MoleMole.Config.FireHitEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByHasElement",
-              "element": "Fire"
-            }
-          ],
-          "hitEntity": "",
-          "hitScene": {
-            "defaultEffect": "Eff_Monster_Hili_Fire_CrossBow_ArrowHit",
-            "surfaceEffect": {
-              "Water": "Eff_Arrow_Fire_Hit_Water"
-            }
-          }
-        },
-        {
-          "$type": "MoleMole.Config.FireHitEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByHasElement",
-                  "element": "Fire"
-                }
-              ]
-            }
-          ],
-          "hitEntity": "Eff_Arrow_Hit_Monster",
-          "hitScene": {
-            "defaultEffect": "Eff_Arrow_Hit_Earth",
-            "surfaceEffect": {
-              "Water": "Eff_Arrow_Hit_Water"
-            }
-          }
-        },
-        {
-          "$type": "MoleMole.Config.RemoveModifier",
-          "modifierName": "FireEffectModifier"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_BombCreate",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "BombCreateBS"
-          ],
-          "modifierName": "BombCreateBS"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToAnimatorStateIDMixin",
-          "stateIDs": [
-            "BombCreateAS"
-          ],
-          "modifierName": "BombCreate"
-        },
-        {
-          "$type": "MoleMole.Config.AttachToPoseIDMixin",
-          "poseIDs": [
-            203
-          ],
-          "modifierName": "UNIQUE_MonsterEliteAffix_BoolReset"
-        }
-      ],
-      "abilitySpecials": {
-        "RandomHoldTime": {
-          "type": "float",
-          "dynamicValue": 2.0
-        }
-      },
-      "modifiers": {
-        "UNIQUE_MonsterEliteAffix_DefaultState": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.UseSkillEliteSet",
-              "skillEliteSetID": 1
-            }
-          ]
-        },
-        "UNIQUE_MonsterEliteAffix_BoolReset": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "BombRun"
-            }
-          ]
-        },
-        "BombHoldTimer": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": true,
-            "dynamicKey": "RandomHoldTime"
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.TriggerCreateGadgetToEquipPart",
-              "gadgetID": 42101012,
-              "equipPart": "equip03"
-            },
-            {
-              "$type": "MoleMole.Config.TriggerHideWeapon",
-              "partNames": [
-                "equip01"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "BombRun",
-              "value": true
-            },
-            {
-              "$type": "MoleMole.Config.SetPoseInt",
-              "intID": "equip03",
-              "value": 1
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "BombThrow"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "SlimeShaderTriggerTimer"
-            },
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "_SLIMETHROWED_",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 1.0
-                  }
-                },
-                {
-                  "$type": "MoleMole.Config.ByAnimatorFloat",
-                  "logic": "Lesser",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 200.0
-                  },
-                  "parameter": "PoseID"
-                }
-              ],
-              "modifierName": "Hili_Fire_CrazyBomber"
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "canBeHandledOnRecover": true,
-              "boolID": "BombThrow",
-              "value": true
-            },
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": -5.0
-              },
-              "key": "_ABILITY_RANDOM_HOLDTIME",
-              "useLimitRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        },
-        "Hili_Fire_CrazyBomber": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 15.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "EliteTrigger",
-              "value": true
-            }
-          ],
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetPoseBool",
-              "boolID": "EliteTrigger"
-            },
-            {
-              "$type": "MoleMole.Config.ReTriggerAISkillInitialCD",
-              "skillIDs": [
-                505
-              ]
-            }
-          ]
-        },
-        "BombCreateBS": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AddGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "_ABILITY_RANDOM_HOLDTIME",
-              "useLimitRange": true,
-              "randomInRange": true,
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 4.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 3.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetGlobalValueToOverrideMap",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "key": "_ELITEAFFIX_ATTACK_ENHANCE",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  },
-                  "compareType": "NoneOrEqual"
-                }
-              ],
-              "globalValueKey": "_ABILITY_RANDOM_HOLDTIME",
-              "overrideMapKey": "RandomHoldTime"
-            },
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "BombCreateTimer"
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "BombCreate"
-            }
-          ]
-        },
-        "BombCreateTimer": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.8
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "canBeHandledOnRecover": true,
-              "boolID": "BombCreate",
-              "value": true
-            }
-          ]
-        },
-        "BombCreate": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.ApplyModifier",
-              "modifierName": "BombHoldTimer"
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "BombThrow"
-            }
-          ]
-        },
-        "SlimeShaderTriggerTimer": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.5
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.TriggerAbility",
-              "abilityName": "Hili_Fire_SlimeShaderTrigger"
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "key": "_ELITEAFFIX_TAG",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "compareType": "NoneOrEqual"
-            }
-          ],
-          "modifierName": "UNIQUE_MonsterEliteAffix_DefaultState"
-        },
-        {
-          "$type": "MoleMole.Config.AddGlobalValue",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.0
-          },
-          "key": "_ABILITY_RANDOM_HOLDTIME",
-          "useLimitRange": true,
-          "randomInRange": true,
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 3.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 3.0
-          }
-        }
-      ],
-      "onKill": [
-        {
-          "$type": "MoleMole.Config.RemoveModifier",
-          "modifierName": "BombHoldTimer"
-        },
-        {
-          "$type": "MoleMole.Config.ResetAnimatorTrigger",
-          "triggerID": "BombThrowTrigger"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_BombCreate_Effect",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "BombCreate"
-          ],
-          "modifierName": "BombCreate_Effect_Timer"
-        }
-      ],
-      "modifiers": {
-        "BombCreate_Effect": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.5
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.Predicated",
-              "targetPredicates": [
-                {
-                  "$type": "MoleMole.Config.BySceneSurfaceType",
-                  "filters": [
-                    "Water"
-                  ]
-                }
-              ],
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.AttachEffect",
-                  "effectPattern": {
-                    "isDynamic": false,
-                    "fixedValue": "Eff_Monster_Hili_Fire_CreateBomb_Water"
-                  },
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByTarget"
-                  }
-                }
-              ],
-              "failActions": [
-                {
-                  "$type": "MoleMole.Config.AttachEffect",
-                  "effectPattern": {
-                    "isDynamic": false,
-                    "fixedValue": "Eff_Monster_Hili_Fire_CreateBomb"
-                  },
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByTarget"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "BombCreate_Effect_Timer": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.RemoveModifier",
-              "modifierName": "BombCreate_Effect"
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "BombCreate_Effect"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_BombThrow",
-      "modifiers": {
-        "Hili_Fire_SlimeThrow_ClosePushCollider": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.EnablePushColliderName",
-              "pushColliderNames": [
-                "PushCollider"
-              ]
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerThrowEquipPart",
-          "equipPart": "equip03",
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByTarget",
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "maxAngleType": "Horizontal",
-              "maxAngle": 30.0
-            }
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAbility",
-          "otherTargets": {
-            "$type": "MoleMole.Config.SelectTargetsByChildren",
-            "topLimit": 1,
-            "configID": 42101012
-          },
-          "abilityName": "Hili_Fire_SlimeThrow_BulletTriggerOpen"
-        },
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "otherTargets": {
-            "$type": "MoleMole.Config.SelectTargetsByChildren",
-            "topLimit": 1,
-            "configID": 42101012
-          },
-          "modifierName": "Hili_Fire_SlimeThrow_ClosePushCollider"
-        },
-        {
-          "$type": "MoleMole.Config.SetPoseBool",
-          "boolID": "BombRun"
-        },
-        {
-          "$type": "MoleMole.Config.SetPoseInt",
-          "intID": "equip03"
-        },
-        {
-          "$type": "MoleMole.Config.SetAnimatorBool",
-          "boolID": "BombThrow"
-        },
-        {
-          "$type": "MoleMole.Config.AddGlobalValue",
-          "value": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "key": "_SLIMETHROWED_",
-          "useLimitRange": true,
-          "maxValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "minValue": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_EquipAppear",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerHideWeapon",
-          "visible": true,
-          "partNames": [
-            "equip01"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_BombOnHand",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "BeHit",
-            "BeHitThrow",
-            "Die",
-            "Die_RagDoll",
-            "Struggle"
-          ],
-          "modifierName": "BombDrop"
-        }
-      ],
-      "modifiers": {
-        "BombDrop": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.TriggerDropEquipParts",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "target": "Self",
-                  "key": "_SLIMETHROWED_",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ],
-              "equipParts": [
-                "equip03"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.SetPoseInt",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "target": "Self",
-                  "key": "_SLIMETHROWED_",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ],
-              "intID": "equip03"
-            },
-            {
-              "$type": "MoleMole.Config.TriggerHideWeapon",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "target": "Self",
-                  "key": "_SLIMETHROWED_",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ],
-              "visible": true,
-              "partNames": [
-                "equip01"
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.DoWatcherSystemAction",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "target": "Self",
-                  "key": "_SLIMETHROWED_",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ],
-              "watcherId": 82014,
-              "inThreatListOnly": true
-            },
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetGlobalValue",
-                  "target": "Self",
-                  "key": "_SLIMETHROWED_",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.0
-                  }
-                }
-              ],
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              },
-              "key": "_SLIMETHROWED_",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_BombCreateFail",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetAnimatorTrigger",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.BySceneSurfaceType",
-              "filters": [
-                "Water"
-              ]
-            }
-          ],
-          "triggerID": {
-            "isDynamic": false,
-            "fixedValue": "BombCreateFail"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_BombCreateFailWatcher",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.DoWatcherSystemAction",
-          "watcherId": 82074,
-          "inThreatListOnly": true
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_SlimeShaderTrigger",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerAbility",
-          "otherTargets": {
-            "$type": "MoleMole.Config.SelectTargetsByChildren",
-            "topLimit": 1,
-            "configID": 42101012
-          },
-          "abilityName": "Hili_Fire_SlimeThrow_LightUpShader"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_SlimeThrow_BulletTriggerClose",
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.EnableBulletCollisionPluginTrigger"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_SlimeThrow_BulletTriggerOpen",
-      "modifiers": {
-        "UNIQUE_Bomb_LoopEffect": {
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.Predicated",
-              "targetPredicates": [
-                {
-                  "$type": "MoleMole.Config.ByHasElement",
-                  "element": "Fire"
-                }
-              ],
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.AttachEffect",
-                  "effectPattern": {
-                    "isDynamic": false,
-                    "fixedValue": "Eff_Monster_Hili_Fire_Bomb_Trail"
-                  }
-                }
-              ],
-              "failActions": [
-                {
-                  "$type": "MoleMole.Config.AttachEffect",
-                  "effectPattern": {
-                    "isDynamic": false,
-                    "fixedValue": "Eff_Monster_Hili_Fire_Bomb_Trail_NoElem"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.EnableBulletCollisionPluginTrigger",
-          "setEnable": true
-        },
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "UNIQUE_Bomb_LoopEffect"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_SlimeThrow_Element",
-      "abilitySpecials": {
-        "ShaderTime": {
-          "type": "float",
-          "dynamicValue": 1.0
-        }
-      },
-      "modifiers": {
-        "DieAnimatorTimerModifier": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 10.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.FireEffect",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByHasElement",
-                  "element": "Fire"
-                }
-              ],
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Slime_Fire_SelfExplosion_Middle_BS"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "DieTrigger"
-              }
-            }
-          ]
-        },
-        "TimerModifier": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 11.75
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.TriggerAbility",
-              "abilityName": "Hili_Fire_SlimeThrow_Explode"
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "DieAnimatorTimerModifier"
-        },
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "TimerModifier"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_SlimeThrow_Explode",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.RemoveUniqueModifier",
-          "modifierName": "UNIQUE_Bomb_LoopEffect"
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.BySceneSurfaceType",
-              "filters": [
-                "Water"
-              ]
-            }
-          ],
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Brute_None_FireSlimeExplode_None"
-          },
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByTarget"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.BySceneSurfaceType",
-              "filters": [
-                "Water"
-              ]
-            }
-          ],
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackSphere",
-              "triggerType": "TriggerNoRepeat",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByTarget"
-              },
-              "radius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.5
-                },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 100.0
-                },
-                "strikeType": "Blunt",
-                "enBreak": 50.0
-              },
-              "hitPattern": {
-                "onHitEffectName": "default",
-                "hitImpulseType": "LV3",
-                "hitHaltTimeScale": 0.01
-              },
-              "cameraShake": {
-                "shakeRange": 0.2,
-                "shakeTime": 0.3,
-                "shakeDistance": 25.0,
-                "extension": {
-                  "rangeAttenuation": 0.9
-                }
-              },
-              "canBeModifiedBy": "OriginOwner"
-            }
-          },
-          "targetType": "Enemy"
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByHasElement",
-                  "element": "Fire"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.BySceneSurfaceType",
-                  "filters": [
-                    "Water"
-                  ]
-                }
-              ]
-            }
-          ],
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Brute_None_FireSlimeExplode_None"
-          },
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByTarget"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByHasElement",
-                  "element": "Fire"
-                }
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.BySceneSurfaceType",
-                  "filters": [
-                    "Water"
-                  ]
-                }
-              ]
-            }
-          ],
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackSphere",
-              "triggerType": "TriggerNoRepeat",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByTarget"
-              },
-              "radius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.5
-                },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 100.0
-                },
-                "strikeType": "Blunt",
-                "enBreak": 50.0
-              },
-              "hitPattern": {
-                "onHitEffectName": "default",
-                "hitImpulseType": "LV3",
-                "hitHaltTimeScale": 0.01
-              },
-              "canBeModifiedBy": "OriginOwner"
-            }
-          },
-          "targetType": "Enemy"
-        },
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByHasElement",
-              "element": "Fire"
-            },
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.BySceneSurfaceType",
-                  "filters": [
-                    "Water"
-                  ]
-                }
-              ]
-            }
-          ],
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Brute_None_FireSlimeExplode_Fire"
-          },
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByTarget"
-          }
-        },
-        {
-          "$type": "MoleMole.Config.TriggerAttackEvent",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByHasElement",
-              "element": "Fire"
-            },
-            {
-              "$type": "MoleMole.Config.ByNot",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.BySceneSurfaceType",
-                  "filters": [
-                    "Water"
-                  ]
-                }
-              ]
-            }
-          ],
-          "attackEvent": {
-            "attackPattern": {
-              "$type": "MoleMole.Config.ConfigAttackSphere",
-              "triggerType": "TriggerNoRepeat",
-              "born": {
-                "$type": "MoleMole.Config.ConfigBornByTarget"
-              },
-              "radius": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 2.0
-              }
-            },
-            "attackInfo": {
-              "attackTag": "",
-              "attenuationTag": "",
-              "attenuationGroup": "default",
-              "attackProperty": {
-                "damagePercentage": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 2.0
-                },
-                "damagePercentageRatio": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 0.0
-                },
-                "elementType": "Fire",
-                "elementDurability": {
-                  "isFormula": false,
-                  "isDynamic": false,
-                  "fixedValue": 50.0
-                },
-                "strikeType": "Blunt",
-                "enBreak": 200.0
-              },
-              "hitPattern": {
-                "onHitEffectName": "default",
-                "hitImpulseType": "LV5",
-                "hitHaltTimeScale": 0.05
-              },
-              "forceCameraShake": true,
-              "cameraShake": {
-                "shakeRange": 0.2,
-                "shakeTime": 0.15,
-                "shakeDistance": 35.0
-              },
-              "canBeModifiedBy": "OriginOwner"
-            }
-          },
-          "targetType": "Enemy"
-        },
-        {
-          "$type": "MoleMole.Config.KillSelf",
-          "duration": 1.3
-        },
-        {
-          "$type": "MoleMole.Config.TriggerSetVisible"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_SlimeThrow_HitScene",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.FireHitEffect",
-          "hitEntity": "",
-          "hitScene": {
-            "defaultEffect": "Eff_Monster_Hili_Fire_Bomb_DropToGround",
-            "surfaceEffect": {
-              "Water": "Eff_Monster_Hili_Fire_Slime_Hit_Water"
-            }
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_SlimeThrow_LightUpShader",
-      "modifiers": {
-        "ElementModifier": {
-          "modifierName": "",
-          "elementType": "Fire",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 25.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "FireState"
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.SetAnimatorBool",
-          "boolID": "FireState",
-          "value": true
-        },
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "ElementModifier"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_BombTurn",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "Turn_Bomb"
-          ],
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "BombThrow"
-          ],
-          "endNormalizedTime": 0.5,
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Hili_Fire_Rush_Turn",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "Turn"
-          ],
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 12.0
-        }
-      ]
-    }
-  }
 ]

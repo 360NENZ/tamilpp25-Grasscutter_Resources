@@ -1,814 +1,602 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscleMan_Wallenstein_SteerAttack",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "QuickCombo01"
-          ],
-          "endNormalizedTime": 0.4,
-          "angularSpeed": 480.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "QuickCombo01_2"
-          ],
-          "endNormalizedTime": 0.4,
-          "angularSpeed": 480.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "QuickCombo02"
-          ],
-          "endNormalizedTime": 0.285,
-          "angularSpeed": 240.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "QuickCombo02_2"
-          ],
-          "endNormalizedTime": 0.285,
-          "angularSpeed": 240.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "PowerCombo01"
-          ],
-          "endNormalizedTime": 0.2,
-          "angularSpeed": 480.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "PowerCombo02"
-          ],
-          "startNormalizedTime": 0.1,
-          "endNormalizedTime": 0.2,
-          "angularSpeed": 360.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscleMan_Wallenstein_JumpAttack_RushMove",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "JumpAttack"
-          ],
-          "endNormalizedTime": 0.4,
-          "angularSpeed": 140.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.RushMove",
-          "toPos": {
-            "$type": "MoleMole.Config.ConfigBornBySelf",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 4.0
-              }
-            }
-          },
-          "minRange": 1.2,
-          "maxRange": 1.2,
-          "timeRange": 0.255
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscleMan_Wallenstein_WhirlAtk_Manage",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "WhirlAtkBS"
-          ],
-          "angularSpeed": 180.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "WhirlAtkLoop"
-          ],
-          "endNormalizedTime": 99.0,
-          "angularSpeed": 120.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.AttachToStateIDMixin",
-          "stateIDs": [
-            "WhirlAtkLoop"
-          ],
-          "modifierName": "Thoarder_MuscleMan_Wallenstein_WhirlAtk_Loop"
-        },
-        {
-          "$type": "MoleMole.Config.AttackHittingSceneMixin",
-          "onHittingScene": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "CrashTrigger"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.ActCameraShake",
-              "cameraShake": {
-                "shakeRange": 0.16,
-                "shakeTime": 0.09,
-                "shakeDistance": 25.0
-              }
-            }
-          ],
-          "animEventIDs": [
-            "Whirl_HitScene"
-          ]
-        }
-      ],
-      "modifiers": {
-        "Thoarder_MuscleMan_Wallenstein_WhirlAtk_Loop": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Thoarder_MuscleMan_Hammer_WhirlAtk_Loop"
-              }
-            }
-          ],
-          "onAttackLanded": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorTrigger",
-              "predicates": [
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscleMan_Wallenstein_SteerAttack",
+            "CHBMMFLIIGH": [
                 {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ],
-                  "useEventSource": true
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "QuickCombo01"
+                    ],
+                    "IMHBEGIKDKB": 0.4000000059604645,
+                    "HENDIIJFPCI": 480.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "QuickCombo01_2"
+                    ],
+                    "IMHBEGIKDKB": 0.4000000059604645,
+                    "HENDIIJFPCI": 480.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "QuickCombo02"
+                    ],
+                    "IMHBEGIKDKB": 0.2849999964237213,
+                    "HENDIIJFPCI": 240.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "QuickCombo02_2"
+                    ],
+                    "IMHBEGIKDKB": 0.2849999964237213,
+                    "HENDIIJFPCI": 240.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "PowerCombo01"
+                    ],
+                    "IMHBEGIKDKB": 0.20000000298023224,
+                    "HENDIIJFPCI": 480.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "PowerCombo02"
+                    ],
+                    "EOOBFBGMGLD": 0.10000000149011612,
+                    "IMHBEGIKDKB": 0.20000000298023224,
+                    "HENDIIJFPCI": 360.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
                 }
-              ],
-              "triggerID": {
-                "isDynamic": false,
-                "fixedValue": "WildSlamLoopEndTrigger"
-              }
-            }
-          ]
+            ]
         }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscleMan_Wallenstein_JumpAtk",
-      "modifiers": {
-        "Thoarder_MuscleMan_Wallenstein_JumpAtk": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 2.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackCircle",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornBySelf",
-                    "offset": {
-                      "x": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "y": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "z": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 1.5
-                      }
-                    },
-                    "direction": {
-                      "$type": "MoleMole.Config.ConfigDirectionByEntity",
-                      "angleOffset": {
-                        "x": {
-                          "isFormula": false,
-                          "isDynamic": false,
-                          "fixedValue": 0.0
-                        },
-                        "y": {
-                          "isFormula": false,
-                          "isDynamic": false,
-                          "fixedValue": 30.0
-                        },
-                        "z": {
-                          "isFormula": false,
-                          "isDynamic": false,
-                          "fixedValue": 0.0
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscleMan_Wallenstein_JumpAttack_RushMove",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "JumpAttack"
+                    ],
+                    "IMHBEGIKDKB": 0.4000000059604645,
+                    "HENDIIJFPCI": 140.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "RushMove",
+                    "FJCBIPKOKMF": {
+                        "$type": "ConfigBornBySelf",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 4.0
                         }
-                      }
+                    },
+                    "JLCCGHLNHOI": 1.2000000476837158,
+                    "GLALMCMAFJF": 1.2000000476837158,
+                    "GDCBDDNNPCM": 0.2549999952316284
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscleMan_Wallenstein_WhirlAtk_Manage",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "WhirlAtkBS"
+                    ],
+                    "HENDIIJFPCI": 180.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "WhirlAtkLoop"
+                    ],
+                    "IMHBEGIKDKB": 99.0,
+                    "HENDIIJFPCI": 120.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "AttachToStateIDMixin",
+                    "stateIDs": [
+                        "WhirlAtkLoop"
+                    ],
+                    "GAIGOBCNNEE": "Thoarder_MuscleMan_Wallenstein_WhirlAtk_Loop"
+                },
+                {
+                    "$type": "AttackHittingSceneMixin",
+                    "HOAPIHIBOCB": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "triggerID": "CrashTrigger"
+                        },
+                        {
+                            "$type": "ActCameraShake",
+                            "cameraShake": {
+                                "shakeRange": 0.1599999964237213,
+                                "shakeTime": 0.09000000357627869,
+                                "shakeDistance": 25.0
+                            }
+                        }
+                    ],
+                    "MIMLCECCJAL": [
+                        "Whirl_HitScene"
+                    ]
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "Thoarder_MuscleMan_Wallenstein_WhirlAtk_Loop": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Thoarder_MuscleMan_Hammer_WhirlAtk_Loop"
+                        }
+                    ],
+                    "AIJPLNMHBEN": [
+                        {
+                            "$type": "SetAnimatorTrigger",
+                            "predicates": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ],
+                                    "AHLLKFIGNAO": true
+                                }
+                            ],
+                            "triggerID": "WildSlamLoopEndTrigger"
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscleMan_Wallenstein_JumpAtk",
+            "HNEIEGHMLKH": {
+                "Thoarder_MuscleMan_Wallenstein_JumpAtk": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 2.0,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackCircle",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornBySelf",
+                                        "offset": {
+                                            "AEAAJCIDPED": 0.0,
+                                            "KAAPLGBEDPM": 0.0,
+                                            "PHDCJAHHIOG": 1.5
+                                        },
+                                        "NHPNHKBMAEO": {
+                                            "$type": "ConfigDirectionByEntity",
+                                            "LGPBCMEFEJB": {
+                                                "AEAAJCIDPED": 0.0,
+                                                "KAAPLGBEDPM": 30.0,
+                                                "PHDCJAHHIOG": 0.0
+                                            }
+                                        }
+                                    },
+                                    "secondHeight": 2.0999999046325684,
+                                    "BDAPFCGNBKA": 180.0,
+                                    "ICGFCBOFFDI": 2.5
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 0.75,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementDurability": 100.0,
+                                        "strikeType": "Blunt",
+                                        "enBreak": 200.0,
+                                        "attackType": "Melee"
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV5"
+                                    },
+                                    "cameraShake": {
+                                        "shakeType": "HitVector",
+                                        "shakeRange": 0.05999999865889549,
+                                        "shakeTime": 0.09000000357627869,
+                                        "shakeDir": {
+                                            "_y": -1.0
+                                        }
+                                    }
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        }
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "Thoarder_MuscleMan_Wallenstein_JumpAtk"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscicMan_Wallenstein_Throw_Effect",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "FireEffect",
+                    "predicates": [
+                        {
+                            "$type": "BySceneSurfaceType",
+                            "DFHLFKCMHJD": [
+                                "Water"
+                            ],
+                            "include": false
+                        }
+                    ],
+                    "JBHFPDMBFHN": "Eff_Monster_Thoarder_HatchetThrow"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscicMan_Wallenstein_Throw_Damage",
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "FireEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Defender_None_Step",
+                    "LALONNAHJDN": 2.0
+                },
+                {
+                    "$type": "FireHitEffect",
+                    "OFIGOLJOGPJ": "",
+                    "MHCHJLOELPF": {
+                        "MCNFNFLLGIH": "Eff_Monster_Thoarder_HatchetThrowBullet_HitScene",
+                        "GACILIABHFB": {
+                            "Water": "Eff_Arrow_Fire_Hit_Water"
+                        }
                     }
-                  },
-                  "height": 2.1,
-                  "fanAngle": 180.0,
-                  "radius": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 2.5
-                  }
                 },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.75
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 100.0
-                    },
-                    "strikeType": "Blunt",
-                    "enBreak": 200.0,
-                    "attackType": "Melee"
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV5"
-                  },
-                  "cameraShake": {
-                    "shakeType": "HitVector",
-                    "shakeRange": 0.06,
-                    "shakeTime": 0.09,
-                    "shakeDir": {
-                      "y": -1.0
+                {
+                    "$type": "Predicated",
+                    "NPHOOPNDCAC": "Target",
+                    "ELDBAFHCOBL": [
+                        {
+                            "$type": "ByEntityTypes",
+                            "entityTypes": [
+                                "Avatar",
+                                "Monster",
+                                "Gadget",
+                                "Bullet"
+                            ]
+                        }
+                    ],
+                    "NCNDEAPMKCP": [
+                        {
+                            "$type": "TriggerAttackEvent",
+                            "DMCJDGELKBC": {
+                                "attackPattern": {
+                                    "$type": "ConfigAttackBox",
+                                    "lifeTime": "TriggerNoRepeat",
+                                    "NGDMCBABOJA": {
+                                        "$type": "ConfigBornByCollisionPoint",
+                                        "offset": {
+                                            "AEAAJCIDPED": 0.0,
+                                            "KAAPLGBEDPM": 0.0,
+                                            "PHDCJAHHIOG": -0.4000000059604645
+                                        },
+                                        "JBPCKOKLHEB": true,
+                                        "ANAGBFPADIE": true
+                                    },
+                                    "size": {
+                                        "AEAAJCIDPED": 1.600000023841858,
+                                        "KAAPLGBEDPM": 1.600000023841858,
+                                        "PHDCJAHHIOG": 3.200000047683716
+                                    }
+                                },
+                                "attackInfo": {
+                                    "attackTag": "",
+                                    "attenuationTag": "",
+                                    "attenuationGroup": "default",
+                                    "attackProperty": {
+                                        "bonusCriticalHurt": 0.75,
+                                        "damagePercentageRatio": 0.0,
+                                        "elementDurability": 0.0,
+                                        "strikeType": "Slash",
+                                        "enBreak": 100.0
+                                    },
+                                    "hitPattern": {
+                                        "onHitEffectName": "default",
+                                        "hitImpulseType": "LV4",
+                                        "hitHaltTimeScale": 0.05000000074505806
+                                    },
+                                    "cameraShake": {
+                                        "shakeRange": 0.05999999865889549,
+                                        "shakeTime": 0.09000000357627869
+                                    },
+                                    "canBeModifiedBy": "OriginOwner"
+                                }
+                            },
+                            "OJIFKEOCJGB": "Enemy"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscicMan_Wallenstein_ThrowHammer",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "ThrowHammer"
+                    ],
+                    "IMHBEGIKDKB": 0.10000000149011612,
+                    "HENDIIJFPCI": 500.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "TriggerBullet",
+                    "NGAAOMEHOGE": 42504001,
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.0
+                        },
+                        "NHPNHKBMAEO": {
+                            "$type": "ConfigDirectionByAttackTarget",
+                            "IHHIKIACOML": "Horizontal",
+                            "INCAGGBCJNF": 15.0
+                        },
+                        "KJNJNKLLNCN": "WeaponL"
                     }
-                  }
                 }
-              },
-              "targetType": "Enemy"
-            }
-          ]
+            ]
         }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "Thoarder_MuscleMan_Wallenstein_JumpAtk"
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscicMan_Wallenstein_ThrowHammer_DistanceCheck",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "DoActionByStateIDMixin",
+                    "stateIDs": [
+                        "ThrowHammer"
+                    ],
+                    "MCFCEOACJEB": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "HHFIHBEAPAP": "ThrowDistance"
+                        }
+                    ]
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "DistanceCheck_SetBool": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 3.299999952316284,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetAnimatorBool",
+                            "predicates": [
+                                {
+                                    "$type": "ByTargetPositionToSelfPosition",
+                                    "NPHOOPNDCAC": "SelfAttackTarget",
+                                    "GMFCOCAJBDM": "GreaterOrEqual",
+                                    "value": 5.0
+                                }
+                            ],
+                            "HHFIHBEAPAP": "ThrowDistance",
+                            "value": true
+                        }
+                    ]
+                }
+            }
         }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscicMan_Wallenstein_Throw_Effect",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.BySceneSurfaceType",
-              "filters": [
-                "Water"
-              ],
-              "include": false
-            }
-          ],
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Thoarder_HatchetThrow"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscicMan_Wallenstein_Throw_Damage",
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.FireEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Defender_None_Step"
-          },
-          "scale": 2.0
-        },
-        {
-          "$type": "MoleMole.Config.FireHitEffect",
-          "hitEntity": "",
-          "hitScene": {
-            "defaultEffect": "Eff_Monster_Thoarder_HatchetThrowBullet_HitScene",
-            "surfaceEffect": {
-              "Water": "Eff_Arrow_Fire_Hit_Water"
-            }
-          }
-        },
-        {
-          "$type": "MoleMole.Config.Predicated",
-          "target": "Target",
-          "targetPredicates": [
-            {
-              "$type": "MoleMole.Config.ByEntityTypes",
-              "entityTypes": [
-                "Avatar",
-                "Monster",
-                "Gadget",
-                "Bullet"
-              ]
-            }
-          ],
-          "successActions": [
-            {
-              "$type": "MoleMole.Config.TriggerAttackEvent",
-              "attackEvent": {
-                "attackPattern": {
-                  "$type": "MoleMole.Config.ConfigAttackBox",
-                  "triggerType": "TriggerNoRepeat",
-                  "born": {
-                    "$type": "MoleMole.Config.ConfigBornByCollisionPoint",
-                    "offset": {
-                      "x": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "y": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": 0.0
-                      },
-                      "z": {
-                        "isFormula": false,
-                        "isDynamic": false,
-                        "fixedValue": -0.4
-                      }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Thoarder_MuscicMan_Wallenstein_ActivitySkill",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "ActivitySkill"
+                    ],
+                    "IMHBEGIKDKB": 0.30000001192092896,
+                    "HENDIIJFPCI": 480.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                },
+                {
+                    "$type": "SteerAttackMixin",
+                    "EHNAPMMMNFI": [
+                        "FirecrackerHit"
+                    ],
+                    "IMHBEGIKDKB": 0.30000001192092896,
+                    "HENDIIJFPCI": 480.0,
+                    "NCAENFOANAG": "",
+                    "BBHBLAIEHAJ": 3.75
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "Thoarder_MuscicMan_Wallenstein_ActivitySkill_Manage": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 30.0,
+                    "elementDurability": 100.0,
+                    "ILBIENDPCBG": [
+                        {
+                            "$type": "SetAISkillCDAvailableNow",
+                            "FJNGOGJOBEE": [
+                                301
+                            ]
+                        },
+                        {
+                            "$type": "UseSkillEliteSet",
+                            "AFIOIAPCKEJ": 1
+                        }
+                    ]
+                },
+                "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect": {
+                    "FGJPBKGPNJJ": "Unique",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "BillboardFixedMarkMixin",
+                            "NBPICDDNGEI": "Eff_UI_BillBoard_FixedMark_ForAngry"
+                        }
+                    ],
+                    "FFOHEEFOELN": {
+                        "Actor_FireSubHurtDelta": 0.6000000238418579,
+                        "Actor_WaterSubHurtDelta": 0.6000000238418579,
+                        "Actor_GrassSubHurtDelta": 0.6000000238418579,
+                        "Actor_ElecSubHurtDelta": 0.6000000238418579,
+                        "Actor_WindSubHurtDelta": 0.6000000238418579,
+                        "Actor_IceSubHurtDelta": 0.6000000238418579,
+                        "Actor_RockSubHurtDelta": 0.6000000238418579,
+                        "Actor_PhysicalSubHurtDelta": 0.800000011920929
                     },
-                    "onGround": true,
-                    "alongGround": true
-                  },
-                  "size": {
-                    "x": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.6
-                    },
-                    "y": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 1.6
-                    },
-                    "z": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 3.2
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Avatar_Properties_Defense_Up"
+                        }
+                    ],
+                    "onBeingHit": [
+                        {
+                            "$type": "Predicated",
+                            "NPHOOPNDCAC": "Target",
+                            "ELDBAFHCOBL": [
+                                {
+                                    "$type": "ByAttackTags",
+                                    "NMJGDKCDFOJ": [
+                                        "Firecracker"
+                                    ]
+                                }
+                            ],
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "ApplyModifier",
+                                    "GAIGOBCNNEE": "Thoarder_MuscicMan_Wallenstein_ActivitySkill_Manage"
+                                },
+                                {
+                                    "$type": "SetAnimatorTrigger",
+                                    "triggerID": "FirecrackerHit"
+                                },
+                                {
+                                    "$type": "RemoveUniqueModifier",
+                                    "GAIGOBCNNEE": "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "ActivitySkill_ExitBattle": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "RemoveUniqueModifier",
+                            "GAIGOBCNNEE": "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect"
+                        },
+                        {
+                            "$type": "SetAISkillCDAvailableNow",
+                            "FJNGOGJOBEE": [
+                                301
+                            ]
+                        }
+                    ]
+                }
+            },
+            "KCICDEJLIJD": [
+                {
+                    "$type": "ApplyModifier",
+                    "ACOKKHADPOJ": true,
+                    "predicates": [
+                        {
+                            "$type": "ByTargetGlobalValue",
+                            "NPHOOPNDCAC": "Self",
+                            "HJJEAOMEOFI": "_THOARDER_ELITE_TAG_",
+                            "value": 1.0
+                        }
+                    ],
+                    "GAIGOBCNNEE": "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect"
+                }
+            ],
+            "HKBHLMNEMKM": [
+                {
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect"
+                },
+                {
+                    "$type": "AttachEffect",
+                    "JBHFPDMBFHN": "Eff_Monster_Thoarder_Male_Shovel_WildSlam_BS_01",
+                    "NGDMCBABOJA": {
+                        "$type": "ConfigBornByAttachPoint",
+                        "offset": {
+                            "AEAAJCIDPED": 0.0,
+                            "KAAPLGBEDPM": 0.0,
+                            "PHDCJAHHIOG": 0.0
+                        },
+                        "KJNJNKLLNCN": "MoveHead"
                     }
-                  }
-                },
-                "attackInfo": {
-                  "attackTag": "",
-                  "attenuationTag": "",
-                  "attenuationGroup": "default",
-                  "attackProperty": {
-                    "damagePercentage": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.75
-                    },
-                    "damagePercentageRatio": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "elementDurability": {
-                      "isFormula": false,
-                      "isDynamic": false,
-                      "fixedValue": 0.0
-                    },
-                    "strikeType": "Slash",
-                    "enBreak": 100.0
-                  },
-                  "hitPattern": {
-                    "onHitEffectName": "default",
-                    "hitImpulseType": "LV4",
-                    "hitHaltTimeScale": 0.05
-                  },
-                  "cameraShake": {
-                    "shakeRange": 0.06,
-                    "shakeTime": 0.09
-                  },
-                  "canBeModifiedBy": "OriginOwner"
                 }
-              },
-              "targetType": "Enemy"
-            }
-          ]
+            ]
         }
-      ]
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscicMan_Wallenstein_ThrowHammer",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "ThrowHammer"
-          ],
-          "endNormalizedTime": 0.1,
-          "angularSpeed": 500.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.TriggerBullet",
-          "bulletID": 42504001,
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            "direction": {
-              "$type": "MoleMole.Config.ConfigDirectionByAttackTarget",
-              "maxAngleType": "Horizontal",
-              "maxAngle": 15.0
-            },
-            "attachPointName": "WeaponL"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscicMan_Wallenstein_ThrowHammer_DistanceCheck",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.DoActionByStateIDMixin",
-          "stateIDs": [
-            "ThrowHammer"
-          ],
-          "exitActions": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "boolID": "ThrowDistance"
-            }
-          ]
-        }
-      ],
-      "modifiers": {
-        "DistanceCheck_SetBool": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 3.3
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetAnimatorBool",
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByTargetPositionToSelfPosition",
-                  "target": "SelfAttackTarget",
-                  "logic": "GreaterOrEqual",
-                  "value": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 5.0
-                  }
-                }
-              ],
-              "boolID": "ThrowDistance",
-              "value": true
-            }
-          ]
-        }
-      }
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Thoarder_MuscicMan_Wallenstein_ActivitySkill",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "ActivitySkill"
-          ],
-          "endNormalizedTime": 0.3,
-          "angularSpeed": 480.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        },
-        {
-          "$type": "MoleMole.Config.SteerAttackMixin",
-          "steerStateIDs": [
-            "FirecrackerHit"
-          ],
-          "endNormalizedTime": 0.3,
-          "angularSpeed": 480.0,
-          "attackTrigger": "",
-          "attackDistance": 3.75
-        }
-      ],
-      "modifiers": {
-        "Thoarder_MuscicMan_Wallenstein_ActivitySkill_Manage": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 30.0
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onRemoved": [
-            {
-              "$type": "MoleMole.Config.SetAISkillCDAvailableNow",
-              "skillIDs": [
-                301
-              ]
-            },
-            {
-              "$type": "MoleMole.Config.UseSkillEliteSet",
-              "skillEliteSetID": 1
-            }
-          ]
-        },
-        "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect": {
-          "stacking": "Unique",
-          "modifierName": "",
-          "isUnique": true,
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.BillboardFixedMarkMixin",
-              "prefabName": "Eff_UI_BillBoard_FixedMark_ForAngry"
-            }
-          ],
-          "properties": {
-            "Actor_FireSubHurtDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.6
-            },
-            "Actor_WaterSubHurtDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.6
-            },
-            "Actor_GrassSubHurtDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.6
-            },
-            "Actor_ElecSubHurtDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.6
-            },
-            "Actor_WindSubHurtDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.6
-            },
-            "Actor_IceSubHurtDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.6
-            },
-            "Actor_RockSubHurtDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.6
-            },
-            "Actor_PhysicalSubHurtDelta": {
-              "isFormula": false,
-              "isDynamic": false,
-              "fixedValue": 0.8
-            }
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Avatar_Properties_Defense_Up"
-              }
-            }
-          ],
-          "onBeingHit": [
-            {
-              "$type": "MoleMole.Config.Predicated",
-              "target": "Target",
-              "targetPredicates": [
-                {
-                  "$type": "MoleMole.Config.ByAttackTags",
-                  "attackTags": [
-                    "Firecracker"
-                  ]
-                }
-              ],
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.ApplyModifier",
-                  "modifierName": "Thoarder_MuscicMan_Wallenstein_ActivitySkill_Manage"
-                },
-                {
-                  "$type": "MoleMole.Config.SetAnimatorTrigger",
-                  "triggerID": {
-                    "isDynamic": false,
-                    "fixedValue": "FirecrackerHit"
-                  }
-                },
-                {
-                  "$type": "MoleMole.Config.RemoveUniqueModifier",
-                  "modifierName": "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect"
-                }
-              ]
-            }
-          ]
-        },
-        "ActivitySkill_ExitBattle": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.RemoveUniqueModifier",
-              "modifierName": "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect"
-            },
-            {
-              "$type": "MoleMole.Config.SetAISkillCDAvailableNow",
-              "skillIDs": [
-                301
-              ]
-            }
-          ]
-        }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "doOffStage": true,
-          "predicates": [
-            {
-              "$type": "MoleMole.Config.ByTargetGlobalValue",
-              "target": "Self",
-              "key": "_THOARDER_ELITE_TAG_",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 1.0
-              }
-            }
-          ],
-          "modifierName": "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect"
-        }
-      ],
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "UNIQUE_Thoarder_MuscicMan_Wallenstein_ActivitySkill_Effect"
-        },
-        {
-          "$type": "MoleMole.Config.AttachEffect",
-          "effectPattern": {
-            "isDynamic": false,
-            "fixedValue": "Eff_Monster_Thoarder_Male_Shovel_WildSlam_BS_01"
-          },
-          "born": {
-            "$type": "MoleMole.Config.ConfigBornByAttachPoint",
-            "offset": {
-              "x": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "y": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "z": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            "attachPointName": "MoveHead"
-          }
-        }
-      ]
-    }
-  }
 ]

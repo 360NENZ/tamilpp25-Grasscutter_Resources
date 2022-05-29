@@ -1,405 +1,292 @@
 [
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Hound_Riftstalker_RunState",
-      "modifiers": {
-        "Run_RandomValue": {
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 0.2
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.Randomed",
-              "chance": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.3
-              },
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.SetAnimatorTrigger",
-                  "triggerID": {
-                    "isDynamic": false,
-                    "fixedValue": "RunRandom"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "onAbilityStart": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "Run_RandomValue"
-        }
-      ]
-    }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Hound_Corruption_LoseHP",
-      "modifiers": {
-        "Hound_Corruption_LoseHP_AttackCheck": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAttackLanded": [
-            {
-              "$type": "MoleMole.Config.Predicated",
-              "target": "Target",
-              "targetPredicates": [
-                {
-                  "$type": "MoleMole.Config.ByEntityTypes",
-                  "entityTypes": [
-                    "Avatar"
-                  ]
-                },
-                {
-                  "$type": "MoleMole.Config.ByAttackTags",
-                  "attackTags": [
-                    "Hound_Corruption_Tag"
-                  ]
-                }
-              ],
-              "successActions": [
-                {
-                  "$type": "MoleMole.Config.ApplyModifier",
-                  "target": "TargetTeam",
-                  "predicates": [
-                    {
-                      "$type": "MoleMole.Config.ByNot",
-                      "predicates": [
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Hound_Riftstalker_RunState",
+            "HNEIEGHMLKH": {
+                "Run_RandomValue": {
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
                         {
-                          "$type": "MoleMole.Config.ByDungeonSettled"
+                            "$type": "Randomed",
+                            "PLKDGIELEEF": 0.30000001192092896,
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "SetAnimatorTrigger",
+                                    "triggerID": "RunRandom"
+                                }
+                            ]
                         }
-                      ]
-                    }
-                  ],
-                  "modifierName": "Hound_Corruption_LoseHP_Logic"
-                },
+                    ]
+                }
+            },
+            "HKBHLMNEMKM": [
                 {
-                  "$type": "MoleMole.Config.ApplyModifier",
-                  "target": "TargetTeam",
-                  "predicates": [
-                    {
-                      "$type": "MoleMole.Config.ByNot",
-                      "predicates": [
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "Run_RandomValue"
+                }
+            ]
+        }
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Hound_Corruption_LoseHP",
+            "HNEIEGHMLKH": {
+                "Hound_Corruption_LoseHP_AttackCheck": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "AIJPLNMHBEN": [
                         {
-                          "$type": "MoleMole.Config.ByDungeonSettled"
+                            "$type": "Predicated",
+                            "NPHOOPNDCAC": "Target",
+                            "ELDBAFHCOBL": [
+                                {
+                                    "$type": "ByEntityTypes",
+                                    "entityTypes": [
+                                        "Avatar"
+                                    ]
+                                },
+                                {
+                                    "$type": "ByAttackTags",
+                                    "NMJGDKCDFOJ": [
+                                        "Hound_Corruption_Tag"
+                                    ]
+                                }
+                            ],
+                            "NCNDEAPMKCP": [
+                                {
+                                    "$type": "ApplyModifier",
+                                    "NPHOOPNDCAC": "TargetTeam",
+                                    "predicates": [
+                                        {
+                                            "$type": "ByNot",
+                                            "predicates": [
+                                                {
+                                                    "$type": "ByDungeonSettled"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "GAIGOBCNNEE": "Hound_Corruption_LoseHP_Logic"
+                                },
+                                {
+                                    "$type": "ApplyModifier",
+                                    "NPHOOPNDCAC": "TargetTeam",
+                                    "predicates": [
+                                        {
+                                            "$type": "ByNot",
+                                            "predicates": [
+                                                {
+                                                    "$type": "ByDungeonSettled"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "GAIGOBCNNEE": "UNIQUE_Hound_Corruption_LoseHP_Effect_LocalHandler"
+                                }
+                            ]
                         }
-                      ]
-                    }
-                  ],
-                  "modifierName": "UNIQUE_Hound_Corruption_LoseHP_Effect_LocalHandler"
-                }
-              ]
-            }
-          ]
-        },
-        "Hound_Corruption_LoseHP_Logic": {
-          "timeScale": "Level",
-          "stacking": "Multiple",
-          "modifierName": "",
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 9.5
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "thinkInterval": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 1.0
-          },
-          "state": "UnlockFrequencyLimit",
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.LoseHP",
-              "target": "CurTeamAvatars",
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByNot",
-                  "predicates": [
-                    {
-                      "$type": "MoleMole.Config.ByIsLocalAvatar"
-                    }
-                  ]
+                    ]
                 },
-                {
-                  "$type": "MoleMole.Config.ByTargetHPRatio",
-                  "HPRatio": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.15
-                  }
+                "Hound_Corruption_LoseHP_Logic": {
+                    "LAFGKJBLBGP": "Level",
+                    "FGJPBKGPNJJ": "Multiple",
+                    "GAIGOBCNNEE": "",
+                    "GMIMMDOGGIO": 9.5,
+                    "elementDurability": 100.0,
+                    "IKKMDDLDLIN": 1.0,
+                    "state": "UnlockFrequencyLimit",
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "LoseHP",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByNot",
+                                    "predicates": [
+                                        {
+                                            "$type": "ByIsLocalAvatar"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "$type": "ByTargetHPRatio",
+                                    "BCJJBMJKHED": 0.15000000596046448
+                                },
+                                {
+                                    "$type": "ByGameTimeIsLocked"
+                                }
+                            ],
+                            "PDLLIFICICJ": 0.0,
+                            "AJAHODOGLMH": 0.004999999888241291,
+                            "NPCCIJINMGO": false,
+                            "IMKEAGOJBPA": true,
+                            "LCEHMPAGCPL": true,
+                            "GPDAKLCBNFI": true,
+                            "BOJIBPNEOHP": true
+                        },
+                        {
+                            "$type": "LoseHP",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByIsLocalAvatar"
+                                },
+                                {
+                                    "$type": "ByGameTimeIsLocked"
+                                }
+                            ],
+                            "PDLLIFICICJ": 0.0,
+                            "AJAHODOGLMH": 0.004999999888241291,
+                            "IMKEAGOJBPA": true,
+                            "LCEHMPAGCPL": true,
+                            "GPDAKLCBNFI": true,
+                            "BOJIBPNEOHP": true
+                        }
+                    ],
+                    "PBDDACFFPOE": [
+                        {
+                            "$type": "LoseHP",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByNot",
+                                    "predicates": [
+                                        {
+                                            "$type": "ByIsLocalAvatar"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "$type": "ByTargetHPRatio",
+                                    "BCJJBMJKHED": 0.15000000596046448
+                                },
+                                {
+                                    "$type": "ByGameTimeIsLocked"
+                                }
+                            ],
+                            "PDLLIFICICJ": 0.0,
+                            "AJAHODOGLMH": 0.004999999888241291,
+                            "NPCCIJINMGO": false,
+                            "IMKEAGOJBPA": true,
+                            "LCEHMPAGCPL": true,
+                            "GPDAKLCBNFI": true,
+                            "BOJIBPNEOHP": true
+                        },
+                        {
+                            "$type": "LoseHP",
+                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "ACOKKHADPOJ": true,
+                            "predicates": [
+                                {
+                                    "$type": "ByIsLocalAvatar"
+                                },
+                                {
+                                    "$type": "ByGameTimeIsLocked"
+                                }
+                            ],
+                            "PDLLIFICICJ": 0.0,
+                            "AJAHODOGLMH": 0.004999999888241291,
+                            "IMKEAGOJBPA": true,
+                            "LCEHMPAGCPL": true,
+                            "GPDAKLCBNFI": true,
+                            "BOJIBPNEOHP": true
+                        }
+                    ],
+                    "NHFJDDBKNCM": true,
+                    "HFBALDBFOOH": [
+                        "Corruption"
+                    ]
                 },
-                {
-                  "$type": "MoleMole.Config.ByGameTimeIsLocked"
+                "UNIQUE_Hound_Corruption_LoseHP_Effect_LocalHandler": {
+                    "FGJPBKGPNJJ": "RefreshUniqueDurability",
+                    "GAIGOBCNNEE": "",
+                    "IEOFBCGJGEK": true,
+                    "GMIMMDOGGIO": 9.5,
+                    "elementDurability": 100.0,
+                    "FNJKJKACMCH": [
+                        {
+                            "$type": "CurLocalAvatarMixinV2",
+                            "GAIGOBCNNEE": "Hound_Corruption_LoseHP_Effect"
+                        },
+                        {
+                            "$type": "LocalAvatarsMixin",
+                            "GAIGOBCNNEE": "Hound_Corruption_LoseHP_Icon"
+                        }
+                    ],
+                    "HFBALDBFOOH": [
+                        "Corruption"
+                    ]
+                },
+                "Hound_Corruption_LoseHP_Effect": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "AttachEffect",
+                            "JBHFPDMBFHN": "Eff_Monster_Common_Corruption_LoseHP"
+                        },
+                        {
+                            "$type": "SendEffectTrigger",
+                            "MOCGJNIDDAI": "Stage",
+                            "type": "Int",
+                            "weight": 2,
+                            "JBHFPDMBFHN": "Eff_Monster_Common_Corruption_LoseHP"
+                        }
+                    ]
+                },
+                "Hound_Corruption_LoseHP_Icon": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "ONGKIIJLFCG": 90005
                 }
-              ],
-              "amount": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "amountByTargetMaxHPRatio": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.005
-              },
-              "lethal": false,
-              "enableInvincible": true,
-              "enableLockHP": true,
-              "disableWhenLoading": true,
-              "useMeta": true
             },
-            {
-              "$type": "MoleMole.Config.LoseHP",
-              "target": "CurTeamAvatars",
-              "doOffStage": true,
-              "predicates": [
+            "KCICDEJLIJD": [
                 {
-                  "$type": "MoleMole.Config.ByIsLocalAvatar"
-                },
-                {
-                  "$type": "MoleMole.Config.ByGameTimeIsLocked"
+                    "$type": "ApplyModifier",
+                    "GAIGOBCNNEE": "Hound_Corruption_LoseHP_AttackCheck"
                 }
-              ],
-              "amount": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "amountByTargetMaxHPRatio": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.005
-              },
-              "enableInvincible": true,
-              "enableLockHP": true,
-              "disableWhenLoading": true,
-              "useMeta": true
-            }
-          ],
-          "onThinkInterval": [
-            {
-              "$type": "MoleMole.Config.LoseHP",
-              "target": "CurTeamAvatars",
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByNot",
-                  "predicates": [
-                    {
-                      "$type": "MoleMole.Config.ByIsLocalAvatar"
-                    }
-                  ]
-                },
-                {
-                  "$type": "MoleMole.Config.ByTargetHPRatio",
-                  "HPRatio": {
-                    "isFormula": false,
-                    "isDynamic": false,
-                    "fixedValue": 0.15
-                  }
-                },
-                {
-                  "$type": "MoleMole.Config.ByGameTimeIsLocked"
-                }
-              ],
-              "amount": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "amountByTargetMaxHPRatio": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.005
-              },
-              "lethal": false,
-              "enableInvincible": true,
-              "enableLockHP": true,
-              "disableWhenLoading": true,
-              "useMeta": true
-            },
-            {
-              "$type": "MoleMole.Config.LoseHP",
-              "target": "CurTeamAvatars",
-              "doOffStage": true,
-              "predicates": [
-                {
-                  "$type": "MoleMole.Config.ByIsLocalAvatar"
-                },
-                {
-                  "$type": "MoleMole.Config.ByGameTimeIsLocked"
-                }
-              ],
-              "amount": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "amountByTargetMaxHPRatio": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.005
-              },
-              "enableInvincible": true,
-              "enableLockHP": true,
-              "disableWhenLoading": true,
-              "useMeta": true
-            }
-          ],
-          "onThinkIntervalIsFixedUpdate": true,
-          "FBHKLDAENOC": [
-            "Corruption"
-          ]
-        },
-        "UNIQUE_Hound_Corruption_LoseHP_Effect_LocalHandler": {
-          "stacking": "RefreshUniqueDurability",
-          "modifierName": "",
-          "isUnique": true,
-          "duration": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 9.5
-          },
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "modifierMixins": [
-            {
-              "$type": "MoleMole.Config.CurLocalAvatarMixinV2",
-              "modifierName": "Hound_Corruption_LoseHP_Effect"
-            },
-            {
-              "$type": "MoleMole.Config.LocalAvatarsMixin",
-              "modifierName": "Hound_Corruption_LoseHP_Icon"
-            }
-          ],
-          "FBHKLDAENOC": [
-            "Corruption"
-          ]
-        },
-        "Hound_Corruption_LoseHP_Effect": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.AttachEffect",
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Common_Corruption_LoseHP"
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SendEffectTrigger",
-              "parameter": "Stage",
-              "type": "Int",
-              "value": 2,
-              "effectPattern": {
-                "isDynamic": false,
-                "fixedValue": "Eff_Monster_Common_Corruption_LoseHP"
-              }
-            }
-          ]
-        },
-        "Hound_Corruption_LoseHP_Icon": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "buffID": 90005
+            ]
         }
-      },
-      "onAdded": [
-        {
-          "$type": "MoleMole.Config.ApplyModifier",
-          "modifierName": "Hound_Corruption_LoseHP_AttackCheck"
+    },
+    {
+        "Default": {
+            "$type": "ConfigAbility",
+            "abilityName": "Monster_Hound_Riftstalker_ExitBattle",
+            "CHBMMFLIIGH": [
+                {
+                    "$type": "AttachToAIAlertnessMixin",
+                    "OCFKMHBNKDL": [
+                        0
+                    ],
+                    "GAIGOBCNNEE": "ExitBattle"
+                }
+            ],
+            "HNEIEGHMLKH": {
+                "ExitBattle": {
+                    "GAIGOBCNNEE": "",
+                    "elementDurability": 100.0,
+                    "KCICDEJLIJD": [
+                        {
+                            "$type": "SetGlobalValue",
+                            "value": 0.0,
+                            "HJJEAOMEOFI": "_Riftstalker_POSE_TAG_",
+                            "JDHHMBHOOEC": 0.0,
+                            "KHAHOELDONA": 0.0
+                        },
+                        {
+                            "$type": "SetChargeBarValue",
+                            "value": 0.0
+                        }
+                    ]
+                }
+            }
         }
-      ]
     }
-  },
-  {
-    "Default": {
-      "$type": "MoleMole.Config.ConfigAbility",
-      "abilityName": "Monster_Hound_Riftstalker_ExitBattle",
-      "abilityMixins": [
-        {
-          "$type": "MoleMole.Config.AttachToAIAlertnessMixin",
-          "alertness": [
-            0
-          ],
-          "modifierName": "ExitBattle"
-        }
-      ],
-      "modifiers": {
-        "ExitBattle": {
-          "modifierName": "",
-          "elementDurability": {
-            "isFormula": false,
-            "isDynamic": false,
-            "fixedValue": 100.0
-          },
-          "onAdded": [
-            {
-              "$type": "MoleMole.Config.SetGlobalValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "key": "_Riftstalker_POSE_TAG_",
-              "maxValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              },
-              "minValue": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            },
-            {
-              "$type": "MoleMole.Config.SetChargeBarValue",
-              "value": {
-                "isFormula": false,
-                "isDynamic": false,
-                "fixedValue": 0.0
-              }
-            }
-          ]
-        }
-      }
-    }
-  }
 ]
