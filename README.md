@@ -1,7 +1,7 @@
 # Grasscutter_Resources
 > <em>Resource Version - "Certain Anime Game" 2.7.0</em>
 
-- ExcelBinOutput [Fixed camelCase -> PascalCase]
+- ExcelBinOutput
 - BinOutput [Uses 2.6 Raz BinOutput but added Yelan & Shinobu Files from GenshinData]
 - Scripts [Lua From [lilmayofuksu/animepython](https://github.com/lilmayofuksu/animepython) - 2.6.51)
 - Readable
