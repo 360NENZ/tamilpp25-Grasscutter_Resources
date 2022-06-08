@@ -3,7 +3,7 @@
 
 - ExcelBinOutput
 - BinOutput
-- Scripts [Lua From [lilmayofuksu/animepython](https://github.com/lilmayofuksu/animepython) - 2.6.51)
+- Scripts [Lua From [lilmayofuksu/animepython](https://github.com/lilmayofuksu/animepython) - 2.6.51]
 - Readable
 - Subtitle
 - TextMap
