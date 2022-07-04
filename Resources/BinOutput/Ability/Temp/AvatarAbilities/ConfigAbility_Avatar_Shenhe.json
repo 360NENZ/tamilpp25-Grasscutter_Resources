@@ -3,7 +3,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_ExtraAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -21,9 +21,9 @@
                 {
                     "$type": "ButtonHoldChargeMixin",
                     "overtime": 10631,
-                    "DBKLMBJJHDP": 0.11999999731779099,
-                    "BLOPHAGIDDP": 0.20000000298023224,
-                    "CBGHBGNKMPO": [
+                    "chargeTime": 0.11999999731779099,
+                    "secondChargeTime": 0.20000000298023224,
+                    "OnBeginUncharged": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "DoSkill"
@@ -36,15 +36,15 @@
                                     "predicates": [
                                         {
                                             "$type": "ByAnimatorInt",
-                                            "GMFCOCAJBDM": "Equal",
+                                            "logic": "Equal",
                                             "value": 0,
-                                            "MOCGJNIDDAI": "ComboCount"
+                                            "parameter": "ComboCount"
                                         },
                                         {
                                             "$type": "ByAnimatorInt",
-                                            "GMFCOCAJBDM": "Equal",
+                                            "logic": "Equal",
                                             "value": 5,
-                                            "MOCGJNIDDAI": "ComboCount"
+                                            "parameter": "ComboCount"
                                         }
                                     ]
                                 }
@@ -54,27 +54,27 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsCharging"
+                            "boolID": "IsCharging"
                         }
                     ],
-                    "CGFPHLEJDMJ": [
+                    "OnReleaseUncharged": [
                         {
                             "$type": "SetAnimatorInt",
                             "intID": "SkillID",
                             "value": 1.0
                         }
                     ],
-                    "PKNMLLHNOLA": [
+                    "OnBeginCharged": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsCharging",
+                            "boolID": "IsCharging",
                             "value": true
                         }
                     ],
-                    "NFPDHLMEPGB": [
+                    "OnReleaseCharged": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsCharging"
+                            "boolID": "IsCharging"
                         },
                         {
                             "$type": "SetAnimatorInt",
@@ -82,14 +82,14 @@
                             "value": 1.0
                         }
                     ],
-                    "EGNJLDKPBMI": [
+                    "OnBeginSecondCharged": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "predicates": [
                                 {
                                     "$type": "ByLocalAvatarStamina",
-                                    "GMFCOCAJBDM": "GreaterOrEqual",
-                                    "JBAKBEFIMBN": [
+                                    "logic": "GreaterOrEqual",
+                                    "stamina": [
                                         "ExtraAttack_Pole_Stamina_Cost",
                                         "Flexible_Stamina",
                                         "Add"
@@ -103,8 +103,8 @@
                             "predicates": [
                                 {
                                     "$type": "ByLocalAvatarStamina",
-                                    "GMFCOCAJBDM": "GreaterOrEqual",
-                                    "JBAKBEFIMBN": [
+                                    "logic": "GreaterOrEqual",
+                                    "stamina": [
                                         "ExtraAttack_Pole_Stamina_Cost",
                                         "Flexible_Stamina",
                                         "Add"
@@ -116,10 +116,10 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsCharging"
+                            "boolID": "IsCharging"
                         }
                     ],
-                    "KBDIHBMGNBC": [
+                    "chargeStateIDs": [
                         "Attack01",
                         "Attack02",
                         "Attack03",
@@ -135,40 +135,40 @@
                     "GAIGOBCNNEE": "ExtraAttack_StaminaCost"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ExtraAttack_Pole_Stamina_Cost": 0.0,
                 "Flexible_Stamina": -2.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ExtraAttack_StaminaCost": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AvatarSkillStart",
                             "overtime": 10002,
-                            "AFPAPIFKIHK": 1.0,
-                            "JFIJFCKLFCF": "ExtraAttack_Pole_Stamina_Cost"
+                            "cdRatio": 1.0,
+                            "costStaminaRatio": "ExtraAttack_Pole_Stamina_Cost"
                         }
                     ]
                 },
                 "ExtraAttack_FX": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ExtraAttack_Sprint"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ExtraAttack_Sprint"
                         }
                     ]
                 },
                 "ExtraAttack_BS_FX": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ExtraAttack"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ExtraAttack"
                         }
                     ]
                 }
@@ -179,7 +179,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_CreateBullet",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -209,22 +209,22 @@
                     "GAIGOBCNNEE": "Shenhe_ElementalArt_L_CloseCollider"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shenhe_ExtraAttack_CreateBullet": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NGAAOMEHOGE": 41063001
+                            "bulletID": 41063001
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillGadget",
-                            "ACOKKHADPOJ": true,
-                            "LBGGIBBMCMF": {
-                                "APIAFGPIIHE": 41063001
+                            "doOffStage": true,
+                            "gadgetInfo": {
+                                "configID": 41063001
                             }
                         }
                     ]
@@ -232,12 +232,12 @@
                 "Shenhe_ElementalArt_CreateBullet": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillGadget",
-                            "ACOKKHADPOJ": true,
-                            "LBGGIBBMCMF": {
-                                "APIAFGPIIHE": 41063002
+                            "doOffStage": true,
+                            "gadgetInfo": {
+                                "configID": 41063002
                             }
                         }
                     ]
@@ -245,36 +245,36 @@
                 "ExtraAttack_CloseCollider": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerSetPassThrough",
-                            "ACOKKHADPOJ": true,
-                            "PCAEPAFKFNA": true
+                            "doOffStage": true,
+                            "passThrough": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerSetPassThrough",
-                            "ACOKKHADPOJ": true,
-                            "CFIPAGENGPE": true
+                            "doOffStage": true,
+                            "canBeHandledOnRecover": true
                         }
                     ]
                 },
                 "Shenhe_ElementalArt_L_CloseCollider": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerSetPassThrough",
-                            "ACOKKHADPOJ": true,
-                            "PCAEPAFKFNA": true
+                            "doOffStage": true,
+                            "passThrough": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerSetPassThrough",
-                            "ACOKKHADPOJ": true,
-                            "CFIPAGENGPE": true
+                            "doOffStage": true,
+                            "canBeHandledOnRecover": true
                         }
                     ]
                 }
@@ -285,14 +285,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_ExtraAttack_Bullet",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ExtraAttack": 0.0
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Target",
-                    "ELDBAFHCOBL": [
+                    "target": "Target",
+                    "targetPredicates": [
                         {
                             "$type": "ByEntityTypes",
                             "entityTypes": [
@@ -300,10 +300,10 @@
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "DamageByAttackValue",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "attackInfo": {
                                 "attackTag": "ExtraAttack",
                                 "attenuationTag": "ExtraAttack",
@@ -336,22 +336,22 @@
                             }
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByCollisionPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 0.800000011920929
+                                    "radius": 0.800000011920929
                                 },
                                 "attackInfo": {
                                     "attackTag": "ExtraAttack",
@@ -384,7 +384,7 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
@@ -395,23 +395,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_ElementalArt_Bullet",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Elemental_Art_L_Damage": 0.0,
                 "Buff_Talent_ExtraDMG_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shenhe_ElementalArt_Bullet_ElemBall_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "JBIFBFBINJL": [
+                    "onHittingOther": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Elemental_Art"
                                     ]
                                 },
@@ -427,12 +427,12 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
                                     "GAIGOBCNNEE": "ElementalArt_Bullet_ElemBall"
@@ -442,71 +442,71 @@
                     ]
                 },
                 "ElementalArt_Bullet_ElemBall": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "GenerateElemBall",
-                            "ACOKKHADPOJ": true,
-                            "APIAFGPIIHE": 2022,
-                            "NGDMCBABOJA": {
+                            "doOffStage": true,
+                            "configID": 2022,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.5,
-                                    "MFBOELKCPDP": 1.5
+                                    "minRandomRange": 0.5,
+                                    "maxRandomRange": 1.5
                                 }
                             },
                             "ratio": 1.0,
-                            "GJNDGIAENMI": 9.0
+                            "baseEnergy": 9.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Caster",
-                    "ELDBAFHCOBL": [
+                    "target": "Caster",
+                    "targetPredicates": [
                         {
                             "$type": "ByUnlockTalentParam",
-                            "GFIJPNMCOGJ": "Shenhe_Constellation_4"
+                            "talentParam": "Shenhe_Constellation_4"
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "CopyGlobalValue",
-                            "IGKNCNDCLOO": "OriginOwner",
-                            "KNAELFCJEPL": "Self",
-                            "DHPMANPAAFN": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
-                            "CGMMPCHEGIH": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio"
+                            "srcTarget": "OriginOwner",
+                            "dstTarget": "Self",
+                            "srcKey": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
+                            "dstKey": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio"
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
-                            "OGAHELLALBB": "Buff_Talent_ExtraDMG_Ratio"
+                            "globalValueKey": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
+                            "overrideMapKey": "Buff_Talent_ExtraDMG_Ratio"
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "OriginOwner",
+                            "target": "OriginOwner",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "OriginOwner",
+                            "target": "OriginOwner",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
@@ -515,11 +515,11 @@
                     "GAIGOBCNNEE": "Shenhe_ElementalArt_Bullet_ElemBall_Handler"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Target",
-                    "ELDBAFHCOBL": [
+                    "target": "Target",
+                    "targetPredicates": [
                         {
                             "$type": "ByEntityTypes",
                             "entityTypes": [
@@ -527,10 +527,10 @@
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "DamageByAttackValue",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "attackInfo": {
                                 "attackTag": "Elemental_Art",
                                 "attenuationTag": "Elemental_Art",
@@ -563,22 +563,22 @@
                             }
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByCollisionPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 0.800000011920929
+                                    "radius": 0.800000011920929
                                 },
                                 "attackInfo": {
                                     "attackTag": "Elemental_Art",
@@ -611,7 +611,7 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
@@ -622,19 +622,19 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_ElementalArt_FX",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SkillButtonHoldChargeMixin",
                     "overtime": 10632,
-                    "FBKEKCDNBGA": "NextLoopTrigger",
-                    "FPOECNCOANG": "EndHoldTrigger",
-                    "DALGCIDCLHM": [
+                    "nextLoopTriggerID": "NextLoopTrigger",
+                    "endHoldTrigger": "EndHoldTrigger",
+                    "beforeStateIDs": [
                         "Shenhe_ElementalArt_BS"
                     ],
-                    "DPOLLOHHCHN": [
+                    "chargeLoopStateIDs": [
                         "Shenhe_ElementalArt_H"
                     ],
-                    "FDBPIFFNAND": [
+                    "chargeLoopDurations": [
                         3.0
                     ]
                 },
@@ -655,50 +655,50 @@
                     "GAIGOBCNNEE": "Shenhe_ElementalArt_L_AttackFX"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shenhe_ElementalArt_L_Shadow": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SendEffectTrigger",
-                            "MOCGJNIDDAI": "Attack_L",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Rune_Charge"
+                            "parameter": "Attack_L",
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Rune_Charge"
                         },
                         {
                             "$type": "SendEffectTrigger",
-                            "MOCGJNIDDAI": "Die",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Shadow_Charge"
+                            "parameter": "Die",
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Shadow_Charge"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Shadow_L"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Shadow_L"
                         }
                     ]
                 },
                 "Shenhe_ElementalArt_L_AttackFX": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_L"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_L"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_L_Trail"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_L_Trail"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Rune_Charge"
+                    "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Rune_Charge"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Shadow_Charge"
+                    "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Shadow_Charge"
                 }
             ]
         }
@@ -707,70 +707,70 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_ElementalArt_Attack_L",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ElementalArt_L_Buff_Time": 0.0,
                 "ElementalArt_L_Buff_Count": 0.0,
                 "Attack2ExtraRatio": 0.0,
                 "ElementalArt_L_Extra_Buff_Time": 0.0,
                 "ElementalArt_L_Extra_Buff_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Shenhe_ElementalArt_L_Buff_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "ElementalArt_L_Buff_Time",
+                    "isUnique": true,
+                    "duration": "ElementalArt_L_Buff_Time",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.30000001192092896,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.30000001192092896,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_L_Buff_FX"
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Caster",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Caster",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByUnlockTalentParam",
-                                    "GFIJPNMCOGJ": "Shenhe_Constellation_6"
+                                    "talentParam": "Shenhe_Constellation_6"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_L_Talent_Buff"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_L_Buff"
                                 }
                             ]
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
-                                    "ONPJJFKDCED": "XYZ",
+                                    "target": "Caster",
+                                    "logic": "LesserOrEqual",
+                                    "compareType": "XYZ",
                                     "value": 50.0
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_L_Buff_Handler"
                                 }
                             ]
@@ -778,27 +778,27 @@
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_L_Buff_FX": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "ACOKKHADPOJ": true,
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Buff_Loop"
+                            "doOffStage": true,
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Buff_Loop"
                         }
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_L_Buff": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageCountMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -821,7 +821,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Ice"
+                                    "element": "Ice"
                                 },
                                 {
                                     "$type": "ByEntityTypes",
@@ -831,21 +831,21 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "MBAPLKMEFEN": "ElementalArt_L_Buff_Count",
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerAbility",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "ACOKKHADPOJ": true,
+                                    "target": "Caster",
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByUnlockTalentParam",
-                                            "GFIJPNMCOGJ": "Shenhe_Constellation_4"
+                                            "talentParam": "Shenhe_Constellation_4"
                                         }
                                     ],
                                     "abilityName": "Avatar_Shenhe_Constellation_4"
@@ -854,7 +854,7 @@
                             "KIEGNFBHHEC": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_L_Buff_FX"
                                 }
                             ]
@@ -862,14 +862,14 @@
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_L_Talent_Buff": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageCountMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -892,7 +892,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Ice"
+                                    "element": "Ice"
                                 },
                                 {
                                     "$type": "ByEntityTypes",
@@ -902,16 +902,16 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "MBAPLKMEFEN": "ElementalArt_L_Buff_Count",
                             "ICPHBLGMBPB": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "FallingAttack",
                                         "Elemental_Art",
                                         "Elemental_Art_Hold",
@@ -920,15 +920,15 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerAbility",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "ACOKKHADPOJ": true,
+                                    "target": "Caster",
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByUnlockTalentParam",
-                                            "GFIJPNMCOGJ": "Shenhe_Constellation_4"
+                                            "talentParam": "Shenhe_Constellation_4"
                                         }
                                     ],
                                     "abilityName": "Avatar_Shenhe_Constellation_4"
@@ -937,7 +937,7 @@
                             "KIEGNFBHHEC": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_L_Buff_FX"
                                 }
                             ]
@@ -945,15 +945,15 @@
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_L_Extra_Buff": {
-                    "FGJPBKGPNJJ": "RefreshUniqueDurability",
+                    "stacking": "RefreshUniqueDurability",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "ElementalArt_L_Extra_Buff_Time",
+                    "isUnique": true,
+                    "duration": "ElementalArt_L_Extra_Buff_Time",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Art",
                                 "Elemental_Art_Hold",
                                 "Elemental_Art_Extra",
@@ -965,21 +965,21 @@
                     "state": "AttackUp"
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AvatarSkillStart",
                     "overtime": 10632,
-                    "AFPAPIFKIHK": 1.0,
-                    "JFIJFCKLFCF": 1.0
+                    "cdRatio": 1.0,
+                    "costStaminaRatio": 1.0
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "ACOKKHADPOJ": true,
+                    "target": "AllPlayerAvatars",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 40.0
                         }
                     ],
@@ -987,12 +987,12 @@
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "ACOKKHADPOJ": true,
+                    "target": "AllPlayerAvatars",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 40.0
                         }
                     ],
@@ -1000,12 +1000,12 @@
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "ACOKKHADPOJ": true,
+                    "target": "AllPlayerAvatars",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 40.0
                         },
                         {
@@ -1016,17 +1016,17 @@
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "ACOKKHADPOJ": true,
+                    "target": "AllPlayerAvatars",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 40.0
                         },
                         {
                             "$type": "ByUnlockTalentParam",
-                            "GFIJPNMCOGJ": "Shenhe_PermanentSkill_2"
+                            "talentParam": "Shenhe_PermanentSkill_2"
                         },
                         {
                             "$type": "ByEntityIsAlive"
@@ -1036,7 +1036,7 @@
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 41063002
+                    "bulletID": 41063002
                 }
             ]
         }
@@ -1045,7 +1045,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_ElementalArt_Attack_H",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ElementalArt_H_Radius": 4.0,
                 "Elemental_Art_H_Damage": 0.0,
                 "ElementalArt_H_Buff_Time": 0.0,
@@ -1054,19 +1054,19 @@
                 "ElementalArt_H_Extra_Buff_Time": 0.0,
                 "ElementalArt_H_Extra_Buff_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shenhe_ElementalArt_ElemBall_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "JBIFBFBINJL": [
+                    "onHittingOther": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Elemental_Art"
                                     ]
                                 },
@@ -1082,12 +1082,12 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
                                     "GAIGOBCNNEE": "ElementalArt_ElemBall"
@@ -1097,89 +1097,89 @@
                     ]
                 },
                 "ElementalArt_ElemBall": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "GenerateElemBall",
-                            "ACOKKHADPOJ": true,
-                            "APIAFGPIIHE": 2022,
-                            "NGDMCBABOJA": {
+                            "doOffStage": true,
+                            "configID": 2022,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.5,
-                                    "MFBOELKCPDP": 1.5
+                                    "minRandomRange": 0.5,
+                                    "maxRandomRange": 1.5
                                 }
                             },
                             "ratio": 1.0,
-                            "GJNDGIAENMI": 12.0
+                            "baseEnergy": 12.0
                         }
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_H_Buff_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "ElementalArt_H_Buff_Time",
+                    "isUnique": true,
+                    "duration": "ElementalArt_H_Buff_Time",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.30000001192092896,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.30000001192092896,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_H_Buff_FX"
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Caster",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Caster",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByUnlockTalentParam",
-                                    "GFIJPNMCOGJ": "Shenhe_Constellation_6"
+                                    "talentParam": "Shenhe_Constellation_6"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_H_Talent_Buff"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_H_Buff"
                                 }
                             ]
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
-                                    "ONPJJFKDCED": "XYZ",
+                                    "target": "Caster",
+                                    "logic": "LesserOrEqual",
+                                    "compareType": "XYZ",
                                     "value": 50.0
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_H_Buff_Handler"
                                 }
                             ]
@@ -1187,27 +1187,27 @@
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_H_Buff_FX": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "ACOKKHADPOJ": true,
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Buff_Loop"
+                            "doOffStage": true,
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Buff_Loop"
                         }
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_H_Buff": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageCountMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -1230,7 +1230,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Ice"
+                                    "element": "Ice"
                                 },
                                 {
                                     "$type": "ByEntityTypes",
@@ -1240,21 +1240,21 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "MBAPLKMEFEN": "ElementalArt_H_Buff_Count",
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerAbility",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "ACOKKHADPOJ": true,
+                                    "target": "Caster",
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByUnlockTalentParam",
-                                            "GFIJPNMCOGJ": "Shenhe_Constellation_4"
+                                            "talentParam": "Shenhe_Constellation_4"
                                         }
                                     ],
                                     "abilityName": "Avatar_Shenhe_Constellation_4"
@@ -1263,7 +1263,7 @@
                             "KIEGNFBHHEC": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_H_Buff_FX"
                                 }
                             ]
@@ -1271,14 +1271,14 @@
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_H_Talent_Buff": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageCountMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -1301,7 +1301,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Ice"
+                                    "element": "Ice"
                                 },
                                 {
                                     "$type": "ByEntityTypes",
@@ -1311,16 +1311,16 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "MBAPLKMEFEN": "ElementalArt_H_Buff_Count",
                             "ICPHBLGMBPB": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "FallingAttack",
                                         "Elemental_Art",
                                         "Elemental_Art_Hold",
@@ -1329,15 +1329,15 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerAbility",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "ACOKKHADPOJ": true,
+                                    "target": "Caster",
+                                    "doOffStage": true,
                                     "predicates": [
                                         {
                                             "$type": "ByUnlockTalentParam",
-                                            "GFIJPNMCOGJ": "Shenhe_Constellation_4"
+                                            "talentParam": "Shenhe_Constellation_4"
                                         }
                                     ],
                                     "abilityName": "Avatar_Shenhe_Constellation_4"
@@ -1346,7 +1346,7 @@
                             "KIEGNFBHHEC": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_H_Buff_FX"
                                 }
                             ]
@@ -1354,15 +1354,15 @@
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalArt_H_Extra_Buff": {
-                    "FGJPBKGPNJJ": "RefreshUniqueDurability",
+                    "stacking": "RefreshUniqueDurability",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "ElementalArt_H_Extra_Buff_Time",
+                    "isUnique": true,
+                    "duration": "ElementalArt_H_Extra_Buff_Time",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -1378,63 +1378,63 @@
                     "state": "AttackUp"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
                     "GAIGOBCNNEE": "Shenhe_ElementalArt_ElemBall_Handler"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AvatarSkillStart",
                     "overtime": 10632,
-                    "AFPAPIFKIHK": 1.5,
-                    "JFIJFCKLFCF": 1.0
+                    "cdRatio": 1.5,
+                    "costStaminaRatio": 1.0
                 },
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Caster",
-                    "ELDBAFHCOBL": [
+                    "target": "Caster",
+                    "targetPredicates": [
                         {
                             "$type": "ByUnlockTalentParam",
-                            "GFIJPNMCOGJ": "Shenhe_Constellation_4"
+                            "talentParam": "Shenhe_Constellation_4"
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
-                            "OGAHELLALBB": "Buff_Talent_ExtraDMG_Ratio"
+                            "globalValueKey": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
+                            "overrideMapKey": "Buff_Talent_ExtraDMG_Ratio"
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 {
                     "$type": "SendEffectTrigger",
-                    "MOCGJNIDDAI": "Attack_H",
-                    "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Rune_Charge"
+                    "parameter": "Attack_H",
+                    "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_Rune_Charge"
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "ACOKKHADPOJ": true,
+                    "target": "AllPlayerAvatars",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 40.0
                         }
                     ],
@@ -1442,12 +1442,12 @@
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "ACOKKHADPOJ": true,
+                    "target": "AllPlayerAvatars",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 40.0
                         }
                     ],
@@ -1455,12 +1455,12 @@
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "ACOKKHADPOJ": true,
+                    "target": "AllPlayerAvatars",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 40.0
                         },
                         {
@@ -1471,17 +1471,17 @@
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "ACOKKHADPOJ": true,
+                    "target": "AllPlayerAvatars",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 40.0
                         },
                         {
                             "$type": "ByUnlockTalentParam",
-                            "GFIJPNMCOGJ": "Shenhe_PermanentSkill_2"
+                            "talentParam": "Shenhe_PermanentSkill_2"
                         },
                         {
                             "$type": "ByEntityIsAlive"
@@ -1491,32 +1491,32 @@
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_H_Attack",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalArt_H_Attack",
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 1.5
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 1.5
                         }
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.800000011920929,
-                                    "PHDCJAHHIOG": 1.5
+                                    "x": 0.0,
+                                    "y": 0.800000011920929,
+                                    "z": 1.5
                                 }
                             },
-                            "ICGFCBOFFDI": "ElementalArt_H_Radius",
-                            "BACAAAFIHEI": "CenterToSide"
+                            "radius": "ElementalArt_H_Radius",
+                            "detectDirection": "CenterToSide"
                         },
                         "attackInfo": {
                             "attackTag": "Elemental_Art",
@@ -1537,7 +1537,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -1546,120 +1546,120 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_Constellation_4",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Buff_Talent_Max_Level": 0.0,
                 "Buff_Talent_Level": 0.0,
                 "Buff_Talent_Level_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Shenhe_ElementalArt_BuffCount_Clear": {
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 60.0,
+                    "isUnique": true,
+                    "duration": 60.0,
                     "elementDurability": 60.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": "Buff_Talent_Max_Level",
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
+                    "useLimitRange": true,
+                    "maxValue": "Buff_Talent_Max_Level",
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SetGlobalValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "BPCFCANOMNH": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
-                    "OGAHELLALBB": "Buff_Talent_Level"
+                    "doOffStage": true,
+                    "globalValueKey": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_Level",
+                    "overrideMapKey": "Buff_Talent_Level"
                 },
                 {
                     "$type": "SetGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": [
                         "Buff_Talent_Level",
                         "Buff_Talent_Level_Ratio",
                         "Mul"
                     ],
-                    "HJJEAOMEOFI": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Shenhe_ElementalArt_Buff_Talent_ExtraDMG_Ratio",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "ApplyModifier",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "GAIGOBCNNEE": "UNIQUE_Shenhe_ElementalArt_BuffCount_Clear"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SkillObj_Shenhe_Shadow",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Shenhe_Shadow_LifeTime": 0.5,
                 "Shenhe_Shadow_DefenseDown": 0.0,
                 "Shenhe_Shadow_IceAddHurtUp": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_SkillObj_Shenhe_Shadow_LifeTime": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Shenhe_Shadow_LifeTime",
+                    "isUnique": true,
+                    "duration": "Shenhe_Shadow_LifeTime",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": [
+                    "thinkInterval": [
                         "Shenhe_Shadow_LifeTime",
                         1.0,
                         "Sub"
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "SendEffectTrigger",
-                            "MOCGJNIDDAI": "Die",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Alert"
+                            "parameter": "Die",
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Alert"
                         }
                     ]
                 },
                 "Shenhe_Shadow_FieldHandler": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.30000001192092896,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.30000001192092896,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR8H10",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR8H10",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
@@ -1670,20 +1670,20 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "GAIGOBCNNEE": "UNIQUE_Shenhe_Shadow_DefenseDown"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR8H10",
-                                "ONPOPLLHJLE": "Alliance",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR8H10",
+                                "campTargetType": "Alliance",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
@@ -1694,18 +1694,18 @@
                                 },
                                 {
                                     "$type": "ByUnlockTalentParam",
-                                    "GFIJPNMCOGJ": "Shenhe_Constellation_2"
+                                    "talentParam": "Shenhe_Constellation_2"
                                 }
                             ],
                             "GAIGOBCNNEE": "UNIQUE_Shenhe_Shadow_CritHurtUp"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR8H10",
-                                "ONPOPLLHJLE": "Alliance",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR8H10",
+                                "campTargetType": "Alliance",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
@@ -1716,20 +1716,20 @@
                                 },
                                 {
                                     "$type": "ByUnlockTalentParam",
-                                    "GFIJPNMCOGJ": "Shenhe_PermanentSkill_1"
+                                    "talentParam": "Shenhe_PermanentSkill_1"
                                 }
                             ],
                             "GAIGOBCNNEE": "UNIQUE_Shenhe_Shadow_IceAddHurtUp"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR8H10",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR8H10",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
@@ -1740,20 +1740,20 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "GAIGOBCNNEE": "UNIQUE_Shenhe_Shadow_DefenseDown"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR8H10",
-                                "ONPOPLLHJLE": "Alliance",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR8H10",
+                                "campTargetType": "Alliance",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
@@ -1764,18 +1764,18 @@
                                 },
                                 {
                                     "$type": "ByUnlockTalentParam",
-                                    "GFIJPNMCOGJ": "Shenhe_Constellation_2"
+                                    "talentParam": "Shenhe_Constellation_2"
                                 }
                             ],
                             "GAIGOBCNNEE": "UNIQUE_Shenhe_Shadow_CritHurtUp"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR8H10",
-                                "ONPOPLLHJLE": "Alliance",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR8H10",
+                                "campTargetType": "Alliance",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
@@ -1786,7 +1786,7 @@
                                 },
                                 {
                                     "$type": "ByUnlockTalentParam",
-                                    "GFIJPNMCOGJ": "Shenhe_PermanentSkill_1"
+                                    "talentParam": "Shenhe_PermanentSkill_1"
                                 }
                             ],
                             "GAIGOBCNNEE": "UNIQUE_Shenhe_Shadow_IceAddHurtUp"
@@ -1795,10 +1795,10 @@
                 },
                 "UNIQUE_Shenhe_Shadow_DefenseDown": {
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.6000000238418579,
+                    "isUnique": true,
+                    "duration": 0.6000000238418579,
                     "elementDurability": 0.6000000238418579,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_PhysicalSubHurtDelta": [
                             0.0,
                             "Shenhe_Shadow_DefenseDown",
@@ -1811,20 +1811,20 @@
                         ]
                     },
                     "state": "DefenseDown",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Shenhe_Shadow_CritHurtUp": {
-                    "FGJPBKGPNJJ": "RefreshUniqueDurability",
+                    "stacking": "RefreshUniqueDurability",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.6000000238418579,
+                    "isUnique": true,
+                    "duration": 0.6000000238418579,
                     "elementDurability": 0.6000000238418579,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": 0.0,
-                            "ECGLDGPANDI": 0.15000000596046448,
+                            "bonusCriticalHurt": 0.15000000596046448,
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -1834,13 +1834,13 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 },
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Ice"
+                                    "element": "Ice"
                                 }
                             ]
                         }
@@ -1848,19 +1848,19 @@
                     "state": "AttackUp"
                 },
                 "UNIQUE_Shenhe_Shadow_IceAddHurtUp": {
-                    "FGJPBKGPNJJ": "RefreshUniqueDurability",
+                    "stacking": "RefreshUniqueDurability",
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.6000000238418579,
+                    "isUnique": true,
+                    "duration": 0.6000000238418579,
                     "elementDurability": 0.6000000238418579,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_IceAddHurtDelta": "Shenhe_Shadow_IceAddHurtUp"
                     },
                     "state": "AttackUp",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
                     "GAIGOBCNNEE": "UNIQUE_SkillObj_Shenhe_Shadow_LifeTime"
@@ -1871,7 +1871,7 @@
                 },
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Alert"
+                    "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Alert"
                 }
             ]
         }
@@ -1880,16 +1880,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SkillObj_Shenhe_Shadow_Attack",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Burst_ShadowDamage": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shenhe_Shadow_StartDelay": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.2000000476837158,
+                    "duration": 1.2000000476837158,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Loop"
@@ -1897,17 +1897,17 @@
                     ]
                 },
                 "Shenhe_Shadow_Loop": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "ApplyModifier",
@@ -1916,21 +1916,21 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 4.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                            "useLimitRange": true,
+                            "maxValue": 4.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                                    "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_01"
@@ -1940,7 +1940,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                                    "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
                                     "value": 1.0
                                 }
                             ],
@@ -1951,7 +1951,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                                    "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
                                     "value": 2.0
                                 }
                             ],
@@ -1962,7 +1962,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                                    "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
                                     "value": 3.0
                                 }
                             ],
@@ -1971,55 +1971,55 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 4.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                            "useLimitRange": true,
+                            "maxValue": 4.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                                    "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
                                     "value": 4.0
                                 }
                             ],
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Shenhe_Shadow_Attack_Count",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Shenhe_Shadow_Attack_Count",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Shenhe_Shadow_Attack_00": {
-                    "LAFGKJBLBGP": "Level",
-                    "FGJPBKGPNJJ": "Multiple",
+                    "timeScale": "Level",
+                    "stacking": "Multiple",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.10000000149011612,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.10000000149011612,
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_00"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_00"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_00_Trail"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_00_Trail"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_00"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_00"
                         },
                         {
                             "$type": "ApplyModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_Delay"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "RemoveModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_00"
@@ -2028,33 +2028,33 @@
                     "NHFJDDBKNCM": true
                 },
                 "Shenhe_Shadow_Attack_01": {
-                    "LAFGKJBLBGP": "Level",
-                    "FGJPBKGPNJJ": "Multiple",
+                    "timeScale": "Level",
+                    "stacking": "Multiple",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.10000000149011612,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.10000000149011612,
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_01"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_01"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_01_Trail"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_01_Trail"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_01"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_01"
                         },
                         {
                             "$type": "ApplyModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_Delay"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "RemoveModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_01"
@@ -2063,33 +2063,33 @@
                     "NHFJDDBKNCM": true
                 },
                 "Shenhe_Shadow_Attack_02": {
-                    "LAFGKJBLBGP": "Level",
-                    "FGJPBKGPNJJ": "Multiple",
+                    "timeScale": "Level",
+                    "stacking": "Multiple",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.10000000149011612,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.10000000149011612,
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_02"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_02"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_02_Trail"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_02_Trail"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_02"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_02"
                         },
                         {
                             "$type": "ApplyModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_Delay"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "RemoveModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_02"
@@ -2098,33 +2098,33 @@
                     "NHFJDDBKNCM": true
                 },
                 "Shenhe_Shadow_Attack_03": {
-                    "LAFGKJBLBGP": "Level",
-                    "FGJPBKGPNJJ": "Multiple",
+                    "timeScale": "Level",
+                    "stacking": "Multiple",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.10000000149011612,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.10000000149011612,
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_03"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_03"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_03_Trail"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_03_Trail"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_03"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_03"
                         },
                         {
                             "$type": "ApplyModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_Delay"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "RemoveModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_03"
@@ -2133,33 +2133,33 @@
                     "NHFJDDBKNCM": true
                 },
                 "Shenhe_Shadow_Attack_04": {
-                    "LAFGKJBLBGP": "Level",
-                    "FGJPBKGPNJJ": "Multiple",
+                    "timeScale": "Level",
+                    "stacking": "Multiple",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.10000000149011612,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.10000000149011612,
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_04"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_04"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_04_Trail"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_Shadow_Appear_04_Trail"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_04"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ShadowAttack_04"
                         },
                         {
                             "$type": "ApplyModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_Delay"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "RemoveModifier",
                             "GAIGOBCNNEE": "Shenhe_Shadow_Attack_04"
@@ -2168,28 +2168,28 @@
                     "NHFJDDBKNCM": true
                 },
                 "Shenhe_Shadow_Attack_Delay": {
-                    "FGJPBKGPNJJ": "Multiple",
+                    "stacking": "Multiple",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "KECPGHFBFMA": 0.6000000238418579,
-                                    "NGDMCBABOJA": {
+                                    "massiveAttackRatio": 0.6000000238418579,
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": -3.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": -3.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 6.0,
-                                    "ICGFCBOFFDI": 7.0
+                                    "radius": 7.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "Elemental_Burst",
@@ -2211,27 +2211,27 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "KECPGHFBFMA": 0.6000000238418579,
-                                    "NGDMCBABOJA": {
+                                    "massiveAttackRatio": 0.6000000238418579,
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": -3.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": -3.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 6.0,
-                                    "ICGFCBOFFDI": 7.0
+                                    "radius": 7.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "Elemental_Burst",
@@ -2253,12 +2253,12 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
                     "GAIGOBCNNEE": "Shenhe_Shadow_StartDelay"
@@ -2270,7 +2270,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_ElementalBurst",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -2287,9 +2287,9 @@
                 },
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "Shenhe_ElementalBurst",
+                    "stateID": "Shenhe_ElementalBurst",
                     "GAIGOBCNNEE": "Shenhe_ElementalBurst_ShadowHandler",
-                    "MMHONEIBHNP": 0.6000000238418579
+                    "normalizeEnd": 0.6000000238418579
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -2307,25 +2307,25 @@
                     "GAIGOBCNNEE": "Shenhe_ElementalBurst_State"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "OpeningDamage": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shenhe_ElementalBurst_Start": {
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR3",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR3",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             },
-                            "BHELOIADOLH": -3.0,
-                            "HBBLBBPBLGE": 2.0,
-                            "IPDEDFHPHPO": 0.0,
-                            "OJIFKEOCJGB": "Enemy",
+                            "strength": -3.0,
+                            "attenuation": 2.0,
+                            "innerRadius": 0.0,
+                            "targetType": "Enemy",
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -2336,57 +2336,57 @@
                                 },
                                 {
                                     "$type": "ByTargetWeight",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
-                                    "IHCNHDLDFKC": 250.0
+                                    "logic": "LesserOrEqual",
+                                    "weight": 250.0
                                 }
                             ],
                             "GAIGOBCNNEE": ""
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "SkinOn"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_Shadow_Cine"
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_Shadow_Cine"
                         },
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackNotHitScene",
                                     "attackPattern": {
                                         "$type": "ConfigAttackCircle",
                                         "lifeTime": "TriggerNoRepeat",
-                                        "NGDMCBABOJA": {
+                                        "born": {
                                             "$type": "ConfigBornBySelf",
                                             "offset": {
-                                                "AEAAJCIDPED": 0.0,
-                                                "KAAPLGBEDPM": 0.5,
-                                                "PHDCJAHHIOG": 0.0
+                                                "x": 0.0,
+                                                "y": 0.5,
+                                                "z": 0.0
                                             }
                                         },
                                         "secondHeight": 2.0,
-                                        "ICGFCBOFFDI": 1.0
+                                        "radius": 1.0
                                     },
-                                    "AKDGLEOGNGO": true
+                                    "checkWaterLayer": true
                                 },
                                 {
                                     "$type": "ByAvatarInWaterDepth",
-                                    "ONPJJFKDCED": "LessAndEqual",
-                                    "KPLJIGIPGMH": 0.5
+                                    "compareType": "LessAndEqual",
+                                    "depth": 0.5
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_00"
+                                    "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_00"
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_02"
+                                    "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_02"
                                 },
                                 {
                                     "$type": "RemoveModifier",
@@ -2398,32 +2398,32 @@
                                 },
                                 {
                                     "$type": "AvatarEnterCameraShot",
-                                    "LOOLBLCGLBM": "Camera_Shenhe_ElementalBurst"
+                                    "cameraMoveCfgPath": "Camera_Shenhe_ElementalBurst"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_04"
+                                    "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_04"
                                 }
                             ]
                         },
                         {
                             "$type": "EnableHeadControl",
-                            "IKNLAEPLHHL": false
+                            "blend": false
                         }
                     ]
                 },
                 "Shenhe_ElementalBurst_CameraShot": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AvatarCameraParam",
-                            "HBPCGNIGHPH": {
-                                "JABJOOHIIKI": 6.0,
-                                "ENPKPCGKDDH": 0.0,
-                                "MPFLBBFBBGK": true
+                            "cameraParam": {
+                                "forceRadius": 6.0,
+                                "forceRadiusDuration": 0.0,
+                                "shouldKeepForceRadius": true
                             }
                         },
                         {
@@ -2434,36 +2434,36 @@
                 "Shenhe_ElementalBurst_End": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_Attack",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_Attack",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.20000000298023224,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.20000000298023224,
+                                    "z": 0.0
                                 }
                             }
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": -2.700000047683716,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": -2.700000047683716,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 5.400000095367432,
-                                    "BDAPFCGNBKA": 120.0,
-                                    "ICGFCBOFFDI": 8.0
+                                    "fanAngle": 120.0,
+                                    "radius": 8.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "Elemental_Burst",
@@ -2487,14 +2487,14 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "ActCameraRadialBlur",
-                            "JDLOKNCEKAE": {
-                                "NPOJMKDPDHI": 1.0,
-                                "OMAFLDHOHAC": 0.4000000059604645,
-                                "HMBJAKBLION": 0.20000000298023224
+                            "cameraRadialBlur": {
+                                "power": 1.0,
+                                "blurTime": 0.4000000059604645,
+                                "fadeTime": 0.20000000298023224
                             }
                         },
                         {
@@ -2506,86 +2506,86 @@
                 "Shenhe_ElementalBurst_ShadowHandler": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "KillGadget",
-                            "LBGGIBBMCMF": {
-                                "APIAFGPIIHE": 41063003
+                            "gadgetInfo": {
+                                "configID": 41063003
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "CreateGadget",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 2.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 2.0
                                 },
-                                "JBPCKOKLHEB": true,
-                                "CGHFADKHNKK": true
+                                "onGround": true,
+                                "onGroundIgnoreWater": true
                             },
-                            "CABLIPAKCGB": 41063003,
-                            "DOLAJLACEDF": 1001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 41063003,
+                            "campID": 1001,
+                            "campTargetType": "Enemy"
                         }
                     ]
                 },
                 "Shenhe_ElementalBurst_CameraEffect": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "TriggerPostProcessEffectMixin",
-                            "JKMEOBJMPGI": "PostEffect_Avatar_Shenhe_ElementalBurst_ScreenEffect",
+                            "postEffectAssetName": "PostEffect_Avatar_Shenhe_ElementalBurst_ScreenEffect",
                             "duration": 1.0
                         }
                     ]
                 },
                 "Shenhe_ElementalBurst_FogFX": {
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DungeonFogEffects",
-                            "POKMJEIDNJF": true,
+                            "muteRemoteAction": true,
                             "enable": true,
-                            "CCMDJPGKKBM": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_03",
-                            "IHNBFFJNAKI": ""
+                            "cameraFogEffectName": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_03",
+                            "playerFogEffectName": ""
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "DungeonFogEffects",
-                            "ACOKKHADPOJ": true,
-                            "CCMDJPGKKBM": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_03",
-                            "IHNBFFJNAKI": ""
+                            "doOffStage": true,
+                            "cameraFogEffectName": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_03",
+                            "playerFogEffectName": ""
                         }
                     ],
                     "NPEJFLBOAAN": [
                         {
                             "$type": "DungeonFogEffects",
-                            "ACOKKHADPOJ": true,
-                            "CCMDJPGKKBM": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_03",
-                            "IHNBFFJNAKI": ""
+                            "doOffStage": true,
+                            "cameraFogEffectName": "Eff_Avatar_Lady_Pole_Shenhe_ElementalBurst_03",
+                            "playerFogEffectName": ""
                         }
                     ]
                 },
                 "UNIQUE_Shenhe_ElementalBurst_Weather": {
                     "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "TriggerWeatherMixin",
                             "type": "Skill",
-                            "IHMBDACJNDO": "Weather_Shenhe_ElementalBurst",
-                            "DPEJLHDNMOK": 0.30000001192092896,
+                            "weatherPattern": "Weather_Shenhe_ElementalBurst",
+                            "transDuration": 0.30000001192092896,
                             "duration": 1.5499999523162842
                         }
                     ]
@@ -2594,26 +2594,26 @@
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
                     "state": "Invincible",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachAbilityStateResistance",
-                            "KPGAIMMIKDA": 11002
+                            "resistanceListID": 11002
                         },
                         {
                             "$type": "ControlEmotion",
-                            "DBOPCOMLILO": false,
-                            "CBIALJFEDDJ": false,
-                            "LCLBKEALNOO": false
+                            "toggleEmoSync": false,
+                            "toggleBlink": false,
+                            "toggleEyeKey": false
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ControlEmotion",
-                            "ACOKKHADPOJ": true
+                            "doOffStage": true
                         },
                         {
                             "$type": "EnableHeadControl",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "enable": true
                         }
                     ]
@@ -2623,12 +2623,12 @@
                     "elementDurability": 100.0
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AvatarSkillStart",
                     "overtime": 10635,
-                    "AFPAPIFKIHK": 1.0,
-                    "JFIJFCKLFCF": 1.0
+                    "cdRatio": 1.0,
+                    "costStaminaRatio": 1.0
                 },
                 {
                     "$type": "AttachModifier",
@@ -2641,7 +2641,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_HideWeaponControl",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -2664,27 +2664,27 @@
                     "GAIGOBCNNEE": "ShowWeapon_Temp"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "HideWeapon": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerHideWeapon",
-                            "FLCNICMDANB": [
+                            "partNames": [
                                 "equip01",
                                 "equip02",
                                 "sheathPoint"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerHideWeapon",
-                            "ACOKKHADPOJ": true,
-                            "ACDFJMCPFGH": true,
-                            "FLCNICMDANB": [
+                            "doOffStage": true,
+                            "visible": true,
+                            "partNames": [
                                 "equip01",
                                 "equip02",
                                 "sheathPoint"
@@ -2692,20 +2692,20 @@
                         },
                         {
                             "$type": "DebugLog",
-                            "ACOKKHADPOJ": true,
-                            "CBEDAJEGJBM": "!!!!!!!!!!!TriggerHideWeapon true!!!!!!!!!!"
+                            "doOffStage": true,
+                            "content": "!!!!!!!!!!!TriggerHideWeapon true!!!!!!!!!!"
                         }
                     ]
                 },
                 "ShowWeapon_Temp": {
-                    "FGJPBKGPNJJ": "Unique",
+                    "stacking": "Unique",
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerHideWeapon",
-                            "ACDFJMCPFGH": true,
-                            "FLCNICMDANB": [
+                            "visible": true,
+                            "partNames": [
                                 "equip01",
                                 "equip02",
                                 "sheathPoint"
@@ -2720,10 +2720,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_NormalAttack_DamageHandler",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ModifyDamageMixin",
-                    "MBGPMKGOEIJ": [
+                    "animEventNames": [
                         "ATK01"
                     ],
                     "bonusCriticalHurt": "Attack_01",
@@ -2731,7 +2731,7 @@
                 },
                 {
                     "$type": "ModifyDamageMixin",
-                    "MBGPMKGOEIJ": [
+                    "animEventNames": [
                         "ATK02"
                     ],
                     "bonusCriticalHurt": "Attack_02",
@@ -2739,7 +2739,7 @@
                 },
                 {
                     "$type": "ModifyDamageMixin",
-                    "MBGPMKGOEIJ": [
+                    "animEventNames": [
                         "ATK03"
                     ],
                     "bonusCriticalHurt": "Attack_03",
@@ -2747,7 +2747,7 @@
                 },
                 {
                     "$type": "ModifyDamageMixin",
-                    "MBGPMKGOEIJ": [
+                    "animEventNames": [
                         "ATK04_01"
                     ],
                     "bonusCriticalHurt": "Attack_04_01",
@@ -2755,7 +2755,7 @@
                 },
                 {
                     "$type": "ModifyDamageMixin",
-                    "MBGPMKGOEIJ": [
+                    "animEventNames": [
                         "ATK04_02"
                     ],
                     "bonusCriticalHurt": "Attack_04_02",
@@ -2763,14 +2763,14 @@
                 },
                 {
                     "$type": "ModifyDamageMixin",
-                    "MBGPMKGOEIJ": [
+                    "animEventNames": [
                         "ATK05"
                     ],
                     "bonusCriticalHurt": "Attack_05",
                     "damagePercentageRatio": 0.0
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Attack_01": 0.0,
                 "Attack_02": 0.0,
                 "Attack_03": 0.0,
@@ -2784,11 +2784,11 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Shenhe_FallingAnthem",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AvatarChangeSkillMixin",
-                    "CNPIEDBKHII": 5063010,
-                    "CLJNFKPHGEO": 5063010
+                    "jumpSkillID": 5063010,
+                    "flySkillID": 5063010
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -2864,7 +2864,7 @@
                     "GAIGOBCNNEE": "FallingAnthem_ClearVelocityForce"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "FallingAnthem_Normal_Loop_Damage": 0.0,
                 "FallingAnthem_Normal_Rank_1_Damage": 0.0,
                 "FallingAnthem_Normal_Rank_2_Damage": 0.0,
@@ -2880,24 +2880,24 @@
                 "FallingAnthem_FallingDamageRatio_Lv4": -0.6000000238418579,
                 "FallingAnthem_FallingDamageRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FallingAnthem_BS_Material": {
                     "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5299999713897705,
+                    "duration": 0.5299999713897705,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Pole_FallingAnthem_BS_Normal"
+                            "effectPattern": "Eff_Avatar_Pole_FallingAnthem_BS_Normal"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ActCameraRadialBlur",
-                            "JDLOKNCEKAE": {
-                                "NPOJMKDPDHI": 0.30000001192092896,
-                                "OMAFLDHOHAC": 0.30000001192092896,
-                                "HMBJAKBLION": 0.15000000596046448
+                            "cameraRadialBlur": {
+                                "power": 0.30000001192092896,
+                                "blurTime": 0.30000001192092896,
+                                "fadeTime": 0.15000000596046448
                             }
                         }
                     ]
@@ -2905,10 +2905,10 @@
                 "FallingAnthem_BS_VelocityForce_Initialize": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddGravityScale": -2.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveVelocityForce",
                             "forces": [
@@ -2920,23 +2920,23 @@
                 "FallingAnthem_LoopDamage": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.30000001192092896,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.30000001192092896,
+                    "onAdded": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 1.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 1.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 1.0
+                                    "radius": 1.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "FallingAttack",
@@ -2958,25 +2958,25 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 1.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 1.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 1.0
+                                    "radius": 1.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "FallingAttack",
@@ -2998,39 +2998,39 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "FallingAnthem_FallingDamageImmune_01": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAttack_Altitude"
+                            "key": "_ABILITY_FallingAttack_Altitude"
                         },
                         {
                             "$type": "AddGlobalValue",
                             "predicates": [
                                 {
                                     "$type": "ByTargetAltitude",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": "FallingAnthem_Altitude_Lv0"
                                 }
                             ],
                             "value": "FallingAnthem_FallingDamageRatio_Lv0",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAttack_Altitude",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": "FallingAnthem_FallingDamageRatio_Lv0",
-                            "KHAHOELDONA": "FallingAnthem_FallingDamageRatio_Lv0"
+                            "key": "_ABILITY_FallingAttack_Altitude",
+                            "useLimitRange": true,
+                            "maxValue": "FallingAnthem_FallingDamageRatio_Lv0",
+                            "minValue": "FallingAnthem_FallingDamageRatio_Lv0"
                         },
                         {
                             "$type": "AddGlobalValue",
                             "predicates": [
                                 {
                                     "$type": "ByTargetAltitude",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": "FallingAnthem_Altitude_Lv1"
                                 },
                                 {
@@ -3039,17 +3039,17 @@
                                 }
                             ],
                             "value": "FallingAnthem_FallingDamageRatio_Lv1",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAttack_Altitude",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": "FallingAnthem_FallingDamageRatio_Lv1",
-                            "KHAHOELDONA": "FallingAnthem_FallingDamageRatio_Lv1"
+                            "key": "_ABILITY_FallingAttack_Altitude",
+                            "useLimitRange": true,
+                            "maxValue": "FallingAnthem_FallingDamageRatio_Lv1",
+                            "minValue": "FallingAnthem_FallingDamageRatio_Lv1"
                         },
                         {
                             "$type": "AddGlobalValue",
                             "predicates": [
                                 {
                                     "$type": "ByTargetAltitude",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": "FallingAnthem_Altitude_Lv2"
                                 },
                                 {
@@ -3058,17 +3058,17 @@
                                 }
                             ],
                             "value": "FallingAnthem_FallingDamageRatio_Lv2",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAttack_Altitude",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": "FallingAnthem_FallingDamageRatio_Lv2",
-                            "KHAHOELDONA": "FallingAnthem_FallingDamageRatio_Lv2"
+                            "key": "_ABILITY_FallingAttack_Altitude",
+                            "useLimitRange": true,
+                            "maxValue": "FallingAnthem_FallingDamageRatio_Lv2",
+                            "minValue": "FallingAnthem_FallingDamageRatio_Lv2"
                         },
                         {
                             "$type": "AddGlobalValue",
                             "predicates": [
                                 {
                                     "$type": "ByTargetAltitude",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": "FallingAnthem_Altitude_Lv3"
                                 },
                                 {
@@ -3077,10 +3077,10 @@
                                 }
                             ],
                             "value": "FallingAnthem_FallingDamageRatio_Lv3",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAttack_Altitude",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": "FallingAnthem_FallingDamageRatio_Lv3",
-                            "KHAHOELDONA": "FallingAnthem_FallingDamageRatio_Lv3"
+                            "key": "_ABILITY_FallingAttack_Altitude",
+                            "useLimitRange": true,
+                            "maxValue": "FallingAnthem_FallingDamageRatio_Lv3",
+                            "minValue": "FallingAnthem_FallingDamageRatio_Lv3"
                         },
                         {
                             "$type": "AddGlobalValue",
@@ -3091,10 +3091,10 @@
                                 }
                             ],
                             "value": "FallingAnthem_FallingDamageRatio_Lv4",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAttack_Altitude",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": "FallingAnthem_FallingDamageRatio_Lv4",
-                            "KHAHOELDONA": "FallingAnthem_FallingDamageRatio_Lv4"
+                            "key": "_ABILITY_FallingAttack_Altitude",
+                            "useLimitRange": true,
+                            "maxValue": "FallingAnthem_FallingDamageRatio_Lv4",
+                            "minValue": "FallingAnthem_FallingDamageRatio_Lv4"
                         },
                         {
                             "$type": "AttachModifier",
@@ -3105,11 +3105,11 @@
                 "FallingAnthem_FallingDamageImmune_02": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_ABILITY_FallingAttack_Altitude",
-                            "OGAHELLALBB": "FallingAnthem_FallingDamageRatio"
+                            "globalValueKey": "_ABILITY_FallingAttack_Altitude",
+                            "overrideMapKey": "FallingAnthem_FallingDamageRatio"
                         },
                         {
                             "$type": "AttachModifier",
@@ -3120,24 +3120,24 @@
                 "FallingAnthem_FallingDamageImmune_03": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_FallingDamageRatio": "FallingAnthem_FallingDamageRatio"
                     }
                 },
                 "FallingAnthem_Loop_Normal": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_FallingAnthem_UseCamera",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_FallingAnthem_UseCamera",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -1.0,
                                 0.5,
                                 1.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "FallingAnthem_Loop_Normal_Rank_1",
                                 "FallingAnthem_Loop_Normal_Rank_2"
                             ]
@@ -3147,52 +3147,52 @@
                 "FallingAnthem_Loop_Normal_Rank_1": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Pole_FallingAnthem_Loop_01_Normal"
+                            "effectPattern": "Eff_Avatar_Pole_FallingAnthem_Loop_01_Normal"
                         }
                     ]
                 },
                 "FallingAnthem_Loop_Normal_Rank_2": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Pole_FallingAnthem_Loop_02_Normal"
+                            "effectPattern": "Eff_Avatar_Pole_FallingAnthem_Loop_02_Normal"
                         }
                     ]
                 },
                 "Inertia": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ApplyInertiaVelocityMixin",
-                            "DOOIAANMOKN": false,
-                            "PJACACNPMJA": false
+                            "useXZ": false,
+                            "useY": false
                         }
                     ]
                 },
                 "FallingAnthem_Height_Detect": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "predicates": [
                                 {
                                     "$type": "ByTargetAltitude",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": 2.4000000953674316
                                 }
                             ],
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_FallingAnthem_UseCamera",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_FallingAnthem_UseCamera",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AddGlobalValue",
@@ -3203,17 +3203,17 @@
                                 }
                             ],
                             "value": 5.0,
-                            "HJJEAOMEOFI": "_ABILITY_FallingAnthem_UseCamera",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_FallingAnthem_UseCamera",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetAnimatorFloat",
                             "predicates": [
                                 {
                                     "$type": "ByTargetAltitude",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": 2.4000000953674316
                                 }
                             ],
@@ -3232,7 +3232,7 @@
                             "value": 1.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorFloat",
                             "floatID": "FallingAnthem_UseCamera",
@@ -3241,31 +3241,31 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_FallingAnthem_UseCamera",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_FallingAnthem_UseCamera",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "FallingAnthem_OverHead_Camera": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AvatarCameraParam",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Equal",
+                                    "logic": "Equal",
                                     "value": 1.0,
-                                    "MOCGJNIDDAI": "FallingAnthem_UseCamera"
+                                    "parameter": "FallingAnthem_UseCamera"
                                 }
                             ],
-                            "HBPCGNIGHPH": {
-                                "JABJOOHIIKI": 4.5,
-                                "ENPKPCGKDDH": 0.20000000298023224,
-                                "MPFLBBFBBGK": true
+                            "cameraParam": {
+                                "forceRadius": 4.5,
+                                "forceRadiusDuration": 0.20000000298023224,
+                                "shouldKeepForceRadius": true
                             }
                         }
                     ]
@@ -3273,31 +3273,31 @@
                 "FallingAnthem_OverHead_Camera_Remover": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AvatarExitCameraShot",
-                            "ACOKKHADPOJ": true
+                            "doOffStage": true
                         }
                     ]
                 },
                 "FallingAnthem_Landed_Camera": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AvatarCameraParam",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Equal",
+                                    "logic": "Equal",
                                     "value": 1.0,
-                                    "MOCGJNIDDAI": "FallingAnthem_UseCamera"
+                                    "parameter": "FallingAnthem_UseCamera"
                                 }
                             ],
-                            "HBPCGNIGHPH": {
-                                "JABJOOHIIKI": 6.0,
-                                "ENPKPCGKDDH": 0.10000000149011612,
-                                "MPFLBBFBBGK": true
+                            "cameraParam": {
+                                "forceRadius": 6.0,
+                                "forceRadiusDuration": 0.10000000149011612,
+                                "shouldKeepForceRadius": true
                             }
                         }
                     ]
@@ -3305,7 +3305,7 @@
                 "FallingAnthem_ClearVelocityForce": {
                     "GAIGOBCNNEE": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveVelocityForce",
                             "forces": [
@@ -3316,32 +3316,32 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAnthem_UseCamera",
+                            "key": "_ABILITY_FallingAnthem_UseCamera",
                             "value": 0.0,
-                            "EODMLMGMLNP": true,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "forceByCaster": true,
+                            "compareType": "NoneOrEqual"
                         }
                     ],
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": -0.5,
-                                    "PHDCJAHHIOG": 1.0
+                                    "x": 0.0,
+                                    "y": -0.5,
+                                    "z": 1.0
                                 }
                             },
                             "secondHeight": 2.0,
-                            "ICGFCBOFFDI": 3.0
+                            "radius": 3.0
                         },
                         "attackInfo": {
                             "attackTag": "FallingAttack",
@@ -3378,32 +3378,32 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "TriggerAttackEvent",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAnthem_UseCamera",
+                            "key": "_ABILITY_FallingAnthem_UseCamera",
                             "value": 1.0,
-                            "EODMLMGMLNP": true
+                            "forceByCaster": true
                         }
                     ],
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": -0.5,
-                                    "PHDCJAHHIOG": 1.0
+                                    "x": 0.0,
+                                    "y": -0.5,
+                                    "z": 1.0
                                 }
                             },
                             "secondHeight": 2.0,
-                            "ICGFCBOFFDI": 5.0
+                            "radius": 5.0
                         },
                         "attackInfo": {
                             "attackTag": "FallingAttack",
@@ -3441,32 +3441,32 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAnthem_UseCamera",
+                            "key": "_ABILITY_FallingAnthem_UseCamera",
                             "value": 0.0,
-                            "EODMLMGMLNP": true,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "forceByCaster": true,
+                            "compareType": "NoneOrEqual"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Avatar_Pole_FallingAnthem_Strike_01_Normal"
+                    "effectPattern": "Eff_Avatar_Pole_FallingAnthem_Strike_01_Normal"
                 },
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_FallingAnthem_UseCamera",
+                            "key": "_ABILITY_FallingAnthem_UseCamera",
                             "value": 1.0,
-                            "EODMLMGMLNP": true
+                            "forceByCaster": true
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Avatar_Pole_FallingAnthem_Strike_02_Normal"
+                    "effectPattern": "Eff_Avatar_Pole_FallingAnthem_Strike_02_Normal"
                 }
             ]
         }
