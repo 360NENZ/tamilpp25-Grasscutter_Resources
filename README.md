@@ -1,5 +1,5 @@
 # Grasscutter_Resources
-> <em>Resource Version - "Certain Anime Game" 2.8.0</em>
+> <em>Resource Version - "Certain Anime Game" 2.8.0</em><br/>
 > NOTICE - BinOuput is not Updated to 2.8.0 Version, So there might be issues with 2.8 Contents
 
 - ExcelBinOutput
