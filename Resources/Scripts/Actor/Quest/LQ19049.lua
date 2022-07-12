@@ -27,14 +27,18 @@ function L6_1(A0_2)
 end
 L1_1.OnDataLoaded = L6_1
 function L6_1(A0_2)
-  local L1_2
+  local L1_2, L2_2
   L1_2 = {}
+  L2_2 = A0_2.OnSubStart1904901
+  L1_2["1904901"] = L2_2
   A0_2.subStartHandlers = L1_2
 end
 L1_1.OnSubStartHandlerBuild = L6_1
 function L6_1(A0_2)
-  local L1_2
+  local L1_2, L2_2
   L1_2 = {}
+  L2_2 = A0_2.OnSubFinish1904901
+  L1_2["1904901"] = L2_2
   A0_2.subFinishHandlers = L1_2
 end
 L1_1.OnSubFinishHandlerBuild = L6_1
@@ -44,4 +48,53 @@ function L6_1(A0_2)
   A0_2.subFailedHandlers = L1_2
 end
 L1_1.OnSubFailedHandlerBuild = L6_1
+function L6_1(A0_2)
+  local L1_2, L2_2
+  L1_2 = print
+  L2_2 = "Start"
+  L1_2(L2_2)
+end
+L1_1.Start = L6_1
+function L6_1(A0_2)
+  local L1_2, L2_2
+  L1_2 = print
+  L2_2 = "OnDestroy"
+  L1_2(L2_2)
+end
+L1_1.OnDestroy = L6_1
+function L6_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
+  L3_2 = "OnMainFinished"
+  L2_2(L3_2)
+end
+L1_1.OnMainFinished = L6_1
+function L6_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
+  L3_2 = "OnMainFailed"
+  L2_2(L3_2)
+end
+L1_1.OnMainFailed = L6_1
+function L6_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
+  L3_2 = "OnMainCanceled"
+  L2_2(L3_2)
+end
+L1_1.OnMainCanceled = L6_1
+function L6_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
+  L3_2 = "OnSubStart1904901"
+  L2_2(L3_2)
+end
+L1_1.OnSubStart1904901 = L6_1
+function L6_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
+  L3_2 = "OnSubFinish1904901"
+  L2_2(L3_2)
+end
+L1_1.OnSubFinish1904901 = L6_1
 return L1_1

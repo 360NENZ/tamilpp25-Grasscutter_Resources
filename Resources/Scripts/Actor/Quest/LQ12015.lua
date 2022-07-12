@@ -615,38 +615,32 @@ function L8_1(A0_2, A1_2)
   L2_2 = A0_2.CallDelay
   L4_2 = 0.5
   function L5_2(A0_3)
-    local L1_3, L2_3, L3_3
-    L2_3 = A0_3
-    L1_3 = A0_3.LevelLoadFinishSafeCall
-    function L3_3(A0_4)
-      local L1_4, L2_4, L3_4, L4_4, L5_4, L6_4, L7_4, L8_4, L9_4, L10_4, L11_4
-      L1_4 = actorMgr
-      L2_4 = L1_4
-      L1_4 = L1_4.CreateActorWithPos
-      L3_4 = "Q120150801Trigger"
-      L4_4 = "Actor/Gadget/Q120150801Trigger"
-      L5_4 = 70900002
-      L6_4 = 0
-      L7_4 = sceneData
-      L8_4 = L7_4
-      L7_4 = L7_4.GetDummyPoint
-      L9_4 = 1063
-      L10_4 = "Q12015Shougun1"
-      L7_4 = L7_4(L8_4, L9_4, L10_4)
-      L7_4 = L7_4.pos
-      L8_4 = sceneData
-      L9_4 = L8_4
-      L8_4 = L8_4.GetDummyPoint
-      L10_4 = 1063
-      L11_4 = "Q12015Shougun1"
-      L8_4 = L8_4(L9_4, L10_4, L11_4)
-      L8_4 = L8_4.rot
-      L9_4 = true
-      L10_4 = false
-      L11_4 = 1063
-      L1_4(L2_4, L3_4, L4_4, L5_4, L6_4, L7_4, L8_4, L9_4, L10_4, L11_4)
-    end
-    L1_3(L2_3, L3_3)
+    local L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3
+    L1_3 = actorMgr
+    L2_3 = L1_3
+    L1_3 = L1_3.CreateActorWithPos
+    L3_3 = "Q120150801Trigger"
+    L4_3 = "Actor/Gadget/Q120150801Trigger"
+    L5_3 = 70900002
+    L6_3 = 0
+    L7_3 = sceneData
+    L8_3 = L7_3
+    L7_3 = L7_3.GetDummyPoint
+    L9_3 = 1063
+    L10_3 = "Q12015Shougun1"
+    L7_3 = L7_3(L8_3, L9_3, L10_3)
+    L7_3 = L7_3.pos
+    L8_3 = sceneData
+    L9_3 = L8_3
+    L8_3 = L8_3.GetDummyPoint
+    L10_3 = 1063
+    L11_3 = "Q12015Shougun1"
+    L8_3 = L8_3(L9_3, L10_3, L11_3)
+    L8_3 = L8_3.rot
+    L9_3 = true
+    L10_3 = false
+    L11_3 = 1063
+    L1_3(L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3, L9_3, L10_3, L11_3)
   end
   L2_2(L3_2, L4_2, L5_2)
 end

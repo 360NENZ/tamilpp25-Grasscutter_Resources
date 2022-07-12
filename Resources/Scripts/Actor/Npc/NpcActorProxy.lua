@@ -277,6 +277,42 @@ function L3_1(A0_2, A1_2, A2_2)
   L3_2(L4_2, L5_2, L6_2)
 end
 L1_1.ResumeOriginMat = L3_1
+function L3_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2
+  L2_2 = A0_2.uActor
+  L3_2 = L2_2
+  L2_2 = L2_2.CallOnNpcSit
+  L4_2 = A1_2
+  L2_2(L3_2, L4_2)
+end
+L1_1.CallOnNpcSit = L3_1
+function L3_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2
+  L2_2 = A0_2.uActor
+  L3_2 = L2_2
+  L2_2 = L2_2.UncallOnNpcSit
+  L4_2 = A1_2
+  L2_2(L3_2, L4_2)
+end
+L1_1.UncallOnNpcSit = L3_1
+function L3_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2
+  L2_2 = A0_2.uActor
+  L3_2 = L2_2
+  L2_2 = L2_2.CallOnNpcStand
+  L4_2 = A1_2
+  L2_2(L3_2, L4_2)
+end
+L1_1.CallOnNpcStand = L3_1
+function L3_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2
+  L2_2 = A0_2.uActor
+  L3_2 = L2_2
+  L2_2 = L2_2.UncallOnNpcStand
+  L4_2 = A1_2
+  L2_2(L3_2, L4_2)
+end
+L1_1.UncallOnNpcStand = L3_1
 function L3_1(A0_2)
   local L1_2
 end

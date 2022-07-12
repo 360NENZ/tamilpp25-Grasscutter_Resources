@@ -34,6 +34,8 @@ function L7_1(A0_2)
   L1_2 = {}
   L2_2 = A0_2.OnSubStart1202701
   L1_2["1202701"] = L2_2
+  L2_2 = A0_2.OnSubStart1202702
+  L1_2["1202702"] = L2_2
   A0_2.subStartHandlers = L1_2
 end
 L1_1.OnSubStartHandlerBuild = L7_1
@@ -42,6 +44,8 @@ function L7_1(A0_2)
   L1_2 = {}
   L2_2 = A0_2.OnSubFinish1202701
   L1_2["1202701"] = L2_2
+  L2_2 = A0_2.OnSubFinish1202702
+  L1_2["1202702"] = L2_2
   A0_2.subFinishHandlers = L1_2
 end
 L1_1.OnSubFinishHandlerBuild = L7_1

@@ -1313,8 +1313,11 @@ function L1_1(A0_2, A1_2)
   L2_2(L3_2)
 end
 L0_1.SetBlackScreenValue = L1_1
-function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2, A5_2, A6_2, A7_2, A8_2, A9_2)
-  local L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2
+function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2, A5_2, A6_2, A7_2, A8_2, A9_2, A10_2)
+  local L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2
+  if A10_2 == nil then
+    A10_2 = false
+  end
   if A8_2 ~= nil or A9_2 ~= nil then
     if A8_2 == nil then
       A8_2 = false
@@ -1322,32 +1325,34 @@ function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2, A5_2, A6_2, A7_2, A8_2, A9_2)
     if A9_2 == nil then
       A9_2 = false
     end
-    L10_2 = A0_2.uActor
-    L11_2 = L10_2
-    L10_2 = L10_2.ShowBlackScreenOptional
-    L12_2 = A1_2
-    L13_2 = A2_2
-    L14_2 = A3_2
-    L15_2 = A4_2
-    L16_2 = A5_2
-    L17_2 = A6_2
-    L18_2 = A7_2
-    L19_2 = A8_2
-    L20_2 = A9_2
-    L10_2(L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2)
+    L11_2 = A0_2.uActor
+    L12_2 = L11_2
+    L11_2 = L11_2.ShowBlackScreenOptional
+    L13_2 = A1_2
+    L14_2 = A2_2
+    L15_2 = A3_2
+    L16_2 = A4_2
+    L17_2 = A5_2
+    L18_2 = A6_2
+    L19_2 = A7_2
+    L20_2 = A8_2
+    L21_2 = A9_2
+    L22_2 = A10_2
+    L11_2(L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2, L22_2)
     return
   end
-  L10_2 = A0_2.uActor
-  L11_2 = L10_2
-  L10_2 = L10_2.ShowBlackScreen
-  L12_2 = A1_2
-  L13_2 = A2_2
-  L14_2 = A3_2
-  L15_2 = A4_2
-  L16_2 = A5_2
-  L17_2 = A6_2
-  L18_2 = A7_2
-  L10_2(L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2)
+  L11_2 = A0_2.uActor
+  L12_2 = L11_2
+  L11_2 = L11_2.ShowBlackScreen
+  L13_2 = A1_2
+  L14_2 = A2_2
+  L15_2 = A3_2
+  L16_2 = A4_2
+  L17_2 = A5_2
+  L18_2 = A6_2
+  L19_2 = A7_2
+  L20_2 = A10_2
+  L11_2(L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2)
 end
 L0_1.ShowBlackScreen = L1_1
 function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2)
@@ -1769,7 +1774,14 @@ function L1_1(A0_2, A1_2)
 end
 L0_1.SayNarrator = L1_1
 function L1_1(A0_2)
-  local L1_2, L2_2
+  local L1_2, L2_2, L3_2, L4_2
+  L1_2 = print
+  L2_2 = "BaseActorProxy:StopNarrator "
+  L3_2 = tostring
+  L4_2 = A0_2.alias
+  L3_2 = L3_2(L4_2)
+  L2_2 = L2_2 .. L3_2
+  L1_2(L2_2)
   L1_2 = A0_2.uActor
   L2_2 = L1_2
   L1_2 = L1_2.StopNarrator
@@ -2011,6 +2023,18 @@ function L1_1(A0_2, A1_2)
   L2_2(L3_2)
 end
 L0_1.PauseNarrator = L1_1
+function L1_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = NG_HSOD_DEBUG
+  if L2_2 then
+    L2_2 = print
+    L3_2 = debug
+    L3_2 = L3_2.traceback
+    L3_2 = L3_2()
+    L2_2(L3_2)
+  end
+end
+L0_1.PrintTraceback = L1_1
 function L1_1(A0_2)
   local L1_2, L2_2
   A0_2.isUserPauseNarrator = true
@@ -3556,14 +3580,15 @@ L0_1.ResetFlyStateParams = L1_1
 L0_1.TaskOnResumeDelay = 1
 L0_1.TaskOnPauseReminder = 0
 L0_1.TaskOnResumeReminder = 0
-function L1_1(A0_2)
+L1_1 = "StopRealReminder"
+function L2_1(A0_2)
   local L1_2, L2_2, L3_2
   L2_2 = A0_2
   L1_2 = A0_2.StopReminder
   L3_2 = A0_2.TaskOnPauseReminder
   L1_2(L2_2, L3_2)
 end
-L0_1.StopRealReminder = L1_1
+L0_1[L1_1] = L2_1
 L1_1 = "StopPlayerCombat"
 function L2_1(A0_2)
   local L1_2, L2_2, L3_2

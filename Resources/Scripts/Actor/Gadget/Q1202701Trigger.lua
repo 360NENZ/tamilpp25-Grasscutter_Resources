@@ -33,9 +33,9 @@ function L5_1(A0_2)
   L4_2 = DistType
   L4_2 = L4_2.EULER
   L5_2 = {}
-  L5_2.x = 0
+  L5_2.x = 0.0
   L5_2.y = 0.8
-  L5_2.z = 0
+  L5_2.z = 0.0
   L6_2 = A0_2.TriggerIn
   L7_2 = A0_2.TriggerOut
   L1_2(L2_2, L3_2, L4_2, L5_2, L6_2, L7_2)
@@ -49,7 +49,7 @@ function L5_1(A0_2)
 end
 L1_1.TriggerIn = L5_1
 function L5_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2, L5_2
+  local L1_2, L2_2, L3_2, L4_2
   L1_2 = print
   L2_2 = "TriggerOut"
   L1_2(L2_2)
@@ -58,11 +58,10 @@ function L5_1(A0_2)
   L1_2 = L1_2.GetActor
   L3_2 = "12027"
   L1_2 = L1_2(L2_2, L3_2)
-  L3_2 = L1_2
   L2_2 = L1_2.FinishQuestID
-  L4_2 = false
-  L5_2 = 1202701
-  L2_2(L3_2, L4_2, L5_2)
+  L3_2 = false
+  L4_2 = 1202701
+  L2_2(L3_2, L4_2)
   L3_2 = A0_2
   L2_2 = A0_2.DestroySelf
   L2_2(L3_2)

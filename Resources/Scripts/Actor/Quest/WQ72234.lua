@@ -165,99 +165,91 @@ function L8_1(A0_2, A1_2, A2_2)
 end
 L1_1.NpcDestroyWithDither = L8_1
 function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
+  local L1_2, L2_2, L3_2
   L1_2 = print
   L2_2 = "FinishQuestID7223401"
   L1_2(L2_2)
-  L2_2 = A0_2
   L1_2 = A0_2.FinishQuestID
-  L3_2 = false
-  L4_2 = 7223401
-  L1_2(L2_2, L3_2, L4_2)
+  L2_2 = false
+  L3_2 = 7223401
+  L1_2(L2_2, L3_2)
 end
 L1_1.FinishQuestID7223401 = L8_1
 function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
+  local L1_2, L2_2, L3_2
   L1_2 = print
   L2_2 = "FinishQuestID7223403"
   L1_2(L2_2)
-  L2_2 = A0_2
   L1_2 = A0_2.FinishQuestID
-  L3_2 = false
-  L4_2 = 7223403
-  L1_2(L2_2, L3_2, L4_2)
+  L2_2 = false
+  L3_2 = 7223403
+  L1_2(L2_2, L3_2)
 end
 L1_1.FinishQuestID7223403 = L8_1
 function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
+  local L1_2, L2_2, L3_2
   L1_2 = print
   L2_2 = "FinishQuestID7223404"
   L1_2(L2_2)
-  L2_2 = A0_2
   L1_2 = A0_2.FinishQuestID
-  L3_2 = false
-  L4_2 = 7223404
-  L1_2(L2_2, L3_2, L4_2)
+  L2_2 = false
+  L3_2 = 7223404
+  L1_2(L2_2, L3_2)
 end
 L1_1.FinishQuestID7223404 = L8_1
 function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
+  local L1_2, L2_2, L3_2
   L1_2 = print
   L2_2 = "FinishQuestID7223405"
   L1_2(L2_2)
-  L2_2 = A0_2
   L1_2 = A0_2.FinishQuestID
-  L3_2 = false
-  L4_2 = 7223405
-  L1_2(L2_2, L3_2, L4_2)
+  L2_2 = false
+  L3_2 = 7223405
+  L1_2(L2_2, L3_2)
 end
 L1_1.FinishQuestID7223405 = L8_1
 function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
+  local L1_2, L2_2, L3_2
   L1_2 = print
   L2_2 = "FinishQuestID7223406"
   L1_2(L2_2)
-  L2_2 = A0_2
   L1_2 = A0_2.FinishQuestID
-  L3_2 = false
-  L4_2 = 7223406
-  L1_2(L2_2, L3_2, L4_2)
+  L2_2 = false
+  L3_2 = 7223406
+  L1_2(L2_2, L3_2)
 end
 L1_1.FinishQuestID7223406 = L8_1
 function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
+  local L1_2, L2_2, L3_2
   L1_2 = print
   L2_2 = "FinishQuestID7223406"
   L1_2(L2_2)
-  L2_2 = A0_2
   L1_2 = A0_2.FinishQuestID
-  L3_2 = false
-  L4_2 = 7223407
-  L1_2(L2_2, L3_2, L4_2)
+  L2_2 = false
+  L3_2 = 7223407
+  L1_2(L2_2, L3_2)
 end
 L1_1.FinishQuestID7223406 = L8_1
 function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
+  local L1_2, L2_2, L3_2
   L1_2 = print
   L2_2 = "FinishQuestID7223408"
   L1_2(L2_2)
-  L2_2 = A0_2
   L1_2 = A0_2.FinishQuestID
-  L3_2 = false
-  L4_2 = 7223408
-  L1_2(L2_2, L3_2, L4_2)
+  L2_2 = false
+  L3_2 = 7223408
+  L1_2(L2_2, L3_2)
 end
 L1_1.FinishQuestID7223408 = L8_1
 function L8_1(A0_2)
-  local L1_2, L2_2, L3_2, L4_2
+  local L1_2, L2_2, L3_2
   L1_2 = print
   L2_2 = "inishQuestID7223409"
   L1_2(L2_2)
-  L2_2 = A0_2
   L1_2 = A0_2.FinishQuestID
-  L3_2 = false
-  L4_2 = 7223409
-  L1_2(L2_2, L3_2, L4_2)
+  L2_2 = false
+  L3_2 = 7223409
+  L1_2(L2_2, L3_2)
 end
 L1_1.inishQuestID7223409 = L8_1
 function L8_1(A0_2)
@@ -400,26 +392,30 @@ function L8_1(A0_2)
         L10_2 = L2_1.ActorAlias
         L8_2 = L8_2(L9_2, L10_2)
         if L8_2 ~= nil then
-          L9_2 = print
-          L10_2 = "["
-          L11_2 = L7_2
-          L12_2 = "]"
-          L13_2 = "FinishQuest = "
-          L14_2 = L3_2[L7_2]
-          L14_2 = L14_2[2]
-          L10_2 = L10_2 .. L11_2 .. L12_2 .. L13_2 .. L14_2
-          L9_2(L10_2)
-          L9_2 = actorUtils
-          L9_2 = L9_2.FinishQuestID
-          L10_2 = false
-          L11_2 = L3_2[L7_2]
-          L11_2 = L11_2[2]
-          L9_2(L10_2, L11_2)
-          L9_2 = L1_1
-          L10_2 = L9_2
-          L9_2 = L9_2.RegisterStandingEvent
-          L9_2(L10_2)
-          return
+          L9_2 = sceneData
+          L9_2 = L9_2.currSceneID
+          if 5 == L9_2 then
+            L9_2 = print
+            L10_2 = "["
+            L11_2 = L7_2
+            L12_2 = "]"
+            L13_2 = "FinishQuest = "
+            L14_2 = L3_2[L7_2]
+            L14_2 = L14_2[2]
+            L10_2 = L10_2 .. L11_2 .. L12_2 .. L13_2 .. L14_2
+            L9_2(L10_2)
+            L9_2 = actorUtils
+            L9_2 = L9_2.FinishQuestID
+            L10_2 = false
+            L11_2 = L3_2[L7_2]
+            L11_2 = L11_2[2]
+            L9_2(L10_2, L11_2)
+            L9_2 = L1_1
+            L10_2 = L9_2
+            L9_2 = L9_2.RegisterStandingEvent
+            L9_2(L10_2)
+            return
+          end
         end
     end
     else

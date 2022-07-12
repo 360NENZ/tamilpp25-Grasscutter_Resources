@@ -175,25 +175,6 @@ function L8_1(A0_2, A1_2)
   L2_2(L3_2)
 end
 L1_1.OnMainCanceled = L8_1
-function L8_1(A0_2, A1_2, A2_2, A3_2)
-  local L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
-  L5_2 = A0_2
-  L4_2 = A0_2.ShowBlackScreen
-  L6_2 = 0.5
-  L7_2 = 1
-  L8_2 = 0.5
-  function L9_2(A0_3)
-    local L1_3, L2_3, L3_3, L4_3, L5_3
-    L2_3 = A0_3
-    L1_3 = A0_3.CreateQuestNpc
-    L3_3 = A1_2
-    L4_3 = A2_2
-    L5_3 = A3_2
-    L1_3(L2_3, L3_3, L4_3, L5_3)
-  end
-  L4_2(L5_2, L6_2, L7_2, L8_2, L9_2)
-end
-L1_1.NpcCreateWithBlackscreen = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2
   L2_2 = print
@@ -753,7 +734,7 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubFailed7280110 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
   L2_2 = print
   L3_2 = "OnSubStart7280111"
   L2_2(L3_2)
@@ -786,19 +767,15 @@ function L8_1(A0_2, A1_2)
   L6_2 = true
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
-  L2_2 = A0_2.CallDelay
-  L4_2 = 3
-  function L5_2(A0_3)
-    local L1_3, L2_3, L3_3, L4_3, L5_3
-    L2_3 = A0_3
-    L1_3 = A0_3.NpcCreateWithBlackscreen
-    L3_3 = A1_2
-    L4_3 = L6_1.Npc3012Data
-    L4_3 = L4_3.id
-    L5_3 = 1
-    L1_3(L2_3, L3_3, L4_3, L5_3)
-  end
-  L2_2(L3_2, L4_2, L5_2)
+  L2_2 = A0_2.CreateQuestNpcWithTriggerBlack
+  L4_2 = "Q7280111CreateQuestNpcTrigger"
+  L5_2 = 7280111
+  L6_2 = L6_1.Npc3012Data
+  L6_2 = L6_2.id
+  L7_2 = 1
+  L8_2 = 5
+  L9_2 = 1
+  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2)
 end
 L1_1.OnSubStart7280111 = L8_1
 function L8_1(A0_2, A1_2)

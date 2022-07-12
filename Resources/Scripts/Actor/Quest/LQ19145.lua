@@ -308,8 +308,17 @@ function L8_1(A0_2, A1_2)
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.EnableHeadCtrl
-  L5_2 = true
+  L5_2 = false
   L3_2(L4_2, L5_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.GetQuestNpcActor
+  L5_2 = L6_1.Npc3105Data
+  L5_2 = L5_2.alias
+  L3_2 = L3_2(L4_2, L5_2)
+  L5_2 = L3_2
+  L4_2 = L3_2.EnableHeadCtrl
+  L6_2 = false
+  L4_2(L5_2, L6_2)
 end
 L1_1.OnSubStart1914503 = L8_1
 function L8_1(A0_2, A1_2)
@@ -420,6 +429,24 @@ function L8_1(A0_2, A1_2)
   L5_2 = L5_2.id
   L6_2 = 3
   L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.GetQuestNpcActor
+  L4_2 = L6_1.Npc12508Data
+  L4_2 = L4_2.alias
+  L2_2 = L2_2(L3_2, L4_2)
+  L4_2 = L2_2
+  L3_2 = L2_2.EnableHeadCtrl
+  L5_2 = false
+  L3_2(L4_2, L5_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.GetQuestNpcActor
+  L5_2 = L6_1.Npc3105Data
+  L5_2 = L5_2.alias
+  L3_2 = L3_2(L4_2, L5_2)
+  L5_2 = L3_2
+  L4_2 = L3_2.EnableHeadCtrl
+  L6_2 = false
+  L4_2(L5_2, L6_2)
 end
 L1_1.OnSubStart1914508 = L8_1
 function L8_1(A0_2, A1_2)
@@ -507,8 +534,17 @@ function L8_1(A0_2, A1_2)
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.EnableHeadCtrl
-  L5_2 = true
+  L5_2 = false
   L3_2(L4_2, L5_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.GetQuestNpcActor
+  L5_2 = L6_1.Npc3105Data
+  L5_2 = L5_2.alias
+  L3_2 = L3_2(L4_2, L5_2)
+  L5_2 = L3_2
+  L4_2 = L3_2.EnableHeadCtrl
+  L6_2 = false
+  L4_2(L5_2, L6_2)
 end
 L1_1.OnSubStart1914509 = L8_1
 function L8_1(A0_2, A1_2)
@@ -604,6 +640,12 @@ function L8_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubFinish1914512"
   L2_2(L3_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.SafeDestroyQuestNpc
+  L4_2 = L6_1.Coop_ShinobuData
+  L4_2 = L4_2.alias
+  L5_2 = 3
+  L2_2(L3_2, L4_2, L5_2)
   L3_2 = A0_2
   L2_2 = A0_2.SafeDestroyQuestNpc
   L4_2 = L6_1.Npc1034Data

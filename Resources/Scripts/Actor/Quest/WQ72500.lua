@@ -112,19 +112,25 @@ function L7_1(A0_2, A1_2)
 end
 L1_1.OnMainCanceled = L7_1
 function L7_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
+  local L2_2, L3_2, L4_2
   L2_2 = print
   L3_2 = "OnSubStart7250001"
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.CreateQuestNpcWithTriggerBlack
-  L4_2 = "Q7250001Trigger"
-  L5_2 = 7250001
-  L6_2 = 30189
-  L7_2 = 1
-  L8_2 = 20
-  L9_2 = 1
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2)
+  L2_2 = A0_2.AfterMainPageActiveSafeCall
+  function L4_2(A0_3)
+    local L1_3, L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3
+    L2_3 = A0_3
+    L1_3 = A0_3.CreateQuestNpcWithTriggerBlack
+    L3_3 = "Q7250001Trigger"
+    L4_3 = 7250001
+    L5_3 = 30189
+    L6_3 = 1
+    L7_3 = 20
+    L8_3 = 1
+    L1_3(L2_3, L3_3, L4_3, L5_3, L6_3, L7_3, L8_3)
+  end
+  L2_2(L3_2, L4_2)
 end
 L1_1.OnSubStart7250001 = L7_1
 function L7_1(A0_2, A1_2)

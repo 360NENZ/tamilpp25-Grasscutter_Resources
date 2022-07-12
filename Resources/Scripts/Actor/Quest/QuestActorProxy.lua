@@ -2051,7 +2051,7 @@ function L5_1(A0_2, A1_2)
 end
 L1_1.GetQuestNpcActor = L5_1
 function L5_1(A0_2, A1_2, A2_2)
-  local L3_2, L4_2, L5_2, L6_2, L7_2
+  local L3_2, L4_2, L5_2, L6_2
   L4_2 = A0_2
   L3_2 = A0_2.SelectByPlayerIsMale
   L5_2 = A1_2
@@ -2059,9 +2059,8 @@ function L5_1(A0_2, A1_2, A2_2)
   L3_2 = L3_2(L4_2, L5_2, L6_2)
   L5_2 = A0_2
   L4_2 = A0_2.GetQuestNpcActor
-  L6_2 = A1_2
-  L7_2 = A2_2
-  return L4_2(L5_2, L6_2, L7_2)
+  L6_2 = L3_2
+  return L4_2(L5_2, L6_2)
 end
 L1_1.GetQuestNpcActor_MaleCond = L5_1
 function L5_1(A0_2, A1_2)

@@ -146,28 +146,6 @@ function L8_1(A0_2, A1_2, A2_2, A3_2)
 end
 L1_1.DailyNpcSafeHideSelf = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
-  L2_2 = print
-  L3_2 = "InvokeOnInteraction"
-  L2_2(L3_2)
-  if A1_2 == 1 then
-    L3_2 = A0_2
-    L2_2 = A0_2.SpawnGadget
-    L4_2 = quest
-    L5_2 = L7_1.Gadget70710721Data
-    L5_2 = L5_2.id
-    L6_2 = 1
-    L2_2(L3_2, L4_2, L5_2, L6_2)
-  else
-    L3_2 = A0_2
-    L2_2 = A0_2.UnSpawn
-    L4_2 = L7_1.Gadget70710721Data
-    L4_2 = L4_2.alias
-    L2_2(L3_2, L4_2)
-  end
-end
-L1_1.InvokeOnInteraction = L8_1
-function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L2_2 = print
   L3_2 = "OnSubStart7109901"
@@ -444,6 +422,13 @@ function L8_1(A0_2, A1_2)
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.DailyNpcSafeHideSelf
+  L4_2 = L6_1.Npc2011Data
+  L4_2 = L4_2.alias
+  L5_2 = 1
+  L6_2 = true
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.DailyNpcSafeHideSelf
   L4_2 = L6_1.Npc1626Data
   L4_2 = L4_2.alias
   L5_2 = 1
@@ -472,17 +457,10 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish7109906 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2
   L2_2 = print
   L3_2 = "OnSubStart7109907"
   L2_2(L3_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.CreateQuestNpc
-  L4_2 = A1_2
-  L5_2 = L6_1.Npc2010Data
-  L5_2 = L5_2.id
-  L6_2 = 1
-  L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
@@ -511,31 +489,14 @@ function L8_1(A0_2, A1_2)
   L5_2 = 1
   L6_2 = true
   L2_2(L3_2, L4_2, L5_2, L6_2)
-  L2_2 = actorMgr
-  L3_2 = L2_2
-  L2_2 = L2_2.CreateActorWithPos
-  L4_2 = "Q7109907Trigger"
-  L5_2 = "Actor/Gadget/Q7109907Trigger"
-  L6_2 = 70900002
-  L7_2 = 0
-  L8_2 = sceneData
-  L9_2 = L8_2
-  L8_2 = L8_2.GetDummyPoint
-  L10_2 = 3
-  L11_2 = "Q7109907_N2011"
-  L8_2 = L8_2(L9_2, L10_2, L11_2)
-  L8_2 = L8_2.pos
-  L9_2 = sceneData
-  L10_2 = L9_2
-  L9_2 = L9_2.GetDummyPoint
-  L11_2 = 3
-  L12_2 = "Q7109907_N2011"
-  L9_2 = L9_2(L10_2, L11_2, L12_2)
-  L9_2 = L9_2.rot
-  L10_2 = true
-  L11_2 = false
-  L12_2 = 3
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.CreateQuestNpcWithTrigger
+  L4_2 = "Q7109907NPCTrigger"
+  L5_2 = 7109907
+  L6_2 = 2010
+  L7_2 = 1
+  L8_2 = 4
+  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2)
 end
 L1_1.OnSubStart7109907 = L8_1
 function L8_1(A0_2, A1_2)
@@ -772,6 +733,12 @@ function L8_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.SafeDestroyQuestNpc
   L4_2 = L6_1.Npc2011Data
+  L4_2 = L4_2.alias
+  L5_2 = 3
+  L2_2(L3_2, L4_2, L5_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.SafeDestroyQuestNpc
+  L4_2 = L6_1.Npc1046Data
   L4_2 = L4_2.alias
   L5_2 = 3
   L2_2(L3_2, L4_2, L5_2)

@@ -552,6 +552,18 @@ function L8_1(A0_2, A1_2, A2_2)
   L3_2(L4_2, L5_2, L6_2)
 end
 L1_1.PlayerEnterDungeon = L8_1
+function L8_1(A0_2, A1_2, A2_2, A3_2, A4_2)
+  local L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
+  L5_2 = A0_2.uActor
+  L6_2 = L5_2
+  L5_2 = L5_2.PlayerEnterDungeonPoint
+  L7_2 = A1_2
+  L8_2 = A2_2
+  L9_2 = A3_2
+  L10_2 = A4_2
+  L5_2(L6_2, L7_2, L8_2, L9_2, L10_2)
+end
+L1_1.PlayerEnterDungeonPoint = L8_1
 function L8_1(A0_2, A1_2, A2_2, A3_2)
   local L4_2, L5_2, L6_2, L7_2, L8_2
   L4_2 = A0_2.uActor

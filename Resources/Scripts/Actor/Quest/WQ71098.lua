@@ -125,6 +125,29 @@ function L8_1(A0_2, A1_2)
   L2_2(L3_2)
 end
 L1_1.OnMainCanceled = L8_1
+function L8_1(A0_2, A1_2, A2_2, A3_2, A4_2)
+  local L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
+  L6_2 = A0_2
+  L5_2 = A0_2.ShowBlackScreen
+  L7_2 = 0.5
+  L8_2 = 1
+  L9_2 = 0.5
+  function L10_2(A0_3)
+    local L1_3, L2_3, L3_3, L4_3, L5_3
+    L2_3 = A0_3
+    L1_3 = A0_3.CreateQuestNpc
+    L3_3 = A1_2
+    L4_3 = A2_2
+    L5_3 = A3_2
+    L1_3(L2_3, L3_3, L4_3, L5_3)
+    L2_3 = A0_3
+    L1_3 = A0_3.RequestInteraction
+    L3_3 = A4_2
+    L1_3(L2_3, L3_3)
+  end
+  L5_2(L6_2, L7_2, L8_2, L9_2, L10_2)
+end
+L1_1.NpcCreateWithBlackscreenInteraction = L8_1
 function L8_1(A0_2, A1_2, A2_2, A3_2)
   local L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
   L5_2 = A0_2
@@ -271,16 +294,16 @@ function L8_1(A0_2, A1_2)
   L3_2 = "OnSubFinish7109803"
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.SafeDestroyQuestNpc
-  L4_2 = L6_1.Npc20657Data
-  L4_2 = L4_2.alias
-  L5_2 = 3
+  L2_2 = A0_2.NpcDestroyWithBlackscreen
+  L4_2 = 3
+  L5_2 = L6_1.Npc20657Data
+  L5_2 = L5_2.alias
   L2_2(L3_2, L4_2, L5_2)
   L3_2 = A0_2
-  L2_2 = A0_2.SafeDestroyQuestNpc
-  L4_2 = L6_1.Npc20658Data
-  L4_2 = L4_2.alias
-  L5_2 = 3
+  L2_2 = A0_2.NpcDestroyWithBlackscreen
+  L4_2 = 3
+  L5_2 = L6_1.Npc20658Data
+  L5_2 = L5_2.alias
   L2_2(L3_2, L4_2, L5_2)
 end
 L1_1.OnSubFinish7109803 = L8_1
@@ -292,28 +315,24 @@ function L8_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Npc2204Data
+  L5_2 = L6_1.Npc20657Data
   L5_2 = L5_2.id
   L6_2 = 1
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
-  L2_2 = A0_2.GetQuestNpcActor
-  L4_2 = L6_1.Npc20657Data
-  L4_2 = L4_2.alias
-  L2_2 = L2_2(L3_2, L4_2)
-  L4_2 = L2_2
-  L3_2 = L2_2.SitOnChair
-  L5_2 = 8010
-  L3_2(L4_2, L5_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.GetQuestNpcActor
+  L2_2 = A0_2.CreateQuestNpc
+  L4_2 = A1_2
   L5_2 = L6_1.Npc20658Data
-  L5_2 = L5_2.alias
-  L3_2 = L3_2(L4_2, L5_2)
-  L5_2 = L3_2
-  L4_2 = L3_2.SitOnChair
-  L6_2 = 8010
-  L4_2(L5_2, L6_2)
+  L5_2 = L5_2.id
+  L6_2 = 2
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.CreateQuestNpc
+  L4_2 = A1_2
+  L5_2 = L6_1.Npc2204Data
+  L5_2 = L5_2.id
+  L6_2 = 3
+  L2_2(L3_2, L4_2, L5_2, L6_2)
 end
 L1_1.OnSubStart7109804 = L8_1
 function L8_1(A0_2, A1_2)
@@ -393,7 +412,7 @@ function L8_1(A0_2, A1_2)
   L9_2 = 7109809
   L10_2 = L6_1.PaimonData
   L10_2 = L10_2.id
-  L11_2 = 1
+  L11_2 = 3
   L12_2 = L2_2
   L13_2 = M
   L13_2 = L13_2.Dir2Euler
@@ -486,26 +505,15 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish7109807 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
+  local L2_2, L3_2, L4_2
   L2_2 = print
   L3_2 = "OnSubStart7109810"
   L2_2(L3_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.TransmitPlayerWithTextByQuestId
-  L4_2 = 7109808
-  L5_2 = 1
-  L6_2 = L7_1.TextmapId
-  L7_2 = 3
-  L8_2 = nil
-  function L9_2(A0_3)
-    local L1_3, L2_3, L3_3
-    L1_3 = actorUtils
-    L1_3 = L1_3.FinishQuestID
-    L2_3 = false
-    L3_3 = 7109810
-    L1_3(L2_3, L3_3)
-  end
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2)
+  L2_2 = actorUtils
+  L2_2 = L2_2.FinishQuestID
+  L3_2 = false
+  L4_2 = 7109810
+  L2_2(L3_2, L4_2)
 end
 L1_1.OnSubStart7109810 = L8_1
 function L8_1(A0_2, A1_2)
@@ -536,22 +544,49 @@ function L8_1(A0_2, A1_2)
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.GetQuestNpcActor
-  L4_2 = L6_1.Npc20657Data
+  L4_2 = L6_1.Npc20658Data
   L4_2 = L4_2.alias
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.SitOnChair
-  L5_2 = 8010
+  L5_2 = 0
   L3_2(L4_2, L5_2)
   L4_2 = A0_2
   L3_2 = A0_2.GetQuestNpcActor
-  L5_2 = L6_1.Npc20658Data
+  L5_2 = L6_1.Npc20657Data
   L5_2 = L5_2.alias
   L3_2 = L3_2(L4_2, L5_2)
   L5_2 = L3_2
   L4_2 = L3_2.SitOnChair
-  L6_2 = 8010
+  L6_2 = 0
   L4_2(L5_2, L6_2)
+  L5_2 = A0_2
+  L4_2 = A0_2.TransmitPlayerWithTextByQuestId
+  L6_2 = 7109808
+  L7_2 = 1
+  L8_2 = L7_1.TextmapId
+  L9_2 = 3
+  L10_2 = nil
+  function L11_2(A0_3)
+    local L1_3, L2_3, L3_3, L4_3, L5_3, L6_3
+    L2_3 = A0_3
+    L1_3 = A0_3.NpcCreateWithBlackscreenInteraction
+    L3_3 = A1_2
+    L4_3 = L6_1.Npc20657Data
+    L4_3 = L4_3.id
+    L5_3 = 1
+    L6_3 = L6_1.Npc20657Data
+    L6_3 = L6_3.alias
+    L1_3(L2_3, L3_3, L4_3, L5_3, L6_3)
+    L2_3 = A0_3
+    L1_3 = A0_3.NpcCreateWithBlackscreen
+    L3_3 = A1_2
+    L4_3 = L6_1.Npc20658Data
+    L4_3 = L4_3.id
+    L5_3 = 2
+    L1_3(L2_3, L3_3, L4_3, L5_3)
+  end
+  L4_2(L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2)
   L4_2 = actorMgr
   L5_2 = L4_2
   L4_2 = L4_2.CreateActorWithPos

@@ -135,16 +135,16 @@ function L7_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Npc3020Data
+  L5_2 = L6_1.Coop_ShinobuData
   L5_2 = L5_2.id
-  L6_2 = 5
+  L6_2 = 1
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Coop_ShinobuData
+  L5_2 = L6_1.Npc3020Data
   L5_2 = L5_2.id
-  L6_2 = 1
+  L6_2 = 5
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.RequestCoopInteractionFromSubStartPoint
@@ -179,16 +179,10 @@ function L7_1(A0_2, A1_2)
 end
 L1_1.OnSubStart1914101 = L7_1
 function L7_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2
+  local L2_2, L3_2
   L2_2 = print
   L3_2 = "OnSubFinish1914101"
   L2_2(L3_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.SafeDestroyQuestNpc
-  L4_2 = L6_1.Npc3020Data
-  L4_2 = L4_2.alias
-  L5_2 = 3
-  L2_2(L3_2, L4_2, L5_2)
 end
 L1_1.OnSubFinish1914101 = L7_1
 function L7_1(A0_2, A1_2)
@@ -199,16 +193,9 @@ function L7_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Npc12278Data
+  L5_2 = L6_1.Coop_ShinobuData
   L5_2 = L5_2.id
-  L6_2 = 4
-  L2_2(L3_2, L4_2, L5_2, L6_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.CreateQuestNpc
-  L4_2 = A1_2
-  L5_2 = L6_1.Npc12277Data
-  L5_2 = L5_2.id
-  L6_2 = 3
+  L6_2 = 1
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
@@ -220,9 +207,23 @@ function L7_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Coop_ShinobuData
+  L5_2 = L6_1.Npc12277Data
   L5_2 = L5_2.id
-  L6_2 = 1
+  L6_2 = 3
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.CreateQuestNpc
+  L4_2 = A1_2
+  L5_2 = L6_1.Npc12278Data
+  L5_2 = L5_2.id
+  L6_2 = 4
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.CreateQuestNpc
+  L4_2 = A1_2
+  L5_2 = L6_1.Npc3020Data
+  L5_2 = L5_2.id
+  L6_2 = 5
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.RequestCoopInteractionFromSubStartPoint
@@ -238,13 +239,7 @@ function L7_1(A0_2, A1_2)
   L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.SafeDestroyQuestNpc
-  L4_2 = L6_1.Npc12278Data
-  L4_2 = L4_2.alias
-  L5_2 = 3
-  L2_2(L3_2, L4_2, L5_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.SafeDestroyQuestNpc
-  L4_2 = L6_1.Npc12277Data
+  L4_2 = L6_1.Coop_ShinobuData
   L4_2 = L4_2.alias
   L5_2 = 3
   L2_2(L3_2, L4_2, L5_2)
@@ -256,7 +251,19 @@ function L7_1(A0_2, A1_2)
   L2_2(L3_2, L4_2, L5_2)
   L3_2 = A0_2
   L2_2 = A0_2.SafeDestroyQuestNpc
-  L4_2 = L6_1.Coop_ShinobuData
+  L4_2 = L6_1.Npc12277Data
+  L4_2 = L4_2.alias
+  L5_2 = 3
+  L2_2(L3_2, L4_2, L5_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.SafeDestroyQuestNpc
+  L4_2 = L6_1.Npc12278Data
+  L4_2 = L4_2.alias
+  L5_2 = 3
+  L2_2(L3_2, L4_2, L5_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.SafeDestroyQuestNpc
+  L4_2 = L6_1.Npc3020Data
   L4_2 = L4_2.alias
   L5_2 = 3
   L2_2(L3_2, L4_2, L5_2)

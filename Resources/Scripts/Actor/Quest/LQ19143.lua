@@ -195,6 +195,13 @@ function L8_1(A0_2, A1_2)
   L2_2 = actorMgr
   L3_2 = L2_2
   L2_2 = L2_2.DestroyEntityActor
+  L4_2 = "Q1914306Trigger"
+  L5_2 = 3
+  L6_2 = false
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L2_2 = actorMgr
+  L3_2 = L2_2
+  L2_2 = L2_2.DestroyEntityActor
   L4_2 = "Q1914307Trigger"
   L5_2 = 3
   L6_2 = false
@@ -202,7 +209,7 @@ function L8_1(A0_2, A1_2)
   L2_2 = actorMgr
   L3_2 = L2_2
   L2_2 = L2_2.DestroyEntityActor
-  L4_2 = "Q1914308Trigger"
+  L4_2 = "Q1914309Trigger"
   L5_2 = 3
   L6_2 = false
   L2_2(L3_2, L4_2, L5_2, L6_2)
@@ -223,6 +230,31 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.ActorDestroy = L8_1
 function L8_1(A0_2, A1_2)
+  local L2_2, L3_2, L4_2, L5_2
+  L2_2 = print
+  L3_2 = "InvokeOnInteraction"
+  L2_2(L3_2)
+  if A1_2 == 1 then
+    L2_2 = print
+    L3_2 = "stopvoice=============1"
+    L2_2(L3_2)
+    L3_2 = A0_2
+    L2_2 = A0_2.ClearSpeechBubbleTask
+    L2_2(L3_2)
+    L3_2 = A0_2
+    L2_2 = A0_2.CallDelay
+    L4_2 = 5
+    function L5_2(A0_3)
+      local L1_3, L2_3
+      L2_3 = A0_3
+      L1_3 = A0_3.ClearSpeechBubbleTask
+      L1_3(L2_3)
+    end
+    L2_2(L3_2, L4_2, L5_2)
+  end
+end
+L1_1.InvokeOnInteraction = L8_1
+function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2
   L2_2 = print
   L3_2 = "OnSubStart1914303"
@@ -241,7 +273,7 @@ function L8_1(A0_2, A1_2)
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.DoFreeStyle
-  L5_2 = 1050
+  L5_2 = 1090
   L6_2 = true
   L7_2 = nil
   L8_2 = true
@@ -282,33 +314,13 @@ function L8_1(A0_2, A1_2)
   L7_2 = 1914302
   L4_2(L5_2, L6_2, L7_2)
   L5_2 = A0_2
-  L4_2 = A0_2.CreateSpeechBubbleTask
-  L6_2 = L6_1.Npc3038Data
-  L6_2 = L6_2.id
-  L7_2 = 191439909
-  L8_2 = 3
-  L9_2 = true
-  L10_2 = 5
-  L11_2 = 6
-  L4_2(L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2)
-  L5_2 = A0_2
-  L4_2 = A0_2.CreateSpeechBubbleTask
-  L6_2 = L6_1.Npc12540Data
-  L6_2 = L6_2.id
-  L7_2 = 191439906
-  L8_2 = 3
-  L9_2 = true
-  L10_2 = 5
-  L11_2 = 6
-  L4_2(L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2)
-  L5_2 = A0_2
   L4_2 = A0_2.GetQuestNpcActor
   L6_2 = L6_1.Npc12278Data
   L6_2 = L6_2.alias
   L4_2 = L4_2(L5_2, L6_2)
   L6_2 = L4_2
   L5_2 = L4_2.EnableHeadCtrl
-  L7_2 = true
+  L7_2 = false
   L5_2(L6_2, L7_2)
   L5_2 = actorMgr
   L6_2 = L5_2
@@ -379,7 +391,7 @@ function L8_1(A0_2, A1_2)
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.DoFreeStyle
-  L5_2 = 1050
+  L5_2 = 1090
   L6_2 = true
   L7_2 = nil
   L8_2 = true
@@ -420,7 +432,7 @@ function L8_1(A0_2, A1_2)
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
   L3_2 = L2_2.DoFreeStyle
-  L5_2 = 1050
+  L5_2 = 1090
   L6_2 = true
   L7_2 = nil
   L8_2 = true
@@ -475,7 +487,7 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish1914302 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2
   L2_2 = print
   L3_2 = "OnSubStart1914306"
   L2_2(L3_2)
@@ -521,56 +533,11 @@ function L8_1(A0_2, A1_2)
   L9_2 = true
   L10_2 = false
   L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
-  L3_2 = actorMgr
-  L4_2 = L3_2
-  L3_2 = L3_2.CreateActorWithPos
-  L5_2 = "Q1914307Trigger"
-  L6_2 = "Actor/Gadget/Q1914307Trigger"
-  L7_2 = 70900002
-  L8_2 = 0
-  L9_2 = sceneData
-  L10_2 = L9_2
-  L9_2 = L9_2.GetDummyPoint
-  L11_2 = 3
-  L12_2 = "Q1914307_guide"
-  L9_2 = L9_2(L10_2, L11_2, L12_2)
-  L9_2 = L9_2.pos
-  L10_2 = sceneData
-  L11_2 = L10_2
-  L10_2 = L10_2.GetDummyPoint
-  L12_2 = 3
-  L13_2 = "Q1914307_guide"
-  L10_2 = L10_2(L11_2, L12_2, L13_2)
-  L10_2 = L10_2.rot
-  L11_2 = true
-  L12_2 = false
-  L13_2 = 3
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
   L4_2 = A0_2
   L3_2 = A0_2.RequestCoopInteractionFromSubStartPoint
   L5_2 = 106501
   L6_2 = 1914305
   L3_2(L4_2, L5_2, L6_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.CreateSpeechBubbleTask
-  L5_2 = L6_1.Npc12539Data
-  L5_2 = L5_2.id
-  L6_2 = 191439908
-  L7_2 = 3
-  L8_2 = true
-  L9_2 = 5
-  L10_2 = 6
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
-  L4_2 = A0_2
-  L3_2 = A0_2.CreateSpeechBubbleTask
-  L5_2 = L6_1.Npc12509Data
-  L5_2 = L5_2.id
-  L6_2 = 191439907
-  L7_2 = 3
-  L8_2 = true
-  L9_2 = 5
-  L10_2 = 6
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
   L4_2 = A0_2
   L3_2 = A0_2.GetQuestNpcActor
   L5_2 = L6_1.Npc12509Data
@@ -578,7 +545,7 @@ function L8_1(A0_2, A1_2)
   L3_2 = L3_2(L4_2, L5_2)
   L5_2 = L3_2
   L4_2 = L3_2.EnableHeadCtrl
-  L6_2 = true
+  L6_2 = false
   L4_2(L5_2, L6_2)
   L5_2 = A0_2
   L4_2 = A0_2.GetQuestNpcActor
@@ -587,7 +554,7 @@ function L8_1(A0_2, A1_2)
   L4_2 = L4_2(L5_2, L6_2)
   L6_2 = L4_2
   L5_2 = L4_2.EnableHeadCtrl
-  L7_2 = true
+  L7_2 = false
   L5_2(L6_2, L7_2)
   L6_2 = A0_2
   L5_2 = A0_2.GetQuestNpcActor
@@ -596,8 +563,33 @@ function L8_1(A0_2, A1_2)
   L5_2 = L5_2(L6_2, L7_2)
   L7_2 = L5_2
   L6_2 = L5_2.EnableHeadCtrl
-  L8_2 = true
+  L8_2 = false
   L6_2(L7_2, L8_2)
+  L6_2 = actorMgr
+  L7_2 = L6_2
+  L6_2 = L6_2.CreateActorWithPos
+  L8_2 = "Q1914306Trigger"
+  L9_2 = "Actor/Gadget/Q1914306Trigger"
+  L10_2 = 70900002
+  L11_2 = 0
+  L12_2 = sceneData
+  L13_2 = L12_2
+  L12_2 = L12_2.GetDummyPoint
+  L14_2 = 3
+  L15_2 = "Q1914304_C1914304_N12510"
+  L12_2 = L12_2(L13_2, L14_2, L15_2)
+  L12_2 = L12_2.pos
+  L13_2 = sceneData
+  L14_2 = L13_2
+  L13_2 = L13_2.GetDummyPoint
+  L15_2 = 3
+  L16_2 = "Q1914304_C1914304_N12510"
+  L13_2 = L13_2(L14_2, L15_2, L16_2)
+  L13_2 = L13_2.rot
+  L14_2 = true
+  L15_2 = false
+  L16_2 = 3
+  L6_2(L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2)
 end
 L1_1.OnSubStart1914306 = L8_1
 function L8_1(A0_2, A1_2)
@@ -800,15 +792,15 @@ function L8_1(A0_2, A1_2)
   L5_2(L6_2, L7_2, L8_2)
   L6_2 = L2_2
   L5_2 = L2_2.EnableHeadCtrl
-  L7_2 = true
+  L7_2 = false
   L5_2(L6_2, L7_2)
   L6_2 = L3_2
   L5_2 = L3_2.EnableHeadCtrl
-  L7_2 = true
+  L7_2 = false
   L5_2(L6_2, L7_2)
   L6_2 = L4_2
   L5_2 = L4_2.EnableHeadCtrl
-  L7_2 = true
+  L7_2 = false
   L5_2(L6_2, L7_2)
   L5_2 = actorMgr
   L6_2 = L5_2
@@ -835,6 +827,15 @@ function L8_1(A0_2, A1_2)
   L14_2 = false
   L15_2 = 3
   L5_2(L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2)
+  L6_2 = A0_2
+  L5_2 = A0_2.GetQuestNpcActor
+  L7_2 = L6_1.Npc12276Data
+  L7_2 = L7_2.alias
+  L5_2 = L5_2(L6_2, L7_2)
+  L7_2 = L5_2
+  L6_2 = L5_2.EnableHeadCtrl
+  L8_2 = false
+  L6_2(L7_2, L8_2)
 end
 L1_1.OnSubStart1914309 = L8_1
 function L8_1(A0_2, A1_2)

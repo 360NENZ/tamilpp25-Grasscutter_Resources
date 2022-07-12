@@ -52,6 +52,10 @@ function L2_1(A0_2)
   L1_2 = A0_2.InitBaseConfig
   L1_2(L2_2)
   A0_2.IsDataInited = true
+  L1_2 = A0_2.uActor
+  L2_2 = L1_2
+  L1_2 = L1_2.OnDataInited
+  L1_2(L2_2)
   L2_2 = A0_2
   L1_2 = A0_2.OnPostStart
   L1_2(L2_2)

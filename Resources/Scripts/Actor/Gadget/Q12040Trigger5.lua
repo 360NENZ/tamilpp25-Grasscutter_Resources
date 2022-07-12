@@ -36,13 +36,6 @@ function L7_1(A0_2)
   L1_2 = print
   L2_2 = "Q12040Trigger5 OnPostComponentPrepare"
   L1_2(L2_2)
-  L1_2 = CS
-  L1_2 = L1_2.MoleMole
-  L1_2 = L1_2.SuperDebug
-  L1_2 = L1_2.VeryImportantWarning
-  L2_2 = "[Lua] Q12040Trigger5 OnPostComponentPrepare"
-  L3_2 = false
-  L1_2(L2_2, L3_2)
   L2_2 = A0_2
   L1_2 = A0_2.AddComponentTrigger
   L3_2 = 10
@@ -62,13 +55,6 @@ function L7_1(A0_2)
   L1_2 = print
   L2_2 = "Q12040Trigger5 TriggerIn"
   L1_2(L2_2)
-  L1_2 = CS
-  L1_2 = L1_2.MoleMole
-  L1_2 = L1_2.SuperDebug
-  L1_2 = L1_2.VeryImportantWarning
-  L2_2 = "[Lua] Q12040Trigger5 TriggerIn"
-  L3_2 = false
-  L1_2(L2_2, L3_2)
   L1_2 = actorMgr
   L2_2 = L1_2
   L1_2 = L1_2.GetActor
@@ -85,17 +71,10 @@ function L7_1(A0_2)
 end
 L1_1.TriggerIn = L7_1
 function L7_1(A0_2)
-  local L1_2, L2_2, L3_2
+  local L1_2, L2_2
   L1_2 = print
   L2_2 = "Q12040Trigger5 OnDestroy"
   L1_2(L2_2)
-  L1_2 = CS
-  L1_2 = L1_2.MoleMole
-  L1_2 = L1_2.SuperDebug
-  L1_2 = L1_2.VeryImportantWarning
-  L2_2 = "[Lua] Q12040Trigger5 OnDestroy"
-  L3_2 = false
-  L1_2(L2_2, L3_2)
 end
 L1_1.OnDestroy = L7_1
 return L1_1

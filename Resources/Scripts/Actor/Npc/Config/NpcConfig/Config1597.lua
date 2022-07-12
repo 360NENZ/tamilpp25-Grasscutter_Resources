@@ -1,4 +1,4 @@
-local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1, L8_1, L9_1, L10_1, L11_1, L12_1, L13_1
+local L0_1, L1_1, L2_1, L3_1, L4_1, L5_1, L6_1, L7_1, L8_1, L9_1, L10_1, L11_1, L12_1, L13_1, L14_1
 L0_1 = require
 L1_1 = "Actor/ActorCommon"
 L0_1(L1_1)
@@ -53,8 +53,27 @@ L13_1 = L1_1.Hide
 L12_1.action = L13_1
 L11_1[1] = L12_1
 L10_1.actionPoints = L11_1
+L11_1 = {}
+L12_1 = {}
+L12_1.questGlobalVarId = 70516
+L12_1.questGlobalVarValue = 0
+L13_1 = L5_1.Greater
+L12_1.questGlobalVarOperate = L13_1
+L12_1.activityId = 5085
+L12_1.activityCondId = 5085005
+L12_1.isActivityValid = true
+L12_1.sceneId = 3
+L12_1.priority = 1
+L11_1.condition = L12_1
+L12_1 = {}
+L13_1 = {}
+L14_1 = L1_1.Hide
+L13_1.action = L14_1
+L12_1[1] = L13_1
+L11_1.actionPoints = L12_1
 L8_1[1] = L9_1
 L8_1[2] = L10_1
+L8_1[3] = L11_1
 L7_1.DailyScheduleData = L8_1
 L6_1.Data = L7_1
 return L6_1

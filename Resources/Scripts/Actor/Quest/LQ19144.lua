@@ -105,6 +105,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnMainFinished"
   L2_2(L3_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.ClearNarratorTask
+  L2_2(L3_2)
 end
 L1_1.OnMainFinished = L8_1
 function L8_1(A0_2, A1_2)
@@ -227,6 +230,12 @@ function L8_1(A0_2, A1_2)
   L4_2 = L4_2.alias
   L5_2 = 1066
   L2_2(L3_2, L4_2, L5_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.SafeDestroyQuestNpc
+  L4_2 = L6_1.Npc12682Data
+  L4_2 = L4_2.alias
+  L5_2 = 3
+  L2_2(L3_2, L4_2, L5_2)
   L2_2 = actorMgr
   L3_2 = L2_2
   L2_2 = L2_2.DestroyEntityActor
@@ -269,6 +278,20 @@ function L8_1(A0_2, A1_2)
   L5_2 = 3
   L6_2 = false
   L2_2(L3_2, L4_2, L5_2, L6_2)
+  L2_2 = actorMgr
+  L3_2 = L2_2
+  L2_2 = L2_2.DestroyEntityActor
+  L4_2 = "Q1914408TriggerSee"
+  L5_2 = 3
+  L6_2 = false
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L2_2 = actorMgr
+  L3_2 = L2_2
+  L2_2 = L2_2.DestroyEntityActor
+  L4_2 = "Q1914403TriggerRefuse02"
+  L5_2 = 1066
+  L6_2 = false
+  L2_2(L3_2, L4_2, L5_2, L6_2)
 end
 L1_1.OnMainCanceled = L8_1
 function L8_1(A0_2, A1_2)
@@ -293,23 +316,37 @@ function L8_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Npc12276Data
+  L5_2 = L6_1.Coop_ShinobuData
   L5_2 = L5_2.id
   L6_2 = 1
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Npc12277Data
+  L5_2 = L6_1.Npc12276Data
   L5_2 = L5_2.id
   L6_2 = 2
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.CreateQuestNpc
   L4_2 = A1_2
-  L5_2 = L6_1.Npc12278Data
+  L5_2 = L6_1.Npc12277Data
   L5_2 = L5_2.id
   L6_2 = 3
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.CreateQuestNpc
+  L4_2 = A1_2
+  L5_2 = L6_1.Npc12278Data
+  L5_2 = L5_2.id
+  L6_2 = 4
+  L2_2(L3_2, L4_2, L5_2, L6_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.CreateQuestNpc
+  L4_2 = A1_2
+  L5_2 = L6_1.Npc12682Data
+  L5_2 = L5_2.id
+  L6_2 = 5
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.RequestCoopInteractionFromSubStartPoint
@@ -344,10 +381,16 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubStart1914401 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2
+  local L2_2, L3_2, L4_2, L5_2
   L2_2 = print
   L3_2 = "OnSubFinish1914401"
   L2_2(L3_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.DestroyQuestNpcActor
+  L4_2 = L6_1.Coop_ShinobuData
+  L4_2 = L4_2.alias
+  L5_2 = 3
+  L2_2(L3_2, L4_2, L5_2)
 end
 L1_1.OnSubFinish1914401 = L8_1
 function L8_1(A0_2, A1_2)
@@ -484,9 +527,9 @@ function L8_1(A0_2, A1_2)
   L9_2 = 70900002
   L10_2 = 0
   L11_2 = {}
-  L11_2.x = 7.917
-  L11_2.y = 5.652
-  L11_2.z = 3.364
+  L11_2.x = 5.186
+  L11_2.y = 5.701
+  L11_2.z = 7.455
   L12_2 = {}
   L12_2.x = 0.0
   L12_2.y = 0.0
@@ -559,10 +602,14 @@ function L8_1(A0_2, A1_2)
   L2_2 = A0_2.ActorDestroy
   L4_2 = "Q1914402TriggerWelcome"
   L2_2(L3_2, L4_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.ActorDestroy
+  L4_2 = "Q1914402TriggerRefuseIn"
+  L2_2(L3_2, L4_2)
 end
 L1_1.OnSubFinish1914402 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
   L2_2 = print
   L3_2 = "OnSubStart1914403"
   L2_2(L3_2)
@@ -571,7 +618,7 @@ function L8_1(A0_2, A1_2)
   L4_2 = A1_2
   L5_2 = L6_1.Npc1044Data
   L5_2 = L5_2.id
-  L6_2 = 5
+  L6_2 = 4
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.GetQuestNpcActor
@@ -592,6 +639,25 @@ function L8_1(A0_2, A1_2)
   L5_2 = 106501
   L6_2 = 1914403
   L3_2(L4_2, L5_2, L6_2)
+  L3_2 = actorMgr
+  L4_2 = L3_2
+  L3_2 = L3_2.CreateActorWithPos
+  L5_2 = "Q1914403TriggerRefuse02"
+  L6_2 = "Actor/Gadget/Q1914403TriggerRefuse02"
+  L7_2 = 70900002
+  L8_2 = 0
+  L9_2 = {}
+  L9_2.x = 7.917
+  L9_2.y = 5.652
+  L9_2.z = 3.364
+  L10_2 = {}
+  L10_2.x = 0.0
+  L10_2.y = 0.0
+  L10_2.z = 0.0
+  L11_2 = true
+  L12_2 = false
+  L13_2 = 1066
+  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
 end
 L1_1.OnSubStart1914403 = L8_1
 function L8_1(A0_2, A1_2)
@@ -601,7 +667,7 @@ function L8_1(A0_2, A1_2)
   L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.ActorDestroy
-  L4_2 = "Q1914402TriggerRefuseIn"
+  L4_2 = "Q1914403TriggerRefuse02"
   L2_2(L3_2, L4_2)
 end
 L1_1.OnSubFinish1914403 = L8_1
@@ -798,10 +864,6 @@ function L8_1(A0_2, A1_2)
   L2_2 = A0_2.ActorDestroy
   L4_2 = "Q1914404Trigger"
   L2_2(L3_2, L4_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.ActorDestroy
-  L4_2 = "Q1914402TriggerRefuseIn"
-  L2_2(L3_2, L4_2)
 end
 L1_1.OnSubFinish1914404 = L8_1
 function L8_1(A0_2, A1_2)
@@ -888,16 +950,10 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubStart1914407 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
+  local L2_2, L3_2
   L2_2 = print
   L3_2 = "OnSubFinish1914407"
   L2_2(L3_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.NarratorOnlyTaskByData
-  L4_2 = L7_1.NarratorWithId2
-  L5_2 = nil
-  L6_2 = 19144
-  L2_2(L3_2, L4_2, L5_2, L6_2)
 end
 L1_1.OnSubFinish1914407 = L8_1
 function L8_1(A0_2, A1_2)
@@ -1012,6 +1068,31 @@ function L8_1(A0_2, A1_2)
   L14_2 = false
   L15_2 = 3
   L5_2(L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2)
+  L5_2 = actorMgr
+  L6_2 = L5_2
+  L5_2 = L5_2.CreateActorWithPos
+  L7_2 = "Q1914408TriggerSee"
+  L8_2 = "Actor/Gadget/Q1914408TriggerSee"
+  L9_2 = 70900002
+  L10_2 = 0
+  L11_2 = sceneData
+  L12_2 = L11_2
+  L11_2 = L11_2.GetDummyPoint
+  L13_2 = 3
+  L14_2 = "Q1914408_guide"
+  L11_2 = L11_2(L12_2, L13_2, L14_2)
+  L11_2 = L11_2.pos
+  L12_2 = sceneData
+  L13_2 = L12_2
+  L12_2 = L12_2.GetDummyPoint
+  L14_2 = 3
+  L15_2 = "Q1914408_guide"
+  L12_2 = L12_2(L13_2, L14_2, L15_2)
+  L12_2 = L12_2.rot
+  L13_2 = true
+  L14_2 = false
+  L15_2 = 3
+  L5_2(L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2, L15_2)
 end
 L1_1.OnSubStart1914408 = L8_1
 function L8_1(A0_2, A1_2)
@@ -1052,6 +1133,12 @@ function L8_1(A0_2, A1_2)
   L3_2 = A0_2
   L2_2 = A0_2.SafeDestroyQuestNpc
   L4_2 = L6_1.Npc3046Data
+  L4_2 = L4_2.alias
+  L5_2 = 3
+  L2_2(L3_2, L4_2, L5_2)
+  L3_2 = A0_2
+  L2_2 = A0_2.SafeDestroyQuestNpc
+  L4_2 = L6_1.Npc12682Data
   L4_2 = L4_2.alias
   L5_2 = 3
   L2_2(L3_2, L4_2, L5_2)

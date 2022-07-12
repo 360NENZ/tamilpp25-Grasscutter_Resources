@@ -804,13 +804,6 @@ function L9_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubStart1204014"
   L2_2(L3_2)
-  L2_2 = CS
-  L2_2 = L2_2.MoleMole
-  L2_2 = L2_2.SuperDebug
-  L2_2 = L2_2.VeryImportantWarning
-  L3_2 = "[Lua] OnSubStart1204014 CreateQ12040Trigger5"
-  L4_2 = false
-  L2_2(L3_2, L4_2)
   L2_2 = actorMgr
   L3_2 = L2_2
   L2_2 = L2_2.CreateActorWithPos

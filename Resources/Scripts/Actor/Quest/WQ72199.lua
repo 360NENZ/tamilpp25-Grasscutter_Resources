@@ -53,6 +53,8 @@ function L8_1(A0_2)
   L1_2["7219909"] = L2_2
   L2_2 = A0_2.OnSubStart7219910
   L1_2["7219910"] = L2_2
+  L2_2 = A0_2.OnSubStart7219923
+  L1_2["7219923"] = L2_2
   L2_2 = A0_2.OnSubStart7219911
   L1_2["7219911"] = L2_2
   L2_2 = A0_2.OnSubStart7219912
@@ -101,6 +103,8 @@ function L8_1(A0_2)
   L1_2["7219909"] = L2_2
   L2_2 = A0_2.OnSubFinish7219910
   L1_2["7219910"] = L2_2
+  L2_2 = A0_2.OnSubFinish7219923
+  L1_2["7219923"] = L2_2
   L2_2 = A0_2.OnSubFinish7219911
   L1_2["7219911"] = L2_2
   L2_2 = A0_2.OnSubFinish7219912
@@ -149,6 +153,8 @@ function L8_1(A0_2)
   L1_2["7219909"] = L2_2
   L2_2 = A0_2.OnSubFailed7219910
   L1_2["7219910"] = L2_2
+  L2_2 = A0_2.OnSubFailed7219923
+  L1_2["7219923"] = L2_2
   L2_2 = A0_2.OnSubFailed7219911
   L1_2["7219911"] = L2_2
   L2_2 = A0_2.OnSubFailed7219912
@@ -214,6 +220,9 @@ L1_1.OnMainCanceled = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2
   L2_2 = print
+  L3_2 = "InvokeOnInteraction"
+  L2_2(L3_2)
+  L2_2 = print
   L3_2 = "Invoke success, variable not yet"
   L2_2(L3_2)
   if A1_2 == 1 then
@@ -253,6 +262,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219901"
   L2_2(L3_2)
+  L2_2 = print
+  L3_2 = "OnSubFinish7219901"
+  L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.ActionSafeCall
   function L4_2()
@@ -267,6 +279,13 @@ function L8_1(A0_2, A1_2)
     L1_3 = L0_3.DestroyWithDisappear
     L3_3 = false
     L1_3(L2_3, L3_3)
+    L1_3 = A0_2
+    L2_3 = L1_3
+    L1_3 = L1_3.SafeDestroyQuestNpc
+    L3_3 = L6_1.Npc3167DataStartA
+    L3_3 = L3_3.alias
+    L4_3 = 3
+    L1_3(L2_3, L3_3, L4_3)
     L1_3 = A0_2
     L2_3 = L1_3
     L1_3 = L1_3.CreateQuestNpc
@@ -326,6 +345,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubStart7219902"
   L2_2(L3_2)
+  L2_2 = print
+  L3_2 = "OnSubStart7219902"
+  L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.ActionSafeCall
   function L4_2()
@@ -373,6 +395,9 @@ end
 L1_1.OnSubStart7219903 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
+  L2_2 = print
+  L3_2 = "OnSubFinish7219903"
+  L2_2(L3_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219903"
   L2_2(L3_2)
@@ -443,41 +468,26 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubFailed7219904 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
   L2_2 = print
   L3_2 = "OnSubStart7219906"
   L2_2(L3_2)
   L3_2 = A0_2
-  L2_2 = A0_2.ShowBlackScreen
-  L4_2 = 0.5
-  L5_2 = 1.5
-  L6_2 = 0.5
-  function L7_2()
-    local L0_3, L1_3, L2_3, L3_3, L4_3
-    L0_3 = A0_2
-    L1_3 = L0_3
-    L0_3 = L0_3.CreateQuestNpc
-    L2_3 = A1_2
-    L3_3 = L6_1.Npc20330DataLock1Out
-    L3_3 = L3_3.id
-    L4_3 = 11
-    L0_3(L1_3, L2_3, L3_3, L4_3)
-    L0_3 = A0_2
-    L1_3 = L0_3
-    L0_3 = L0_3.RequestInteraction
-    L2_3 = "Npc20330"
-    L0_3(L1_3, L2_3)
-  end
-  L8_2 = nil
-  L9_2 = nil
-  L10_2 = ""
-  L11_2 = false
-  L12_2 = true
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2)
+  L2_2 = A0_2.CreateQuestNpcWithTriggerBlack
+  L4_2 = "7219906Trigger"
+  L5_2 = 7219906
+  L6_2 = 20330
+  L7_2 = 11
+  L8_2 = 15
+  L9_2 = 2
+  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2)
 end
 L1_1.OnSubStart7219906 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
+  L2_2 = print
+  L3_2 = "OnSubFinish7219906"
+  L2_2(L3_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219906"
   L2_2(L3_2)
@@ -550,6 +560,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubStart7219907"
   L2_2(L3_2)
+  L2_2 = print
+  L3_2 = "OnSubStart7219907"
+  L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.LevelLoadFinishSafeCall
   function L4_2()
@@ -565,6 +578,9 @@ end
 L1_1.OnSubStart7219907 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
+  L2_2 = print
+  L3_2 = "OnSubFinish7219907"
+  L2_2(L3_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219907"
   L2_2(L3_2)
@@ -609,6 +625,9 @@ end
 L1_1.OnSubFailed7219907 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
+  L2_2 = print
+  L3_2 = "OnSubStart7219909"
+  L2_2(L3_2)
   L2_2 = print
   L3_2 = "OnSubStart7219909"
   L2_2(L3_2)
@@ -666,12 +685,36 @@ L1_1.OnSubFailed7219910 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2
   L2_2 = print
+  L3_2 = "OnSubStart7219923"
+  L2_2(L3_2)
+end
+L1_1.OnSubStart7219923 = L8_1
+function L8_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
+  L3_2 = "OnSubFinish7219923"
+  L2_2(L3_2)
+end
+L1_1.OnSubFinish7219923 = L8_1
+function L8_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
+  L3_2 = "OnSubFailed7219923"
+  L2_2(L3_2)
+end
+L1_1.OnSubFailed7219923 = L8_1
+function L8_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
   L3_2 = "OnSubStart7219911"
   L2_2(L3_2)
 end
 L1_1.OnSubStart7219911 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
+  L2_2 = print
+  L3_2 = "OnSubFinish7219911"
+  L2_2(L3_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219911"
   L2_2(L3_2)
@@ -828,6 +871,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219915"
   L2_2(L3_2)
+  L2_2 = print
+  L3_2 = "OnSubFinish7219915"
+  L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.ActionSafeCall
   function L4_2()
@@ -893,6 +939,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubStart7219917"
   L2_2(L3_2)
+  L2_2 = print
+  L3_2 = "OnSubStart7219917"
+  L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.ShowBlackScreen
   L4_2 = 0.5
@@ -924,6 +973,9 @@ end
 L1_1.OnSubStart7219917 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
+  L2_2 = print
+  L3_2 = "OnSubFinish7219917"
+  L2_2(L3_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219917"
   L2_2(L3_2)
@@ -1027,6 +1079,9 @@ function L8_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubStart7219921"
   L2_2(L3_2)
+  L2_2 = print
+  L3_2 = "OnSubStart7219921"
+  L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.ShowBlackScreen
   L4_2 = 0.5
@@ -1058,6 +1113,9 @@ end
 L1_1.OnSubStart7219921 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
+  L2_2 = print
+  L3_2 = "OnSubFinish7219921"
+  L2_2(L3_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219921"
   L2_2(L3_2)
@@ -1116,6 +1174,9 @@ end
 L1_1.OnSubStart7219922 = L8_1
 function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
+  L2_2 = print
+  L3_2 = "OnSubFinish7219922"
+  L2_2(L3_2)
   L2_2 = print
   L3_2 = "OnSubFinish7219922"
   L2_2(L3_2)

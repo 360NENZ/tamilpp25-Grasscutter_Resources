@@ -331,13 +331,6 @@ function L16_1(A0_2, A1_2)
   L2_2 = print
   L3_2 = "OnSubFinish2210701"
   L2_2(L3_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.SetQuestVarWithInterval
-  L4_2 = A1_2.QuestConfigId
-  L5_2 = 0
-  L6_2 = 1
-  L7_2 = 5
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2)
   L2_2 = print
   L3_2 = "01A is "
   L5_2 = A0_2

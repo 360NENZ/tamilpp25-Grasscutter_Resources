@@ -463,7 +463,7 @@ function L7_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish1101803 = L7_1
 function L7_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L2_2 = print
   L3_2 = "OnSubStart1101804"
   L2_2(L3_2)
@@ -503,30 +503,44 @@ function L7_1(A0_2, A1_2)
   L6_2 = 5
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
-  L2_2 = A0_2.NotifyTo
-  L4_2 = L6_1.Npc2070Data
-  L4_2 = L4_2.alias
-  L5_2 = 2
-  L6_2 = true
-  L2_2(L3_2, L4_2, L5_2, L6_2)
-  L3_2 = A0_2
-  L2_2 = A0_2.CreateQuestNpcWithTriggerBlack
-  L4_2 = "Q1101804Trigger"
-  L5_2 = 1101804
-  L6_2 = 1048
-  L7_2 = 4
-  L8_2 = 35
-  L9_2 = 1
-  L2_2(L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2)
-  L3_2 = A0_2
   L2_2 = A0_2.GetQuestNpcActor
-  L4_2 = L6_1.Npc2003Data
+  L4_2 = L6_1.Npc12534Data
   L4_2 = L4_2.alias
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
-  L3_2 = L2_2.SitOnChair
-  L5_2 = 8040
-  L3_2(L4_2, L5_2)
+  L3_2 = L2_2.DoFreeStyle
+  L5_2 = 4140
+  L6_2 = true
+  L7_2 = nil
+  L8_2 = true
+  L9_2 = true
+  L10_2 = false
+  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.NotifyTo
+  L5_2 = L6_1.Npc2070Data
+  L5_2 = L5_2.alias
+  L6_2 = 2
+  L7_2 = true
+  L3_2(L4_2, L5_2, L6_2, L7_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.CreateQuestNpcWithTriggerBlack
+  L5_2 = "Q1101804Trigger"
+  L6_2 = 1101804
+  L7_2 = 1048
+  L8_2 = 4
+  L9_2 = 35
+  L10_2 = 1
+  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.GetQuestNpcActor
+  L5_2 = L6_1.Npc2003Data
+  L5_2 = L5_2.alias
+  L3_2 = L3_2(L4_2, L5_2)
+  L5_2 = L3_2
+  L4_2 = L3_2.SitOnChair
+  L6_2 = 8040
+  L4_2(L5_2, L6_2)
 end
 L1_1.OnSubStart1101804 = L7_1
 function L7_1(A0_2, A1_2)
@@ -579,7 +593,7 @@ function L7_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish1101809 = L7_1
 function L7_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2
   L2_2 = print
   L3_2 = "OnSubStart1101805"
   L2_2(L3_2)
@@ -612,33 +626,38 @@ function L7_1(A0_2, A1_2)
   L6_2 = 3
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
-  L2_2 = A0_2.NotifyTo
-  L4_2 = L6_1.Npc2070Data
-  L4_2 = L4_2.alias
-  L5_2 = 2
-  L6_2 = true
-  L2_2(L3_2, L4_2, L5_2, L6_2)
-  L3_2 = A0_2
   L2_2 = A0_2.GetQuestNpcActor
-  L4_2 = L6_1.Npc2003Data
+  L4_2 = L6_1.Npc12534Data
   L4_2 = L4_2.alias
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
-  L3_2 = L2_2.SitOnChair
-  L5_2 = 8040
-  L3_2(L4_2, L5_2)
+  L3_2 = L2_2.DoFreeStyle
+  L5_2 = 4140
+  L6_2 = true
+  L7_2 = nil
+  L8_2 = true
+  L9_2 = true
+  L10_2 = false
+  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.NotifyTo
+  L5_2 = L6_1.Npc2070Data
+  L5_2 = L5_2.alias
+  L6_2 = 2
+  L7_2 = true
+  L3_2(L4_2, L5_2, L6_2, L7_2)
   L4_2 = A0_2
   L3_2 = A0_2.GetQuestNpcActor
-  L5_2 = L6_1.Npc12498Data
+  L5_2 = L6_1.Npc2003Data
   L5_2 = L5_2.alias
   L3_2 = L3_2(L4_2, L5_2)
   L5_2 = L3_2
   L4_2 = L3_2.SitOnChair
-  L6_2 = 0
+  L6_2 = 8040
   L4_2(L5_2, L6_2)
   L5_2 = A0_2
   L4_2 = A0_2.GetQuestNpcActor
-  L6_2 = L6_1.Npc12499Data
+  L6_2 = L6_1.Npc12498Data
   L6_2 = L6_2.alias
   L4_2 = L4_2(L5_2, L6_2)
   L6_2 = L4_2
@@ -647,22 +666,31 @@ function L7_1(A0_2, A1_2)
   L5_2(L6_2, L7_2)
   L6_2 = A0_2
   L5_2 = A0_2.GetQuestNpcActor
-  L7_2 = L6_1.Npc12500Data
+  L7_2 = L6_1.Npc12499Data
   L7_2 = L7_2.alias
   L5_2 = L5_2(L6_2, L7_2)
   L7_2 = L5_2
   L6_2 = L5_2.SitOnChair
   L8_2 = 0
   L6_2(L7_2, L8_2)
-  L7_2 = L5_2
-  L6_2 = L5_2.DoFreeStyle
-  L8_2 = 8040
-  L9_2 = true
-  L10_2 = nil
-  L11_2 = true
+  L7_2 = A0_2
+  L6_2 = A0_2.GetQuestNpcActor
+  L8_2 = L6_1.Npc12500Data
+  L8_2 = L8_2.alias
+  L6_2 = L6_2(L7_2, L8_2)
+  L8_2 = L6_2
+  L7_2 = L6_2.SitOnChair
+  L9_2 = 0
+  L7_2(L8_2, L9_2)
+  L8_2 = L6_2
+  L7_2 = L6_2.DoFreeStyle
+  L9_2 = 8040
+  L10_2 = true
+  L11_2 = nil
   L12_2 = true
-  L13_2 = false
-  L6_2(L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
+  L13_2 = true
+  L14_2 = false
+  L7_2(L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2)
 end
 L1_1.OnSubStart1101805 = L7_1
 function L7_1(A0_2, A1_2)
@@ -691,7 +719,7 @@ function L7_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish1101805 = L7_1
 function L7_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2
   L2_2 = print
   L3_2 = "OnSubStart1101810"
   L2_2(L3_2)
@@ -704,25 +732,30 @@ function L7_1(A0_2, A1_2)
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
   L2_2 = A0_2.GetQuestNpcActor
-  L4_2 = L6_1.Npc2003Data
+  L4_2 = L6_1.Npc12534Data
   L4_2 = L4_2.alias
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
-  L3_2 = L2_2.SitOnChair
-  L5_2 = 8040
-  L3_2(L4_2, L5_2)
+  L3_2 = L2_2.DoFreeStyle
+  L5_2 = 4140
+  L6_2 = true
+  L7_2 = nil
+  L8_2 = true
+  L9_2 = true
+  L10_2 = false
+  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
   L4_2 = A0_2
   L3_2 = A0_2.GetQuestNpcActor
-  L5_2 = L6_1.Npc12498Data
+  L5_2 = L6_1.Npc2003Data
   L5_2 = L5_2.alias
   L3_2 = L3_2(L4_2, L5_2)
   L5_2 = L3_2
   L4_2 = L3_2.SitOnChair
-  L6_2 = 0
+  L6_2 = 8040
   L4_2(L5_2, L6_2)
   L5_2 = A0_2
   L4_2 = A0_2.GetQuestNpcActor
-  L6_2 = L6_1.Npc12499Data
+  L6_2 = L6_1.Npc12498Data
   L6_2 = L6_2.alias
   L4_2 = L4_2(L5_2, L6_2)
   L6_2 = L4_2
@@ -731,22 +764,31 @@ function L7_1(A0_2, A1_2)
   L5_2(L6_2, L7_2)
   L6_2 = A0_2
   L5_2 = A0_2.GetQuestNpcActor
-  L7_2 = L6_1.Npc12500Data
+  L7_2 = L6_1.Npc12499Data
   L7_2 = L7_2.alias
   L5_2 = L5_2(L6_2, L7_2)
   L7_2 = L5_2
   L6_2 = L5_2.SitOnChair
   L8_2 = 0
   L6_2(L7_2, L8_2)
-  L7_2 = L5_2
-  L6_2 = L5_2.DoFreeStyle
-  L8_2 = 8040
-  L9_2 = true
-  L10_2 = nil
-  L11_2 = true
+  L7_2 = A0_2
+  L6_2 = A0_2.GetQuestNpcActor
+  L8_2 = L6_1.Npc12500Data
+  L8_2 = L8_2.alias
+  L6_2 = L6_2(L7_2, L8_2)
+  L8_2 = L6_2
+  L7_2 = L6_2.SitOnChair
+  L9_2 = 0
+  L7_2(L8_2, L9_2)
+  L8_2 = L6_2
+  L7_2 = L6_2.DoFreeStyle
+  L9_2 = 8040
+  L10_2 = true
+  L11_2 = nil
   L12_2 = true
-  L13_2 = false
-  L6_2(L7_2, L8_2, L9_2, L10_2, L11_2, L12_2, L13_2)
+  L13_2 = true
+  L14_2 = false
+  L7_2(L8_2, L9_2, L10_2, L11_2, L12_2, L13_2, L14_2)
 end
 L1_1.OnSubStart1101810 = L7_1
 function L7_1(A0_2, A1_2)
@@ -781,7 +823,7 @@ function L7_1(A0_2, A1_2)
 end
 L1_1.OnSubFinish1101810 = L7_1
 function L7_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2, L6_2
+  local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2
   L2_2 = print
   L3_2 = "OnSubStart1101806"
   L2_2(L3_2)
@@ -800,21 +842,35 @@ function L7_1(A0_2, A1_2)
   L6_2 = 1
   L2_2(L3_2, L4_2, L5_2, L6_2)
   L3_2 = A0_2
-  L2_2 = A0_2.DailyNpcSafeHideSelf
-  L4_2 = L6_1.Npc2036Data
-  L4_2 = L4_2.alias
-  L5_2 = 1
-  L6_2 = true
-  L2_2(L3_2, L4_2, L5_2, L6_2)
-  L3_2 = A0_2
   L2_2 = A0_2.GetQuestNpcActor
-  L4_2 = L6_1.Npc2003Data
+  L4_2 = L6_1.Npc12534Data
   L4_2 = L4_2.alias
   L2_2 = L2_2(L3_2, L4_2)
   L4_2 = L2_2
-  L3_2 = L2_2.SitOnChair
-  L5_2 = 8040
-  L3_2(L4_2, L5_2)
+  L3_2 = L2_2.DoFreeStyle
+  L5_2 = 4140
+  L6_2 = true
+  L7_2 = nil
+  L8_2 = true
+  L9_2 = true
+  L10_2 = false
+  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2, L10_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.DailyNpcSafeHideSelf
+  L5_2 = L6_1.Npc2036Data
+  L5_2 = L5_2.alias
+  L6_2 = 1
+  L7_2 = true
+  L3_2(L4_2, L5_2, L6_2, L7_2)
+  L4_2 = A0_2
+  L3_2 = A0_2.GetQuestNpcActor
+  L5_2 = L6_1.Npc2003Data
+  L5_2 = L5_2.alias
+  L3_2 = L3_2(L4_2, L5_2)
+  L5_2 = L3_2
+  L4_2 = L3_2.SitOnChair
+  L6_2 = 8040
+  L4_2(L5_2, L6_2)
 end
 L1_1.OnSubStart1101806 = L7_1
 function L7_1(A0_2, A1_2)

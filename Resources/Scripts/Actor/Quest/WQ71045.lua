@@ -747,22 +747,22 @@ function L8_1(A0_2, A1_2)
 end
 L1_1.OnSubStart7104515 = L8_1
 function L8_1(A0_2, A1_2)
-  local L2_2, L3_2
-  L2_2 = print
-  L3_2 = "OnSubFinish7104515"
-  L2_2(L3_2)
-end
-L1_1.OnSubFinish7104515 = L8_1
-function L8_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
   L2_2 = print
-  L3_2 = "OnSubStart7104516"
+  L3_2 = "OnSubFinish7104515"
   L2_2(L3_2)
   L3_2 = A0_2
   L2_2 = A0_2.TransmitPlayerById
   L4_2 = A1_2
   L5_2 = 2
   L2_2(L3_2, L4_2, L5_2)
+end
+L1_1.OnSubFinish7104515 = L8_1
+function L8_1(A0_2, A1_2)
+  local L2_2, L3_2
+  L2_2 = print
+  L3_2 = "OnSubStart7104516"
+  L2_2(L3_2)
 end
 L1_1.OnSubStart7104516 = L8_1
 function L8_1(A0_2, A1_2)

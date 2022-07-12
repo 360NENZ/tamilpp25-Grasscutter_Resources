@@ -679,6 +679,25 @@ end
 L0_1.ChangeActorAlias = L1_1
 function L1_1(A0_2, A1_2, A2_2, A3_2, A4_2)
   local L5_2, L6_2, L7_2, L8_2, L9_2, L10_2, L11_2
+  if A2_2 == nil or A2_2 == "" then
+    L5_2 = NG_HSOD_DEBUG
+    if L5_2 then
+      L5_2 = actorUtils
+      L5_2 = L5_2.ActorDebugError
+      L6_2 = "~~~~~~~~~~~~~~~~~~~~~~~~ metaPath is nil !!"
+      L7_2 = tostring
+      L8_2 = A1_2
+      L7_2 = L7_2(L8_2)
+      L8_2 = " . "
+      L9_2 = tostring
+      L10_2 = A3_2
+      L9_2 = L9_2(L10_2)
+      L6_2 = L6_2 .. L7_2 .. L8_2 .. L9_2
+      L5_2(L6_2)
+    end
+    L5_2 = 0
+    return L5_2
+  end
   L5_2 = require
   L6_2 = A2_2
   L5_2 = L5_2(L6_2)
