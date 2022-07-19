@@ -3,15 +3,15 @@
 > NOTICE - BinOuput is not Updated to 2.8.0 Version, So there might be issues with 2.8 Contents
 
 - ExcelBinOutput
-- BinOutput [2.7.0 BINOUTPUT With "Handmade" Heizo Embryo]
+- BinOutput [2.7.0 BINOUTPUT] - Heizo Embryo & Scene9 
 - Scripts 
 - Readable
 - Subtitle
 - TextMap
 
 ## Known Issue
-1. Error will be thrown after generating Handbook related to Quest
-2. Some Unusual Behavior might be founded with Heizo Attacks or smth
+1. An error will be thrown after generating the Handbook related to Quest.
+2. Some unusual behaviour might be founded with Heizo Attacks or something.
 
 
 ## Credits 
