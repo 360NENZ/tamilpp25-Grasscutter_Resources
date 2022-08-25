@@ -9,11 +9,6 @@
 - Subtitle
 - TextMap
 
-## Known Issue
-1. An error will be thrown after generating the Handbook related to Quest.
-2. Some unusual behaviour might be founded with Heizo Attacks or something.
-
-
 ## Credits 
 
  - [Grasscutter](https://github.com/Grasscutters/Grasscutter) <br/>
