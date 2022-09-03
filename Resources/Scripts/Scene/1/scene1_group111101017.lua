@@ -22,7 +22,7 @@ function L2_1(A0_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.PrintLog
   L2_2 = "Hit platform to move"
-  L1_2(L2_2)
+  L1_2(A0_2, L2_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.GetGroupVariableValue
   L2_2 = A0_2

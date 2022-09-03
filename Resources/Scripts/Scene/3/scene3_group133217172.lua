@@ -51,7 +51,7 @@ function L2_1(A0_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.PrintLog
   L2_2 = "platform to move"
-  L1_2(L2_2)
+  L1_2(A0_2, L2_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.SetGroupVariableValue
   L2_2 = A0_2
@@ -81,7 +81,7 @@ function L2_1(A0_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.PrintLog
   L2_2 = "platform to move : start platform"
-  L1_2(L2_2)
+  L1_2(A0_2, L2_2)
   L1_2 = 0
   return L1_2
 end
