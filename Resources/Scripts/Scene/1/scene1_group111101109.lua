@@ -268,7 +268,7 @@ function L2_1(A0_2, A1_2)
           L4_2 = " : Gadget state = "
           L5_2 = A1_2.param1
           L3_2 = L3_2 .. L4_2 .. L5_2
-          L2_2(L3_2)
+          L2_2(A0_2, L3_2)
           L2_2 = 0
           return L2_2
         end
@@ -281,7 +281,7 @@ function L2_1(A0_2, A1_2)
   L4_2 = " : Gadget state = "
   L5_2 = A1_2.param1
   L3_2 = L3_2 .. L4_2 .. L5_2
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = {}
   L3_2 = 0
   L4_2 = 0
@@ -415,7 +415,7 @@ function L2_1(A0_2, A1_2)
   L5_2 = ScriptLib
   L5_2 = L5_2.PrintLog
   L6_2 = "Check Linked cube and change state "
-  L5_2(L6_2)
+  L5_2(A0_2, L6_2)
   if L3_2 == 1 then
     L5_2 = ScriptLib
     L5_2 = L5_2.SetGroupVariableValue
@@ -447,6 +447,6 @@ function L2_1(A0_2, A1_2)
   L6_2 = "All equale = "
   L7_2 = L3_2
   L6_2 = L6_2 .. L7_2
-  L5_2(L6_2)
+  L5_2(A0_2, L6_2)
 end
 action_EVENT_GADGET_STATE_CHANGE_109005 = L2_1

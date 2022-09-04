@@ -295,8 +295,8 @@ function L1_1(A0_2, A1_2)
   L3_2 = L3_2.PrintLog
   L4_2 = tostring
   L5_2 = L2_2
-  L4_2, L5_2, L6_2, L7_2 = L4_2(L5_2)
-  L3_2(L4_2, L5_2, L6_2, L7_2)
+  L4_2 = L4_2(L5_2)
+  L3_2(A0_2, L4_2)
   L3_2 = ScriptLib
   L3_2 = L3_2.SetGroupVariableValue
   L4_2 = A0_2
@@ -391,8 +391,8 @@ function L1_1(A0_2, A1_2)
   L3_2 = L3_2.PrintLog
   L4_2 = tostring
   L5_2 = L2_2
-  L4_2, L5_2, L6_2, L7_2 = L4_2(L5_2)
-  L3_2(L4_2, L5_2, L6_2, L7_2)
+  L4_2 = L4_2(L5_2)
+  L3_2(A0_2, L4_2)
   L3_2 = ScriptLib
   L3_2 = L3_2.SetGroupVariableValue
   L4_2 = A0_2
@@ -482,8 +482,8 @@ function L1_1(A0_2, A1_2)
   L3_2 = L3_2.PrintLog
   L4_2 = tostring
   L5_2 = L2_2
-  L4_2, L5_2, L6_2, L7_2, L8_2, L9_2 = L4_2(L5_2)
-  L3_2(L4_2, L5_2, L6_2, L7_2, L8_2, L9_2)
+  L4_2 = L4_2(L5_2)
+  L3_2(A0_2, L4_2)
   L3_2 = 0
   return L3_2
 end
@@ -547,8 +547,8 @@ function L1_1(A0_2, A1_2)
   L3_2 = L3_2.PrintLog
   L4_2 = tostring
   L5_2 = L2_2
-  L4_2, L5_2, L6_2, L7_2 = L4_2(L5_2)
-  L3_2(L4_2, L5_2, L6_2, L7_2)
+  L4_2 = L4_2(L5_2)
+  L3_2(A0_2, L4_2)
   L3_2 = ScriptLib
   L3_2 = L3_2.SetGroupVariableValue
   L4_2 = A0_2

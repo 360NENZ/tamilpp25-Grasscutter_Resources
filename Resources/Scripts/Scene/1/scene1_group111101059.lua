@@ -431,7 +431,7 @@ function L5_1(A0_2, A1_2)
   L3_2 = "## trigger_output="
   L4_2 = A1_2.param1
   L3_2 = L3_2 .. L4_2
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.SetGroupDead
   L3_2 = A0_2

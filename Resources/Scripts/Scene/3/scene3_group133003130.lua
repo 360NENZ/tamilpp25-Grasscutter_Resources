@@ -210,7 +210,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "Enter Trigger 103"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.ActiveChallenge
   L3_2 = A0_2
@@ -225,14 +225,14 @@ function L2_1(A0_2, A1_2)
     L2_2 = ScriptLib
     L2_2 = L2_2.PrintLog
     L3_2 = "Create fail"
-    L2_2(L3_2)
+    L2_2(A0_2, L3_2)
     L2_2 = -1
     return L2_2
   end
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "Create Success"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.RefreshGroup
   L3_2 = A0_2
@@ -244,14 +244,14 @@ function L2_1(A0_2, A1_2)
     L2_2 = ScriptLib
     L2_2 = L2_2.PrintLog
     L3_2 = "refresh 133003130  fail"
-    L2_2(L3_2)
+    L2_2(A0_2, L3_2)
     L2_2 = -1
     return L2_2
   end
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "refresh 133003130 Success"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.SetGroupVariableValue
   L3_2 = A0_2
@@ -267,7 +267,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "Enter 119"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.GetGroupVariableValue
   L3_2 = A0_2
@@ -313,7 +313,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "challenge success"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.RefreshGroup
   L3_2 = A0_2
@@ -328,7 +328,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "refresh 133003130  to 3 suc"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.CreateGadget
   L3_2 = A0_2
@@ -364,7 +364,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "Challenge fail"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.RefreshGroup
   L3_2 = A0_2
@@ -379,7 +379,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "challenge fail cause refresh to 3"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = 0
   return L2_2
 end

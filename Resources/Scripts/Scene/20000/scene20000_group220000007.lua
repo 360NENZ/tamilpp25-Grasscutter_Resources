@@ -120,21 +120,21 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "enter condition"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = L1_1.gadget_id_2
   L3_2 = A1_2.param1
   if L2_2 ~= L3_2 then
     L2_2 = ScriptLib
     L2_2 = L2_2.PrintLog
     L3_2 = "configid judge false"
-    L2_2(L3_2)
+    L2_2(A0_2, L3_2)
     L2_2 = false
     return L2_2
   end
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "configid judge true"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = true
   return L2_2
 end
@@ -144,7 +144,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "enter action"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.CreateGadget
   L3_2 = A0_2
@@ -156,7 +156,7 @@ function L2_1(A0_2, A1_2)
     L2_2 = ScriptLib
     L2_2 = L2_2.PrintLog
     L3_2 = "create gadget fail"
-    L2_2(L3_2)
+    L2_2(A0_2, L3_2)
     L2_2 = -1
     return L2_2
   end

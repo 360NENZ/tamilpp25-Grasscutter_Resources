@@ -494,7 +494,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "enter condition judge"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = GadgetState
   L2_2 = L2_2.GearStop
   L3_2 = A1_2.param1
@@ -508,14 +508,14 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "judge false"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = false
   do return L2_2 end
   ::lbl_20::
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "judge true"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = true
   return L2_2
 end
@@ -547,7 +547,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "enter condition judge"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = GadgetState
   L2_2 = L2_2.GearStop
   L3_2 = A1_2.param1
@@ -561,14 +561,14 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "judge false"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = false
   do return L2_2 end
   ::lbl_20::
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "judge true"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = true
   return L2_2
 end
@@ -600,7 +600,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "Enter condition judge"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = GadgetState
   L2_2 = L2_2.GearStop
   L3_2 = A1_2.param1
@@ -614,14 +614,14 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "judge false"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = false
   do return L2_2 end
   ::lbl_20::
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "judge true"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = true
   return L2_2
 end

@@ -173,7 +173,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "enter firebox condition"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = L1_1.gadget_id_1
   L3_2 = A1_2.param2
   if L2_2 == L3_2 then
@@ -187,7 +187,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "fire box not match"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = false
   do return L2_2 end
   ::lbl_20::

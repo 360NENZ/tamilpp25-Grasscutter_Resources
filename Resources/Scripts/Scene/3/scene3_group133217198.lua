@@ -31,7 +31,7 @@ function L2_1(A0_2)
   L5_2 = "stop point : "
   L6_2 = L3_2
   L5_2 = L5_2 .. L6_2
-  L4_2(L5_2)
+  L4_2(A0_2, L5_2)
   L4_2 = ScriptLib
   L4_2 = L4_2.GetGroupVariableValue
   L5_2 = A0_2

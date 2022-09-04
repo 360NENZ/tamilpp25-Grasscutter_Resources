@@ -157,7 +157,7 @@ function L0_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.GetMonsterIdByEntityId
   L3_2 = A1_2.source
-  L2_2 = L2_2(L3_2)
+  L2_2 = L2_2(A0_2, L3_2)
   if L2_2 == 20103001 then
     L2_2 = true
     return L2_2
@@ -217,7 +217,7 @@ function L0_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.GetGadgetIdByEntityId
   L3_2 = A1_2.source
-  L2_2 = L2_2(L3_2)
+  L2_2 = L2_2(A0_2, L3_2)
   if L2_2 == 1 then
     L2_2 = true
     return L2_2

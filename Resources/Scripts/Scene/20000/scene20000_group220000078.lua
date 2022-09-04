@@ -255,7 +255,7 @@ function L1_1(A0_2, A1_2)
   L3_2 = "## point_id = "
   L4_2 = A1_2.param3
   L3_2 = L3_2 .. L4_2
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = 0
   return L2_2
 end
