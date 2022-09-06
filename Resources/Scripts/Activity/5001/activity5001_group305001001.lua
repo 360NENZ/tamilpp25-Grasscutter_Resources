@@ -414,7 +414,7 @@ function L9_1(A0_2)
     L2_2 = ScriptLib
     L2_2 = L2_2.PrintLog
     L3_2 = "## undefined_crucible_timer !"
-    L2_2(L3_2)
+    L2_2(A0_2, L3_2)
     L2_2 = -1
     return L2_2
   end
@@ -1351,7 +1351,7 @@ function L9_1(A0_2, A1_2)
       L7_2 = " "
       L8_2 = A1_2.param3
       L5_2 = L5_2 .. L6_2 .. L7_2 .. L8_2
-      L4_2(L5_2)
+      L4_2(A0_2, L5_2)
       L4_2 = -1
       return L4_2
     end
@@ -1694,7 +1694,7 @@ function L9_1(A0_2, A1_2)
         L5_2 = ScriptLib
         L5_2 = L5_2.PrintLog
         L6_2 = "## Illegal bonus group"
-        L5_2(L6_2)
+        L5_2(A0_2, L6_2)
         L5_2 = -1
         return L5_2
       end

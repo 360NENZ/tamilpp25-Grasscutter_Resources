@@ -64,7 +64,7 @@ function L1_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.GetEntityType
   L3_2 = A1_2.target_eid
-  L2_2 = L2_2(L3_2)
+  L2_2 = L2_2(A0_2, L3_2)
   L3_2 = EntityType
   L3_2 = L3_2.AVATAR
   if L2_2 == L3_2 then

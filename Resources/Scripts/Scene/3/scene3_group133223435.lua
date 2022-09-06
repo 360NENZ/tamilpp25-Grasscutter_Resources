@@ -34,7 +34,7 @@ function L2_1(A0_2)
   L5_2 = "stop point : "
   L6_2 = L3_2
   L5_2 = L5_2 .. L6_2
-  L4_2(L5_2)
+  L4_2(A0_2, L5_2)
   L4_2 = ScriptLib
   L4_2 = L4_2.GetGroupVariableValue
   L5_2 = A0_2
@@ -58,7 +58,7 @@ function L2_1(A0_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.PrintLog
   L2_2 = "platform to move"
-  L1_2(L2_2)
+  L1_2(A0_2, L2_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.SetGroupVariableValue
   L2_2 = A0_2
@@ -88,7 +88,7 @@ function L2_1(A0_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.PrintLog
   L2_2 = "platform to move : start platform"
-  L1_2(L2_2)
+  L1_2(A0_2, L2_2)
   L1_2 = 0
   return L1_2
 end
@@ -613,7 +613,7 @@ function L2_1(A0_2, A1_2)
   L8_2 = ", pointID = "
   L9_2 = A1_2.param3
   L3_2 = L3_2 .. L4_2 .. L5_2 .. L6_2 .. L7_2 .. L8_2 .. L9_2
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.SetGroupVariableValue
   L3_2 = A0_2
@@ -692,7 +692,7 @@ function L2_1(A0_2, A1_2)
   L7_2 = " | Point = "
   L8_2 = A1_2.param3
   L3_2 = L3_2 .. L4_2 .. L5_2 .. L6_2 .. L7_2 .. L8_2
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = L1_1.gadget_thunderThelfID
   L3_2 = A1_2.param1
   if L2_2 ~= L3_2 then
@@ -711,7 +711,7 @@ function L2_1(A0_2, A1_2)
   L5_2 = " State = "
   L6_2 = L2_2
   L4_2 = L4_2 .. L5_2 .. L6_2
-  L3_2(L4_2)
+  L3_2(A0_2, L4_2)
   if L2_2 == 201 then
     L3_2 = false
     return L3_2

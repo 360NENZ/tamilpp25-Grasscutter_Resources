@@ -157,7 +157,7 @@ function L2_1(A0_2)
   L4_2 = ScriptLib
   L4_2 = L4_2.PrintLog
   L5_2 = "Initial starting..."
-  L4_2(L5_2)
+  L4_2(A0_2, L5_2)
   L4_2 = ScriptLib
   L4_2 = L4_2.SetGroupVariableValue
   L5_2 = A0_2
@@ -182,7 +182,7 @@ function L2_1(A0_2)
       L9_2 = "Initial localtarget = "
       L10_2 = L3_2
       L9_2 = L9_2 .. L10_2
-      L8_2(L9_2)
+      L8_2(A0_2, L9_2)
       if L3_2 ~= 0 then
         L8_2 = GetTeleportNameByConfigID
         L9_2 = A0_2
@@ -203,7 +203,7 @@ function L2_1(A0_2)
         L11_2 = " , Rot = "
         L12_2 = L1_2
         L9_2 = L9_2 .. L10_2 .. L11_2 .. L12_2
-        L8_2(L9_2)
+        L8_2(A0_2, L9_2)
         if L1_2 == 90 then
           L8_2 = ScriptLib
           L8_2 = L8_2.SetPlatformPointArray
@@ -250,7 +250,7 @@ function L2_1(A0_2)
   L4_2 = ScriptLib
   L4_2 = L4_2.PrintLog
   L5_2 = "Initial ending..."
-  L4_2(L5_2)
+  L4_2(A0_2, L5_2)
 end
 InitialTeleportRotationY = L2_1
 function L2_1(A0_2)
@@ -344,7 +344,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L6_2 = " to "
   L7_2 = A2_2
   L4_2 = L4_2 .. L5_2 .. L6_2 .. L7_2
-  L3_2(L4_2)
+  L3_2(A0_2, L4_2)
   L3_2 = ScriptLib
   L3_2 = L3_2.GetRotationByEntityId
   L4_2 = A0_2
@@ -372,7 +372,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L8_2 = "| yrotation_a =  "
   L9_2 = L4_2
   L6_2 = L6_2 .. L7_2 .. L8_2 .. L9_2
-  L5_2(L6_2)
+  L5_2(A0_2, L6_2)
   L5_2 = math
   L5_2 = L5_2.rad
   L6_2 = L3_2
@@ -388,7 +388,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L10_2 = "| yrad_b =  "
   L11_2 = L6_2
   L8_2 = L8_2 .. L9_2 .. L10_2 .. L11_2
-  L7_2(L8_2)
+  L7_2(A0_2, L8_2)
   L7_2 = {}
   L8_2 = math
   L8_2 = L8_2.sin
@@ -422,7 +422,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L14_2 = " , z = "
   L15_2 = L7_2.z
   L10_2 = L10_2 .. L11_2 .. L12_2 .. L13_2 .. L14_2 .. L15_2
-  L9_2(L10_2)
+  L9_2(A0_2, L10_2)
   L9_2 = ScriptLib
   L9_2 = L9_2.PrintLog
   L10_2 = "dir_b : x = "
@@ -432,7 +432,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L14_2 = " , z = "
   L15_2 = L8_2.z
   L10_2 = L10_2 .. L11_2 .. L12_2 .. L13_2 .. L14_2 .. L15_2
-  L9_2(L10_2)
+  L9_2(A0_2, L10_2)
   L9_2 = ScriptLib
   L9_2 = L9_2.GetPosByEntityId
   L10_2 = A0_2
@@ -441,7 +441,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L12_2 = A0_2
   L13_2 = A1_2
   L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2 = L11_2(L12_2, L13_2)
-  L9_2 = L9_2(L10_2, L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2)
+  L9_2 = L9_2(L10_2, L11_2)
   L10_2 = ScriptLib
   L10_2 = L10_2.PrintLog
   L11_2 = "pos_a : x = "
@@ -451,7 +451,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L15_2 = " , z = "
   L16_2 = L9_2.z
   L11_2 = L11_2 .. L12_2 .. L13_2 .. L14_2 .. L15_2 .. L16_2
-  L10_2(L11_2)
+  L10_2(A0_2, L11_2)
   L10_2 = ScriptLib
   L10_2 = L10_2.GetPosByEntityId
   L11_2 = A0_2
@@ -460,7 +460,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L13_2 = A0_2
   L14_2 = A2_2
   L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2 = L12_2(L13_2, L14_2)
-  L10_2 = L10_2(L11_2, L12_2, L13_2, L14_2, L15_2, L16_2, L17_2, L18_2, L19_2, L20_2, L21_2)
+  L10_2 = L10_2(L11_2, L12_2)
   L11_2 = ScriptLib
   L11_2 = L11_2.PrintLog
   L12_2 = "pos_b : x = "
@@ -470,7 +470,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L16_2 = " , z = "
   L17_2 = L10_2.z
   L12_2 = L12_2 .. L13_2 .. L14_2 .. L15_2 .. L16_2 .. L17_2
-  L11_2(L12_2)
+  L11_2(A0_2, L12_2)
   L11_2 = {}
   L12_2 = L10_2.x
   L13_2 = L9_2.x
@@ -502,7 +502,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L18_2 = " , z = "
   L19_2 = L12_2.z
   L14_2 = L14_2 .. L15_2 .. L16_2 .. L17_2 .. L18_2 .. L19_2
-  L13_2(L14_2)
+  L13_2(A0_2, L14_2)
   L13_2 = {}
   L14_2 = L9_2.x
   L15_2 = L10_2.x
@@ -534,7 +534,7 @@ function L2_1(A0_2, A1_2, A2_2)
   L20_2 = " , z = "
   L21_2 = L14_2.z
   L16_2 = L16_2 .. L17_2 .. L18_2 .. L19_2 .. L20_2 .. L21_2
-  L15_2(L16_2)
+  L15_2(A0_2, L16_2)
   L15_2 = L7_2.x
   L16_2 = L12_2.x
   L15_2 = L15_2 * L16_2
@@ -562,13 +562,13 @@ function L2_1(A0_2, A1_2, A2_2)
   L18_2 = "dotvalue_a "
   L19_2 = L15_2
   L18_2 = L18_2 .. L19_2
-  L17_2(L18_2)
+  L17_2(A0_2, L18_2)
   L17_2 = ScriptLib
   L17_2 = L17_2.PrintLog
   L18_2 = "dotvalue_b "
   L19_2 = L16_2
   L18_2 = L18_2 .. L19_2
-  L17_2(L18_2)
+  L17_2(A0_2, L18_2)
   if 0.5 <= L15_2 and 0.5 <= L16_2 then
     L17_2 = true
     return L17_2
@@ -757,7 +757,7 @@ function L2_1(A0_2)
       L8_2 = "connect nothing : "
       L9_2 = L5_2
       L8_2 = L8_2 .. L9_2
-      L7_2(L8_2)
+      L7_2(A0_2, L8_2)
     else
       L7_2 = ScriptLib
       L7_2 = L7_2.SetGadgetStateByConfigId
@@ -1694,13 +1694,13 @@ function L2_1(A0_2, A1_2)
   L5_2 = "evt.gadgetid = "
   L6_2 = A1_2.param1
   L5_2 = L5_2 .. L6_2
-  L4_2(L5_2)
+  L4_2(A0_2, L5_2)
   L4_2 = ScriptLib
   L4_2 = L4_2.PrintLog
   L5_2 = "localtarget = "
   L6_2 = L2_2
   L5_2 = L5_2 .. L6_2
-  L4_2(L5_2)
+  L4_2(A0_2, L5_2)
   L4_2 = ScriptLib
   L4_2 = L4_2.SetPlatformPointArray
   L5_2 = A0_2
@@ -1724,7 +1724,7 @@ function L2_1(A0_2, A1_2)
   L3_2 = "Reachpoint_condition : "
   L4_2 = A1_2.param1
   L3_2 = L3_2 .. L4_2
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = false
   L3_2 = 1
   L4_2 = TeleportOwnerShip
@@ -1760,7 +1760,7 @@ function L2_1(A0_2, A1_2)
   L3_2 = "Reachpoint_action : "
   L4_2 = A1_2.param1
   L3_2 = L3_2 .. L4_2
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = 1
   L3_2 = TeleportOwnerShip
   L3_2 = #L3_2
@@ -1797,7 +1797,7 @@ function L2_1(A0_2, A1_2)
   L4_2 = "gadgetname = "
   L5_2 = L2_2
   L4_2 = L4_2 .. L5_2
-  L3_2(L4_2)
+  L3_2(A0_2, L4_2)
   L3_2 = ScriptLib
   L3_2 = L3_2.GetGroupVariableValue
   L4_2 = A0_2
@@ -1808,7 +1808,7 @@ function L2_1(A0_2, A1_2)
   L5_2 = "prerot = "
   L6_2 = L3_2
   L5_2 = L5_2 .. L6_2
-  L4_2(L5_2)
+  L4_2(A0_2, L5_2)
   L4_2 = L1_1.rotStep
   L3_2 = L3_2 + L4_2
   if 360 <= L3_2 then
@@ -1819,7 +1819,7 @@ function L2_1(A0_2, A1_2)
   L5_2 = "prerot ++ = "
   L6_2 = L3_2
   L5_2 = L5_2 .. L6_2
-  L4_2(L5_2)
+  L4_2(A0_2, L5_2)
   L4_2 = ScriptLib
   L4_2 = L4_2.SetGroupVariableValue
   L5_2 = A0_2

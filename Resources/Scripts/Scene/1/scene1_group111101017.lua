@@ -22,7 +22,7 @@ function L2_1(A0_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.PrintLog
   L2_2 = "Hit platform to move"
-  L1_2(L2_2)
+  L1_2(A0_2, L2_2)
   L1_2 = ScriptLib
   L1_2 = L1_2.GetGroupVariableValue
   L2_2 = A0_2
@@ -33,7 +33,7 @@ function L2_1(A0_2)
   L3_2 = "Hit platform to move : get index = "
   L4_2 = L1_2
   L3_2 = L3_2 .. L4_2
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = "route_"
   L3_2 = L1_2
   L2_2 = L2_2 .. L3_2
@@ -42,7 +42,7 @@ function L2_1(A0_2)
   L4_2 = "Hit platform to move : get key = "
   L5_2 = L2_2
   L4_2 = L4_2 .. L5_2
-  L3_2(L4_2)
+  L3_2(A0_2, L4_2)
   L3_2 = ScriptLib
   L3_2 = L3_2.SetPlatformPointArray
   L4_2 = A0_2
@@ -56,7 +56,7 @@ function L2_1(A0_2)
   L3_2 = ScriptLib
   L3_2 = L3_2.PrintLog
   L4_2 = "Hit platform to move : start platform"
-  L3_2(L4_2)
+  L3_2(A0_2, L4_2)
   L1_2 = L1_2 + 1
   L3_2 = L1_1.maxRouteCount
   if L1_2 > L3_2 then

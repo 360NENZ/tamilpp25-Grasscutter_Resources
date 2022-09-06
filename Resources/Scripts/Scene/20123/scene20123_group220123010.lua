@@ -617,7 +617,7 @@ function L1_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "Counting Lamps"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = 0
   return L2_2
 end

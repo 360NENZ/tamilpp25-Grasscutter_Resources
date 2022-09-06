@@ -79,7 +79,7 @@ function L1_1(A0_2)
   L1_2 = L1_2.GetMonsterID
   L2_2 = evt
   L2_2 = L2_2.source
-  L1_2 = L1_2(L2_2)
+  L1_2 = L1_2(A0_2, L2_2)
   if L1_2 == 100001 then
     L1_2 = true
     return L1_2
@@ -97,7 +97,7 @@ function L1_1(A0_2)
   L3_2 = ScriptLib
   L3_2 = L3_2.GetVariableValue
   L4_2 = var_MONSTER_NUM
-  L3_2 = L3_2(L4_2)
+  L3_2 = L3_2(A0_2, L4_2)
   L3_2 = L3_2 - 1
   L1_2(L2_2, L3_2)
 end
@@ -109,7 +109,7 @@ function L1_1(A0_2)
   L1_2 = L1_2.GetVariableValue
   L2_2 = evt
   L2_2 = L2_2.var_MONSTER_NUM
-  L1_2 = L1_2(L2_2)
+  L1_2 = L1_2(A0_2, L2_2)
   if L1_2 == 0 then
     L1_2 = true
     return L1_2

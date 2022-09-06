@@ -402,7 +402,7 @@ function L2_1(A0_2, A1_2)
     L5_2 = "c_num="
     L6_2 = L3_2
     L5_2 = L5_2 .. L6_2
-    L4_2(L5_2)
+    L4_2(A0_2, L5_2)
     L4_2 = -1
     return L4_2
   end
@@ -418,7 +418,7 @@ function L2_1(A0_2, A1_2)
       L4_2 = ScriptLib
       L4_2 = L4_2.PrintLog
       L5_2 = "create"
-      L4_2(L5_2)
+      L4_2(A0_2, L5_2)
       L4_2 = -1
       return L4_2
     end

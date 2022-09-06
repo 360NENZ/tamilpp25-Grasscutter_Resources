@@ -257,7 +257,7 @@ function L2_1(A0_2, A1_2)
   L2_2 = ScriptLib
   L2_2 = L2_2.PrintLog
   L3_2 = "quest 46306 finish"
-  L2_2(L3_2)
+  L2_2(A0_2, L3_2)
   L2_2 = true
   return L2_2
 end

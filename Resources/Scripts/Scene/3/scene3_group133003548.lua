@@ -278,7 +278,7 @@ function L7_1(A0_2)
     L2_2 = ScriptLib
     L2_2 = L2_2.PrintLog
     L3_2 = "## undefined_crucible_timer !"
-    L2_2(L3_2)
+    L2_2(A0_2, L3_2)
     L2_2 = -1
     return L2_2
   else
@@ -307,7 +307,7 @@ function L7_1(A0_2)
     L4_2 = ScriptLib
     L4_2 = L4_2.PrintLog
     L5_2 = "## crucible_timer_duration_illegal !"
-    L4_2(L5_2)
+    L4_2(A0_2, L5_2)
     L4_2 = -1
     return L4_2
   end
