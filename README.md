@@ -19,3 +19,5 @@
  - [radioegor146](https://github.com/radioegor146) <br/>
  - [TheLostTree](https://github.com/TheLostTree) <br/>
  - [lilmayofuksu](https://github.com/lilmayofuksu/animepython)
+ - [Melledy](https://github.com/Melledy)
+ - [GrownNed](https://github.com/GrownNed/)
