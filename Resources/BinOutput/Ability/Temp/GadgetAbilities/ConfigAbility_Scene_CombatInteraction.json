@@ -3,20 +3,20 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_CombatInteraction_Test_PumpkinBomb",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "PumpkinBomb": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "BeHitFire",
+                            "boolID": "BeHitFire",
                             "value": true
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "PumpkinBomb_Explode"
+                            "modifierName": "PumpkinBomb_Explode"
                         }
                     ],
                     "onBeingHit": [
@@ -25,39 +25,39 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Fire"
+                                    "element": "Fire"
                                 }
                             ],
-                            "GAIGOBCNNEE": "PumpkinBomb"
+                            "modifierName": "PumpkinBomb"
                         }
                     ]
                 },
                 "PumpkinBomb_Explode": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_BombPlant_Ignite"
+                            "effectPattern": "Eff_BombPlant_Ignite"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.800000011920929,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.800000011920929,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -82,41 +82,41 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "FireAISoundEvent"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_BombPlant_Explode",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_BombPlant_Explode",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 1.399999976158142,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 1.399999976158142,
+                                    "z": 0.0
                                 }
                             }
                         },
                         {
                             "$type": "KillSelf",
                             "duration": 1.0,
-                            "BKFHCBOLIFL": true
+                            "hideEntity": true
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "PumpkinBomb"
+                    "modifierName": "PumpkinBomb"
                 }
             ],
-            "KJKECFBMHKH": [
+            "onFieldEnter": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "PumpkinBomb"
+                    "modifierName": "PumpkinBomb"
                 }
             ]
         }
@@ -125,35 +125,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_CombatInteraction_Test_BombBox",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "BombBoxLoop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 1.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_BombBarrel_01_Explode"
+                            "effectPattern": "Eff_SceneObj_BombBarrel_01_Explode"
                         },
                         {
                             "$type": "FireAISoundEvent"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "LCDFJLIEENG": true,
-                                    "NGDMCBABOJA": {
+                                    "ignoreMassive": true,
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.5,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.5,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 6.0
+                                    "radius": 6.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -179,18 +179,18 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByTarget"
                                     },
-                                    "ICGFCBOFFDI": 2.0
+                                    "radius": 2.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -206,12 +206,12 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "KillSelf",
                             "duration": 1.0,
-                            "BKFHCBOLIFL": true
+                            "hideEntity": true
                         }
                     ],
                     "onBeingHit": [
@@ -223,27 +223,27 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHitDamage",
-                                            "GMFCOCAJBDM": "Equal",
-                                            "GOCKFJJFLHN": 0.0
+                                            "logic": "Equal",
+                                            "damage": 0.0
                                         }
                                     ]
                                 }
                             ],
-                            "GAIGOBCNNEE": "BombBoxLoop"
+                            "modifierName": "BombBoxLoop"
                         }
                     ],
-                    "GOGIPDEDKAN": [
+                    "onCrash": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "BombBoxLoop"
+                            "modifierName": "BombBoxLoop"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "BombBoxLoop"
+                    "modifierName": "BombBoxLoop"
                 }
             ]
         }
@@ -252,52 +252,52 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_CombatInteraction_Test_BombBox01",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToGadgetStateMixin",
-                    "IJNIFFOPHNJ": 201,
-                    "GAIGOBCNNEE": "DestorySelf"
+                    "gadgetState": 201,
+                    "modifierName": "DestorySelf"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "DestorySelf": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "BombBoxLoop01"
+                            "modifierName": "BombBoxLoop01"
                         }
                     ]
                 },
                 "BombBoxLoop01": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 1.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_BombBarrel_01_Explode"
+                            "effectPattern": "Eff_SceneObj_BombBarrel_01_Explode"
                         },
                         {
                             "$type": "FireAISoundEvent"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "LCDFJLIEENG": true,
-                                    "NGDMCBABOJA": {
+                                    "ignoreMassive": true,
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.5,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.5,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 6.0
+                                    "radius": 6.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -323,18 +323,18 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByTarget"
                                     },
-                                    "ICGFCBOFFDI": 2.0
+                                    "radius": 2.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -350,12 +350,12 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "KillSelf",
                             "duration": 1.0,
-                            "BKFHCBOLIFL": true
+                            "hideEntity": true
                         }
                     ],
                     "onBeingHit": [
@@ -367,33 +367,33 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHitDamage",
-                                            "GMFCOCAJBDM": "Equal",
-                                            "GOCKFJJFLHN": 0.0
+                                            "logic": "Equal",
+                                            "damage": 0.0
                                         }
                                     ]
                                 }
                             ],
-                            "GAIGOBCNNEE": "BombBoxLoop01"
+                            "modifierName": "BombBoxLoop01"
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "BombBoxLoop01"
+                            "modifierName": "BombBoxLoop01"
                         }
                     ],
-                    "GOGIPDEDKAN": [
+                    "onCrash": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "BombBoxLoop01"
+                            "modifierName": "BombBoxLoop01"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "BombBoxLoop01"
+                    "modifierName": "BombBoxLoop01"
                 }
             ]
         }
@@ -402,35 +402,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Level_Common_Property_Prop_TowerBoom_01",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "BombBoxLoop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 1.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_BombBarrel_01_Explode"
+                            "effectPattern": "Eff_SceneObj_BombBarrel_01_Explode"
                         },
                         {
                             "$type": "FireAISoundEvent"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "LCDFJLIEENG": true,
-                                    "NGDMCBABOJA": {
+                                    "ignoreMassive": true,
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.5,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.5,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 6.0
+                                    "radius": 6.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -456,18 +456,18 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByTarget"
                                     },
-                                    "ICGFCBOFFDI": 2.0
+                                    "radius": 2.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -483,12 +483,12 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "KillSelf",
                             "duration": 1.0,
-                            "BKFHCBOLIFL": true
+                            "hideEntity": true
                         }
                     ],
                     "onBeingHit": [
@@ -500,34 +500,34 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHitDamage",
-                                            "GMFCOCAJBDM": "Equal",
-                                            "GOCKFJJFLHN": 0.0
+                                            "logic": "Equal",
+                                            "damage": 0.0
                                         }
                                     ]
                                 }
                             ],
-                            "GAIGOBCNNEE": "BombBoxLoop"
+                            "modifierName": "BombBoxLoop"
                         }
                     ],
-                    "GOGIPDEDKAN": [
+                    "onCrash": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "BombBoxLoop"
+                            "modifierName": "BombBoxLoop"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "BombBoxLoop"
+                    "modifierName": "BombBoxLoop"
                 }
             ],
-            "KJKECFBMHKH": [
+            "onFieldEnter": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Target",
-                    "ELDBAFHCOBL": [
+                    "target": "Target",
+                    "targetPredicates": [
                         {
                             "$type": "ByEntityTypes",
                             "entityTypes": [
@@ -535,10 +535,10 @@
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "BombBoxLoop"
+                            "modifierName": "BombBoxLoop"
                         }
                     ]
                 }
@@ -549,14 +549,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_CombatInteraction_ElementSmoke",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ElementSmoke": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Quest_ElementSmoke_Die"
+                            "effectPattern": "Eff_Quest_ElementSmoke_Die"
                         },
                         {
                             "$type": "KillSelf"
@@ -568,24 +568,24 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Wind"
+                                    "element": "Wind"
                                 }
                             ],
-                            "GAIGOBCNNEE": "ElementSmoke"
+                            "modifierName": "ElementSmoke"
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "ElementSmoke"
+                            "modifierName": "ElementSmoke"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "ElementSmoke"
+                    "modifierName": "ElementSmoke"
                 }
             ]
         }
@@ -594,20 +594,20 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Area_Common_Property_Prop_ElementSmokeFormal_01",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ElementSmoke": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Quest_Sitelntercat"
+                            "effectPattern": "Eff_Quest_Sitelntercat"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Quest_ElementSmoke_Die"
+                            "effectPattern": "Eff_Quest_ElementSmoke_Die"
                         },
                         {
                             "$type": "KillSelf"
@@ -619,24 +619,24 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Wind"
+                                    "element": "Wind"
                                 }
                             ],
-                            "GAIGOBCNNEE": "ElementSmoke"
+                            "modifierName": "ElementSmoke"
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "ElementSmoke"
+                            "modifierName": "ElementSmoke"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "ElementSmoke"
+                    "modifierName": "ElementSmoke"
                 }
             ]
         }
@@ -645,20 +645,20 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Area_Dq_Property_Prop_ElectricMist_01",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ElementSmoke": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_ElectricMist_01"
+                            "effectPattern": "Eff_SceneObj_ElectricMist_01"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_ElectricMist_01_Disappear"
+                            "effectPattern": "Eff_SceneObj_ElectricMist_01_Disappear"
                         },
                         {
                             "$type": "KillSelf"
@@ -670,24 +670,24 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Wind"
+                                    "element": "Wind"
                                 }
                             ],
-                            "GAIGOBCNNEE": "ElementSmoke"
+                            "modifierName": "ElementSmoke"
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "ElementSmoke"
+                            "modifierName": "ElementSmoke"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "ElementSmoke"
+                    "modifierName": "ElementSmoke"
                 }
             ]
         }
@@ -696,54 +696,54 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_CombatInteraction_ElectricFlora",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ElectricFlora": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "BeHitFire",
+                            "boolID": "BeHitFire",
                             "value": true
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "ElectricFlora_Explode"
+                            "modifierName": "ElectricFlora_Explode"
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "ElectricFlora"
+                            "modifierName": "ElectricFlora"
                         }
                     ]
                 },
                 "ElectricFlora_Explode": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Ani_FlickerWave_Bul"
+                            "effectPattern": "Eff_Ani_FlickerWave_Bul"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.800000011920929,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.800000011920929,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 1.0
+                                    "radius": 1.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -769,15 +769,15 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "AvatarExitClimb",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR1.5",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR1.5",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             }
                         },
                         {
@@ -785,13 +785,13 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_BombPlant_Explode",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_BombPlant_Explode",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 1.399999976158142,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 1.399999976158142,
+                                    "z": 0.0
                                 }
                             }
                         },
@@ -801,16 +801,16 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "ElectricFlora"
+                    "modifierName": "ElectricFlora"
                 }
             ],
-            "KJKECFBMHKH": [
+            "onFieldEnter": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "ElectricFlora"
+                    "modifierName": "ElectricFlora"
                 }
             ]
         }

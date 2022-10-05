@@ -3,43 +3,43 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Raining",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Raining": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 8.0,
+                    "modifierName": "",
+                    "duration": 8.0,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.10000000149011612,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 0.10000000149011612,
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR5",
-                                "ONPOPLLHJLE": "All",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR5",
+                                "campTargetType": "All",
+                                "sizeRatio": 1.0
                             },
-                            "GAIGOBCNNEE": "WetModifier"
+                            "modifierName": "WetModifier"
                         }
                     ]
                 },
                 "WetModifier": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 8.0,
+                    "modifierName": "",
+                    "duration": 8.0,
                     "elementType": "Water",
                     "elementDurability": 40.0,
-                    "ONDNPIMNAOC": true,
-                    "KCICDEJLIJD": [
+                    "overrideWeaponElement": true,
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Element_Wet"
+                            "effectPattern": "Eff_Element_Wet"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Raining"
+                    "modifierName": "Raining"
                 }
             ]
         }
@@ -48,14 +48,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Test_KapokFlower_Interact",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ElementWaterModifier": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Grow"
+                            "modifierName": "Grow"
                         }
                     ],
                     "onBeingHit": [
@@ -64,10 +64,10 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Water"
+                                    "element": "Water"
                                 }
                             ],
-                            "HHFIHBEAPAP": "BeHitWater",
+                            "boolID": "BeHitWater",
                             "value": true
                         },
                         {
@@ -75,34 +75,34 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Water"
+                                    "element": "Water"
                                 }
                             ],
-                            "GAIGOBCNNEE": "ElementWaterModifier"
+                            "modifierName": "ElementWaterModifier"
                         }
                     ]
                 },
                 "Grow": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.100000023841858,
+                    "modifierName": "",
+                    "duration": 1.100000023841858,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_ItemFlower_Bloom"
+                            "effectPattern": "Eff_ItemFlower_Bloom"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerGadgetInteractive"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "ElementWaterModifier"
+                    "modifierName": "ElementWaterModifier"
                 }
             ]
         }

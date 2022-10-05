@@ -3,23 +3,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Crane_WaterWave",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FireWaterWave": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NGAAOMEHOGE": 42005001,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42005001,
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.25,
-                                    "PHDCJAHHIOG": 2.5
+                                    "x": 0.0,
+                                    "y": 0.25,
+                                    "z": 2.5
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget",
                                     "INCAGGBCJNF": 60.0
                                 }
@@ -28,10 +28,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "FireWaterWave"
+                    "modifierName": "FireWaterWave"
                 }
             ]
         }
@@ -40,33 +40,33 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Crane_WaterWave_Explode",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EffectModifier": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Crane_WaterWaveLoop"
+                            "effectPattern": "Eff_Monster_Oceanid_Crane_WaterWaveLoop"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Crane_WaterWaveLoop_Trail"
+                            "effectPattern": "Eff_Monster_Oceanid_Crane_WaterWaveLoop_Trail"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "EffectModifier"
+                    "modifierName": "EffectModifier"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Target",
-                    "ELDBAFHCOBL": [
+                    "target": "Target",
+                    "targetPredicates": [
                         {
                             "$type": "ByEntityTypes",
                             "entityTypes": [
@@ -74,26 +74,26 @@
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Crane_WaterWaveAS"
+                            "effectPattern": "Eff_Monster_Oceanid_Crane_WaterWaveAS"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByCollisionPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 1.0
+                                    "radius": 1.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -116,7 +116,7 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "KillSelf"
@@ -130,10 +130,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Crane_WaterWave_LifeTimeOver",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Crane_WaterWaveAS"
+                    "effectPattern": "Eff_Monster_Oceanid_Crane_WaterWaveAS"
                 }
             ]
         }
@@ -142,36 +142,36 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Crane_Steer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "WaterWave"
                     ],
-                    "IMHBEGIKDKB": 0.25,
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.25,
+                    "angularSpeed": 150.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Turn"
                     ],
-                    "IMHBEGIKDKB": 0.6499999761581421,
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.6499999761581421,
+                    "angularSpeed": 150.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackTraceMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Dodge"
                     ],
-                    "IMHBEGIKDKB": 0.6000000238418579,
-                    "HENDIIJFPCI": 90.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.6000000238418579,
+                    "angularSpeed": 90.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 }
             ]
         }
@@ -180,29 +180,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Crane_ElementState",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ElementState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Water",
                     "elementDurability": 100.0,
                     "DDLOLBGNLEF": false
                 },
                 "Monster_Oceanid_Crane_CommonEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Crane_CommonEffectLoop"
+                            "effectPattern": "Eff_Monster_Oceanid_Crane_CommonEffectLoop"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ElementState"
+                    "modifierName": "UNIQUE_ElementState"
                 },
                 {
                     "$type": "AttachAbilityStateResistance",
@@ -219,13 +219,13 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTERAFFIX_OCEANID_ANIMAL_FOOTEFFECT_OFF",
+                                    "key": "_MONSTERAFFIX_OCEANID_ANIMAL_FOOTEFFECT_OFF",
                                     "value": 1.0
                                 }
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "Monster_Oceanid_Crane_CommonEffect"
+                    "modifierName": "Monster_Oceanid_Crane_CommonEffect"
                 }
             ]
         }

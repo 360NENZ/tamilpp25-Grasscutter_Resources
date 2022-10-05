@@ -18,54 +18,54 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_Grass_5",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GrassMaterial": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 50.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ShieldBarMixin",
-                            "FMAPKFDKKPB": ""
+                            "showDamageText": ""
                         },
                         {
                             "$type": "AttachToAbilityStateMixin",
-                            "ELJGGBDOPIL": [
+                            "abilityStates": [
                                 "ElementBurning"
                             ],
-                            "GAIGOBCNNEE": "ShieldOnFire"
+                            "modifierName": "ShieldOnFire"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 },
                 "ShieldOnFire": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "NPHOOPNDCAC": "Owner",
-                            "HHFIHBEAPAP": "ShieldOnFire",
+                            "target": "Owner",
+                            "boolID": "ShieldOnFire",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "NPHOOPNDCAC": "Owner",
-                            "HHFIHBEAPAP": "ShieldOnFire"
+                            "target": "Owner",
+                            "boolID": "ShieldOnFire"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "GrassMaterial"
+                    "modifierName": "GrassMaterial"
                 }
             ]
         }
@@ -74,28 +74,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_Grass_10",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GrassMaterial": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ShieldBarMixin",
-                            "FMAPKFDKKPB": ""
+                            "showDamageText": ""
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "GrassMaterial"
+                    "modifierName": "GrassMaterial"
                 }
             ]
         }
@@ -104,16 +104,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_Grass_30",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GrassMaterial": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 300.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "WeaponBroken_Attack"
+                            "target": "Owner",
+                            "modifierName": "WeaponBroken_Attack"
                         },
                         {
                             "$type": "KillSelf"
@@ -121,10 +121,10 @@
                     ]
                 },
                 "WeaponBroken_Attack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DamageByAttackValue",
                             "attackInfo": {
@@ -147,10 +147,10 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "GrassMaterial"
+                    "modifierName": "GrassMaterial"
                 }
             ]
         }
@@ -159,11 +159,11 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_ShieldDefend",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "NormalDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -184,9 +184,9 @@
                     ]
                 },
                 "ForceDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -203,40 +203,40 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
-                    "GAIGOBCNNEE": "NormalDefend"
+                    "target": "Owner",
+                    "modifierName": "NormalDefend"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
-                    "GAIGOBCNNEE": "ForceDefend"
+                    "target": "Owner",
+                    "modifierName": "ForceDefend"
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "NormalDefend"
+                    "target": "Target",
+                    "modifierName": "NormalDefend"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "ForceDefend"
+                    "target": "Target",
+                    "modifierName": "ForceDefend"
                 }
             ],
             "POCIJLIJCIE": [
                 {
                     "$type": "RemoveModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "NormalDefend"
+                    "target": "Target",
+                    "modifierName": "NormalDefend"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "ForceDefend"
+                    "target": "Target",
+                    "modifierName": "ForceDefend"
                 }
             ]
         }
@@ -245,12 +245,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_ShieldDefendAttack",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ShieldBroken_Attack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DamageByAttackValue",
                             "attackInfo": {
@@ -274,25 +274,25 @@
                     ]
                 },
                 "UNIQUE_Monster_Weapon_GrassMatrial": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Grass",
                     "elementDurability": 50.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ElementShieldMixin",
                             "elementType": "Grass",
-                            "FMAPKFDKKPB": "",
-                            "KFDBBJLMOKJ": 360.0,
-                            "PDGJDMOFOAO": 1.0,
+                            "showDamageText": "",
+                            "shieldAngle": 360.0,
+                            "shieldHPRatio": 1.0,
                             "damageRatio": 0.20000000298023224
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Undead_01_Shield_Broken"
+                            "effectPattern": "Eff_Monster_Undead_01_Shield_Broken"
                         },
                         {
                             "$type": "KillSelf"
@@ -300,123 +300,123 @@
                     ]
                 },
                 "FreezeDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToAbilityStateMixin",
-                            "ELJGGBDOPIL": [
+                            "abilityStates": [
                                 "ElementFreeze"
                             ],
-                            "GAIGOBCNNEE": "BeFreezed"
+                            "modifierName": "BeFreezed"
                         }
                     ]
                 },
                 "BeFreezed": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "InDefend"
+                            "modifierName": "InDefend"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip02"
                                 ]
                             },
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Grass"
+                                    "element": "Grass"
                                 }
                             ],
-                            "GAIGOBCNNEE": "ReDefend"
+                            "modifierName": "ReDefend"
                         }
                     ]
                 },
                 "BurningDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToAbilityStateMixin",
-                            "ELJGGBDOPIL": [
+                            "abilityStates": [
                                 "ElementBurning"
                             ],
-                            "GAIGOBCNNEE": "WeaponOnFire"
+                            "modifierName": "WeaponOnFire"
                         }
                     ]
                 },
                 "WeaponOnFire": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "NPHOOPNDCAC": "Owner",
-                            "HHFIHBEAPAP": "WeaponOnFire",
+                            "target": "Owner",
+                            "boolID": "WeaponOnFire",
                             "value": true
                         },
                         {
                             "$type": "RemoveModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "InDefend"
+                            "target": "Owner",
+                            "modifierName": "InDefend"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "NPHOOPNDCAC": "Owner",
-                            "HHFIHBEAPAP": "WeaponOnFire"
+                            "target": "Owner",
+                            "boolID": "WeaponOnFire"
                         },
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Grass"
+                                    "element": "Grass"
                                 }
                             ],
-                            "GAIGOBCNNEE": "ReDefend"
+                            "modifierName": "ReDefend"
                         }
                     ]
                 },
                 "ReDefend": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "InDefend"
+                            "target": "Owner",
+                            "modifierName": "InDefend"
                         }
                     ]
                 },
                 "InDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "NormalDefend"
+                            "modifierName": "NormalDefend"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "ForceDefend"
+                            "modifierName": "ForceDefend"
                         }
                     ]
                 },
                 "NormalDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -434,7 +434,7 @@
                             "GOLCBAPOOLF": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Hili_None_Block"
+                                    "effectPattern": "Eff_Monster_Hili_None_Block"
                                 },
                                 {
                                     "$type": "ActCameraShake",
@@ -446,22 +446,22 @@
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 4.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
+                                    "useLimitRange": true,
+                                    "maxValue": 4.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.5
                     }
                 },
                 "DefendAttack": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -481,7 +481,7 @@
                             "GOLCBAPOOLF": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Hili_None_Block"
+                                    "effectPattern": "Eff_Monster_Hili_None_Block"
                                 },
                                 {
                                     "$type": "ActCameraShake",
@@ -493,35 +493,35 @@
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": -5.0,
-                                    "HJJEAOMEOFI": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 4.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
+                                    "useLimitRange": true,
+                                    "maxValue": 4.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_None_Shield"
+                            "effectPattern": "Eff_Monster_Hili_None_Shield"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_None_ShieldCreate"
+                            "effectPattern": "Eff_Monster_Hili_None_ShieldCreate"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_None_ShieldDestroy"
+                            "effectPattern": "Eff_Monster_Hili_None_ShieldDestroy"
                         }
                     ]
                 },
                 "ForceDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -545,101 +545,101 @@
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 4.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
+                                    "useLimitRange": true,
+                                    "maxValue": 4.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.5
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Weapon_GrassMatrial"
+                    "modifierName": "UNIQUE_Monster_Weapon_GrassMatrial"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Owner",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "BurningDetect"
+                    "modifierName": "BurningDetect"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Owner",
+                    "modifierName": "FreezeDetect"
                 },
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 0.0
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Target",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "BurningDetect"
+                    "modifierName": "BurningDetect"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Target",
+                    "modifierName": "FreezeDetect"
                 },
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 0.0
                 }
             ],
             "POCIJLIJCIE": [
                 {
                     "$type": "RemoveModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Target",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "BurningDetect"
+                    "modifierName": "BurningDetect"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Target",
+                    "modifierName": "FreezeDetect"
                 },
                 {
                     "$type": "ClearGlobalValue",
-                    "NPHOOPNDCAC": "Target",
-                    "HJJEAOMEOFI": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT"
+                    "target": "Target",
+                    "key": "_ABILITY_WEAPON_SHIELD_DEFEND_COUNT"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "ShieldBroken_Attack"
+                    "target": "Target",
+                    "modifierName": "ShieldBroken_Attack"
                 },
                 {
                     "$type": "ResetAnimatorTrigger",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "triggerID": "DefendTrigger"
                 }
             ]
@@ -649,12 +649,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_RockShield_DefendAttack",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ShieldBroken_Attack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DamageByAttackValue",
                             "attackInfo": {
@@ -678,45 +678,45 @@
                     ]
                 },
                 "UNIQUE_Monster_Weapon_RockMatrial": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Rock",
                     "elementDurability": 200.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ElementShieldMixin",
                             "elementType": "Rock",
-                            "FMAPKFDKKPB": "",
-                            "KFDBBJLMOKJ": 360.0,
-                            "PDGJDMOFOAO": 1.0,
+                            "showDamageText": "",
+                            "shieldAngle": 360.0,
+                            "shieldHPRatio": 1.0,
                             "damageRatio": 0.20000000298023224,
                             "FFOEHJLIDFC": [
                                 {
                                     "$type": "FireEffect",
-                                    "NPHOOPNDCAC": "Owner",
-                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_BlockSuccess"
+                                    "target": "Owner",
+                                    "effectPattern": "Eff_Monster_Hili_Rock_BlockSuccess"
                                 }
                             ]
                         },
                         {
                             "$type": "AttachModifierToElementDurabilityMixin",
-                            "CMEDACODLEA": [
+                            "valueSteps": [
                                 0.5,
                                 100.5,
                                 200.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Empty",
                                 "Shield_Stage01"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "Owner",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_ShieldDestroy"
+                            "target": "Owner",
+                            "effectPattern": "Eff_Monster_Hili_Rock_ShieldDestroy"
                         },
                         {
                             "$type": "KillSelf"
@@ -724,102 +724,102 @@
                     ]
                 },
                 "Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Shield_Stage01": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "Damaged"
+                            "boolID": "Damaged"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "Owner",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_ShieldDamaged"
+                            "target": "Owner",
+                            "effectPattern": "Eff_Monster_Hili_Rock_ShieldDamaged"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "Damaged",
+                            "boolID": "Damaged",
                             "value": true
                         }
                     ]
                 },
                 "FreezeDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToAbilityStateMixin",
-                            "ELJGGBDOPIL": [
+                            "abilityStates": [
                                 "ElementFreeze"
                             ],
-                            "GAIGOBCNNEE": "BeFreezed"
+                            "modifierName": "BeFreezed"
                         }
                     ]
                 },
                 "BeFreezed": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "InDefend"
+                            "modifierName": "InDefend"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip02"
                                 ]
                             },
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Rock"
+                                    "element": "Rock"
                                 }
                             ],
-                            "GAIGOBCNNEE": "ReDefend"
+                            "modifierName": "ReDefend"
                         }
                     ]
                 },
                 "ReDefend": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "InDefend"
+                            "target": "Owner",
+                            "modifierName": "InDefend"
                         }
                     ]
                 },
                 "InDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "NormalDefend"
+                            "modifierName": "NormalDefend"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "ForceDefend"
+                            "modifierName": "ForceDefend"
                         }
                     ]
                 },
                 "NormalDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -837,19 +837,19 @@
                             "GOLCBAPOOLF": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_Block"
+                                    "effectPattern": "Eff_Monster_Hili_Rock_Block"
                                 }
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.25
                     }
                 },
                 "ForceDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -865,63 +865,63 @@
                             "GOLCBAPOOLF": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_Block"
+                                    "effectPattern": "Eff_Monster_Hili_Rock_Block"
                                 }
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 1.0
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Weapon_RockMatrial"
+                    "modifierName": "UNIQUE_Monster_Weapon_RockMatrial"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Owner",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Owner",
+                    "modifierName": "FreezeDetect"
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Target",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Target",
+                    "modifierName": "FreezeDetect"
                 }
             ],
             "POCIJLIJCIE": [
                 {
                     "$type": "RemoveModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Target",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Target",
+                    "modifierName": "FreezeDetect"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "ShieldBroken_Attack"
+                    "target": "Target",
+                    "modifierName": "ShieldBroken_Attack"
                 },
                 {
                     "$type": "ResetAnimatorTrigger",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "triggerID": "DefendTrigger"
                 }
             ]
@@ -931,12 +931,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_IceShield_DefendAttack",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ShieldBroken_Attack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DamageByAttackValue",
                             "attackInfo": {
@@ -960,45 +960,45 @@
                     ]
                 },
                 "UNIQUE_Monster_Weapon_IceMatrial": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Frozen",
                     "elementDurability": 200.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ElementShieldMixin",
                             "elementType": "Ice",
-                            "FMAPKFDKKPB": "",
-                            "KFDBBJLMOKJ": 360.0,
-                            "PDGJDMOFOAO": 1.0,
+                            "showDamageText": "",
+                            "shieldAngle": 360.0,
+                            "shieldHPRatio": 1.0,
                             "damageRatio": 0.20000000298023224,
                             "FFOEHJLIDFC": [
                                 {
                                     "$type": "FireEffect",
-                                    "NPHOOPNDCAC": "Owner",
-                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_BlockSuccess"
+                                    "target": "Owner",
+                                    "effectPattern": "Eff_Monster_Hili_Rock_BlockSuccess"
                                 }
                             ]
                         },
                         {
                             "$type": "AttachModifierToElementDurabilityMixin",
-                            "CMEDACODLEA": [
+                            "valueSteps": [
                                 0.5,
                                 100.5,
                                 200.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Empty",
                                 "Shield_Stage01"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "Owner",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_ShieldDestroy"
+                            "target": "Owner",
+                            "effectPattern": "Eff_Monster_Hili_Rock_ShieldDestroy"
                         },
                         {
                             "$type": "KillSelf"
@@ -1006,102 +1006,102 @@
                     ]
                 },
                 "Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Shield_Stage01": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "Damaged"
+                            "boolID": "Damaged"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "Owner",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_ShieldDamaged"
+                            "target": "Owner",
+                            "effectPattern": "Eff_Monster_Hili_Rock_ShieldDamaged"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "Damaged",
+                            "boolID": "Damaged",
                             "value": true
                         }
                     ]
                 },
                 "FreezeDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToAbilityStateMixin",
-                            "ELJGGBDOPIL": [
+                            "abilityStates": [
                                 "ElementFreeze"
                             ],
-                            "GAIGOBCNNEE": "BeFreezed"
+                            "modifierName": "BeFreezed"
                         }
                     ]
                 },
                 "BeFreezed": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "InDefend"
+                            "modifierName": "InDefend"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip02"
                                 ]
                             },
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Rock"
+                                    "element": "Rock"
                                 }
                             ],
-                            "GAIGOBCNNEE": "ReDefend"
+                            "modifierName": "ReDefend"
                         }
                     ]
                 },
                 "ReDefend": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "InDefend"
+                            "target": "Owner",
+                            "modifierName": "InDefend"
                         }
                     ]
                 },
                 "InDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "NormalDefend"
+                            "modifierName": "NormalDefend"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "ForceDefend"
+                            "modifierName": "ForceDefend"
                         }
                     ]
                 },
                 "NormalDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -1119,19 +1119,19 @@
                             "GOLCBAPOOLF": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_Block"
+                                    "effectPattern": "Eff_Monster_Hili_Rock_Block"
                                 }
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.25
                     }
                 },
                 "ForceDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -1147,63 +1147,63 @@
                             "GOLCBAPOOLF": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Hili_Rock_Block"
+                                    "effectPattern": "Eff_Monster_Hili_Rock_Block"
                                 }
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 1.0
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Weapon_IceMatrial"
+                    "modifierName": "UNIQUE_Monster_Weapon_IceMatrial"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Owner",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Owner",
+                    "modifierName": "FreezeDetect"
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Target",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Target",
+                    "modifierName": "FreezeDetect"
                 }
             ],
             "POCIJLIJCIE": [
                 {
                     "$type": "RemoveModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "InDefend"
+                    "target": "Target",
+                    "modifierName": "InDefend"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "FreezeDetect"
+                    "target": "Target",
+                    "modifierName": "FreezeDetect"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "ShieldBroken_Attack"
+                    "target": "Target",
+                    "modifierName": "ShieldBroken_Attack"
                 },
                 {
                     "$type": "ResetAnimatorTrigger",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "triggerID": "DefendTrigger"
                 }
             ]
@@ -1213,10 +1213,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Staff_Fire_WeaponInit",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "TriggerAbility",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "abilityName": "Abyss_Fire_WeaponElement"
                 }
             ]
@@ -1226,10 +1226,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Staff_Ice_WeaponInit",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "TriggerAbility",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "abilityName": "Abyss_Ice_WeaponElement"
                 }
             ]
@@ -1239,10 +1239,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Staff_Water_WeaponInit",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "TriggerAbility",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "abilityName": "Abyss_Water_WeaponElement"
                 }
             ]
@@ -1252,46 +1252,46 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Torch_FireState",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Hili_Fire_Torch_FireState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Fire",
                     "elementDurability": 50.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_Torch_FireElementLoop"
+                            "effectPattern": "Eff_Monster_Hili_Fire_Torch_FireElementLoop"
                         },
                         {
                             "$type": "TriggerAbility",
-                            "NPHOOPNDCAC": "Owner",
+                            "target": "Owner",
                             "abilityName": "Hili_Torch_FireState_OnFire"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAbility",
-                            "NPHOOPNDCAC": "Owner",
+                            "target": "Owner",
                             "abilityName": "Hili_Torch_FireState_OffFire"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_Torch_FireElementAS"
+                            "effectPattern": "Eff_Monster_Hili_Fire_Torch_FireElementAS"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Hili_Fire_Torch_FireState"
+                    "modifierName": "UNIQUE_Hili_Fire_Torch_FireState"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Hili_Fire_Torch_FireState"
+                    "modifierName": "UNIQUE_Hili_Fire_Torch_FireState"
                 }
             ]
         }
@@ -1300,26 +1300,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_WoodenClub_Grass_SetGlobalValue",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 5.0,
-                    "HJJEAOMEOFI": "_IS_CLUB_",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_CLUB_",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 5.0,
-                    "HJJEAOMEOFI": "_IS_CLUB_",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_CLUB_",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1328,10 +1328,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Warglaive_Fire_01_IntoShadow",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerSetRenderersEnable",
-                    "GEDDBEFBOKD": [
+                    "renderNames": [
                         "MonEquip_Warglaive_Fire_01"
                     ]
                 }
@@ -1342,13 +1342,13 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Warglaive_Fire_01_OutOfShadow",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerSetRenderersEnable",
-                    "GEDDBEFBOKD": [
+                    "renderNames": [
                         "MonEquip_Warglaive_Fire_01"
                     ],
-                    "PAHBCOACBAI": true
+                    "setEnable": true
                 }
             ]
         }
@@ -1357,10 +1357,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_Gadget_Disappear",
-            "OGFFGLGEOGF": [
+            "onKill": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Weapon_Disappear"
+                    "effectPattern": "Eff_Monster_Weapon_Disappear"
                 }
             ]
         }
@@ -1369,24 +1369,24 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Weapon_BeingHitDetect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Weapon_BeingHitDetect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
                             "$type": "SetAnimatorTrigger",
-                            "NPHOOPNDCAC": "Owner",
+                            "target": "Owner",
                             "triggerID": "AwakeAlert"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Weapon_BeingHitDetect"
+                    "modifierName": "UNIQUE_Weapon_BeingHitDetect"
                 }
             ]
         }
@@ -1395,26 +1395,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_WoodenClub_01_SetGlobalValue",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_CLUB_01",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_CLUB_01",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_CLUB_01",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_CLUB_01",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1423,26 +1423,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Shield_01_SetGlobalValue",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_SHIELD_01",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_SHIELD_01",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_SHIELD_01",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_SHIELD_01",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1451,26 +1451,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Crossbow_01_SetGlobalValue",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_CROSSBOW_01",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_CROSSBOW_01",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_CROSSBOW_01",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_CROSSBOW_01",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1479,26 +1479,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Shield_02_SetGlobalValue",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_CLUB_02",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_CLUB_02",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_CLUB_02",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_CLUB_02",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1507,26 +1507,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Torch_02_SetGlobalValue",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_TORCH_02",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_TORCH_02",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_TORCH_02",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_TORCH_02",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1535,26 +1535,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Axe_01_SetGlobalValue",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_Axe_01",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_Axe_01",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_IS_Axe_01",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_IS_Axe_01",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1563,10 +1563,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Skirmisher_Spraygun_Ice_ImproveState",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Skirmisher_Male_Fat_SprayGun_Ice_SprayGunNormal"
+                    "effectPattern": "Eff_Monster_Skirmisher_Male_Fat_SprayGun_Ice_SprayGunNormal"
                 }
             ]
         }
@@ -1575,10 +1575,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Skirmisher_Backpack_Ice_ImproveState",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Skirmisher_Male_Fat_SprayGun_Ice_BackPackNormal"
+                    "effectPattern": "Eff_Monster_Skirmisher_Male_Fat_SprayGun_Ice_BackPackNormal"
                 }
             ]
         }
@@ -1587,10 +1587,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Skirmisher_Spraygun_Water_ImproveState",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Skirmisher_Male_Fat_SprayGun_Water_SprayGunNormal"
+                    "effectPattern": "Eff_Monster_Skirmisher_Male_Fat_SprayGun_Water_SprayGunNormal"
                 }
             ]
         }
@@ -1599,10 +1599,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Skirmisher_Backpack_Water_ImproveState",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Skirmisher_Male_Fat_SprayGun_Water_BackPackNormal"
+                    "effectPattern": "Eff_Monster_Skirmisher_Male_Fat_SprayGun_Water_BackPackNormal"
                 }
             ]
         }
@@ -1611,12 +1611,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shougun_Pole_Effect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Monster_Shougun_Pole_Visable": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerHideWeapon",
                             "FLCNICMDANB": [
@@ -1633,74 +1633,74 @@
                     ]
                 },
                 "Monster_Shougun_Pole_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shougun_Pole_WeaponLoopEffect"
+                            "effectPattern": "Eff_Monster_Shougun_Pole_WeaponLoopEffect"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Monster_Shougun_Pole_Effect"
+                    "modifierName": "Monster_Shougun_Pole_Effect"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
+                            "target": "Owner",
+                            "key": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
                             "value": 0.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Shougun_Pole_Visable"
+                    "modifierName": "UNIQUE_Monster_Shougun_Pole_Visable"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_MONSTER_SHOUGUN_WEAPONTYPE_",
+                            "target": "Owner",
+                            "key": "_MONSTER_SHOUGUN_WEAPONTYPE_",
                             "value": 0.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Shougun_Pole_Visable"
+                    "modifierName": "UNIQUE_Monster_Shougun_Pole_Visable"
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
+                            "target": "Owner",
+                            "key": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
                             "value": 0.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Shougun_Pole_Visable"
+                    "modifierName": "UNIQUE_Monster_Shougun_Pole_Visable"
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
+                            "target": "Owner",
+                            "key": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
                             "value": 0.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Shougun_Tachi_Visable"
+                    "modifierName": "UNIQUE_Monster_Shougun_Tachi_Visable"
                 }
             ]
         }
@@ -1709,12 +1709,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shougun_Tachi_Effect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Monster_Shougun_Tachi_Visable": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerHideWeapon",
                             "ACDFJMCPFGH": true,
@@ -1731,74 +1731,74 @@
                     ]
                 },
                 "Monster_Shougun_Tachi_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shougun_Tachi_WeaponLoopEffect"
+                            "effectPattern": "Eff_Monster_Shougun_Tachi_WeaponLoopEffect"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Monster_Shougun_Tachi_Effect"
+                    "modifierName": "Monster_Shougun_Tachi_Effect"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
+                            "target": "Owner",
+                            "key": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
                             "value": 1.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Shougun_Tachi_Visable"
+                    "modifierName": "UNIQUE_Monster_Shougun_Tachi_Visable"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_MONSTER_SHOUGUN_WEAPONTYPE_",
+                            "target": "Owner",
+                            "key": "_MONSTER_SHOUGUN_WEAPONTYPE_",
                             "value": 1.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Shougun_Tachi_Visable"
+                    "modifierName": "UNIQUE_Monster_Shougun_Tachi_Visable"
                 }
             ],
             "PDBPHPPJPNH": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
+                            "target": "Owner",
+                            "key": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
                             "value": 1.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Shougun_Tachi_Visable"
+                    "modifierName": "UNIQUE_Monster_Shougun_Tachi_Visable"
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
+                            "target": "Owner",
+                            "key": "_MONSTER_SHOUGUN_MITAKENARUKAMI_WEAPONTYPE_",
                             "value": 1.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Shougun_Pole_Visable"
+                    "modifierName": "UNIQUE_Monster_Shougun_Pole_Visable"
                 }
             ]
         }

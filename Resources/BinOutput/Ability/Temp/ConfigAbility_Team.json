@@ -3,16 +3,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Team_TeamChargeMark",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_Ability_TeamChargeMark",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_Ability_TeamChargeMark",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         19.5,
                         20.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank"
                     ],
                     "PGDAAKDDCOD": [
@@ -20,32 +20,32 @@
                             {
                                 "$type": "AddGlobalValue",
                                 "value": 1.0,
-                                "HJJEAOMEOFI": "_Ability_TeamFullChargeMark",
-                                "EODOIECEPEF": true,
-                                "JDHHMBHOOEC": 1.0,
-                                "KHAHOELDONA": 0.0
+                                "key": "_Ability_TeamFullChargeMark",
+                                "useLimitRange": true,
+                                "maxValue": 1.0,
+                                "minValue": 0.0
                             },
                             {
                                 "$type": "AddGlobalValue",
                                 "value": -20.0,
-                                "HJJEAOMEOFI": "_Ability_TeamChargeMark",
-                                "EODOIECEPEF": true,
-                                "JDHHMBHOOEC": 20.0,
-                                "KHAHOELDONA": 0.0
+                                "key": "_Ability_TeamChargeMark",
+                                "useLimitRange": true,
+                                "maxValue": 20.0,
+                                "minValue": 0.0
                             }
                         ]
                     ]
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_Ability_TeamFullChargeMark",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_Ability_TeamFullChargeMark",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "Blank"
                     ],
@@ -53,30 +53,30 @@
                         [
                             {
                                 "$type": "RemoveModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "TeamFullChargeEffect"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "TeamFullChargeEffect"
                             }
                         ],
                         [
                             {
                                 "$type": "ApplyModifier",
-                                "NPHOOPNDCAC": "CurLocalAvatar",
-                                "GAIGOBCNNEE": "TeamFullChargeEffect"
+                                "target": "CurLocalAvatar",
+                                "modifierName": "TeamFullChargeEffect"
                             }
                         ]
                     ]
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_Ability_AvatarFullChargeMark",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_Ability_AvatarFullChargeMark",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "Blank"
                     ],
@@ -84,70 +84,70 @@
                         [
                             {
                                 "$type": "RemoveModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "AvatarFullChargeEffect"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "AvatarFullChargeEffect"
                             }
                         ],
                         [
                             {
                                 "$type": "ApplyModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "AvatarFullChargeEffect"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "AvatarFullChargeEffect"
                             }
                         ]
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0
                 },
                 "TeamChargeMark_Decay": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 5.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 5.0,
+                    "onThinkInterval": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_Ability_TeamChargeMark",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 20.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_Ability_TeamChargeMark",
+                            "useLimitRange": true,
+                            "maxValue": 20.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "TeamFullChargeEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "ACOKKHADPOJ": true,
-                            "JBHFPDMBFHN": "Eff_Avatar_WhiteBox_TeamChargeMark"
+                            "doOffStage": true,
+                            "effectPattern": "Eff_Avatar_WhiteBox_TeamChargeMark"
                         }
                     ]
                 },
                 "AvatarFullChargeEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "ACOKKHADPOJ": true,
-                            "JBHFPDMBFHN": ""
+                            "doOffStage": true,
+                            "effectPattern": ""
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "TeamChargeMark_Decay"
+                    "modifierName": "TeamChargeMark_Decay"
                 }
             ]
         }

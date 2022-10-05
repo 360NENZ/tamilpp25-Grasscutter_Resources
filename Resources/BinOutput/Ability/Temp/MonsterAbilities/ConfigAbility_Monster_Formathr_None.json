@@ -3,28 +3,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_PowerOff",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Formathr_None_PowerOff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Entity_MassRatio": 1000.0,
                         "Entity_WeightRatio": 5.0,
                         "Actor_EndureDelta": 0.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "PowerOff_Invincible"
+                            "modifierName": "PowerOff_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "PowerOff_IsGhostToAllied"
+                            "modifierName": "PowerOff_IsGhostToAllied"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "PowerOff_IsGhostToEnemy"
+                            "modifierName": "PowerOff_IsGhostToEnemy"
                         },
                         {
                             "$type": "HideUIBillBoard",
@@ -32,48 +32,48 @@
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "PowerOff",
+                            "boolID": "PowerOff",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "HideUIBillBoard"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "PowerOff"
+                            "boolID": "PowerOff"
                         }
                     ]
                 },
                 "PowerOff_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "PowerOff_IsGhostToAllied": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "IsGhostToAllied"
                 },
                 "PowerOff_IsGhostToEnemy": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "IsGhostToEnemy"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
                     "predicates": [
                         {
                             "$type": "ByAnimatorFloat",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 101.0,
-                            "MOCGJNIDDAI": "PoseID"
+                            "parameter": "PoseID"
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_PowerOff"
+                    "modifierName": "UNIQUE_Formathr_None_PowerOff"
                 }
             ]
         }
@@ -82,49 +82,49 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_WakeUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "WakeUp"
                     ],
-                    "GAIGOBCNNEE": "Monster_Formathr_None_WakeUp"
+                    "modifierName": "Monster_Formathr_None_WakeUp"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Formathr_None_WakeUp": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_WeaknessTurnOn",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_WeaknessTurnOn",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "Weakness"
+                                "attachPointName": "Weakness"
                             }
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Formathr_None_PowerOff"
+                            "modifierName": "UNIQUE_Formathr_None_PowerOff"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Formathr_None_AirState"
+                            "modifierName": "UNIQUE_Formathr_None_AirState"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Formathr_None_WeakState"
+                            "modifierName": "UNIQUE_Formathr_None_WeakState"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Formathr_None_LandState"
+                            "modifierName": "UNIQUE_Formathr_None_LandState"
                         }
                     ]
                 },
                 "UNIQUE_Formathr_None_LandState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0
                 }
             }
@@ -134,76 +134,76 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_SwitchToAir",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAIAlertnessMixin",
                     "OCFKMHBNKDL": [
                         0
                     ],
-                    "GAIGOBCNNEE": "ResetMode"
+                    "modifierName": "ResetMode"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ResetMode": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Formathr_None_AirState"
+                            "modifierName": "UNIQUE_Formathr_None_AirState"
                         }
                     ]
                 },
                 "UNIQUE_Formathr_None_AirState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "AirState",
+                            "boolID": "AirState",
                             "value": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushColliderExtra"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider_Air",
                                 "PushColliderExtra_Air"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "TriggerAbility",
                             "abilityName": "Monster_Formathr_None_EnableWeakness"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ReadyForLand"
+                            "boolID": "ReadyForLand"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "AirState"
+                            "boolID": "AirState"
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushColliderExtra"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider_Air",
                                 "PushColliderExtra_Air"
                             ]
@@ -215,14 +215,14 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_AirState"
+                    "modifierName": "UNIQUE_Formathr_None_AirState"
                 },
                 {
                     "$type": "ReTriggerAISkillInitialCD",
-                    "FJNGOGJOBEE": [
+                    "skillIDs": [
                         302,
                         321,
                         341
@@ -230,11 +230,11 @@
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_LandState"
+                    "modifierName": "UNIQUE_Formathr_None_LandState"
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_WeakState"
+                    "modifierName": "UNIQUE_Formathr_None_WeakState"
                 }
             ]
         }
@@ -243,27 +243,27 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_WindZone",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_WindZone": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR15",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR15",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
                             "BHELOIADOLH": -30.0,
                             "HBBLBBPBLGE": 2.0,
                             "IPDEDFHPHPO": 0.0,
-                            "OJIFKEOCJGB": "Enemy",
+                            "targetType": "Enemy",
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -273,25 +273,25 @@
                                 },
                                 {
                                     "$type": "ByTargetWeight",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "IHCNHDLDFKC": 250.0
                                 }
                             ],
-                            "GAIGOBCNNEE": ""
+                            "modifierName": ""
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_BlowAway"
+                            "effectPattern": "Eff_Monster_Formathr_None_BlowAway"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_WindZone"
+                    "modifierName": "Formathr_None_WindZone"
                 }
             ]
         }
@@ -300,29 +300,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_SwitchToLand",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Formathr_None_LandState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_AirState"
+                    "modifierName": "UNIQUE_Formathr_None_AirState"
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_WeakState"
+                    "modifierName": "UNIQUE_Formathr_None_WeakState"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_LandState"
+                    "modifierName": "UNIQUE_Formathr_None_LandState"
                 },
                 {
                     "$type": "ReTriggerAISkillInitialCD",
-                    "FJNGOGJOBEE": [
+                    "skillIDs": [
                         201
                     ]
                 }
@@ -333,61 +333,61 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_EnableWeakness",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Formathr_None_Weakness": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_MONSTER_AutoMatron_WeakTag",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_AutoMatron_WeakTag",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HeadBox"
                             ]
                         },
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_AutoMatron_WeakTag",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_AutoMatron_WeakTag",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHitBoxName",
-                                    "EACGOCFODIC": [
+                                    "hitBoxNames": [
                                         "HeadBox"
                                     ]
                                 },
                                 {
                                     "$type": "ByHitEnBreak",
-                                    "GMFCOCAJBDM": "GreaterOrEqual",
-                                    "DCBBLJKHKCA": 80.0
+                                    "logic": "GreaterOrEqual",
+                                    "enBreak": 80.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetAnimatorTrigger",
                                     "triggerID": "WeakStartTrigger"
@@ -397,10 +397,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_Weakness"
+                    "modifierName": "UNIQUE_Formathr_None_Weakness"
                 }
             ]
         }
@@ -409,10 +409,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_DisableWeakness",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_Weakness"
+                    "modifierName": "UNIQUE_Formathr_None_Weakness"
                 }
             ]
         }
@@ -421,40 +421,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_WeakState",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Formathr_None_WeakState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "WeakState",
+                            "boolID": "WeakState",
                             "value": true
                         },
                         {
                             "$type": "ReTriggerAISkillInitialCD",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 111
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "WeakState"
+                            "boolID": "WeakState"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_AirState"
+                    "modifierName": "UNIQUE_Formathr_None_AirState"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_WeakState"
+                    "modifierName": "UNIQUE_Formathr_None_WeakState"
                 }
             ]
         }
@@ -463,10 +463,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_WeakEnd",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_WeakState"
+                    "modifierName": "UNIQUE_Formathr_None_WeakState"
                 },
                 {
                     "$type": "TriggerAbility",
@@ -474,10 +474,10 @@
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_WeaknessTurnOn",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_WeaknessTurnOn",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "Weakness"
+                        "attachPointName": "Weakness"
                     }
                 }
             ]
@@ -487,14 +487,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_StateAttachEffect",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         100,
                         201
                     ],
-                    "GAIGOBCNNEE": "Formathr_None_StateEffect_FlowUpLand"
+                    "modifierName": "Formathr_None_StateEffect_FlowUpLand"
                 },
                 {
                     "$type": "AttachToPoseIDMixin",
@@ -502,92 +502,92 @@
                         202,
                         204
                     ],
-                    "GAIGOBCNNEE": "Formathr_None_StateEffect_FlowUpAir"
+                    "modifierName": "Formathr_None_StateEffect_FlowUpAir"
                 },
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         203
                     ],
-                    "GAIGOBCNNEE": "Formathr_None_StateEffect_Weak"
+                    "modifierName": "Formathr_None_StateEffect_Weak"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_StateEffect_FlowUpLand": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_WeaknessNormal",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_WeaknessNormal",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "Weakness"
+                                "attachPointName": "Weakness"
                             }
                         }
                     ]
                 },
                 "Formathr_None_StateEffect_FlowUpAir": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_WeaknessLightOn",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_WeaknessLightOn",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "Weakness"
+                                "attachPointName": "Weakness"
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_AirIdle_LeftDown"
+                            "effectPattern": "Eff_Monster_Formathr_None_AirIdle_LeftDown"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_AirIdle_LeftUp"
+                            "effectPattern": "Eff_Monster_Formathr_None_AirIdle_LeftUp"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_AirIdle_RightDown"
+                            "effectPattern": "Eff_Monster_Formathr_None_AirIdle_RightDown"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_AirIdle_RightUp"
+                            "effectPattern": "Eff_Monster_Formathr_None_AirIdle_RightUp"
                         }
                     ]
                 },
                 "Formathr_None_StateEffect_Weak": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_WeakState"
+                            "effectPattern": "Eff_Monster_Formathr_None_WeakState"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_WeaknessTurnOff",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_WeaknessTurnOff",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "Weakness"
+                                "attachPointName": "Weakness"
                             }
                         }
                     ]
                 }
             },
-            "OGFFGLGEOGF": [
+            "onKill": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Formathr_None_StateEffect_FlowUpLand"
+                    "modifierName": "Formathr_None_StateEffect_FlowUpLand"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Formathr_None_StateEffect_FlowUpAir"
+                    "modifierName": "Formathr_None_StateEffect_FlowUpAir"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Formathr_None_StateEffect_Weak"
+                    "modifierName": "Formathr_None_StateEffect_Weak"
                 }
             ]
         }
@@ -596,29 +596,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_CreateFollowBullet",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Formathr_None_FollowBullet": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorInt",
                                     "value": 230,
-                                    "MOCGJNIDDAI": "SkillID"
+                                    "parameter": "SkillID"
                                 },
                                 {
                                     "$type": "ByAnimatorInt",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 240,
-                                    "MOCGJNIDDAI": "SkillID"
+                                    "parameter": "SkillID"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304010,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304010,
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             },
                             "ENJEPFDLDDF": "Self",
@@ -626,35 +626,35 @@
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushColliderExtra"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillGadget",
                             "LBGGIBBMCMF": {
                                 "AKMLOIFOBPO": "Reversed",
-                                "APIAFGPIIHE": 42304010
+                                "configID": 42304010
                             }
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushColliderExtra"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_FollowBullet"
+                    "modifierName": "UNIQUE_Formathr_None_FollowBullet"
                 }
             ]
         }
@@ -663,10 +663,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_RemoveFollowBullet",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_FollowBullet"
+                    "modifierName": "UNIQUE_Formathr_None_FollowBullet"
                 }
             ]
         }
@@ -675,17 +675,17 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_FollowHitBox3",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 1.0
+                            "radius": 1.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -714,7 +714,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -723,13 +723,13 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_ComboAtk",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToHPPercentMixin",
-                    "CMEDACODLEA": [
+                    "valueSteps": [
                         0.6000000238418579
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Formathr_None_ComboAtk",
                         "Formathr_None_ComboAtkExtra"
                     ]
@@ -739,24 +739,24 @@
                     "stateIDs": [
                         "ComboAtkExtra1"
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_FORMATHR_COMBOATKEXTRA",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 2.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_FORMATHR_COMBOATKEXTRA",
+                            "useLimitRange": true,
+                            "maxValue": 2.0,
+                            "minValue": 0.0
                         }
                     ],
                     "MCFCEOACJEB": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_FORMATHR_COMBOATKEXTRA",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 2.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_FORMATHR_COMBOATKEXTRA",
+                            "useLimitRange": true,
+                            "maxValue": 2.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
@@ -765,47 +765,47 @@
                     "stateIDs": [
                         "ComboAtkExtra2"
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 2.0,
-                            "HJJEAOMEOFI": "_FORMATHR_COMBOATKEXTRA",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 2.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_FORMATHR_COMBOATKEXTRA",
+                            "useLimitRange": true,
+                            "maxValue": 2.0,
+                            "minValue": 0.0
                         }
                     ],
                     "MCFCEOACJEB": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -2.0,
-                            "HJJEAOMEOFI": "_FORMATHR_COMBOATKEXTRA",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 2.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_FORMATHR_COMBOATKEXTRA",
+                            "useLimitRange": true,
+                            "maxValue": 2.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_ComboAtk": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Formathr_None_ComboAtkExtra": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "ComboExtra",
+                            "boolID": "ComboExtra",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "ComboExtra"
+                            "boolID": "ComboExtra"
                         }
                     ]
                 }
@@ -816,21 +816,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_RightDownCannon_Effect",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeNormalAtkBS_RightDown",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeNormalAtkBS_RightDown",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
@@ -838,15 +838,15 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk1BS_RightDown",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk1BS_RightDown",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
@@ -854,15 +854,15 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk2BS_RightDown",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk2BS_RightDown",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 }
             ]
@@ -872,21 +872,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_RightUpCannon_Effect",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeNormalAtkBS_RightUp",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeNormalAtkBS_RightUp",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
@@ -894,15 +894,15 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk1BS_RightUp",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk1BS_RightUp",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
@@ -910,15 +910,15 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk2BS_RightUp",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk2BS_RightUp",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 }
             ]
@@ -928,21 +928,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_LeftDownCannon_Effect",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeNormalAtkBS_LeftDown",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeNormalAtkBS_LeftDown",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
@@ -950,15 +950,15 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk1BS_LeftDown",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk1BS_LeftDown",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
@@ -966,15 +966,15 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk2BS_LeftDown",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk2BS_LeftDown",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 }
             ]
@@ -984,21 +984,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_LeftUpCannon_Effect",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeNormalAtkBS_LeftUp",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeNormalAtkBS_LeftUp",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
@@ -1006,15 +1006,15 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk1BS_LeftUp",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk1BS_LeftUp",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
@@ -1022,15 +1022,15 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk2BS_LeftUp",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk2BS_LeftUp",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 }
             ]
@@ -1040,26 +1040,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_RightDownCannon",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304016,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304016,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LHNNAGIFPIB": 0.800000011920929,
+                            "randomAngleHor": 0.800000011920929,
                             "IOIAHLPJDMH": 0.5
                         },
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
@@ -1067,18 +1067,18 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeNormalAtk",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeNormalAtk",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget"
                         },
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
@@ -1086,20 +1086,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304004,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304004,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightDown_Cannon",
+                            "attachPointName": "RightDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
@@ -1107,20 +1107,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304005,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304005,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightDown_Cannon",
+                            "attachPointName": "RightDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
@@ -1128,20 +1128,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk1",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk1",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightDown_Cannon",
+                            "attachPointName": "RightDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
@@ -1149,20 +1149,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304007,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304007,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightDown_Cannon",
+                            "attachPointName": "RightDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
@@ -1170,20 +1170,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk2",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk2",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightDown_Cannon",
+                            "attachPointName": "RightDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 }
             ]
@@ -1193,26 +1193,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_RightUpCannon",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304016,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304016,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LHNNAGIFPIB": 1.5,
+                            "randomAngleHor": 1.5,
                             "IOIAHLPJDMH": 1.0
                         },
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
@@ -1220,18 +1220,18 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeNormalAtk",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeNormalAtk",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget"
                         },
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
@@ -1239,20 +1239,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304004,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304004,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightUp_Cannon",
+                            "attachPointName": "RightUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
@@ -1260,20 +1260,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304005,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304005,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightUp_Cannon",
+                            "attachPointName": "RightUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
@@ -1281,20 +1281,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk1",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk1",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightUp_Cannon",
+                            "attachPointName": "RightUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
@@ -1302,20 +1302,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304007,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304007,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightUp_Cannon",
+                            "attachPointName": "RightUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
@@ -1323,20 +1323,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk2",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk2",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "RightUp_Cannon",
+                            "attachPointName": "RightUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 }
             ]
@@ -1346,26 +1346,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_LeftDownCannon",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304016,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304016,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LHNNAGIFPIB": 1.5,
+                            "randomAngleHor": 1.5,
                             "IOIAHLPJDMH": 1.0
                         },
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
@@ -1373,18 +1373,18 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeNormalAtk",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeNormalAtk",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget"
                         },
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
@@ -1392,20 +1392,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304004,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304004,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftDown_Cannon",
+                            "attachPointName": "LeftDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
@@ -1413,20 +1413,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304005,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304005,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftDown_Cannon",
+                            "attachPointName": "LeftDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
@@ -1434,20 +1434,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk1",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk1",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftDown_Cannon",
+                            "attachPointName": "LeftDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
@@ -1455,20 +1455,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304007,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304007,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftDown_Cannon",
+                            "attachPointName": "LeftDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
@@ -1476,20 +1476,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk2",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk2",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftDown_Cannon",
+                            "attachPointName": "LeftDown_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 }
             ]
@@ -1499,26 +1499,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_LeftUpCannon",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304016,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304016,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LHNNAGIFPIB": 1.5,
+                            "randomAngleHor": 1.5,
                             "IOIAHLPJDMH": 1.0
                         },
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
@@ -1526,18 +1526,18 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 311,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeNormalAtk",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeNormalAtk",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget"
                         },
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
@@ -1545,20 +1545,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304004,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304004,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftUp_Cannon",
+                            "attachPointName": "LeftUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
@@ -1566,20 +1566,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304005,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304005,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftUp_Cannon",
+                            "attachPointName": "LeftUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
@@ -1587,20 +1587,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 321,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk1",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk1",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftUp_Cannon",
+                            "attachPointName": "LeftUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
@@ -1608,20 +1608,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42304007,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304007,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftUp_Cannon",
+                            "attachPointName": "LeftUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
@@ -1629,20 +1629,20 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 331,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_RangeAtk2",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_RangeAtk2",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttachPoint",
-                            "KJNJNKLLNCN": "LeftUp_Cannon",
+                            "attachPointName": "LeftUp_Cannon",
                             "MMFHENHCBGB": "Self"
                         },
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 }
             ]
@@ -1652,25 +1652,25 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_NormalBullet",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_NormalBullet_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_Bullet_Straight"
+                            "effectPattern": "Eff_Monster_Formathr_None_Bullet_Straight"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_NormalBullet_Effect"
+                    "modifierName": "Formathr_None_NormalBullet_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireHitEffect",
                     "OFIGOLJOGPJ": "Eff_Monster_Formathr_None_StraightBullet_Hit",
@@ -1680,14 +1680,14 @@
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 0.5
+                            "radius": 0.5
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1708,11 +1708,11 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Formathr_None_NormalBullet_Effect"
+                    "modifierName": "Formathr_None_NormalBullet_Effect"
                 }
             ]
         }
@@ -1721,42 +1721,42 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_ChaseBullet",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_ChaseBullet_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_Bullet_Chase"
+                            "effectPattern": "Eff_Monster_Formathr_None_Bullet_Chase"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ChaseBullet_Effect"
+                    "modifierName": "Formathr_None_ChaseBullet_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ChaseBullet_Hit",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_ChaseBullet_Hit",
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint"
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 1.0
+                            "radius": 1.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1777,11 +1777,11 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ChaseBullet_Effect"
+                    "modifierName": "Formathr_None_ChaseBullet_Effect"
                 }
             ]
         }
@@ -1790,74 +1790,74 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_LaserTrigger",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "RangeAtk1",
-                    "GAIGOBCNNEE": "LaserCharging_Effect",
-                    "AAIFCLGLOMO": 0.23800000548362732,
-                    "MMHONEIBHNP": 0.75
+                    "stateID": "RangeAtk1",
+                    "modifierName": "LaserCharging_Effect",
+                    "normalizeStart": 0.23800000548362732,
+                    "normalizeEnd": 0.75
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "LaserCharging_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_LaserCharging",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_LaserCharging",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "LaserNode"
+                                "attachPointName": "LaserNode"
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_LaserChargingLeftDownCannon",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_LaserChargingLeftDownCannon",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "LeftDown_Cannon"
+                                "attachPointName": "LeftDown_Cannon"
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_LaserChargingLeftUpCannon",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_LaserChargingLeftUpCannon",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "LeftUp_Cannon"
+                                "attachPointName": "LeftUp_Cannon"
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_LaserChargingRightDownCannon",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_LaserChargingRightDownCannon",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "RightDown_Cannon"
+                                "attachPointName": "RightDown_Cannon"
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_LaserChargingRightUpCannon",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_LaserChargingRightUpCannon",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "RightUp_Cannon"
+                                "attachPointName": "RightUp_Cannon"
                             }
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42304006,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42304006,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
                             "IHHIKIACOML": "Horizontal"
                         },
-                        "KJNJNKLLNCN": "LaserNode"
+                        "attachPointName": "LaserNode"
                     }
                 }
             ]
@@ -1867,42 +1867,42 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_Laser",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_Laser_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_Bullet_Laser"
+                            "effectPattern": "Eff_Monster_Formathr_None_Bullet_Laser"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_Laser_Effect"
+                    "modifierName": "Formathr_None_Laser_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_LaserBullet_Hit",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_LaserBullet_Hit",
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint"
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 3.0
+                            "radius": 3.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1933,11 +1933,11 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Formathr_None_Laser_Effect"
+                    "modifierName": "Formathr_None_Laser_Effect"
                 }
             ]
         }
@@ -1946,28 +1946,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_ClusterBulletToAir",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_ClusterBulletToAir_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_Bullet_ClusterToAir"
+                            "effectPattern": "Eff_Monster_Formathr_None_Bullet_ClusterToAir"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBulletToAir_Effect"
+                    "modifierName": "Formathr_None_ClusterBulletToAir_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBulletToAir_Effect"
+                    "modifierName": "Formathr_None_ClusterBulletToAir_Effect"
                 }
             ]
         }
@@ -1976,44 +1976,44 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_ClusterBulletToGround",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_ClusterBulletToGround_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_Bullet_ClusterToGround"
+                            "effectPattern": "Eff_Monster_Formathr_None_Bullet_ClusterToGround"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBulletToGround_Effect"
+                    "modifierName": "Formathr_None_ClusterBulletToGround_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_HitScene"
+                    "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_HitScene"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
-                            "ICGFCBOFFDI": 5.0
+                            "radius": 5.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2042,11 +2042,11 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBulletToGround_Effect"
+                    "modifierName": "Formathr_None_ClusterBulletToGround_Effect"
                 }
             ]
         }
@@ -2055,36 +2055,36 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_RangeAtk2_FindGroundPoint",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RandomLatency": 0.10000000149011612
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Formathr_None_ClusterBullet_Latency_1": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                    "target": "Self",
+                                    "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                     "value": 2.0,
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 8.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": 8.0
+                                    "x": 8.0,
+                                    "y": 30.0,
+                                    "z": 8.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2094,66 +2094,66 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                    "target": "Self",
+                                    "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                     "value": 2.0,
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 8.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 8.0
+                                    "x": 8.0,
+                                    "y": 0.0,
+                                    "z": 8.0
                                 }
                             }
                         }
                     ]
                 },
                 "Formathr_None_ClusterBullet_Latency_2": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 3.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 2.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": 8.0
+                                    "x": 0.0,
+                                    "y": 30.0,
+                                    "z": 8.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2163,78 +2163,78 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 3.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 2.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 8.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 8.0
                                 }
                             }
                         }
                     ]
                 },
                 "Formathr_None_ClusterBullet_Latency_3": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 4.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 3.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": -8.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": 8.0
+                                    "x": -8.0,
+                                    "y": 30.0,
+                                    "z": 8.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2244,78 +2244,78 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 4.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 3.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": -8.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 8.0
+                                    "x": -8.0,
+                                    "y": 0.0,
+                                    "z": 8.0
                                 }
                             }
                         }
                     ]
                 },
                 "Formathr_None_ClusterBullet_Latency_4": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 5.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 4.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 8.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 8.0,
+                                    "y": 30.0,
+                                    "z": 0.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2325,78 +2325,78 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 5.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 4.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 8.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 8.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             }
                         }
                     ]
                 },
                 "Formathr_None_ClusterBullet_Latency_5": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 6.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 5.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 30.0,
+                                    "z": 0.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2406,78 +2406,78 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 6.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 5.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             }
                         }
                     ]
                 },
                 "Formathr_None_ClusterBullet_Latency_6": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 7.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 6.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": -8.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": -8.0,
+                                    "y": 30.0,
+                                    "z": 0.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2487,78 +2487,78 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 7.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 6.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": -8.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": -8.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             }
                         }
                     ]
                 },
                 "Formathr_None_ClusterBullet_Latency_7": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 8.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 7.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 8.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": -8.0
+                                    "x": 8.0,
+                                    "y": 30.0,
+                                    "z": -8.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2568,78 +2568,78 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 8.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 7.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 8.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -8.0
+                                    "x": 8.0,
+                                    "y": 0.0,
+                                    "z": -8.0
                                 }
                             }
                         }
                     ]
                 },
                 "Formathr_None_ClusterBullet_Latency_8": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 9.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 8.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": -8.0
+                                    "x": 0.0,
+                                    "y": 30.0,
+                                    "z": -8.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2649,66 +2649,66 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByAny",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 9.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Self",
-                                            "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                            "target": "Self",
+                                            "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                             "value": 8.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ]
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -8.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": -8.0
                                 }
                             }
                         }
                     ]
                 },
                 "Formathr_None_ClusterBullet_Latency_9": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "RandomLatency",
+                    "modifierName": "",
+                    "duration": "RandomLatency",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                    "target": "Self",
+                                    "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                     "value": 9.0,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42304011,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42304011,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": -8.0,
-                                    "KAAPLGBEDPM": 30.0,
-                                    "PHDCJAHHIOG": -8.0
+                                    "x": -8.0,
+                                    "y": 30.0,
+                                    "z": -8.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld",
                                     "GLNBFGDJBAJ": {
                                         "_x": 90.0
@@ -2718,127 +2718,127 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                                    "target": "Self",
+                                    "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
                                     "value": 9.0,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_ClusterBullet_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": -8.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -8.0
+                                    "x": -8.0,
+                                    "y": 0.0,
+                                    "z": -8.0
                                 }
                             }
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
                     "value": -999.0,
-                    "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                    "useLimitRange": true,
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
-                    "EODOIECEPEF": true,
+                    "key": "_FORMATHR_NONE_RANGEATK2_MISSPOINT",
+                    "useLimitRange": true,
                     "FACHGOPKJKE": true,
-                    "JDHHMBHOOEC": 10.0,
-                    "KHAHOELDONA": 1.0
+                    "maxValue": 10.0,
+                    "minValue": 1.0
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_1"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_1"
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_2"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_2"
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_3"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_3"
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_4"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_4"
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_5"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_5"
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_6"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_6"
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_7"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_7"
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_8"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_8"
                 },
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 2.0,
-                    "OGAHELLALBB": "RandomLatency"
+                    "overrideMapKey": "RandomLatency"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Formathr_None_ClusterBullet_Latency_9"
+                    "modifierName": "Formathr_None_ClusterBullet_Latency_9"
                 }
             ]
         }
@@ -2847,80 +2847,80 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_DiveAtk",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "DiveAtk",
-                    "GAIGOBCNNEE": "DiveAtkBS_Effect",
-                    "AAIFCLGLOMO": 0.10000000149011612,
-                    "MMHONEIBHNP": 0.42500001192092896
+                    "stateID": "DiveAtk",
+                    "modifierName": "DiveAtkBS_Effect",
+                    "normalizeStart": 0.10000000149011612,
+                    "normalizeEnd": 0.42500001192092896
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "DiveAtkBS_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveAtkBS_RightDown",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_DiveAtkBS_RightDown",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttachPoint",
-                                    "KJNJNKLLNCN": "RightDown_Cannon",
+                                    "attachPointName": "RightDown_Cannon",
                                     "MMFHENHCBGB": "Self"
                                 },
-                                "KJNJNKLLNCN": "RightDown_Cannon"
+                                "attachPointName": "RightDown_Cannon"
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveAtkBS_RightUp",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_DiveAtkBS_RightUp",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttachPoint",
-                                    "KJNJNKLLNCN": "RightUp_Cannon",
+                                    "attachPointName": "RightUp_Cannon",
                                     "MMFHENHCBGB": "Self"
                                 },
-                                "KJNJNKLLNCN": "RightUp_Cannon"
+                                "attachPointName": "RightUp_Cannon"
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveAtkBS_LeftDown",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_DiveAtkBS_LeftDown",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttachPoint",
-                                    "KJNJNKLLNCN": "LeftDown_Cannon",
+                                    "attachPointName": "LeftDown_Cannon",
                                     "MMFHENHCBGB": "Self"
                                 },
-                                "KJNJNKLLNCN": "LeftDown_Cannon"
+                                "attachPointName": "LeftDown_Cannon"
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveAtkBS_LeftUp",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Formathr_None_DiveAtkBS_LeftUp",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttachPoint",
-                                    "KJNJNKLLNCN": "LeftUp_Cannon",
+                                    "attachPointName": "LeftUp_Cannon",
                                     "MMFHENHCBGB": "Self"
                                 },
-                                "KJNJNKLLNCN": "LeftUp_Cannon"
+                                "attachPointName": "LeftUp_Cannon"
                             }
                         }
                     ]
                 },
                 "UNIQUE_Formathr_None_DiveAtkDamage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DamageByAttackValue",
                             "attackInfo": {
@@ -2944,85 +2944,85 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveAtk",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_DiveAtk",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByWorld",
                             "GLNBFGDJBAJ": {
                                 "_x": 90.0
                             }
                         },
-                        "KJNJNKLLNCN": "RightDown_Cannon"
+                        "attachPointName": "RightDown_Cannon"
                     }
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveAtk",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_DiveAtk",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByWorld",
                             "GLNBFGDJBAJ": {
                                 "_x": 90.0
                             }
                         },
-                        "KJNJNKLLNCN": "RightUp_Cannon"
+                        "attachPointName": "RightUp_Cannon"
                     }
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveAtk",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_DiveAtk",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByWorld",
                             "GLNBFGDJBAJ": {
                                 "_x": 90.0
                             }
                         },
-                        "KJNJNKLLNCN": "LeftDown_Cannon"
+                        "attachPointName": "LeftDown_Cannon"
                     }
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveAtk",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Formathr_None_DiveAtk",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByWorld",
                             "GLNBFGDJBAJ": {
                                 "_x": 90.0
                             }
                         },
-                        "KJNJNKLLNCN": "LeftUp_Cannon"
+                        "attachPointName": "LeftUp_Cannon"
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 5.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 5.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld"
                                 },
-                                "KJNJNKLLNCN": "RightDown_Cannon"
+                                "attachPointName": "RightDown_Cannon"
                             },
                             "size": {
-                                "AEAAJCIDPED": 1.0,
-                                "KAAPLGBEDPM": 12.5,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 1.0,
+                                "y": 12.5,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -3043,30 +3043,30 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 5.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 5.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld"
                                 },
-                                "KJNJNKLLNCN": "RightUp_Cannon"
+                                "attachPointName": "RightUp_Cannon"
                             },
                             "size": {
-                                "AEAAJCIDPED": 1.0,
-                                "KAAPLGBEDPM": 12.5,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 1.0,
+                                "y": 12.5,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -3087,30 +3087,30 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 5.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 5.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld"
                                 },
-                                "KJNJNKLLNCN": "LeftDown_Cannon"
+                                "attachPointName": "LeftDown_Cannon"
                             },
                             "size": {
-                                "AEAAJCIDPED": 1.0,
-                                "KAAPLGBEDPM": 12.5,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 1.0,
+                                "y": 12.5,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -3131,30 +3131,30 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 5.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 5.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByWorld"
                                 },
-                                "KJNJNKLLNCN": "LeftUp_Cannon"
+                                "attachPointName": "LeftUp_Cannon"
                             },
                             "size": {
-                                "AEAAJCIDPED": 1.0,
-                                "KAAPLGBEDPM": 12.5,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 1.0,
+                                "y": 12.5,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -3175,25 +3175,25 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByShape",
-                        "JBKKOJLJHDK": "CircleR8",
-                        "ONPOPLLHJLE": "Enemy",
-                        "CJJABKCAIEB": 1.0
+                        "shapeName": "CircleR8",
+                        "campTargetType": "Enemy",
+                        "sizeRatio": 1.0
                     },
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_DiveAtkDamage"
+                    "modifierName": "UNIQUE_Formathr_None_DiveAtkDamage"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DiveBullet_Hit"
+                    "effectPattern": "Eff_Monster_Formathr_None_DiveBullet_Hit"
                 },
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "ReadyForLand",
+                    "boolID": "ReadyForLand",
                     "value": true
                 }
             ]
@@ -3203,108 +3203,108 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_AnimationSteer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalIdleAir"
                     ],
-                    "IMHBEGIKDKB": 99999.0,
-                    "HENDIIJFPCI": 30.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 99999.0,
+                    "angularSpeed": 30.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "ChangeState"
                     ],
-                    "IMHBEGIKDKB": 2.0,
-                    "HENDIIJFPCI": 50.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 2.0,
+                    "angularSpeed": 50.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "WakeUp",
                         "WeakEnd"
                     ],
-                    "EOOBFBGMGLD": 0.6000000238418579,
-                    "IMHBEGIKDKB": 0.800000011920929,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "startNormalizedTime": 0.6000000238418579,
+                    "endNormalizedTime": 0.800000011920929,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "ComboAtk"
                     ],
-                    "EOOBFBGMGLD": 0.6000000238418579,
-                    "IMHBEGIKDKB": 0.6499999761581421,
-                    "HENDIIJFPCI": 360.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "startNormalizedTime": 0.6000000238418579,
+                    "endNormalizedTime": 0.6499999761581421,
+                    "angularSpeed": 360.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "ComboAtkExtra1"
                     ],
-                    "IMHBEGIKDKB": 0.10000000149011612,
-                    "HENDIIJFPCI": 240.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.10000000149011612,
+                    "angularSpeed": 240.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "ComboAtkExtra2"
                     ],
-                    "IMHBEGIKDKB": 0.10000000149011612,
-                    "HENDIIJFPCI": 240.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.10000000149011612,
+                    "angularSpeed": 240.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "HangAtkBS"
                     ],
-                    "IMHBEGIKDKB": 0.75,
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.75,
+                    "angularSpeed": 150.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RangeNormalAtk"
                     ],
-                    "HENDIIJFPCI": 30.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "angularSpeed": 30.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RangeAtk1"
                     ],
-                    "EOOBFBGMGLD": 0.20000000298023224,
-                    "IMHBEGIKDKB": 0.75,
-                    "HENDIIJFPCI": 30.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "startNormalizedTime": 0.20000000298023224,
+                    "endNormalizedTime": 0.75,
+                    "angularSpeed": 30.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RangeAtk2"
                     ],
-                    "HENDIIJFPCI": 60.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "angularSpeed": 60.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 }
             ]
         }
@@ -3313,67 +3313,67 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_DieEffect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Formathr_None_DieEffect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Equal",
+                                    "logic": "Equal",
                                     "value": 201.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_Die"
+                            "effectPattern": "Eff_Monster_Formathr_None_Die"
                         },
                         {
                             "$type": "AttachEffect",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Equal",
+                                    "logic": "Equal",
                                     "value": 202.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DieAir"
+                            "effectPattern": "Eff_Monster_Formathr_None_DieAir"
                         },
                         {
                             "$type": "AttachEffect",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Equal",
+                                    "logic": "Equal",
                                     "value": 204.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DieAir"
+                            "effectPattern": "Eff_Monster_Formathr_None_DieAir"
                         },
                         {
                             "$type": "AttachEffect",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Equal",
+                                    "logic": "Equal",
                                     "value": 203.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Formathr_None_DieWeak"
+                            "effectPattern": "Eff_Monster_Formathr_None_DieWeak"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_DieEffect"
+                    "modifierName": "UNIQUE_Formathr_None_DieEffect"
                 }
             ]
         }
@@ -3382,10 +3382,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Formathr_None_Die",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Formathr_None_DieEffect"
+                    "modifierName": "UNIQUE_Formathr_None_DieEffect"
                 }
             ]
         }

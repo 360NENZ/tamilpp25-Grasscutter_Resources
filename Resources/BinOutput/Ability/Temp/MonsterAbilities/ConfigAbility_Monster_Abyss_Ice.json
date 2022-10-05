@@ -3,7 +3,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Abyss_Ice_SpecialsState",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByStateIDMixin",
                     "stateIDs": [
@@ -13,7 +13,7 @@
                     "OFLAPMGKHHE": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
+                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
                             "value": 1.0,
                             "EODMLMGMLNP": true
                         }
@@ -21,12 +21,12 @@
                     "JLLNCKPFKLD": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
+                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
                             "value": 0.0,
                             "EODMLMGMLNP": true
                         }
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "TriggerAbility",
                             "abilityName": "Abyss_Ice_ElementShield_Remove_NoBroken"
@@ -55,10 +55,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ElementShield_Remove_NoBroken",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield"
+                    "modifierName": "UNIQUE_Abyss_Ice_ElementShield"
                 },
                 {
                     "$type": "SetPoseInt",
@@ -76,7 +76,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_SacrificeAlert",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseInt",
                     "intID": "ElementState",
@@ -97,7 +97,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_WeaponElement",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
@@ -105,23 +105,23 @@
                         300,
                         301
                     ],
-                    "GAIGOBCNNEE": "WeaponEffect"
+                    "modifierName": "WeaponEffect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "WeaponEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_WeaponElement"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_WeaponElement"
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "WeaponEffect"
+                            "modifierName": "WeaponEffect"
                         }
                     ]
                 }
@@ -132,15 +132,15 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ElementShield",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "IceFloorMixin",
                     "perfCostRatio": 1.25,
                     "secondHeight": 1.25,
                     "EDDFOMIMHJO": {
                         "$type": "AttachModifier",
-                        "NPHOOPNDCAC": "Other",
-                        "GAIGOBCNNEE": "UNIQUE_IceSurface"
+                        "target": "Other",
+                        "modifierName": "UNIQUE_IceSurface"
                     }
                 },
                 {
@@ -150,44 +150,44 @@
                         301,
                         302
                     ],
-                    "GAIGOBCNNEE": "Abyss_Ice_ElementShield_RecoverHandler"
+                    "modifierName": "Abyss_Ice_ElementShield_RecoverHandler"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ElementShield_DurabilityImprove": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Abyss_Ice_ElementShield_RecoverHandler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "AMJKBHJBBGN": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield"
+                            "modifierName": "UNIQUE_Abyss_Ice_ElementShield"
                         }
                     ]
                 },
                 "UNIQUE_MonsterEliteAffix_DefaultState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "UseSkillEliteSet",
-                            "AFIOIAPCKEJ": 1
+                            "skillEliteSetID": 1
                         }
                     ]
                 },
                 "UNIQUE_IceSurface": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Ice",
                     "elementDurability": 80.0
                 },
                 "UNIQUE_Abyss_Ice_ElementShield": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Frozen",
                     "elementDurability": [
                         300.0,
@@ -196,19 +196,19 @@
                         300.0,
                         "Add"
                     ],
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ElementShieldMixin",
                             "elementType": "Frozen",
-                            "FMAPKFDKKPB": "",
-                            "KFDBBJLMOKJ": 360.0,
-                            "PDGJDMOFOAO": 1.0,
+                            "showDamageText": "",
+                            "shieldAngle": 360.0,
+                            "shieldHPRatio": 1.0,
                             "damageRatio": 0.20000000298023224,
                             "HMLKELJFCKD": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Target",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Target",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -216,28 +216,28 @@
                                             ]
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetGlobalDir",
-                                            "NPHOOPNDCAC": "Target",
-                                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT",
-                                            "NGDMCBABOJA": {
+                                            "target": "Target",
+                                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT",
+                                            "born": {
                                                 "$type": "ConfigBornBySelf",
-                                                "NHPNHKBMAEO": {
+                                                "direction": {
                                                     "$type": "ConfigDirectionByLookAtEntity"
                                                 }
                                             },
                                             "OGADOPDNBMM": false
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetGlobalDir",
-                                            "NPHOOPNDCAC": "TargetOriginOwner",
-                                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT",
-                                            "NGDMCBABOJA": {
+                                            "target": "TargetOriginOwner",
+                                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT",
+                                            "born": {
                                                 "$type": "ConfigBornBySelf",
-                                                "NHPNHKBMAEO": {
+                                                "direction": {
                                                     "$type": "ConfigDirectionByLookAtEntity"
                                                 }
                                             },
@@ -247,10 +247,10 @@
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_ElementShield_Hit_Invalid",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Abyss_Ice_ElementShield_Hit_Invalid",
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByGlobalValue",
                                             "MICIJLHMIIH": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT"
                                         }
@@ -258,15 +258,15 @@
                                 },
                                 {
                                     "$type": "SendEffectTrigger",
-                                    "MOCGJNIDDAI": "BeHitInvalid",
-                                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_ElementShield_BS"
+                                    "parameter": "BeHitInvalid",
+                                    "effectPattern": "Eff_Monster_Abyss_Ice_ElementShield_BS"
                                 }
                             ],
                             "FFOEHJLIDFC": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Target",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Target",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -274,28 +274,28 @@
                                             ]
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetGlobalDir",
-                                            "NPHOOPNDCAC": "Target",
-                                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT",
-                                            "NGDMCBABOJA": {
+                                            "target": "Target",
+                                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT",
+                                            "born": {
                                                 "$type": "ConfigBornBySelf",
-                                                "NHPNHKBMAEO": {
+                                                "direction": {
                                                     "$type": "ConfigDirectionByLookAtEntity"
                                                 }
                                             },
                                             "OGADOPDNBMM": false
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetGlobalDir",
-                                            "NPHOOPNDCAC": "TargetOriginOwner",
-                                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT",
-                                            "NGDMCBABOJA": {
+                                            "target": "TargetOriginOwner",
+                                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT",
+                                            "born": {
                                                 "$type": "ConfigBornBySelf",
-                                                "NHPNHKBMAEO": {
+                                                "direction": {
                                                     "$type": "ConfigDirectionByLookAtEntity"
                                                 }
                                             },
@@ -305,10 +305,10 @@
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_ElementShield_Hit",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Abyss_Ice_ElementShield_Hit",
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByGlobalValue",
                                             "MICIJLHMIIH": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD_HIT"
                                         }
@@ -316,8 +316,8 @@
                                 },
                                 {
                                     "$type": "SendEffectTrigger",
-                                    "MOCGJNIDDAI": "BeHit",
-                                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_ElementShield_BS"
+                                    "parameter": "BeHit",
+                                    "effectPattern": "Eff_Monster_Abyss_Ice_ElementShield_BS"
                                 }
                             ],
                             "NGOKEFIDFCJ": true,
@@ -330,32 +330,32 @@
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AttachAbilityStateResistance",
-                            "KPGAIMMIKDA": 14002
+                            "resistanceListID": 14002
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_MoveOnWaterHandler"
+                            "modifierName": "UNIQUE_Abyss_Ice_MoveOnWaterHandler"
                         },
                         {
                             "$type": "AttachAbilityStateResistance",
-                            "KPGAIMMIKDA": 14001
+                            "resistanceListID": 14001
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "ShiledBrokenTrigger"
@@ -367,36 +367,36 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "RemoveUniqueModifier",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_RETURNTOBORN_TAG_",
+                                    "key": "_RETURNTOBORN_TAG_",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_MoveOnWaterHandler"
+                            "modifierName": "UNIQUE_Abyss_Ice_MoveOnWaterHandler"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield_Effect"
+                            "modifierName": "UNIQUE_Abyss_Ice_ElementShield_Effect"
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "DamageByAttackValue",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ELITEAFFIX_DEFENCE_ENHANCE",
+                                    "key": "_ELITEAFFIX_DEFENCE_ENHANCE",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true
                                 },
@@ -408,10 +408,10 @@
                                 },
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "GMFCOCAJBDM": "GreaterOrEqual",
+                                    "target": "Caster",
+                                    "logic": "GreaterOrEqual",
                                     "value": 301.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
                             "attackInfo": {
@@ -434,11 +434,11 @@
                         },
                         {
                             "$type": "DamageByAttackValue",
-                            "NPHOOPNDCAC": "TargetOwner",
+                            "target": "TargetOwner",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ELITEAFFIX_DEFENCE_ENHANCE",
+                                    "key": "_ELITEAFFIX_DEFENCE_ENHANCE",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true
                                 },
@@ -450,10 +450,10 @@
                                 },
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "GMFCOCAJBDM": "GreaterOrEqual",
+                                    "target": "Caster",
+                                    "logic": "GreaterOrEqual",
                                     "value": 301.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
                             "attackInfo": {
@@ -475,41 +475,41 @@
                             }
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield"
+                            "modifierName": "UNIQUE_Abyss_Ice_ElementShield"
                         }
                     ]
                 },
                 "UNIQUE_Abyss_Ice_MoveOnWaterHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "EnableCharacterMoveOnWaterMixin"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValueToOverrideMap",
-                    "BPCFCANOMNH": "_MONSTERAFFIX_ELEMENTSHIELD_DURABILITYIMPROVE",
-                    "OGAHELLALBB": "ElementShield_DurabilityImprove"
+                    "globalValueKey": "_MONSTERAFFIX_ELEMENTSHIELD_DURABILITYIMPROVE",
+                    "overrideMapKey": "ElementShield_DurabilityImprove"
                 },
                 {
                     "$type": "ApplyModifier",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_TAG",
+                            "key": "_ELITEAFFIX_TAG",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_MonsterEliteAffix_DefaultState"
+                    "modifierName": "UNIQUE_MonsterEliteAffix_DefaultState"
                 },
                 {
                     "$type": "SetPoseInt",
@@ -518,10 +518,10 @@
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield"
+                    "modifierName": "UNIQUE_Abyss_Ice_ElementShield"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseInt",
                     "intID": "ElementState",
@@ -529,7 +529,7 @@
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield"
+                    "modifierName": "UNIQUE_Abyss_Ice_ElementShield"
                 }
             ]
         }
@@ -538,7 +538,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ElementShield_Effect",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
@@ -546,87 +546,87 @@
                         301,
                         302
                     ],
-                    "GAIGOBCNNEE": "Abyss_Ice_ElementShield_Effect_RecoverHandler"
+                    "modifierName": "Abyss_Ice_ElementShield_Effect_RecoverHandler"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Abyss_Ice_ElementShield_Effect_RecoverHandler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "AMJKBHJBBGN": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield_Effect"
+                            "modifierName": "UNIQUE_Abyss_Ice_ElementShield_Effect"
                         }
                     ]
                 },
                 "UNIQUE_Abyss_Ice_ElementShield_Effect": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_ElementShield"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider_ElementShield"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_ElementShield_BS"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_ElementShield_BS"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_ElementShield"
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider_ElementShield"
                             ]
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
+                            "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
                             "value": 1.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield_Effect"
+                    "modifierName": "UNIQUE_Abyss_Ice_ElementShield_Effect"
                 }
             ]
         }
@@ -635,10 +635,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ElementShield_Remove",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield"
+                    "modifierName": "UNIQUE_Abyss_Ice_ElementShield"
                 }
             ]
         }
@@ -647,41 +647,41 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_DizzyTimer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         100,
                         101
                     ],
-                    "GAIGOBCNNEE": "Abyss_Ice_DizzyTimer_Handler"
+                    "modifierName": "Abyss_Ice_DizzyTimer_Handler"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ElementShield_GapReduce": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Abyss_Ice_DizzyTimer_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_DizzyTimer"
+                            "modifierName": "UNIQUE_Abyss_Ice_DizzyTimer"
                         }
                     ],
                     "AMJKBHJBBGN": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_DizzyTimer"
+                            "modifierName": "UNIQUE_Abyss_Ice_DizzyTimer"
                         }
                     ]
                 },
                 "UNIQUE_Abyss_Ice_DizzyTimer": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": [
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": [
                         12.0,
                         "ElementShield_GapReduce",
                         "Mul",
@@ -689,18 +689,18 @@
                         "Add"
                     ],
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 3.0
                     },
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseInt",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
+                                    "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "intID": "ElementState",
@@ -709,11 +709,11 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValueToOverrideMap",
-                    "BPCFCANOMNH": "_MONSTERAFFIX_ELEMENTSHIELD_GAPREDUCE",
-                    "OGAHELLALBB": "ElementShield_GapReduce"
+                    "globalValueKey": "_MONSTERAFFIX_ELEMENTSHIELD_GAPREDUCE",
+                    "overrideMapKey": "ElementShield_GapReduce"
                 }
             ]
         }
@@ -722,7 +722,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_GatherStart",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -730,63 +730,63 @@
                         "GatherLoop",
                         "GatherSuccess_Alert"
                     ],
-                    "GAIGOBCNNEE": "GatherState"
+                    "modifierName": "GatherState"
                 },
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         201
                     ],
-                    "GAIGOBCNNEE": "GatherEndure"
+                    "modifierName": "GatherEndure"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GatherEndure": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.4000000059604645
                     }
                 },
                 "GatherState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_GATHERFAILEDSTATE_",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_GATHERFAILEDSTATE_",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 1.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseInt",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
+                                    "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "intID": "ElementState"
                         },
                         {
                             "$type": "TriggerAbility",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42201013
+                                "configID": 42201013
                             },
                             "abilityName": "Abyss_Ice_SurroundCone_Explode"
                         },
                         {
                             "$type": "TriggerAbility",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42201015
+                                "configID": 42201015
                             },
                             "abilityName": "Abyss_Ice_SurroundCone_Explode"
                         }
@@ -799,13 +799,13 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_GatherLoop",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "GatherLoop"
                     ],
-                    "GAIGOBCNNEE": "GatherLoop_Effect"
+                    "modifierName": "GatherLoop_Effect"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -813,7 +813,7 @@
                         "GatherStart",
                         "GatherLoop"
                     ],
-                    "GAIGOBCNNEE": "Gather_SurroundCone_02"
+                    "modifierName": "Gather_SurroundCone_02"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -821,64 +821,64 @@
                         "GatherStart",
                         "GatherLoop"
                     ],
-                    "GAIGOBCNNEE": "Gather_SurroundCone_04"
+                    "modifierName": "Gather_SurroundCone_04"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GatherLoop_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Gather"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Gather"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_WeaponElement"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_WeaponElement"
                         }
                     ]
                 },
                 "Gather_SurroundCone_02": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.5,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.5,
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -10.0,
-                            "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_02",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SURROUNDCONE_02",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerBullet",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_02",
+                                    "key": "_ABILITY_SURROUNDCONE_02",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42201013,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42201013,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 1.2000000476837158,
-                                    "PHDCJAHHIOG": -3.5
+                                    "x": 0.0,
+                                    "y": 1.2000000476837158,
+                                    "z": -3.5
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByLookAtEntity",
-                                    "LGPBCMEFEJB": {
-                                        "AEAAJCIDPED": 0.0,
-                                        "KAAPLGBEDPM": 90.0,
-                                        "PHDCJAHHIOG": 0.0
+                                    "angleOffset": {
+                                        "x": 0.0,
+                                        "y": 90.0,
+                                        "z": 0.0
                                     }
                                 }
                             },
@@ -889,26 +889,26 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_02",
+                                    "key": "_ABILITY_SURROUNDCONE_02",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42201013,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42201013,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 3.0,
-                                    "KAAPLGBEDPM": 1.2000000476837158,
-                                    "PHDCJAHHIOG": 1.75
+                                    "x": 3.0,
+                                    "y": 1.2000000476837158,
+                                    "z": 1.75
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByLookAtEntity",
-                                    "LGPBCMEFEJB": {
-                                        "AEAAJCIDPED": 0.0,
-                                        "KAAPLGBEDPM": 90.0,
-                                        "PHDCJAHHIOG": 0.0
+                                    "angleOffset": {
+                                        "x": 0.0,
+                                        "y": 90.0,
+                                        "z": 0.0
                                     }
                                 }
                             },
@@ -919,26 +919,26 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_02",
+                                    "key": "_ABILITY_SURROUNDCONE_02",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42201013,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42201013,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": -3.0,
-                                    "KAAPLGBEDPM": 1.2000000476837158,
-                                    "PHDCJAHHIOG": 1.75
+                                    "x": -3.0,
+                                    "y": 1.2000000476837158,
+                                    "z": 1.75
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByLookAtEntity",
-                                    "LGPBCMEFEJB": {
-                                        "AEAAJCIDPED": 0.0,
-                                        "KAAPLGBEDPM": 90.0,
-                                        "PHDCJAHHIOG": 0.0
+                                    "angleOffset": {
+                                        "x": 0.0,
+                                        "y": 90.0,
+                                        "z": 0.0
                                     }
                                 }
                             },
@@ -949,53 +949,53 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": -10.0,
-                            "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_02",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SURROUNDCONE_02",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Gather_SurroundCone_04": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.75,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.75,
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -10.0,
-                            "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_04",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SURROUNDCONE_04",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerBullet",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_04",
+                                    "key": "_ABILITY_SURROUNDCONE_04",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42201015,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42201015,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 1.2000000476837158,
-                                    "PHDCJAHHIOG": 7.0
+                                    "x": 0.0,
+                                    "y": 1.2000000476837158,
+                                    "z": 7.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByLookAtEntity",
-                                    "LGPBCMEFEJB": {
-                                        "AEAAJCIDPED": 0.0,
-                                        "KAAPLGBEDPM": 90.0,
-                                        "PHDCJAHHIOG": 0.0
+                                    "angleOffset": {
+                                        "x": 0.0,
+                                        "y": 90.0,
+                                        "z": 0.0
                                     }
                                 }
                             },
@@ -1006,26 +1006,26 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_04",
+                                    "key": "_ABILITY_SURROUNDCONE_04",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42201015,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42201015,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 6.0,
-                                    "KAAPLGBEDPM": 1.2000000476837158,
-                                    "PHDCJAHHIOG": -3.5
+                                    "x": 6.0,
+                                    "y": 1.2000000476837158,
+                                    "z": -3.5
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByLookAtEntity",
-                                    "LGPBCMEFEJB": {
-                                        "AEAAJCIDPED": 0.0,
-                                        "KAAPLGBEDPM": 90.0,
-                                        "PHDCJAHHIOG": 0.0
+                                    "angleOffset": {
+                                        "x": 0.0,
+                                        "y": 90.0,
+                                        "z": 0.0
                                     }
                                 }
                             },
@@ -1036,26 +1036,26 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_04",
+                                    "key": "_ABILITY_SURROUNDCONE_04",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NGAAOMEHOGE": 42201015,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42201015,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": -6.0,
-                                    "KAAPLGBEDPM": 1.2000000476837158,
-                                    "PHDCJAHHIOG": -3.5
+                                    "x": -6.0,
+                                    "y": 1.2000000476837158,
+                                    "z": -3.5
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByLookAtEntity",
-                                    "LGPBCMEFEJB": {
-                                        "AEAAJCIDPED": 0.0,
-                                        "KAAPLGBEDPM": 90.0,
-                                        "PHDCJAHHIOG": 0.0
+                                    "angleOffset": {
+                                        "x": 0.0,
+                                        "y": 90.0,
+                                        "z": 0.0
                                     }
                                 }
                             },
@@ -1066,10 +1066,10 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": -10.0,
-                            "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_04",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SURROUNDCONE_04",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
@@ -1080,23 +1080,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_GatherAlert",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "GatherSuccess_Alert"
                     ],
-                    "GAIGOBCNNEE": "GatherAlert"
+                    "modifierName": "GatherAlert"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GatherAlert": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Gather_Alert"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Gather_Alert"
                         }
                     ]
                 }
@@ -1107,38 +1107,38 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_GatherSuccess",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_DizzyTimer"
+                    "modifierName": "UNIQUE_Abyss_Ice_DizzyTimer"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Gather_AS_Hor",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Gather_AS_Hor",
+                    "born": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 1.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 0.0
                         }
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.75,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.75,
+                                    "z": 0.0
                                 }
                             },
-                            "ICGFCBOFFDI": 5.0
+                            "radius": 5.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1159,38 +1159,38 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Gather_AS_Ver",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Gather_AS_Ver",
+                    "born": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 5.0,
-                                    "PHDCJAHHIOG": -0.5
+                                    "x": 0.0,
+                                    "y": 5.0,
+                                    "z": -0.5
                                 }
                             },
                             "size": {
-                                "AEAAJCIDPED": 1.0,
-                                "KAAPLGBEDPM": 10.0,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 1.0,
+                                "y": 10.0,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -1212,7 +1212,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "ActCameraShake",
@@ -1232,24 +1232,24 @@
                 {
                     "$type": "AddGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_GATHERFAILEDSTATE_",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_GATHERFAILEDSTATE_",
+                    "useLimitRange": true,
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "OGFFGLGEOGF": [
+            "onKill": [
                 {
                     "$type": "DoWatcherSystemAction",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Self",
-                            "HJJEAOMEOFI": "_GATHERFAILEDSTATE_",
+                            "target": "Self",
+                            "key": "_GATHERFAILEDSTATE_",
                             "value": 1.0
                         }
                     ],
-                    "GPGMPHIIAMD": 82006,
+                    "watcherId": 82006,
                     "LNGKALMLMGN": true
                 }
             ]
@@ -1259,47 +1259,47 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_BlinkEffect",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Blink"
                     ],
-                    "GAIGOBCNNEE": "Blink_State"
+                    "modifierName": "Blink_State"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blink_State": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Blink_Shield"
+                            "modifierName": "UNIQUE_Blink_Shield"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Blink_Actions"
+                            "modifierName": "UNIQUE_Blink_Actions"
                         }
                     ]
                 },
                 "UNIQUE_Blink_Shield": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield_Effect"
+                            "modifierName": "UNIQUE_Abyss_Ice_ElementShield_Effect"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAbility",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
+                                    "key": "_ABILITY_ABYSS_ICE_ELEMENTSHIELD",
                                     "value": 1.0
                                 }
                             ],
@@ -1308,26 +1308,26 @@
                     ]
                 },
                 "UNIQUE_Blink_Actions": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ELITEAFFIX_AGILITY_ENHANCE",
+                                    "key": "_ELITEAFFIX_AGILITY_ENHANCE",
                                     "value": 1.0
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Blink_AS",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Blink_AS",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.6499999761581421,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.6499999761581421,
+                                    "z": 0.0
                                 }
                             }
                         },
@@ -1336,7 +1336,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ELITEAFFIX_AGILITY_ENHANCE",
+                                    "key": "_ELITEAFFIX_AGILITY_ENHANCE",
                                     "value": 1.0
                                 }
                             ],
@@ -1344,11 +1344,11 @@
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Blink_Invincible"
+                            "modifierName": "Blink_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Blink_DenyLockOn"
+                            "modifierName": "Blink_DenyLockOn"
                         },
                         {
                             "$type": "TriggerSetVisible"
@@ -1365,33 +1365,33 @@
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "TriggerSetVisible",
@@ -1410,32 +1410,32 @@
                     ]
                 },
                 "Blink_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "Blink_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Blink_Shield"
+                    "modifierName": "UNIQUE_Blink_Shield"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Blink_Actions"
+                    "modifierName": "UNIQUE_Blink_Actions"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Blink_BS"
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Blink_BS"
                 },
                 {
                     "$type": "ClearLockTarget",
-                    "NPHOOPNDCAC": "CurLocalAvatar"
+                    "target": "CurLocalAvatar"
                 }
             ]
         }
@@ -1444,18 +1444,18 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_BlinkPoint",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TryFindBlinkPoint",
-                    "NPHOOPNDCAC": "SelfAttackTarget",
+                    "target": "SelfAttackTarget",
                     "DGICDMAKHOJ": 30.0,
                     "JLCCGHLNHOI": 5.0,
                     "GLALMCMAFJF": 7.0
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Blink",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Blink",
+                    "born": {
                         "$type": "ConfigBornByTeleportToPoint"
                     }
                 }
@@ -1466,7 +1466,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_DoBlink",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "DoBlink"
                 }
@@ -1477,22 +1477,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_DoBlink_Visible",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Blink_AS",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Blink_AS",
+                    "born": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.6499999761581421,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.6499999761581421,
+                            "z": 0.0
                         }
                     }
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Blink_Actions"
+                    "modifierName": "UNIQUE_Blink_Actions"
                 }
             ]
         }
@@ -1501,23 +1501,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_DoBlink_Damage",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
                             "secondHeight": 2.0,
-                            "ICGFCBOFFDI": 2.5
+                            "radius": 2.5
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1538,7 +1538,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -1547,10 +1547,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_Blink_AS",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Blink_Shield"
+                    "modifierName": "UNIQUE_Blink_Shield"
                 }
             ]
         }
@@ -1559,20 +1559,20 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ForceDefend",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         101
                     ],
-                    "GAIGOBCNNEE": "ForceDefend"
+                    "modifierName": "ForceDefend"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ForceDefend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -1592,7 +1592,7 @@
                                 },
                                 {
                                     "$type": "ClearLockTarget",
-                                    "NPHOOPNDCAC": "CurLocalAvatar"
+                                    "target": "CurLocalAvatar"
                                 }
                             ]
                         }
@@ -1605,38 +1605,38 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ForceBlink",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "ForceBlink"
                     ],
-                    "GAIGOBCNNEE": "ForceBlink_State"
+                    "modifierName": "ForceBlink_State"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ForceBlink_State": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_ForceBlink_Actions"
+                            "modifierName": "UNIQUE_ForceBlink_Actions"
                         }
                     ]
                 },
                 "UNIQUE_ForceBlink_Actions": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "ForceBlink_Invincible"
+                            "modifierName": "ForceBlink_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "ForceBlink_DenyLockOn"
+                            "modifierName": "ForceBlink_DenyLockOn"
                         },
                         {
                             "$type": "TriggerSetVisible"
@@ -1653,33 +1653,33 @@
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "TriggerSetVisible",
@@ -1698,35 +1698,35 @@
                     ]
                 },
                 "ForceBlink_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "ForceBlink_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_DizzyTimer"
+                    "modifierName": "UNIQUE_Abyss_Ice_DizzyTimer"
                 },
                 {
                     "$type": "TryFindBlinkPoint",
-                    "NPHOOPNDCAC": "SelfAttackTarget",
+                    "target": "SelfAttackTarget",
                     "DGICDMAKHOJ": 30.0,
                     "JLCCGHLNHOI": 9.0,
                     "GLALMCMAFJF": 12.0
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ForceBlink_Actions"
+                    "modifierName": "UNIQUE_ForceBlink_Actions"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Blink_BS"
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Blink_BS"
                 }
             ]
         }
@@ -1735,16 +1735,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ForceBlink_DoBlink",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "DoBlink"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Blink_AS",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Blink_AS",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "RootNode"
+                        "attachPointName": "RootNode"
                     }
                 }
             ]
@@ -1754,10 +1754,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ForceBlink_Visible",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ForceBlink_Actions"
+                    "modifierName": "UNIQUE_ForceBlink_Actions"
                 }
             ]
         }
@@ -1766,7 +1766,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ForceBlink_AS",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseInt",
                     "intID": "ElementState",
@@ -1779,62 +1779,62 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ReturnToBorn",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "ReturnToBorn"
                     ],
-                    "GAIGOBCNNEE": "ReturnToBorn_Disappear"
+                    "modifierName": "ReturnToBorn_Disappear"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ReturnToBorn_Disappear": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_RETURNTOBORN_TAG_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_RETURNTOBORN_TAG_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "UNIQUE_ReturnToBorn_Shield"
+                            "modifierName": "UNIQUE_ReturnToBorn_Shield"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "UNIQUE_ReturnToBorn_Actions"
+                            "modifierName": "UNIQUE_ReturnToBorn_Actions"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "UNIQUE_ReturnToBorn_Dizzy"
+                            "modifierName": "UNIQUE_ReturnToBorn_Dizzy"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Blink_BS"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Blink_BS"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_RETURNTOBORN_TAG_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_RETURNTOBORN_TAG_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_ReturnToBorn_Shield": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_ElementShield"
+                            "modifierName": "UNIQUE_Abyss_Ice_ElementShield"
                         },
                         {
                             "$type": "ResetAnimatorTrigger",
@@ -1842,14 +1842,14 @@
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "ReturnToBorn_Invincible"
+                            "modifierName": "ReturnToBorn_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "ReturnToBorn_DenyLockOn"
+                            "modifierName": "ReturnToBorn_DenyLockOn"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseInt",
                             "intID": "ElementState",
@@ -1862,13 +1862,13 @@
                     ]
                 },
                 "UNIQUE_ReturnToBorn_Dizzy": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Abyss_Ice_DizzyTimer"
+                            "modifierName": "UNIQUE_Abyss_Ice_DizzyTimer"
                         },
                         {
                             "$type": "SetPoseInt",
@@ -1886,10 +1886,10 @@
                     ]
                 },
                 "UNIQUE_ReturnToBorn_Actions": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerSetVisible"
                         },
@@ -1905,7 +1905,7 @@
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox",
                                 "HitBox_ElementShield"
@@ -1913,13 +1913,13 @@
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_ElementShield"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerSetVisible",
                             "ACDFJMCPFGH": true
@@ -1936,39 +1936,39 @@
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 },
                 "ReturnToBorn_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "ReturnToBorn_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_RETURNTOBORN_TAG_",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_RETURNTOBORN_TAG_",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1977,22 +1977,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ReturnToBorn_AS",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Blink_AS",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Blink_AS",
+                    "born": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.6499999761581421,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.6499999761581421,
+                            "z": 0.0
                         }
                     }
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ReturnToBorn_Dizzy"
+                    "modifierName": "UNIQUE_ReturnToBorn_Dizzy"
                 }
             ]
         }
@@ -2001,10 +2001,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ReturnToBorn_Visible",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ReturnToBorn_Actions"
+                    "modifierName": "UNIQUE_ReturnToBorn_Actions"
                 }
             ]
         }
@@ -2013,10 +2013,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_ReturnToBorn_ElementShield",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ReturnToBorn_Shield"
+                    "modifierName": "UNIQUE_ReturnToBorn_Shield"
                 }
             ]
         }
@@ -2025,47 +2025,47 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_IceArrow",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "NormalAtk"
                     ],
-                    "GAIGOBCNNEE": "Normal_WeaponEffect"
+                    "modifierName": "Normal_WeaponEffect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Normal_WeaponEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Normal_WeaponElement"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Normal_WeaponElement"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_WeaponElement"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_WeaponElement"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Normal_WeaponEffect"
+                    "modifierName": "Normal_WeaponEffect"
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42201009,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42201009,
+                    "born": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 1.5,
-                            "PHDCJAHHIOG": 1.0
+                            "x": 0.0,
+                            "y": 1.5,
+                            "z": 1.0
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget"
                         }
                     }
@@ -2077,52 +2077,52 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_IceArrow_Explode",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "IceArrow_Loop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Frozen",
                     "elementDurability": 50.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Cone_Small"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Cone_Small"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "IceArrow_Loop"
+                    "modifierName": "IceArrow_Loop"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "IceArrow_Loop"
+                    "modifierName": "IceArrow_Loop"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Cone_AS_Small",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Cone_AS_Small",
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint"
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 0.75
+                            "radius": 0.75
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2150,7 +2150,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -2159,123 +2159,123 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_IceCone",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "SpecialAtk"
                     ],
-                    "GAIGOBCNNEE": "Special_WeaponEffect"
+                    "modifierName": "Special_WeaponEffect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Special_WeaponEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Special_WeaponElement"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Special_WeaponElement"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_WeaponElement"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_WeaponElement"
                         }
                     ]
                 },
                 "IceCone_01": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.25,
+                    "modifierName": "",
+                    "duration": 1.25,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "born": {
                                 "$type": "ConfigBornByPredicatePoint",
-                                "JBPCKOKLHEB": true,
+                                "onGround": true,
                                 "BIOOFAHEGLA": 0.5
                             },
-                            "CABLIPAKCGB": 42201011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42201011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "IceCone_02"
+                            "modifierName": "IceCone_02"
                         }
                     ]
                 },
                 "IceCone_02": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.25,
+                    "modifierName": "",
+                    "duration": 1.25,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "born": {
                                 "$type": "ConfigBornByPredicatePoint",
-                                "JBPCKOKLHEB": true,
+                                "onGround": true,
                                 "BIOOFAHEGLA": 0.5
                             },
-                            "CABLIPAKCGB": 42201011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42201011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "IceCone_03"
+                            "modifierName": "IceCone_03"
                         }
                     ]
                 },
                 "IceCone_03": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.25,
+                    "modifierName": "",
+                    "duration": 1.25,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "born": {
                                 "$type": "ConfigBornByPredicatePoint",
-                                "JBPCKOKLHEB": true,
+                                "onGround": true,
                                 "BIOOFAHEGLA": 0.5
                             },
-                            "CABLIPAKCGB": 42201011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42201011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Special_WeaponEffect"
+                    "modifierName": "Special_WeaponEffect"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "IceCone_01"
+                    "modifierName": "IceCone_01"
                 },
                 {
                     "$type": "SetAnimatorInt",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_AGILITY_ENHANCE",
+                            "key": "_ELITEAFFIX_AGILITY_ENHANCE",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "key": "_ELITEAFFIX_ATTACK_ENHANCE",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         }
                     ],
                     "intID": "RandomFlag",
@@ -2291,15 +2291,15 @@
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_AGILITY_ENHANCE",
+                            "key": "_ELITEAFFIX_AGILITY_ENHANCE",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "key": "_ELITEAFFIX_ATTACK_ENHANCE",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         }
                     ],
                     "intID": "RandomFlag",
@@ -2312,25 +2312,25 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_Cone_Area",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42201010,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42201010,
+                    "born": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 4.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 4.0,
+                            "z": 0.0
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByLookAtEntity"
                         }
                     }
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Cone_Alert"
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Cone_Alert"
                 }
             ]
         }
@@ -2339,46 +2339,46 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_IceCone_Explode",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "IceCone_Loop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Frozen",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Cone_BS"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Cone_BS"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "IceCone_Loop"
+                    "modifierName": "IceCone_Loop"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "IceCone_Loop"
+                    "modifierName": "IceCone_Loop"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Cone_AS_Large",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Cone_AS_Large",
+                    "born": {
                         "$type": "ConfigBornBySelfOwner",
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     }
                 },
                 {
                     "$type": "TriggerAbility",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "abilityName": "Abyss_Ice_Cone_Damage"
                 },
                 {
@@ -2386,18 +2386,18 @@
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "OriginOwner",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "target": "OriginOwner",
+                            "key": "_ELITEAFFIX_ATTACK_ENHANCE",
                             "value": 1.0
                         }
                     ],
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornBySelfOwner",
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     },
-                    "CABLIPAKCGB": 42201017,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Enemy"
+                    "gadgetID": 42201017,
+                    "campID": 4001,
+                    "campTargetType": "Enemy"
                 }
             ]
         }
@@ -2406,23 +2406,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_Cone_Damage",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": -1.5,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": -1.5,
+                                    "z": 0.0
                                 }
                             },
                             "secondHeight": 4.0,
-                            "ICGFCBOFFDI": 1.5
+                            "radius": 1.5
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2453,7 +2453,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -2462,34 +2462,34 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_EliteAffix_IceFog",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Ice_Fog": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 20.0,
+                    "modifierName": "",
+                    "duration": 20.0,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.5,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.5,
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Ice_Fog"
+                            "effectPattern": "Eff_Monster_Slime_Ice_Fog"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 3.0
+                                    "radius": 3.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -2510,15 +2510,15 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Ice_Fog"
+                    "modifierName": "Ice_Fog"
                 }
             ]
         }
@@ -2527,36 +2527,36 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_SurroundCone_02",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "SurroundCone_Loop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Frozen",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Cone_Gather",
-                            "LALONNAHJDN": 0.7200000286102295
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Cone_Gather",
+                            "scale": 0.7200000286102295
                         },
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
+                            "target": "Owner",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_02",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SURROUNDCONE_02",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
+                            "target": "Owner",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_02",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SURROUNDCONE_02",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "TriggerAbility",
@@ -2565,10 +2565,10 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "SurroundCone_Loop"
+                    "modifierName": "SurroundCone_Loop"
                 }
             ]
         }
@@ -2577,35 +2577,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_SurroundCone_04",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "SurroundCone_Loop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Frozen",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Cone_Gather"
+                            "effectPattern": "Eff_Monster_Abyss_Ice_Cone_Gather"
                         },
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
+                            "target": "Owner",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_04",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SURROUNDCONE_04",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
+                            "target": "Owner",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ABILITY_SURROUNDCONE_04",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SURROUNDCONE_04",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "TriggerAbility",
@@ -2614,10 +2614,10 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "SurroundCone_Loop"
+                    "modifierName": "SurroundCone_Loop"
                 }
             ]
         }
@@ -2626,17 +2626,17 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_SurroundCone_Collide",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 1.5
+                            "radius": 1.5
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2668,7 +2668,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -2677,29 +2677,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_SurroundCone_Explode",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "KillSelf"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Abyss_Ice_Cone_AS_Large"
+                    "effectPattern": "Eff_Monster_Abyss_Ice_Cone_AS_Large"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
-                            "ICGFCBOFFDI": 1.5
+                            "radius": 1.5
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2727,7 +2727,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -2736,33 +2736,33 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Abyss_Ice_AnimationSteer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalAtk"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "SpecialAtk"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RandomAction"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ]
         }

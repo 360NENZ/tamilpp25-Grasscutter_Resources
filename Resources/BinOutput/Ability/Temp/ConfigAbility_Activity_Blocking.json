@@ -3,7 +3,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_Avatar_Blocking",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ButtonHoldChargeMixin",
                     "overtime": 20320,
@@ -12,11 +12,11 @@
                     "CBGHBGNKMPO": [
                         {
                             "$type": "SetSelfAttackTarget",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR15",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR15",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
@@ -39,7 +39,7 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "PRIVATE_Blocking_IsHold",
+                            "boolID": "PRIVATE_Blocking_IsHold",
                             "value": true
                         }
                     ],
@@ -50,7 +50,7 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "PRIVATE_Blocking_IsHold"
+                            "boolID": "PRIVATE_Blocking_IsHold"
                         }
                     ],
                     "PKNMLLHNOLA": [
@@ -60,7 +60,7 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "PRIVATE_Blocking_IsHold"
+                            "boolID": "PRIVATE_Blocking_IsHold"
                         }
                     ],
                     "KBDIHBMGNBC": [
@@ -76,7 +76,7 @@
                         "Blocking_Loop",
                         "Blocking_Hit"
                     ],
-                    "GAIGOBCNNEE": "Avatar_Blocking_Timer"
+                    "modifierName": "Avatar_Blocking_Timer"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -85,7 +85,7 @@
                         "Blocking_Loop",
                         "Blocking_Hit"
                     ],
-                    "GAIGOBCNNEE": "Avatar_Blocking_BackUp_ShortDis"
+                    "modifierName": "Avatar_Blocking_BackUp_ShortDis"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -94,7 +94,7 @@
                         "Blocking_Loop",
                         "Blocking_Hit"
                     ],
-                    "GAIGOBCNNEE": "Avatar_Blocking_BackUp_LongDis"
+                    "modifierName": "Avatar_Blocking_BackUp_LongDis"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -103,13 +103,13 @@
                         "Blocking_Loop",
                         "Blocking_Hit"
                     ],
-                    "GAIGOBCNNEE": "Avatar_Blocking_Defense"
+                    "modifierName": "Avatar_Blocking_Defense"
                 },
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "Blocking_Back",
-                    "GAIGOBCNNEE": "Avatar_Blocking_BackUp_Damage",
-                    "MMHONEIBHNP": 0.027000000700354576
+                    "stateID": "Blocking_Back",
+                    "modifierName": "Avatar_Blocking_BackUp_Damage",
+                    "normalizeEnd": 0.027000000700354576
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -117,56 +117,56 @@
                         "Blocking_Loop",
                         "Blocking_Hit"
                     ],
-                    "GAIGOBCNNEE": "Avatar_Blocking_EnterCD"
+                    "modifierName": "Avatar_Blocking_EnterCD"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Blocking_Bounce"
                     ],
-                    "GAIGOBCNNEE": "Avatar_Blocking_Bounce"
+                    "modifierName": "Avatar_Blocking_Bounce"
                 },
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "Blocking_Bounce",
-                    "GAIGOBCNNEE": "Avatar_Blocking_Invicible",
-                    "MMHONEIBHNP": 0.21799999475479126
+                    "stateID": "Blocking_Bounce",
+                    "modifierName": "Avatar_Blocking_Invicible",
+                    "normalizeEnd": 0.21799999475479126
                 },
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "Blocking_Back",
-                    "GAIGOBCNNEE": "Avatar_Blocking_Invicible",
-                    "MMHONEIBHNP": 0.21799999475479126
+                    "stateID": "Blocking_Back",
+                    "modifierName": "Avatar_Blocking_Invicible",
+                    "normalizeEnd": 0.21799999475479126
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "LevelEntity_SystemValue": 0.0,
                 "Blocking_Back_Value": 22.5,
                 "Blocking_Attack_Up": 4000.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Avatar_Blocking_AddSkillInfo": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddAvatarSkillInfo",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "overtime": 20320
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveAvatarSkillInfo",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "overtime": 20320
                         }
                     ]
                 },
                 "Avatar_Blocking_ChangePlayMode": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "SwitchSkillIDMixin",
                             "priority": "Playmode",
@@ -174,32 +174,32 @@
                             "overtime": 20320
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "GAIGOBCNNEE": "Avatar_Blocking_ChangePlayMode_OnTeam"
+                            "target": "Team",
+                            "modifierName": "Avatar_Blocking_ChangePlayMode_OnTeam"
                         }
                     ]
                 },
                 "Avatar_Blocking_ChangePlayMode_OnTeam": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachActionToModifierMixin",
-                            "KCICDEJLIJD": [
+                            "onAdded": [
                                 {
                                     "$type": "ChangePlayMode",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "POKMJEIDNJF": true,
                                     "KDNEFEJINAA": "Blocking"
                                 }
                             ],
-                            "ILBIENDPCBG": [
+                            "onRemoved": [
                                 {
                                     "$type": "ChangePlayMode",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "CFIPAGENGPE": true,
                                     "POKMJEIDNJF": true
                                 }
@@ -208,73 +208,73 @@
                     ]
                 },
                 "Avatar_Blocking_Timer": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.10000000149011612,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.10000000149011612,
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Blocking_Timer",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Blocking_Timer",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Blocking_Timer",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 10.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Blocking_Timer",
+                            "useLimitRange": true,
+                            "maxValue": 10.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Avatar_Blocking_BackUp_ShortDis": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Monster_BladeMaster_BeBlockAttack"
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "HJJEAOMEOFI": "_ABILITY_Blocking_Timer",
+                                    "target": "Caster",
+                                    "key": "_ABILITY_Blocking_Timer",
                                     "value": 3.0,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalValue",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_Blocking_IsPerfect",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_Blocking_IsPerfect",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "SetSelfAttackTarget",
-                                    "NPHOOPNDCAC": "Target",
+                                    "target": "Target",
                                     "EHOIBKNOCPH": true
                                 },
                                 {
                                     "$type": "SetAnimatorTrigger",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "triggerID": "DoSkill"
                                 },
                                 {
                                     "$type": "SetAnimatorInt",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "intID": "SkillID",
                                     "value": 82.0
                                 }
@@ -282,14 +282,14 @@
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByNot",
                                     "predicates": [
                                         {
                                             "$type": "ByAttackTags",
-                                            "NMJGDKCDFOJ": [
+                                            "attackTags": [
                                                 "Monster_BladeMaster_BeBlockAttack"
                                             ]
                                         }
@@ -300,7 +300,7 @@
                                     "predicates": [
                                         {
                                             "$type": "ByAttackTags",
-                                            "NMJGDKCDFOJ": [
+                                            "attackTags": [
                                                 "BladeWind_CanBeBlockBack"
                                             ]
                                         }
@@ -308,34 +308,34 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "HJJEAOMEOFI": "_ABILITY_Blocking_Timer",
+                                    "target": "Caster",
+                                    "key": "_ABILITY_Blocking_Timer",
                                     "value": 3.0,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalValue",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_Blocking_IsPerfect",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_Blocking_IsPerfect",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "SetSelfAttackTarget",
-                                    "NPHOOPNDCAC": "Target",
+                                    "target": "Target",
                                     "EHOIBKNOCPH": true
                                 },
                                 {
                                     "$type": "SetAnimatorTrigger",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "triggerID": "DoSkill"
                                 },
                                 {
                                     "$type": "SetAnimatorInt",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "intID": "SkillID",
                                     "value": 81.0
                                 }
@@ -343,14 +343,14 @@
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByNot",
                                     "predicates": [
                                         {
                                             "$type": "ByAttackTags",
-                                            "NMJGDKCDFOJ": [
+                                            "attackTags": [
                                                 "Monster_BladeMaster_BeBlockAttack"
                                             ]
                                         }
@@ -358,95 +358,95 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "HJJEAOMEOFI": "_ABILITY_Blocking_Timer",
+                                    "target": "Caster",
+                                    "key": "_ABILITY_Blocking_Timer",
                                     "value": 3.0,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalValue",
-                                    "NPHOOPNDCAC": "Target",
+                                    "target": "Target",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_PARRY_HIT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_PARRY_HIT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "SetGlobalValue",
-                                    "NPHOOPNDCAC": "TargetOriginOwner",
+                                    "target": "TargetOriginOwner",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_PARRY_HIT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_PARRY_HIT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ]
                 },
                 "Avatar_Blocking_BackUp_LongDis": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "BladeWind_CanBeBlockBack"
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "HJJEAOMEOFI": "_ABILITY_Blocking_Timer",
+                                    "target": "Caster",
+                                    "key": "_ABILITY_Blocking_Timer",
                                     "value": 3.0,
-                                    "ONPJJFKDCED": "LessAndEqual"
+                                    "compareType": "LessAndEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalValue",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_Blocking_IsPerfect",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_Blocking_IsPerfect",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "SetAnimatorTrigger",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "triggerID": "DoSkill"
                                 },
                                 {
                                     "$type": "SetAnimatorInt",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "intID": "SkillID",
                                     "value": 81.0
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Avatar_Blocking_Hit_Big",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Avatar_Blocking_Hit_Big",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "KJNJNKLLNCN": "WeaponL",
+                                        "attachPointName": "WeaponL",
                                         "MMFHENHCBGB": "Caster"
                                     }
                                 },
                                 {
                                     "$type": "KillSelf",
-                                    "NPHOOPNDCAC": "Target"
+                                    "target": "Target"
                                 },
                                 {
                                     "$type": "SetSelfAttackTarget",
-                                    "GILFKOBKGLI": {
+                                    "otherTargets": {
                                         "$type": "SelectTargetsByShape",
-                                        "JBKKOJLJHDK": "CircleR30",
-                                        "ONPOPLLHJLE": "Enemy",
-                                        "CJJABKCAIEB": 1.0
+                                        "shapeName": "CircleR30",
+                                        "campTargetType": "Enemy",
+                                        "sizeRatio": 1.0
                                     },
                                     "predicates": [
                                         {
@@ -457,9 +457,9 @@
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                            "key": "_ANIMAL_ENTITY_TYPE",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
                                     "EHOIBKNOCPH": true
@@ -469,25 +469,25 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "HJJEAOMEOFI": "_KAIRAGI_BLADEMASTER_BLADEAIR_TYPE",
+                                            "target": "Caster",
+                                            "key": "_KAIRAGI_BLADEMASTER_BLADEAIR_TYPE",
                                             "value": 1.0
                                         }
                                     ],
-                                    "NGAAOMEHOGE": 420000016,
-                                    "NGDMCBABOJA": {
+                                    "bulletID": 420000016,
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 1.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 1.0,
+                                            "z": 0.0
                                         },
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByDefault",
                                             "MPGDHGJDMHO": {
-                                                "AEAAJCIDPED": 0.0,
-                                                "KAAPLGBEDPM": 0.0,
-                                                "PHDCJAHHIOG": 45.0
+                                                "x": 0.0,
+                                                "y": 0.0,
+                                                "z": 45.0
                                             }
                                         }
                                     }
@@ -497,25 +497,25 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "HJJEAOMEOFI": "_KAIRAGI_BLADEMASTER_BLADEAIR_TYPE",
+                                            "target": "Caster",
+                                            "key": "_KAIRAGI_BLADEMASTER_BLADEAIR_TYPE",
                                             "value": 2.0
                                         }
                                     ],
-                                    "NGAAOMEHOGE": 420000016,
-                                    "NGDMCBABOJA": {
+                                    "bulletID": 420000016,
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 1.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 1.0,
+                                            "z": 0.0
                                         },
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByDefault",
                                             "MPGDHGJDMHO": {
-                                                "AEAAJCIDPED": 0.0,
-                                                "KAAPLGBEDPM": 0.0,
-                                                "PHDCJAHHIOG": 55.0
+                                                "x": 0.0,
+                                                "y": 0.0,
+                                                "z": 55.0
                                             }
                                         }
                                     }
@@ -525,25 +525,25 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "HJJEAOMEOFI": "_KAIRAGI_BLADEMASTER_BLADEAIR_TYPE",
+                                            "target": "Caster",
+                                            "key": "_KAIRAGI_BLADEMASTER_BLADEAIR_TYPE",
                                             "value": 3.0
                                         }
                                     ],
-                                    "NGAAOMEHOGE": 420000016,
-                                    "NGDMCBABOJA": {
+                                    "bulletID": 420000016,
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 1.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 1.0,
+                                            "z": 0.0
                                         },
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByDefault",
                                             "MPGDHGJDMHO": {
-                                                "AEAAJCIDPED": 0.0,
-                                                "KAAPLGBEDPM": 0.0,
-                                                "PHDCJAHHIOG": -55.0
+                                                "x": 0.0,
+                                                "y": 0.0,
+                                                "z": -55.0
                                             }
                                         }
                                     }
@@ -553,25 +553,25 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "HJJEAOMEOFI": "_KAIRAGI_BLADEMASTER_BLADEAIR_TYPE",
+                                            "target": "Caster",
+                                            "key": "_KAIRAGI_BLADEMASTER_BLADEAIR_TYPE",
                                             "value": 4.0
                                         }
                                     ],
-                                    "NGAAOMEHOGE": 420000016,
-                                    "NGDMCBABOJA": {
+                                    "bulletID": 420000016,
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 1.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 1.0,
+                                            "z": 0.0
                                         },
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByDefault",
                                             "MPGDHGJDMHO": {
-                                                "AEAAJCIDPED": 0.0,
-                                                "KAAPLGBEDPM": 0.0,
-                                                "PHDCJAHHIOG": -90.0
+                                                "x": 0.0,
+                                                "y": 0.0,
+                                                "z": -90.0
                                             }
                                         }
                                     }
@@ -581,9 +581,9 @@
                     ]
                 },
                 "Avatar_Blocking_BackUp_Damage": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ActCameraShake",
                             "cameraShake": {
@@ -602,28 +602,28 @@
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Avatar_Blocking_Weather"
+                            "modifierName": "Avatar_Blocking_Weather"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Avatar_Blocking_WitchTime"
+                            "modifierName": "Avatar_Blocking_WitchTime"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Avatar_Blocking_WitchTime"
+                            "modifierName": "Avatar_Blocking_WitchTime"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 4.5
+                                    "radius": 4.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "Avatar_Blocking",
@@ -661,31 +661,31 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Avatar_Blocking_Bounce_AddLevel"
+                            "modifierName": "Avatar_Blocking_Bounce_AddLevel"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Avatar_Blocking_Bounce_AddLevel"
+                            "modifierName": "Avatar_Blocking_Bounce_AddLevel"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Avatar_Blocking_Bounce_AddLevel"
+                            "modifierName": "Avatar_Blocking_Bounce_AddLevel"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Blocking_Strike"
+                            "effectPattern": "Eff_Avatar_Blocking_Strike"
                         }
                     ]
                 },
                 "Avatar_Blocking_Weather": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "TriggerWeatherMixin",
                             "type": "Skill",
@@ -696,10 +696,10 @@
                     ]
                 },
                 "Avatar_Blocking_WitchTime": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.05000000074505806,
+                    "modifierName": "",
+                    "duration": 0.05000000074505806,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "TriggerWitchTimeMixin",
                             "LPAOJPNIICF": 0.20000000298023224,
@@ -711,65 +711,65 @@
                     ]
                 },
                 "Avatar_Blocking_EnterCD": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AvatarSkillStart",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Blocking_IsPerfect",
+                                    "key": "_ABILITY_Blocking_IsPerfect",
                                     "value": 0.0
                                 }
                             ],
                             "overtime": 20320,
-                            "AFPAPIFKIHK": 1.0,
+                            "cdRatio": 1.0,
                             "JFIJFCKLFCF": 1.0
                         }
                     ]
                 },
                 "Avatar_Blocking_Bounce": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Avatar_Blocking_Bounce_AddLevel"
+                            "modifierName": "Avatar_Blocking_Bounce_AddLevel"
                         }
                     ]
                 },
                 "Avatar_Blocking_Defense": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_Blocking_Timer",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_Blocking_Timer",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 3.5,
                                 100.0
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Blocking_NoDamage",
                                 "Blocking_LessDamage"
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Blocking_IsPerfect",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Blocking_IsPerfect",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Blocking_Ready"
+                            "effectPattern": "Eff_Avatar_Blocking_Ready"
                         },
                         {
                             "$type": "AvatarCameraParam",
@@ -780,7 +780,7 @@
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AvatarCameraParam",
                             "HBPCGNIGHPH": {
@@ -792,31 +792,31 @@
                     ]
                 },
                 "Blocking_NoDamage": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "GlobalMainShieldMixin",
-                            "ONOFEELAHJK": "Avatar_Rock",
-                            "KFDBBJLMOKJ": 360.0,
-                            "PDGJDMOFOAO": 1000000.0,
+                            "shieldType": "Avatar_Rock",
+                            "shieldAngle": 360.0,
+                            "shieldHPRatio": 1000000.0,
                             "IDGEOBABPIE": 1000000.0,
-                            "HBNBIBFHBKM": "",
-                            "FMAPKFDKKPB": "INFO_ELITE_DEFENCE",
+                            "costShieldRatioName": "",
+                            "showDamageText": "INFO_ELITE_DEFENCE",
                             "MPBEMHAECKD": 1000000.0,
-                            "JBHFPDMBFHN": "",
+                            "effectPattern": "",
                             "NAMCOFPMABJ": "",
                             "KEACEPECOPI": 1000000.0
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_SubHurtDelta": 1.0
                     },
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -826,13 +826,13 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Avatar_Blocking_Hit_Big",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Avatar_Blocking_Hit_Big",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "KJNJNKLLNCN": "WeaponL",
+                                        "attachPointName": "WeaponL",
                                         "MMFHENHCBGB": "Caster"
                                     }
                                 }
@@ -841,16 +841,16 @@
                     ]
                 },
                 "Blocking_LessDamage": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_SubHurtDelta": 0.800000011920929
                     },
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -860,24 +860,24 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Avatar_Blocking_Hit_Small",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Avatar_Blocking_Hit_Small",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "KJNJNKLLNCN": "WeaponL",
+                                        "attachPointName": "WeaponL",
                                         "MMFHENHCBGB": "Caster"
                                     }
                                 },
                                 {
                                     "$type": "SetAnimatorTrigger",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "triggerID": "DoSkill"
                                 },
                                 {
                                     "$type": "SetAnimatorInt",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "intID": "SkillID",
                                     "value": 84.0
                                 }
@@ -886,52 +886,52 @@
                     ]
                 },
                 "Avatar_Blocking_Invicible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachAbilityStateResistance",
-                            "KPGAIMMIKDA": 11002
+                            "resistanceListID": 11002
                         }
                     ]
                 },
                 "Avatar_Blocking_Bounce_AddLevel": {
-                    "FGJPBKGPNJJ": "MultipleRefreshNoRemove",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": 3.0
+                    "stacking": "MultipleRefreshNoRemove",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": 3.0
                     },
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Blcoking_Buff_Level",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 3.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Blcoking_Buff_Level",
+                            "useLimitRange": true,
+                            "maxValue": 3.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Avatar_Blocking_Buff_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_Blcoking_Buff_Level",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_Blcoking_Buff_Level",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5,
                                 2.5,
                                 3.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Blank",
                                 "Buff_1",
                                 "Buff_2",
@@ -939,11 +939,11 @@
                             ]
                         }
                     ],
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -952,7 +952,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -964,41 +964,41 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_Blcoking_Buff_Level",
+                                            "key": "_ABILITY_Blcoking_Buff_Level",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "JBHFPDMBFHN": "Eff_Avatar_Blocking_AttackUp"
+                                    "effectPattern": "Eff_Avatar_Blocking_AttackUp"
                                 },
                                 {
                                     "$type": "SetGlobalValue",
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_ABILITY_Blcoking_Buff_Level",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_Blcoking_Buff_Level",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Buff_1": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageCountMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -1014,20 +1014,20 @@
                             "MBAPLKMEFEN": 1.0
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Blocking_Stack_01"
+                            "effectPattern": "Eff_Blocking_Stack_01"
                         }
                     ]
                 },
                 "Buff_2": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageCountMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -1047,20 +1047,20 @@
                             "MBAPLKMEFEN": 1.0
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Blocking_Stack_02"
+                            "effectPattern": "Eff_Blocking_Stack_02"
                         }
                     ]
                 },
                 "Buff_3": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageCountMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -1080,61 +1080,61 @@
                             "MBAPLKMEFEN": 1.0
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Blocking_Stack_03"
+                            "effectPattern": "Eff_Blocking_Stack_03"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Avatar_Blocking_AddSkillInfo"
+                    "modifierName": "Avatar_Blocking_AddSkillInfo"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Avatar_Blocking_ChangePlayMode"
+                    "modifierName": "Avatar_Blocking_ChangePlayMode"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Avatar_Blocking_Buff_Handler"
+                    "modifierName": "Avatar_Blocking_Buff_Handler"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "LevelEntity_SystemValue",
+                    "key": "LevelEntity_SystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_Avatar_Blocking_Blade",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "LevelEntity_SystemValue": 0.0,
                 "Blocking_Blade_Value": 7.5
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blocking_Blade_Damage": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "Caster",
-                            "DMCJDGELKBC": {
+                            "target": "Caster",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 1.0
+                                    "radius": 1.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "Avatar_Blocking_Blade",
@@ -1156,32 +1156,32 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Samurai_Kairagi_BladeWind"
+                    "effectPattern": "Eff_Monster_Samurai_Kairagi_BladeWind"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "LevelEntity_SystemValue",
+                    "key": "LevelEntity_SystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
-                    "GAIGOBCNNEE": "Blocking_Blade_Damage"
+                    "target": "Target",
+                    "modifierName": "Blocking_Blade_Damage"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Hit_Electric_Default_Small",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Hit_Electric_Default_Small",
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint"
                     }
                 }

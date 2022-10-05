@@ -3,16 +3,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Fox_AIStateInitial",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByPoseIDMixin",
                     "poseIDs": [
                         1
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "ReTriggerAISkillInitialCD",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 103,
                                 202
                             ]
@@ -24,10 +24,10 @@
                     "poseIDs": [
                         2
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "ReTriggerAISkillInitialCD",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 101,
                                 102,
                                 201
@@ -42,33 +42,33 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Fox_Random",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "Run",
                         "Disappear"
                     ],
-                    "GAIGOBCNNEE": "Random_MoveSpeedRatio"
+                    "modifierName": "Random_MoveSpeedRatio"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RandomSpeed": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Random_MoveSpeedRatio": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_MoveSpeedRatio": "RandomSpeed"
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 0.25,
-                    "OGAHELLALBB": "RandomSpeed"
+                    "overrideMapKey": "RandomSpeed"
                 }
             ]
         }
@@ -77,10 +77,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Fox_GetUp",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "WanderState",
+                    "boolID": "WanderState",
                     "value": true
                 }
             ]
@@ -90,10 +90,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Fox_GetDown",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "WanderState"
+                    "boolID": "WanderState"
                 }
             ]
         }
@@ -102,28 +102,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Fox_Disappear",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "Disappear",
                         "Disappear2"
                     ],
-                    "GAIGOBCNNEE": "DisappearTimer"
+                    "modifierName": "DisappearTimer"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "DisappearTimer": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "StartDither",
                             "duration": 3.0
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "Disappear",
+                            "boolID": "Disappear",
                             "value": true
                         },
                         {
@@ -142,19 +142,19 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Fox_AwareTigger",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByPoseIDMixin",
                     "poseIDs": [
                         101
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "predicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "GreaterOrEqual",
+                                    "logic": "GreaterOrEqual",
                                     "value": 5.0
                                 }
                             ],
@@ -169,21 +169,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Fox_02_GoToMHPoint",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Animal_Fox_02_CheckPlayerArround": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR5",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR5",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -191,7 +191,7 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetNeuronEnable",
                                     "EPADBCOELIH": "SURROUND",
@@ -202,10 +202,10 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Animal_Fox_02_CheckPlayerArround"
+                    "modifierName": "Animal_Fox_02_CheckPlayerArround"
                 }
             ]
         }
@@ -214,7 +214,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Fox_02_Alert",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetNeuronEnable",
                     "EPADBCOELIH": "SURROUND",

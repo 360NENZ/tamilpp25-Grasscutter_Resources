@@ -3,18 +3,18 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_NormalAttackUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_NormalAttackUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -27,53 +27,53 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_NormalAttackUp"
+                    "modifierName": "UNIQUE_Pole_NormalAttackUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_ExtraDamageWhenCDReady",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_ABILITY_Weapon_Pole_ExtraDamageWhenCDReady",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_Weapon_Pole_ExtraDamageWhenCDReady",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -1.5,
                         -0.5,
                         0.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Pole_ExtraDamageWhenCDReady_CD",
                         "UNIQUE_Pole_ExtraDamageWhenCDReady_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0,
                 "CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_ExtraDamageWhenCDReady_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -90,20 +90,20 @@
                                 },
                                 {
                                     "$type": "ByEquipAffixReady",
-                                    "NPHOOPNDCAC": "Self",
-                                    "DAGGLMBBODJ": 113302
+                                    "target": "Self",
+                                    "equipAffixDataID": 113302
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "DamageByAttackValue",
-                                    "NPHOOPNDCAC": "Target",
-                                    "NGDMCBABOJA": {
+                                    "target": "Target",
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "attackInfo": {
@@ -126,13 +126,13 @@
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_ExtraDamageWhenCDReady_Keep"
+                                    "modifierName": "UNIQUE_Pole_ExtraDamageWhenCDReady_Keep"
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "NPHOOPNDCAC": "Target",
-                                    "JBHFPDMBFHN": "Eff_Weapon_SpecialHit_Light",
-                                    "NGDMCBABOJA": {
+                                    "target": "Target",
+                                    "effectPattern": "Eff_Weapon_SpecialHit_Light",
+                                    "born": {
                                         "$type": "ConfigBornByHitPoint"
                                     }
                                 }
@@ -141,67 +141,67 @@
                     ]
                 },
                 "UNIQUE_Pole_ExtraDamageWhenCDReady_Keep": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.05999999865889549,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.05999999865889549,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Weapon_Pole_ExtraDamageWhenCDReady",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": -1.0,
-                            "KHAHOELDONA": -1.0
+                            "key": "_ABILITY_Weapon_Pole_ExtraDamageWhenCDReady",
+                            "useLimitRange": true,
+                            "maxValue": -1.0,
+                            "minValue": -1.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_ExtraDamageWhenCDReady_CD": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CDTime",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CDTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EquipAffixStart",
-                            "GPKNEFCCKGN": "CDTime",
-                            "DAGGLMBBODJ": 113302
+                            "CD": "CDTime",
+                            "equipAffixDataID": 113302
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Weapon_Pole_ExtraDamageWhenCDReady",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Weapon_Pole_ExtraDamageWhenCDReady",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_SlimeKiller",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_SlimeKiller_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "Rate",
                             "predicates": [
                                 {
@@ -212,17 +212,17 @@
                                 },
                                 {
                                     "$type": "ByHasFeatureTag",
-                                    "AMIONINAMLE": [
+                                    "featureTagIDs": [
                                         4002
                                     ]
                                 }
                             ]
                         }
                     ],
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -232,41 +232,41 @@
                                 },
                                 {
                                     "$type": "ByHasFeatureTag",
-                                    "AMIONINAMLE": [
+                                    "featureTagIDs": [
                                         4002
                                     ]
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Weapon_SpecialHit_Light",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Weapon_SpecialHit_Light",
+                            "born": {
                                 "$type": "ConfigBornByHitPoint"
                             }
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_SlimeKiller_Handler"
+                    "modifierName": "UNIQUE_Pole_SlimeKiller_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_HealAmountHPonEnemyKilled",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByKillingMixin",
-                    "AJPHDMLEOGE": 0.6000000238418579,
-                    "OGFFGLGEOGF": [
+                    "detectWindow": 0.6000000238418579,
+                    "onKill": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -274,38 +274,38 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "HealHP",
-                                    "AJAHODOGLMH": "HealAmount"
+                                    "amountByTargetMaxHPRatio": "HealAmount"
                                 }
                             ]
                         }
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "HealAmount": 0.0
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_DamageUpToWaterEnemy",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_DamageUpToWaterEnemy_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "Rate",
                             "predicates": [
                                 {
@@ -319,11 +319,11 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHasElement",
-                                            "GOMLPAOIKJA": "Water"
+                                            "element": "Water"
                                         },
                                         {
                                             "$type": "ByHasElement",
-                                            "GOMLPAOIKJA": "Fire"
+                                            "element": "Fire"
                                         }
                                     ]
                                 }
@@ -332,31 +332,31 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_DamageUpToWaterEnemy_Handler"
+                    "modifierName": "UNIQUE_Pole_DamageUpToWaterEnemy_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_NormalAttackExtraDamageWhenGetEnergyBall",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_NormalAttackExtraDamageWhenGetEnergyBall_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByEnergyChangeMixin",
-                            "FNHOFLJNEOD": [
+                            "elementTypes": [
                                 "Electric",
                                 "Fire",
                                 "Water",
@@ -365,34 +365,34 @@
                                 "Wind",
                                 "Rock"
                             ],
-                            "HAIBPADIJMD": true,
-                            "PODACCOMKHD": [
+                            "doWhenEnergyMax": true,
+                            "onGainEnergyByBall": [
                                 {
                                     "$type": "AttachModifier",
                                     "predicates": [
                                         {
                                             "$type": "ByEquipAffixReady",
-                                            "NPHOOPNDCAC": "Self",
-                                            "DAGGLMBBODJ": 113402
+                                            "target": "Self",
+                                            "equipAffixDataID": 113402
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_NormalAttackExtraDamage"
+                                    "modifierName": "UNIQUE_Pole_NormalAttackExtraDamage"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Pole_NormalAttackExtraDamage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 5.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 5.0,
                     "elementDurability": 100.0,
                     "state": "AttackUp",
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -401,7 +401,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -413,19 +413,19 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "DamageByAttackValue",
-                                    "NPHOOPNDCAC": "Target",
-                                    "NGDMCBABOJA": {
+                                    "target": "Target",
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "attackInfo": {
@@ -450,34 +450,34 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_NormalAttackExtraDamageWhenGetEnergyBall_Handler"
+                    "modifierName": "UNIQUE_Pole_NormalAttackExtraDamageWhenGetEnergyBall_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_NormalAttackAndExtraAttackUpAfterSkill",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_NormalAttackAndExtraAttackUpAfterSkill_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
                             "MPNINPNOPPE": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_NormalAttackAndExtraAttackUpAfterSkill"
+                                    "modifierName": "UNIQUE_Pole_NormalAttackAndExtraAttackUpAfterSkill"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -485,19 +485,19 @@
                     ]
                 },
                 "UNIQUE_Pole_NormalAttackAndExtraAttackUpAfterSkill": {
-                    "FGJPBKGPNJJ": "MultipleAllRefresh",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": 2.0
+                    "stacking": "MultipleAllRefresh",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": 2.0
                     },
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 12.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 12.0,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -520,31 +520,31 @@
                     "state": "AttackUp"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_NormalAttackAndExtraAttackUpAfterSkill_Handler"
+                    "modifierName": "UNIQUE_Pole_NormalAttackAndExtraAttackUpAfterSkill_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Blackrock",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_ABILITY_WEAPON_Blackrock_COUNT",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_WEAPON_Blackrock_COUNT",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         0.5,
                         1.5,
                         2.5,
                         3.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Pole_Blackrock_Buff1",
                         "UNIQUE_Pole_Blackrock_Buff2",
                         "UNIQUE_Pole_Blackrock_Buff3"
@@ -552,12 +552,12 @@
                 },
                 {
                     "$type": "DoActionByKillingMixin",
-                    "AJPHDMLEOGE": 0.6000000238418579,
-                    "OGFFGLGEOGF": [
+                    "detectWindow": 0.6000000238418579,
+                    "onKill": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -565,155 +565,155 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_Blackrock_Timer_Ind"
+                                    "modifierName": "UNIQUE_Pole_Blackrock_Timer_Ind"
                                 },
                                 {
                                     "$type": "AddGlobalValue",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_WEAPON_Blackrock_COUNT",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 3.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_WEAPON_Blackrock_COUNT",
+                                    "useLimitRange": true,
+                                    "maxValue": 3.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0,
                 "Dua": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_Blackrock_Timer_Ind": {
-                    "FGJPBKGPNJJ": "MultipleRefresh",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": 3.0
+                    "stacking": "MultipleRefresh",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": 3.0
                     },
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Dua",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Dua",
                     "elementDurability": 100.0,
                     "state": "AttackUp",
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ABILITY_WEAPON_Blackrock_COUNT",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 3.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_WEAPON_Blackrock_COUNT",
+                            "useLimitRange": true,
+                            "maxValue": 3.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_Blackrock_Buff1": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "Rate"
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "JBHFPDMBFHN": "Eff_Weapon_Blackrock1_Pole"
+                            "effectPattern": "Eff_Weapon_Blackrock1_Pole"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Blackrock_Buff2": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Rate",
                             2.0,
                             "Mul"
                         ]
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "JBHFPDMBFHN": "Eff_Weapon_Blackrock2_Pole"
+                            "effectPattern": "Eff_Weapon_Blackrock2_Pole"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Blackrock_Buff3": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Rate",
                             3.0,
                             "Mul"
                         ]
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "JBHFPDMBFHN": "Eff_Weapon_Blackrock3_Pole"
+                            "effectPattern": "Eff_Weapon_Blackrock3_Pole"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "AddGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_WEAPON_Blackrock_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_WEAPON_Blackrock_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Dual",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_ABILITY_Weapon_Pole_Dual_Enemy",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_Weapon_Pole_Dual_Enemy",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         [
                             "Count",
@@ -722,44 +722,44 @@
                         ],
                         999.0
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Pole_Dual_Atk",
                         "UNIQUE_Pole_Dual_AtkDef"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Count": 0.0,
                 "Rate": 0.0,
                 "Atk": 0.0,
                 "Def": 0.0,
                 "Now_Count": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_Dual_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalValue",
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_ABILITY_Weapon_Pole_Dual_Enemy_Count",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_Weapon_Pole_Dual_Enemy_Count",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GILFKOBKGLI": {
+                                    "otherTargets": {
                                         "$type": "SelectTargetsByShape",
                                         "AKMLOIFOBPO": "Nearest",
-                                        "JBKKOJLJHDK": "CircleR8",
-                                        "ONPOPLLHJLE": "Enemy",
-                                        "CJJABKCAIEB": 1.0
+                                        "shapeName": "CircleR8",
+                                        "campTargetType": "Enemy",
+                                        "sizeRatio": 1.0
                                     },
                                     "predicates": [
                                         {
@@ -770,120 +770,120 @@
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                            "key": "_ANIMAL_ENTITY_TYPE",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "NoneOrEqual"
+                                            "compareType": "NoneOrEqual"
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "Pole_Dual_Add"
+                                    "modifierName": "Pole_Dual_Add"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_Dual_Timer"
+                                    "modifierName": "UNIQUE_Pole_Dual_Timer"
                                 }
                             ]
                         }
                     ]
                 },
                 "Pole_Dual_Add": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Multiple",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Caster",
-                            "GAIGOBCNNEE": "Pole_Dual_AddOnAvatar"
+                            "target": "Caster",
+                            "modifierName": "Pole_Dual_AddOnAvatar"
                         }
                     ]
                 },
                 "Pole_Dual_AddOnAvatar": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Multiple",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "Caster",
+                            "target": "Caster",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Weapon_Pole_Dual_Enemy_Count",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Weapon_Pole_Dual_Enemy_Count",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_Dual_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.800000011920929,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.800000011920929,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "_ABILITY_Weapon_Pole_Dual_Enemy_Count",
-                            "OGAHELLALBB": "Now_Count"
+                            "doOffStage": true,
+                            "globalValueKey": "_ABILITY_Weapon_Pole_Dual_Enemy_Count",
+                            "overrideMapKey": "Now_Count"
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": "Now_Count",
-                            "HJJEAOMEOFI": "_ABILITY_Weapon_Pole_Dual_Enemy",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Weapon_Pole_Dual_Enemy",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_Dual_Atk": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "Rate"
                     },
                     "state": "AttackUp"
                 },
                 "UNIQUE_Pole_Dual_AtkDef": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "Atk",
                         "Actor_DefenceRatio": "Def"
                     },
                     "state": "DefenseUp"
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_Dual_Handler"
+                    "modifierName": "UNIQUE_Pole_Dual_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_HeavyExtra",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Chance": 0.0,
                 "Rate": 0.0,
                 "Time": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_HeavyExtra_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -892,11 +892,11 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -906,14 +906,14 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "Randomed",
-                                    "PLKDGIELEEF": "Chance",
-                                    "NCNDEAPMKCP": [
+                                    "chance": "Chance",
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "GAIGOBCNNEE": "UNIQUE_Pole_HeavyExtra"
+                                            "modifierName": "UNIQUE_Pole_HeavyExtra"
                                         }
                                     ]
                                 }
@@ -922,42 +922,42 @@
                     ]
                 },
                 "UNIQUE_Pole_HeavyExtra": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Time",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Time",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "ExtraAttack"
                             ],
                             "damagePercentageRatio": "Rate"
                         }
                     ],
                     "state": "AttackUp",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "JBHFPDMBFHN": "Eff_Weapon_Attack_ExtraUp_Pole",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Weapon_Attack_ExtraUp_Pole",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         }
                     ],
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -966,151 +966,151 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "ExtraAttack"
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_HeavyExtra_Remover"
+                                    "modifierName": "UNIQUE_Pole_HeavyExtra_Remover"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Pole_HeavyExtra_Remover": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_HeavyExtra"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_HeavyExtra"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_HeavyExtra_Handler"
+                    "modifierName": "UNIQUE_Pole_HeavyExtra_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Liyue",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByTeamStatusMixin",
-                    "OAEEBLALAPO": [
+                    "actions": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasFeatureTag",
                                     "MPBIPJFBKFO": 1002,
                                     "EAMAPOKFADD": 4,
-                                    "GMFCOCAJBDM": "GreaterOrEqual"
+                                    "logic": "GreaterOrEqual"
                                 }
                             ],
                             "value": 4.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Liyue_Num",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 4.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Liyue_Num",
+                            "useLimitRange": true,
+                            "maxValue": 4.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasFeatureTag",
                                     "MPBIPJFBKFO": 1002,
                                     "EAMAPOKFADD": 3,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 3.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Liyue_Num",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 3.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Liyue_Num",
+                            "useLimitRange": true,
+                            "maxValue": 3.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasFeatureTag",
                                     "MPBIPJFBKFO": 1002,
                                     "EAMAPOKFADD": 2,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 2.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Liyue_Num",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 2.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Liyue_Num",
+                            "useLimitRange": true,
+                            "maxValue": 2.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasFeatureTag",
                                     "MPBIPJFBKFO": 1002,
                                     "EAMAPOKFADD": 1,
-                                    "GMFCOCAJBDM": "Equal"
+                                    "logic": "Equal"
                                 }
                             ],
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Liyue_Num",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Liyue_Num",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByBigTeamHasFeatureTag",
                                     "MPBIPJFBKFO": 1002,
-                                    "GMFCOCAJBDM": "LesserOrEqual"
+                                    "logic": "LesserOrEqual"
                                 }
                             ],
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Liyue_Num",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Liyue_Num",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "_ABILITY_Pole_Liyue_Num",
-                            "OGAHELLALBB": "Pole_Liyue_Num"
+                            "doOffStage": true,
+                            "globalValueKey": "_ABILITY_Pole_Liyue_Num",
+                            "overrideMapKey": "Pole_Liyue_Num"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_LiyueBuff"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_LiyueBuff"
                         },
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_LiyueBuff"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_LiyueBuff"
                         }
                     ],
                     "IALICHIPLFB": 20.0,
@@ -1118,17 +1118,17 @@
                     "LNKBICEPIJK": true
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0,
                 "Crit": 0.0,
                 "Pole_Liyue_Num": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_LiyueBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Rate",
                             "Pole_Liyue_Num",
@@ -1140,39 +1140,39 @@
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Liyue_Num",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Liyue_Num",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_GenerateBallWhenCritic",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0,
                 "CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_GenerateBallWhenCritic_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Randomed",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "predicates": [
                                 {
                                     "$type": "ByHitCritical"
@@ -1185,90 +1185,90 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByEquipAffixReady",
-                                    "NPHOOPNDCAC": "Self",
-                                    "DAGGLMBBODJ": 113407
+                                    "target": "Self",
+                                    "equipAffixDataID": 113407
                                 }
                             ],
-                            "PLKDGIELEEF": "Rate",
-                            "NCNDEAPMKCP": [
+                            "chance": "Rate",
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_GenerateBallWhenCritic"
+                                    "modifierName": "UNIQUE_Pole_GenerateBallWhenCritic"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Pole_GenerateBallWhenCritic": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CDTime",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CDTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EquipAffixStart",
-                            "GPKNEFCCKGN": "CDTime",
-                            "DAGGLMBBODJ": 113407
+                            "CD": "CDTime",
+                            "equipAffixDataID": 113407
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_ExtraElementBall"
+                            "effectPattern": "Eff_Weapon_ExtraElementBall"
                         },
                         {
                             "$type": "GenerateElemBall",
-                            "APIAFGPIIHE": 2024,
-                            "NGDMCBABOJA": {
+                            "configID": 2024,
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -1.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": -1.0
                                 },
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.0,
-                                    "MFBOELKCPDP": 0.5
+                                    "minRandomRange": 0.0,
+                                    "maxRandomRange": 0.5
                                 }
                             },
                             "ratio": 1.0,
-                            "GJNDGIAENMI": 6.0
+                            "baseEnergy": 6.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_GenerateBallWhenCritic_Handler"
+                    "modifierName": "UNIQUE_Pole_GenerateBallWhenCritic_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_CritUpWhenHitNoCrit",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_CritUpWhenHitNoCrit_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1277,7 +1277,7 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByNot",
@@ -1288,19 +1288,19 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_CritUpWhenHitNoCrit_CD"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Pole_CritUpWhenHitNoCrit_CD"
                                 }
                             ]
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1309,128 +1309,128 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 },
                                 {
                                     "$type": "ByHitCritical"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "RemoveModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_CritUpWhenHitNoCrit"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Pole_CritUpWhenHitNoCrit"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Pole_CritUpWhenHitNoCrit_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_CritUpWhenHitNoCrit"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_CritUpWhenHitNoCrit"
                         }
                     ]
                 },
                 "UNIQUE_Pole_CritUpWhenHitNoCrit": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": 5.0
+                    "stacking": "Multiple",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": 5.0
                     },
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_CriticalDelta": "Rate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_CritUpWhenHitNoCrit_Handler"
+                    "modifierName": "UNIQUE_Pole_CritUpWhenHitNoCrit_Handler"
                 }
             ],
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "RemoveModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_Pole_CritUpWhenHitNoCrit"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_Pole_CritUpWhenHitNoCrit"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Dragonfell",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_ABILITY_Pole_Dragonfell",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_Pole_Dragonfell",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -1.5,
                         -0.5,
                         0.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Pole_Dragonfell_CD",
                         "UNIQUE_Pole_Dragonfell_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ChanceProb": 0.0,
                 "Rate": 0.0,
                 "RateToIce": 0.0,
                 "CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_Dragonfell_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CDTime",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CDTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EquipAffixStart",
-                            "GPKNEFCCKGN": "CDTime",
-                            "DAGGLMBBODJ": 113409
+                            "CD": "CDTime",
+                            "equipAffixDataID": 113409
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Dragonfell",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Dragonfell",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_Dragonfell_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Randomed",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -1440,7 +1440,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -1452,62 +1452,62 @@
                                 },
                                 {
                                     "$type": "ByEquipAffixReady",
-                                    "NPHOOPNDCAC": "Self",
-                                    "DAGGLMBBODJ": 113409
+                                    "target": "Self",
+                                    "equipAffixDataID": 113409
                                 }
                             ],
-                            "PLKDGIELEEF": "ChanceProb",
-                            "NCNDEAPMKCP": [
+                            "chance": "ChanceProb",
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalPos",
-                                    "NPHOOPNDCAC": "Target",
-                                    "HJJEAOMEOFI": "_ABILITY_Weapon_Dragonfell_Pos",
-                                    "NGDMCBABOJA": {
+                                    "target": "Target",
+                                    "key": "_ABILITY_Weapon_Dragonfell_Pos",
+                                    "born": {
                                         "$type": "ConfigBornByHitPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "OGADOPDNBMM": false
                                 },
                                 {
                                     "$type": "CreateGadget",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByGlobalValue",
                                         "GDENJEFPMGC": "_ABILITY_Weapon_Dragonfell_Pos",
                                         "MICIJLHMIIH": ""
                                     },
-                                    "CABLIPAKCGB": 40020006,
-                                    "DOLAJLACEDF": 1001,
-                                    "ONPOPLLHJLE": "Enemy"
+                                    "gadgetID": 40020006,
+                                    "campID": 1001,
+                                    "campTargetType": "Enemy"
                                 },
                                 {
                                     "$type": "AddGlobalValue",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "value": -1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_Pole_Dragonfell",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": -1.0,
-                                    "KHAHOELDONA": -1.0
+                                    "key": "_ABILITY_Pole_Dragonfell",
+                                    "useLimitRange": true,
+                                    "maxValue": -1.0,
+                                    "minValue": -1.0
                                 }
                             ]
                         }
                     ]
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Dragonfell_Gadget",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ModifyDamageMixin",
-                    "NMJGDKCDFOJ": [
+                    "attackTags": [
                         "WeaponSkill"
                     ],
                     "bonusCriticalHurt": "RateToIce",
@@ -1524,57 +1524,57 @@
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Ice"
+                                    "element": "Ice"
                                 },
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Frozen"
+                                    "element": "Frozen"
                                 }
                             ]
                         }
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0,
                 "RateToIce": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Dragonfell_Appear": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.4000000059604645,
+                    "modifierName": "",
+                    "duration": 0.4000000059604645,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_Dragonfell_Gadget",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Weapon_Dragonfell_Gadget",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": -1.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": -1.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 2.0,
-                                    "ICGFCBOFFDI": 3.0
+                                    "radius": 3.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "WeaponSkill",
@@ -1601,15 +1601,15 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Dragonfell_Appear"
+                    "modifierName": "Dragonfell_Appear"
                 }
             ]
         }
@@ -1618,43 +1618,43 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Homa_MaxHpToAtk",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByEventMixin",
-                    "PDPENHIADJD": "HP",
-                    "OAEEBLALAPO": [
+                    "onEvent": "HP",
+                    "actions": [
                         {
                             "$type": "Predicated",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetHPRatio",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
-                                    "BCJJBMJKHED": 0.5
+                                    "logic": "LesserOrEqual",
+                                    "HPRatio": 0.5
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Handler"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Handler"
                                 },
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Handler"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Handler"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Handler"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Handler"
                                 },
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Handler"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Handler"
                                 }
                             ]
                         }
@@ -1662,17 +1662,17 @@
                     "LIINFCJLBOP": ""
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Hp_Rate": 0.0,
                 "MaxHptoAtk_Factor": 0.0,
                 "MaxHptoAtk_Extra_Factor": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_Homa_MaxHpToAtk_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToPredicateMixin",
                             "predicates": [
@@ -1681,65 +1681,65 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_Pole_Homa_Last_MaxHp",
+                                            "key": "_ABILITY_Pole_Homa_Last_MaxHp",
                                             "value": "FIGHT_PROP_MAX_HP"
                                         }
                                     ]
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Change"
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Change"
                         },
                         {
                             "$type": "AttachModifierToPredicateMixin",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Pole_Homa_Last_MaxHp",
+                                    "key": "_ABILITY_Pole_Homa_Last_MaxHp",
                                     "value": "FIGHT_PROP_MAX_HP"
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Buff"
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Buff"
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Buff"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Buff"
                         }
                     ]
                 },
                 "UNIQUE_Pole_Homa_MaxHpToAtk_Change": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": 3.0
+                    "stacking": "Multiple",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": 3.0
                     },
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.029999999329447746,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.029999999329447746,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": "FIGHT_PROP_MAX_HP",
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Homa_Last_MaxHp",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Homa_Last_MaxHp",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Buff"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Buff"
                         }
                     ]
                 },
                 "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToPredicateMixin",
                             "predicates": [
@@ -1748,147 +1748,147 @@
                                     "predicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_Pole_Homa_Last_MaxHp",
+                                            "key": "_ABILITY_Pole_Homa_Last_MaxHp",
                                             "value": "FIGHT_PROP_MAX_HP"
                                         }
                                     ]
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Change"
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Change"
                         },
                         {
                             "$type": "AttachModifierToPredicateMixin",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Pole_Homa_Last_MaxHp",
+                                    "key": "_ABILITY_Pole_Homa_Last_MaxHp",
                                     "value": "FIGHT_PROP_MAX_HP"
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Buff"
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Buff"
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Homa_EffectDelay"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Weapon_Pole_Homa_EffectDelay"
                         },
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Buff"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Buff"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Homa_Effect"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Weapon_Pole_Homa_Effect"
                         }
                     ]
                 },
                 "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Change": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "DGAJIEGBDKP": {
-                        "BOICMOPAIII": "",
-                        "INDGEIJCJAJ": 3.0
+                    "stacking": "Multiple",
+                    "stackingOption": {
+                        "abilitySpecialName": "",
+                        "maxModifierNumForMultipleType": 3.0
                     },
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.029999999329447746,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.029999999329447746,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": "FIGHT_PROP_MAX_HP",
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Homa_Last_MaxHp",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Homa_Last_MaxHp",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Buff"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Buff"
                         }
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Homa_EffectDelay": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 5.5,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 5.5,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 1.0,
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Homa_Effect"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Weapon_Pole_Homa_Effect"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Homa_Effect"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Weapon_Pole_Homa_Effect"
                         }
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Homa_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "ACOKKHADPOJ": true,
-                            "JBHFPDMBFHN": "Eff_Weapon_Pole_Homa_Buff"
+                            "doOffStage": true,
+                            "effectPattern": "Eff_Weapon_Pole_Homa_Buff"
                         }
                     ]
                 },
                 "UNIQUE_Pole_Homa_MaxHpToAtk_Buff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackExtraDelta": [
                             "FIGHT_PROP_MAX_HP",
                             "MaxHptoAtk_Factor",
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Buff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackExtraDelta": [
                             "FIGHT_PROP_MAX_HP",
                             "MaxHptoAtk_Factor",
@@ -1899,109 +1899,109 @@
                             "Add"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "Predicated",
-                    "ACOKKHADPOJ": true,
-                    "ELDBAFHCOBL": [
+                    "doOffStage": true,
+                    "targetPredicates": [
                         {
                             "$type": "ByTargetHPRatio",
-                            "GMFCOCAJBDM": "LesserOrEqual",
-                            "BCJJBMJKHED": 0.5
+                            "logic": "LesserOrEqual",
+                            "HPRatio": 0.5
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Handler"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Extra_Handler"
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "AttachModifier",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Homa_MaxHpToAtk_Handler"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_Pole_Homa_MaxHpToAtk_Handler"
                         }
                     ]
                 },
                 {
                     "$type": "SetGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": "FIGHT_PROP_MAX_HP",
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Homa_Last_MaxHp",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Homa_Last_MaxHp",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Dvalin",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_ABILITY_Weapon_Pole_DvalinWhenCDReady",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_Weapon_Pole_DvalinWhenCDReady",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -1.5,
                         -0.5,
                         0.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Pole_Dvalin_CD",
                         "UNIQUE_Pole_Dvalin_Handler"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Crit_Rate": 0.0,
                 "Speed_Rate": 0.0,
                 "ChanceProb": 0.0,
                 "Atk_Rate": 0.0,
                 "CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_Dvalin_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CDTime",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CDTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EquipAffixStart",
-                            "GPKNEFCCKGN": "CDTime",
-                            "DAGGLMBBODJ": 113502
+                            "CD": "CDTime",
+                            "equipAffixDataID": 113502
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Weapon_Pole_DvalinWhenCDReady",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Weapon_Pole_DvalinWhenCDReady",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_Dvalin_Handler": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Randomed",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -2011,7 +2011,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -2023,73 +2023,73 @@
                                 },
                                 {
                                     "$type": "ByEquipAffixReady",
-                                    "NPHOOPNDCAC": "Self",
-                                    "DAGGLMBBODJ": 113502
+                                    "target": "Self",
+                                    "equipAffixDataID": 113502
                                 }
                             ],
-                            "PLKDGIELEEF": "ChanceProb",
-                            "NCNDEAPMKCP": [
+                            "chance": "ChanceProb",
+                            "successActions": [
                                 {
                                     "$type": "TriggerBullet",
-                                    "NGAAOMEHOGE": 40010012,
-                                    "NGDMCBABOJA": {
+                                    "bulletID": 40010012,
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 1.2999999523162842,
-                                            "PHDCJAHHIOG": 0.4000000059604645
+                                            "x": 0.0,
+                                            "y": 1.2999999523162842,
+                                            "z": 0.4000000059604645
                                         }
                                     }
                                 },
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": -1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_Weapon_Pole_DvalinWhenCDReady",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": -1.0,
-                                    "KHAHOELDONA": -1.0
+                                    "key": "_ABILITY_Weapon_Pole_DvalinWhenCDReady",
+                                    "useLimitRange": true,
+                                    "maxValue": -1.0,
+                                    "minValue": -1.0
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Pole_Dvalin_AtkSpeedUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_AttackSpeedRatio": "Speed_Rate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_Dvalin_AtkSpeedUp"
+                    "modifierName": "UNIQUE_Pole_Dvalin_AtkSpeedUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Dvalin_Wave_Bullet",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Atk_Rate": 0.0
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Weapon_Dvalin_Pole_AttackWave"
+                    "effectPattern": "Eff_Weapon_Dvalin_Pole_AttackWave"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Target",
-                    "ELDBAFHCOBL": [
+                    "target": "Target",
+                    "targetPredicates": [
                         {
                             "$type": "ByEntityTypes",
                             "entityTypes": [
@@ -2097,10 +2097,10 @@
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "DamageByAttackValue",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "attackInfo": {
                                 "attackTag": "WeaponSkill",
                                 "attenuationTag": "",
@@ -2111,7 +2111,7 @@
                                     "elementDurability": 100.0,
                                     "enBreak": 50.0,
                                     "bonusCritical": 0.0,
-                                    "ECGLDGPANDI": 0.0
+                                    "bonusCriticalHurt": 0.0
                                 },
                                 "hitPattern": {
                                     "onHitEffectName": "default",
@@ -2122,25 +2122,25 @@
                             }
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackBox",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByCollisionPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "size": {
-                                        "AEAAJCIDPED": 0.10000000149011612,
-                                        "KAAPLGBEDPM": 0.10000000149011612,
-                                        "PHDCJAHHIOG": 0.10000000149011612
+                                        "x": 0.10000000149011612,
+                                        "y": 0.10000000149011612,
+                                        "z": 0.10000000149011612
                                     }
                                 },
                                 "attackInfo": {
@@ -2153,7 +2153,7 @@
                                         "elementDurability": 100.0,
                                         "enBreak": 50.0,
                                         "bonusCritical": 0.0,
-                                        "ECGLDGPANDI": 0.0
+                                        "bonusCriticalHurt": 0.0
                                     },
                                     "hitPattern": {
                                         "onHitEffectName": "default",
@@ -2163,7 +2163,7 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
@@ -2174,17 +2174,17 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Kunwu_DamageUpWithShield",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_ABILITY_Pole_Kunwu_IsHasShield",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_Pole_Kunwu_IsHasShield",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff",
                         "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff"
                     ]
@@ -2198,24 +2198,24 @@
                             "type": "All"
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Kunwu_CheckShield"
+                    "modifierName": "UNIQUE_Weapon_Pole_Kunwu_CheckShield"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Shield_Up": 0.0,
                 "Dmg_Rate": 0.0,
                 "Timer": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Weapon_Pole_Kunwu_DamageUpWithShield_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -2223,91 +2223,91 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Kunwu_AddCount"
+                                    "modifierName": "UNIQUE_Weapon_Pole_Kunwu_AddCount"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_CheckShield": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Kunwu_IsHasShield",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_ABILITY_Pole_Kunwu_IsHasShield",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 1.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Kunwu_IsHasShield",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Kunwu_IsHasShield",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_AddCount": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Kunwu_BuffLevel",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Kunwu_BuffLevel",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Kunwu_BuffTimer"
+                            "modifierName": "UNIQUE_Weapon_Pole_Kunwu_BuffTimer"
                         }
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_BuffTimer": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Timer",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Timer",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Kunwu_BuffLevel",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Kunwu_BuffLevel",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_Pole_Kunwu_BuffLevel",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_Pole_Kunwu_BuffLevel",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5,
@@ -2316,7 +2316,7 @@
                                 4.5,
                                 5.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Blank",
                                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Level01",
                                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Level02",
@@ -2328,81 +2328,81 @@
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Blank": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Level01": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "Dmg_Rate"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Level02": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             2.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Level03": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             3.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Level04": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             4.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_NoShieldBuff_Level05": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             5.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_Pole_Kunwu_BuffLevel",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_Pole_Kunwu_BuffLevel",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5,
@@ -2411,7 +2411,7 @@
                                 4.5,
                                 5.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Blank",
                                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Level01",
                                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Level02",
@@ -2423,85 +2423,85 @@
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Blank": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Level01": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             2.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Level02": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             4.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Level03": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             6.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Level04": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             8.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_HasShieldBuff_Level05": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Dmg_Rate",
                             10.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Kunwu_BuffEffHandler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_Pole_Kunwu_BuffLevel",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_Pole_Kunwu_BuffLevel",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5,
@@ -2510,7 +2510,7 @@
                                 4.5,
                                 5.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Weapon_Pole_Kunwu_Eff_Blank",
                                 "Weapon_Pole_Kunwu_Eff_1",
                                 "Weapon_Pole_Kunwu_Eff_2",
@@ -2522,101 +2522,101 @@
                     ]
                 },
                 "Weapon_Pole_Kunwu_Eff_Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Weapon_Pole_Kunwu_Eff_1": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_Kunwu_Stack_01"
+                            "effectPattern": "Eff_Weapon_Kunwu_Stack_01"
                         }
                     ]
                 },
                 "Weapon_Pole_Kunwu_Eff_2": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_Kunwu_Stack_02"
+                            "effectPattern": "Eff_Weapon_Kunwu_Stack_02"
                         }
                     ]
                 },
                 "Weapon_Pole_Kunwu_Eff_3": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_Kunwu_Stack_03"
+                            "effectPattern": "Eff_Weapon_Kunwu_Stack_03"
                         }
                     ]
                 },
                 "Weapon_Pole_Kunwu_Eff_4": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_Kunwu_Stack_04"
+                            "effectPattern": "Eff_Weapon_Kunwu_Stack_04"
                         }
                     ]
                 },
                 "Weapon_Pole_Kunwu_Eff_5": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_Kunwu_Stack_05"
+                            "effectPattern": "Eff_Weapon_Kunwu_Stack_05"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Kunwu_DamageUpWithShield_Handler"
+                    "modifierName": "UNIQUE_Weapon_Pole_Kunwu_DamageUpWithShield_Handler"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Kunwu_BuffEffHandler"
+                    "modifierName": "UNIQUE_Weapon_Pole_Kunwu_BuffEffHandler"
                 },
                 {
                     "$type": "AddGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Kunwu_BuffLevel",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Kunwu_BuffLevel",
+                    "useLimitRange": true,
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "AddGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Kunwu_IsHasShield",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Kunwu_IsHasShield",
+                    "useLimitRange": true,
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_AttackUpAndSkillDamageUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_ABILITY_Pole_13502_AttackBuffLevel",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_Pole_13502_AttackBuffLevel",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5,
@@ -2627,7 +2627,7 @@
                         6.5,
                         100.0
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "UNIQUE_Pole_AttackUpA",
                         "UNIQUE_Pole_AttackUpB",
@@ -2639,25 +2639,25 @@
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0,
                 "Rate2": 0.0,
                 "Buff_Level": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_Pole_AttackUpAndSkillDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -2665,63 +2665,63 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_AddGlobalValue"
+                                    "modifierName": "UNIQUE_Pole_AddGlobalValue"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Pole_AddGlobalValue": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Pole_BuffTime"
+                            "modifierName": "UNIQUE_Pole_BuffTime"
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_ABILITY_Pole_13502_AttackBuffLevel",
-                            "OGAHELLALBB": "Buff_Level"
+                            "globalValueKey": "_ABILITY_Pole_13502_AttackBuffLevel",
+                            "overrideMapKey": "Buff_Level"
                         },
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_13502_AttackBuffLevel",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 7.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_13502_AttackBuffLevel",
+                            "useLimitRange": true,
+                            "maxValue": 7.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_BuffTime": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 6.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 6.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": -100.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_13502_AttackBuffLevel",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 7.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_13502_AttackBuffLevel",
+                            "useLimitRange": true,
+                            "maxValue": 7.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_AttackUpA": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Rate",
                             "Buff_Level",
@@ -2730,13 +2730,13 @@
                             "Add"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_AttackUpB": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Rate",
                             "Buff_Level",
@@ -2745,13 +2745,13 @@
                             "Add"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_SkillDamageUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Rate",
                             7.0,
@@ -2760,78 +2760,78 @@
                         "Actor_AddHurtDelta": "Rate2"
                     },
                     "state": "AttackUp",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_TriggerGreen"
+                            "effectPattern": "Eff_Weapon_TriggerGreen"
                         },
                         {
                             "$type": "FireEffect",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "JBHFPDMBFHN": "Eff_Weapon_StackFull"
+                            "effectPattern": "Eff_Weapon_StackFull"
                         },
                         {
                             "$type": "AttachEffect",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "JBHFPDMBFHN": "Eff_Weapon_StackFull_Loop"
+                            "effectPattern": "Eff_Weapon_StackFull_Loop"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_AttackUpAndSkillDamageUp_Handler"
+                    "modifierName": "UNIQUE_Pole_AttackUpAndSkillDamageUp_Handler"
                 }
             ],
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "AddGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_13502_AttackBuffLevel",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_13502_AttackBuffLevel",
+                    "useLimitRange": true,
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_AttacktUpAfterReaction",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_AttacktUpAfterReaction_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Explode",
                                 "Stream",
                                 "Burning",
@@ -2841,44 +2841,44 @@
                                 "SwirlFire",
                                 "SwirlWater"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Pole_AttacktUpAfterReaction"
+                                    "modifierName": "UNIQUE_Pole_AttacktUpAfterReaction"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Pole_AttacktUpAfterReaction": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 20.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 20.0,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "Rate"
                     },
                     "state": "AttackUp",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_AttacktUpAfterReaction_Handler"
+                    "modifierName": "UNIQUE_Pole_AttacktUpAfterReaction_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Bakufu",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ModifyDamageMixin",
-                    "NMJGDKCDFOJ": [
+                    "attackTags": [
                         "Elemental_Art",
                         "Elemental_Art_Hold",
                         "Elemental_Art_Extra"
@@ -2886,24 +2886,24 @@
                     "damagePercentageRatio": "Rate"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.0,
                 "EnergyCost": 0.0,
                 "EnergyPerTime": 0.0,
                 "Dura": 0.0,
                 "CDTime": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Weapon_Pole_Bakufu_CheckArtHit": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -2912,13 +2912,13 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ANIMAL_ENTITY_TYPE",
+                                    "key": "_ANIMAL_ENTITY_TYPE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Elemental_Art",
                                         "Elemental_Art_Hold",
                                         "Elemental_Art_Extra"
@@ -2926,40 +2926,40 @@
                                 },
                                 {
                                     "$type": "ByEquipAffixReady",
-                                    "NPHOOPNDCAC": "Self",
-                                    "DAGGLMBBODJ": 113414
+                                    "target": "Self",
+                                    "equipAffixDataID": 113414
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Bakufu_ReturnEnergy"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_Weapon_Pole_Bakufu_ReturnEnergy"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Weapon_Pole_Bakufu_ReturnEnergy": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": [
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": [
                         "Dura",
                         0.6000000238418579,
                         "Add"
                     ],
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "EquipAffixStart",
-                            "ACOKKHADPOJ": true,
-                            "GPKNEFCCKGN": "CDTime",
-                            "DAGGLMBBODJ": 113414
+                            "doOffStage": true,
+                            "CD": "CDTime",
+                            "equipAffixDataID": 113414
                         },
                         {
                             "$type": "ReviveElemEnergy",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": [
                                 0.0,
                                 "EnergyCost",
@@ -2967,62 +2967,62 @@
                             ]
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "ReviveElemEnergy",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": "EnergyPerTime"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Bakufu_CheckArtHit"
+                    "modifierName": "UNIQUE_Weapon_Pole_Bakufu_CheckArtHit"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Mori",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ModifyDamageMixin",
-                    "NMJGDKCDFOJ": [
+                    "attackTags": [
                         "Elemental_Burst"
                     ],
                     "damagePercentageRatio": "Damage_Rate",
                     "bonusCritical": "Crit_Rate"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Damage_Rate": 0.0,
                 "Crit_Rate": 0.0
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Maria",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByTeamStatusMixin",
-                    "OAEEBLALAPO": [
+                    "actions": [
                         {
                             "$type": "GetTeamTotalMaxEnergyToOverridemap",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "LEINAEHJFNA": "BigTeam",
-                            "OGAHELLALBB": "Pole_Maria_TeamEnergy"
+                            "overrideMapKey": "Pole_Maria_TeamEnergy"
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": [
                                 "Pole_Maria_TeamEnergy",
                                 "Ratio",
@@ -3030,16 +3030,16 @@
                                 100.0,
                                 "Div"
                             ],
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Maria_BuffValue",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": "Max_Value",
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Maria_BuffValue",
+                            "useLimitRange": true,
+                            "maxValue": "Max_Value",
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "_ABILITY_Pole_Maria_BuffValue",
-                            "OGAHELLALBB": "Pole_Maria_BuffValue"
+                            "doOffStage": true,
+                            "globalValueKey": "_ABILITY_Pole_Maria_BuffValue",
+                            "overrideMapKey": "Pole_Maria_BuffValue"
                         }
                     ],
                     "IALICHIPLFB": 20.0,
@@ -3048,35 +3048,35 @@
                 },
                 {
                     "$type": "ModifyDamageMixin",
-                    "NMJGDKCDFOJ": [
+                    "attackTags": [
                         "Elemental_Burst"
                     ],
                     "damagePercentageRatio": "Pole_Maria_BuffValue"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Ratio": 0.0,
                 "Max_Value": 0.0,
                 "Pole_Maria_TeamEnergy": 0.0,
                 "Pole_Maria_BuffValue": 0.0
             },
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Maria_BuffValue",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Maria_BuffValue",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Narukami",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToPredicateMixin",
                     "predicates": [
@@ -3085,7 +3085,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Pole_Narukami_Last_ChargeEfficiency",
+                                    "key": "_ABILITY_Pole_Narukami_Last_ChargeEfficiency",
                                     "value": [
                                         "FIGHT_PROP_NONEXTRA_CHARGE_EFFICIENCY",
                                         1.0,
@@ -3095,48 +3095,48 @@
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Pole_Narukami_ChargeToAtk_Refresh"
+                    "modifierName": "UNIQUE_Pole_Narukami_ChargeToAtk_Refresh"
                 },
                 {
                     "$type": "OnAvatarUseSkillMixin",
-                    "MLBANMCFDAF": [
+                    "onTriggerUltimateSkill": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Weapon_Pole_Narukami_ChargeUp"
+                            "modifierName": "UNIQUE_Weapon_Pole_Narukami_ChargeUp"
                         }
                     ],
                     "CAHFPMLJFAK": 0.20000000298023224
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ChargetoAtk_Factor": 0.0,
                 "MaxAttackRatio": 0.0,
                 "ChargeEfficiency": 0.0,
                 "Dura": 0.0,
                 "AttackRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_Narukami_ChargeToAtk_Refresh": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": [
                                 "FIGHT_PROP_NONEXTRA_CHARGE_EFFICIENCY",
                                 1.0,
                                 "Sub"
                             ],
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Narukami_Last_ChargeEfficiency",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Narukami_Last_ChargeEfficiency",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": [
                                 "ChargetoAtk_Factor",
                                 "FIGHT_PROP_NONEXTRA_CHARGE_EFFICIENCY",
@@ -3144,53 +3144,53 @@
                                 "ChargetoAtk_Factor",
                                 "Sub"
                             ],
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Narukami_AttackRatio",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Narukami_AttackRatio",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "Predicated",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_Pole_Narukami_AttackRatio",
+                                    "key": "_ABILITY_Pole_Narukami_AttackRatio",
                                     "value": "MaxAttackRatio",
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetOverrideMapValue",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "value": "MaxAttackRatio",
-                                    "OGAHELLALBB": "AttackRatio"
+                                    "overrideMapKey": "AttackRatio"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "Predicated",
-                                    "ACOKKHADPOJ": true,
-                                    "ELDBAFHCOBL": [
+                                    "doOffStage": true,
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_Pole_Narukami_AttackRatio",
+                                            "key": "_ABILITY_Pole_Narukami_AttackRatio",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetOverrideMapValue",
-                                            "ACOKKHADPOJ": true,
+                                            "doOffStage": true,
                                             "value": 0.0,
-                                            "OGAHELLALBB": "AttackRatio"
+                                            "overrideMapKey": "AttackRatio"
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetOverrideMapValue",
-                                            "ACOKKHADPOJ": true,
+                                            "doOffStage": true,
                                             "value": [
                                                 "ChargetoAtk_Factor",
                                                 "FIGHT_PROP_NONEXTRA_CHARGE_EFFICIENCY",
@@ -3198,7 +3198,7 @@
                                                 "ChargetoAtk_Factor",
                                                 "Sub"
                                             ],
-                                            "OGAHELLALBB": "AttackRatio"
+                                            "overrideMapKey": "AttackRatio"
                                         }
                                     ]
                                 }
@@ -3206,85 +3206,85 @@
                         },
                         {
                             "$type": "TriggerAbility",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "abilityName": "Weapon_Pole_Narukami"
                         }
                     ]
                 },
                 "UNIQUE_Pole_Narukami_ChargeToAtk_Buff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "AttackRatio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Weapon_Pole_Narukami_ChargeUp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Dura",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Dura",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_ChargeEfficiencyDelta": "ChargeEfficiency"
                     },
                     "state": "AttackUp",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByEquipParts",
-                                "GNNLGDBFIDI": [
+                                "equipPartNames": [
                                     "equip01",
                                     "equip02",
                                     "sheathPoint"
                                 ]
                             },
-                            "JBHFPDMBFHN": "Eff_Weapon_NarukamiBuff_Pole"
+                            "effectPattern": "Eff_Weapon_NarukamiBuff_Pole"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Narukami_Last_ChargeEfficiency",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Narukami_Last_ChargeEfficiency",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_Pole_Narukami_ChargeToAtk_Buff"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_Pole_Narukami_ChargeToAtk_Buff"
                 },
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_Pole_Narukami_ChargeToAtk_Buff"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_Pole_Narukami_ChargeToAtk_Buff"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Weapon_Pole_Santika",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_ABILITY_Pole_Santika_IsOffStage",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_Pole_Santika_IsOffStage",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Pole_Santika_Buff_OnStage",
                         "UNIQUE_Pole_Santika_Buff_OffStage"
                     ]
@@ -3294,29 +3294,29 @@
                     "MPNINPNOPPE": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Pole_Santika_Timer"
+                            "modifierName": "UNIQUE_Pole_Santika_Timer"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Weapon_Santika_Buff"
+                            "effectPattern": "Eff_Weapon_Santika_Buff"
                         }
                     ],
                     "CAHFPMLJFAK": 0.20000000298023224
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "BaseBuff": 0.0,
                 "Interval": 0.0,
                 "AttackRatio": 0.0,
                 "Dura": 0.0,
                 "Buff_Level": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Pole_Santika_WeaponBaseBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_ElecAddHurtDelta": "BaseBuff",
                         "Actor_FireAddHurtDelta": "BaseBuff",
                         "Actor_WindAddHurtDelta": "BaseBuff",
@@ -3325,47 +3325,47 @@
                         "Actor_GrassAddHurtDelta": "BaseBuff",
                         "Actor_RockAddHurtDelta": "BaseBuff"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Dura",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Dura",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": "Interval",
+                    "thinkInterval": "Interval",
                     "state": "AttackUp",
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Santika_AttackBuffLevel",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Santika_AttackBuffLevel",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AddGlobalValue",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Santika_AttackBuffLevel",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 6.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Santika_AttackBuffLevel",
+                            "useLimitRange": true,
+                            "maxValue": 6.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Pole_Santika_Buff_OnStage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_Pole_Santika_AttackBuffLevel",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_Pole_Santika_AttackBuffLevel",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 0.5,
                                 1.5,
                                 2.5,
@@ -3374,7 +3374,7 @@
                                 5.5,
                                 10.0
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_Pole_Santika_AttackUp1",
                                 "UNIQUE_Pole_Santika_AttackUp2",
                                 "UNIQUE_Pole_Santika_AttackUp3",
@@ -3386,89 +3386,89 @@
                     ]
                 },
                 "UNIQUE_Pole_Santika_AttackUp1": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "AttackRatio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp2": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             2.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp3": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             3.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp4": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             4.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp5": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             5.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp6": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             6.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_Buff_OffStage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_Pole_Santika_AttackBuffLevel",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_Pole_Santika_AttackBuffLevel",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 0.5,
                                 1.5,
                                 2.5,
@@ -3477,7 +3477,7 @@
                                 5.5,
                                 10.0
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_Pole_Santika_AttackUp1_OffStage",
                                 "UNIQUE_Pole_Santika_AttackUp2_OffStage",
                                 "UNIQUE_Pole_Santika_AttackUp3_OffStage",
@@ -3489,148 +3489,148 @@
                     ]
                 },
                 "UNIQUE_Pole_Santika_AttackUp1_OffStage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             2.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp2_OffStage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             4.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp3_OffStage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             6.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp4_OffStage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             8.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp5_OffStage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             10.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_Pole_Santika_AttackUp6_OffStage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "AttackRatio",
                             12.0,
                             "Mul"
                         ]
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Pole_Santika_WeaponBaseBuff"
+                    "modifierName": "UNIQUE_Pole_Santika_WeaponBaseBuff"
                 },
                 {
                     "$type": "Predicated",
-                    "ELDBAFHCOBL": [
+                    "targetPredicates": [
                         {
                             "$type": "ByIsLocalAvatar",
-                            "NPHOOPNDCAC": "Self"
+                            "target": "Self"
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Santika_IsOffStage",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Santika_IsOffStage",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_Pole_Santika_IsOffStage",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_Pole_Santika_IsOffStage",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             ],
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "SetGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Santika_AttackBuffLevel",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Santika_AttackBuffLevel",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
             "NDHIFGEGBAC": [
                 {
                     "$type": "SetGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Santika_IsOffStage",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Santika_IsOffStage",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "NPEJFLBOAAN": [
+            "onAvatarOut": [
                 {
                     "$type": "SetGlobalValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_ABILITY_Pole_Santika_IsOffStage",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_Pole_Santika_IsOffStage",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

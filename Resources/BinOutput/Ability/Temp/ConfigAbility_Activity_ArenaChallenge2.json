@@ -3,34 +3,34 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_ArenaChallenge2_FallingDamage_Aoe",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Rate": 0.3499999940395355,
                 "Damage_Rate": 80.0,
                 "DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ArenaChallenge2_FallingDamage_Challenge_Init": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ELECTRIC_CORE_TRIGGER_COUNT",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ELECTRIC_CORE_TRIGGER_COUNT",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_FallingDamage_Handler_Challenge": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByStateIDMixin",
                             "stateIDs": [
@@ -39,45 +39,45 @@
                             "MCFCEOACJEB": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_FallingDamage_Effect_Challenge"
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_ArenaChallenge2_FallingDamage_Effect_Challenge"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_FallingDamage_Effect_Challenge": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Team",
-                            "ELDBAFHCOBL": [
+                            "target": "Team",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ELECTRIC_CORE_TRIGGER_COUNT",
+                                    "key": "_ELECTRIC_CORE_TRIGGER_COUNT",
                                     "value": 3.0,
-                                    "ONPJJFKDCED": "MoreThanAndEqual"
+                                    "compareType": "MoreThanAndEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_SceneObj_Arenashake_01"
+                                    "effectPattern": "Eff_SceneObj_Arenashake_01"
                                 },
                                 {
                                     "$type": "TriggerAttackEvent",
-                                    "DMCJDGELKBC": {
+                                    "attackEvent": {
                                         "attackPattern": {
                                             "$type": "ConfigAttackSphere",
                                             "lifeTime": "TriggerNoRepeat",
-                                            "NGDMCBABOJA": {
+                                            "born": {
                                                 "$type": "ConfigBornBySelf"
                                             },
-                                            "ICGFCBOFFDI": 20.0
+                                            "radius": 20.0
                                         },
                                         "attackInfo": {
                                             "attackTag": "",
@@ -102,160 +102,160 @@
                                             }
                                         }
                                     },
-                                    "OJIFKEOCJGB": "Enemy"
+                                    "targetType": "Enemy"
                                 },
                                 {
                                     "$type": "SetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_ELECTRIC_CORE_TRIGGER_COUNT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ELECTRIC_CORE_TRIGGER_COUNT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "DamageSystemValue",
+                    "key": "DamageSystemValue",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_FallingDamage_Handler_Challenge"
+                    "modifierName": "UNIQUE_ArenaChallenge2_FallingDamage_Handler_Challenge"
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_FallingDamage_Challenge_Init"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_ArenaChallenge2_FallingDamage_Challenge_Init"
                 }
             ],
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "NPHOOPNDCAC": "CurTeamAvatars",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_Atkup_Avatar"
+                    "target": "CurTeamAvatars",
+                    "modifierName": "UNIQUE_ArenaChallenge2_Atkup_Avatar"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Team",
+                    "target": "Team",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_ELECTRIC_CORE_TRIGGER_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "_ELECTRIC_CORE_TRIGGER_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 1.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "EfficiencyDelta": 1.0,
                 "TickTime": 10.0,
                 "Damage": 80.0,
                 "DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ArenaChallenge2_AddEfficiency_Mixin_Team": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "HAS_ELECTRIC_FAIRY_BUFF_Team",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "HAS_ELECTRIC_FAIRY_BUFF_Team",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Blank",
                                 "UNIQUE_ArenaChallenge2_AddEfficiency_Team"
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_ArenaChallenge2_AddEfficiency_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AddEfficiency_Avatar"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ArenaChallenge2_AddEfficiency_Avatar"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_TriggerAoeAfterULT_Avatar": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MLBANMCFDAF": [
+                            "onTriggerUltimateSkill": [
                                 {
                                     "$type": "AddGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 10.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
+                                    "useLimitRange": true,
+                                    "maxValue": 10.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Count"
+                                    "target": "Team",
+                                    "modifierName": "ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Count"
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Team",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
+                                            "key": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
                                             "value": 2.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "DebugLog",
-                                            "CBEDAJEGJBM": "##triggerthunder"
+                                            "content": "##triggerthunder"
                                         },
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "Team",
-                                            "GAIGOBCNNEE": "ActivityAbility_ArenaChallenge2_AOEHandler_TeamAoe"
+                                            "target": "Team",
+                                            "modifierName": "ActivityAbility_ArenaChallenge2_AOEHandler_TeamAoe"
                                         }
                                     ]
                                 }
@@ -265,74 +265,74 @@
                     ]
                 },
                 "ActivityAbility_ArenaChallenge2_AOEHandler_TeamAoe": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 2.0,
+                    "stacking": "Multiple",
+                    "modifierName": "",
+                    "duration": 2.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "GAIGOBCNNEE": "ActivityAbility_ArenaChallenge2_AOEHandler_Avatar"
+                            "target": "CurLocalAvatar",
+                            "modifierName": "ActivityAbility_ArenaChallenge2_AOEHandler_Avatar"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_AddEfficiency_Avatar": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_ChargeEfficiencyDelta": "EfficiencyDelta"
                     }
                 },
                 "ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Count": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "TickTime",
+                    "stacking": "Multiple",
+                    "modifierName": "",
+                    "duration": "TickTime",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 10.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
+                            "useLimitRange": true,
+                            "maxValue": 10.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "ActivityAbility_ArenaChallenge2_AOEHandler_Avatar": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Multiple",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
                                 "DJLKFLJENEG": 5,
                                 "AKMLOIFOBPO": "Random",
-                                "JBKKOJLJHDK": "CircleR12",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR12",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Monster"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Monster"
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Monster": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_RaioTrunk_01_ThunderFall",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_SceneObj_RaioTrunk_01_ThunderFall",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         },
@@ -366,53 +366,53 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AddEfficiency_Mixin_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_ArenaChallenge2_AddEfficiency_Mixin_Team"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "DamageSystemValue",
+                    "key": "DamageSystemValue",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_TriggerAoeAfterULT_Avatar"
+                    "modifierName": "UNIQUE_ArenaChallenge2_TriggerAoeAfterULT_Avatar"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Challenge",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "EfficiencyDelta": 1.0,
                 "TickTime": 10.0,
                 "Damage": 80.0,
                 "Damage_Avatar": 5.0,
                 "DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ArenaChallenge2_AddEfficiency_Mixin_Team": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "HAS_ELECTRIC_FAIRY_BUFF_Team",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "HAS_ELECTRIC_FAIRY_BUFF_Team",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Blank",
                                 "UNIQUE_ArenaChallenge2_AddEfficiency_Team"
                             ]
@@ -420,64 +420,64 @@
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_ArenaChallenge2_AddEfficiency_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AddEfficiency_Avatar"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ArenaChallenge2_AddEfficiency_Avatar"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_TriggerAoeAfterULT_Avatar": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MLBANMCFDAF": [
+                            "onTriggerUltimateSkill": [
                                 {
                                     "$type": "AddGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 10.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
+                                    "useLimitRange": true,
+                                    "maxValue": 10.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Count"
+                                    "target": "Team",
+                                    "modifierName": "ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Count"
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Team",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
+                                            "key": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
                                             "value": 2.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "DebugLog",
-                                            "CBEDAJEGJBM": "##triggerthunder"
+                                            "content": "##triggerthunder"
                                         },
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "Team",
-                                            "GAIGOBCNNEE": "ActivityAbility_ArenaChallenge2_AOEHandler_TeamAoe"
+                                            "target": "Team",
+                                            "modifierName": "ActivityAbility_ArenaChallenge2_AOEHandler_TeamAoe"
                                         }
                                     ]
                                 }
@@ -487,91 +487,91 @@
                     ]
                 },
                 "ActivityAbility_ArenaChallenge2_AOEHandler_TeamAoe": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 2.0,
+                    "stacking": "Multiple",
+                    "modifierName": "",
+                    "duration": 2.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "GAIGOBCNNEE": "ActivityAbility_ArenaChallenge2_AOEHandler_Avatar"
+                            "target": "CurLocalAvatar",
+                            "modifierName": "ActivityAbility_ArenaChallenge2_AOEHandler_Avatar"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_AddEfficiency_Avatar": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_ChargeEfficiencyDelta": "EfficiencyDelta"
                     }
                 },
                 "ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Count": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "TickTime",
+                    "stacking": "Multiple",
+                    "modifierName": "",
+                    "duration": "TickTime",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 10.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
+                            "useLimitRange": true,
+                            "maxValue": 10.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "ActivityAbility_ArenaChallenge2_AOEHandler_Avatar": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
+                    "stacking": "Multiple",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
                                 "DJLKFLJENEG": 3,
                                 "AKMLOIFOBPO": "Random",
-                                "JBKKOJLJHDK": "CircleR12",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR12",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Monster"
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Monster"
                         },
                         {
                             "$type": "SetGlobalPos",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "HJJEAOMEOFI": "ArenaChallenge2_ThunderPos",
-                            "NGDMCBABOJA": {
+                            "target": "CurLocalAvatar",
+                            "key": "ArenaChallenge2_ThunderPos",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         },
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "NGDMCBABOJA": {
+                            "target": "CurLocalAvatar",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             },
-                            "CABLIPAKCGB": 44000308,
-                            "DOLAJLACEDF": 1001,
-                            "ONPOPLLHJLE": "SelfCamp"
+                            "gadgetID": 44000308,
+                            "campID": 1001,
+                            "campTargetType": "SelfCamp"
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Monster": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_RaioTrunk_01_ThunderFall",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_SceneObj_RaioTrunk_01_ThunderFall",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         },
@@ -605,25 +605,25 @@
                     ]
                 },
                 "Thunder_Hit": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 2.5,
+                    "modifierName": "",
+                    "duration": 2.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Ambor_AlertCircle",
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
                                 "GDENJEFPMGC": "ArenaChallenge2_ThunderPos",
                                 "MICIJLHMIIH": ""
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_ThunderFall_01",
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
                                 "GDENJEFPMGC": "ArenaChallenge2_ThunderPos",
                                 "MICIJLHMIIH": ""
@@ -631,16 +631,16 @@
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByGlobalValue",
                                         "GDENJEFPMGC": "ArenaChallenge2_ThunderPos",
                                         "MICIJLHMIIH": ""
                                     },
-                                    "ICGFCBOFFDI": 2.5
+                                    "radius": 2.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -666,78 +666,78 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "SelfCamp"
+                            "targetType": "SelfCamp"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
-                    "NPHOOPNDCAC": "Team",
+                    "target": "Team",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ActivityAbility_ArenaChallenge2_TriggerAoeAfterULT_Layer",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AddEfficiency_Mixin_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_ArenaChallenge2_AddEfficiency_Mixin_Team"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "DamageSystemValue",
+                    "key": "DamageSystemValue",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_TriggerAoeAfterULT_Avatar"
+                    "modifierName": "UNIQUE_ArenaChallenge2_TriggerAoeAfterULT_Avatar"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ArenaChallenge2_Thunder_Gadget",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Damage_Avatar": 5.0,
                 "DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ArenaChallenge2_ThunderAttack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 2.5,
+                    "modifierName": "",
+                    "duration": 2.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Ambor_AlertCircle",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_ThunderFall_01",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByTarget"
                                     },
-                                    "ICGFCBOFFDI": 2.5
+                                    "radius": 2.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -763,50 +763,50 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "SelfCamp"
+                            "targetType": "SelfCamp"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "DamageSystemValue",
+                    "key": "DamageSystemValue",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "ArenaChallenge2_ThunderAttack"
+                    "modifierName": "ArenaChallenge2_ThunderAttack"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_ArenaChallenge2_AtkSpeedAndCDdec",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "AttackSpeed": 0.25,
                 "SkillCDMinusRatio": 0.25
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ArenaChallenge2_AtkSpeedAndCDdec_Mixin_Team": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "HAS_ELECTRIC_FAIRY_BUFF_Team",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "HAS_ELECTRIC_FAIRY_BUFF_Team",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 1.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Blank",
                                 "UNIQUE_ArenaChallenge2_AtkSpeedAndCDdec_Team"
                             ]
@@ -814,63 +814,63 @@
                     ]
                 },
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_ArenaChallenge2_AtkSpeedAndCDdec_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AtkSpeedAndCDdec_Avatar"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ArenaChallenge2_AtkSpeedAndCDdec_Avatar"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_AtkSpeedAndCDdec_Avatar": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_AttackSpeedRatio": "AttackSpeed",
                         "Actor_SkillCDMinusRatio": "SkillCDMinusRatio"
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AtkSpeedAndCDdec_Mixin_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_ArenaChallenge2_AtkSpeedAndCDdec_Mixin_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_ArenaChallenge2_AtkTiggerAoe",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "AttackCD": 2.0,
                 "Value_DamageRate": 20.0,
                 "Value_DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_ArenaChallenge2_TiggerAoe": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -879,7 +879,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -891,66 +891,66 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TiggerAoe_CD",
+                                    "target": "Team",
+                                    "key": "_ActivityAbility_ArenaChallenge2_TiggerAoe_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "HAS_ELECTRIC_FAIRY_BUFF_Team",
+                                    "target": "Team",
+                                    "key": "HAS_ELECTRIC_FAIRY_BUFF_Team",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalPos",
-                                    "NPHOOPNDCAC": "Other",
-                                    "HJJEAOMEOFI": "_Ability_ArenaChallenge2_AoePos",
-                                    "NGDMCBABOJA": {
+                                    "target": "Other",
+                                    "key": "_Ability_ArenaChallenge2_AoePos",
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "JBPCKOKLHEB": true
+                                        "onGround": true
                                     },
                                     "OGADOPDNBMM": false
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_ArenaChallenge2_TiggerAoe_CD"
+                                    "target": "Team",
+                                    "modifierName": "UNIQUE_ActivityAbility_ArenaChallenge2_TiggerAoe_CD"
                                 },
                                 {
                                     "$type": "SetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TiggerAoe_Type",
-                                    "EODOIECEPEF": true,
+                                    "key": "_ActivityAbility_ArenaChallenge2_TiggerAoe_Type",
+                                    "useLimitRange": true,
                                     "FACHGOPKJKE": true,
-                                    "JDHHMBHOOEC": 4.0,
-                                    "KHAHOELDONA": 0.0
+                                    "maxValue": 4.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Team",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "NPHOOPNDCAC": "Team",
-                                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TiggerAoe_Type",
+                                            "target": "Team",
+                                            "key": "_ActivityAbility_ArenaChallenge2_TiggerAoe_Type",
                                             "value": 1.0,
-                                            "ONPJJFKDCED": "LessAndEqual"
+                                            "compareType": "LessAndEqual"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "FireEffect",
-                                            "JBHFPDMBFHN": "Eff_Avatar_ShockWave_Fire",
-                                            "NGDMCBABOJA": {
+                                            "effectPattern": "Eff_Avatar_ShockWave_Fire",
+                                            "born": {
                                                 "$type": "ConfigBornByGlobalValue",
                                                 "GDENJEFPMGC": "_Ability_ArenaChallenge2_AoePos",
                                                 "MICIJLHMIIH": ""
@@ -958,16 +958,16 @@
                                         },
                                         {
                                             "$type": "TriggerAttackEvent",
-                                            "DMCJDGELKBC": {
+                                            "attackEvent": {
                                                 "attackPattern": {
                                                     "$type": "ConfigAttackSphere",
                                                     "lifeTime": "TriggerNoRepeat",
-                                                    "NGDMCBABOJA": {
+                                                    "born": {
                                                         "$type": "ConfigBornByGlobalValue",
                                                         "GDENJEFPMGC": "_Ability_ArenaChallenge2_AoePos",
                                                         "MICIJLHMIIH": ""
                                                     },
-                                                    "ICGFCBOFFDI": 5.0
+                                                    "radius": 5.0
                                                 },
                                                 "attackInfo": {
                                                     "attackTag": "",
@@ -991,27 +991,27 @@
                                                     }
                                                 }
                                             },
-                                            "OJIFKEOCJGB": "Enemy"
+                                            "targetType": "Enemy"
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "Predicated",
-                                            "NPHOOPNDCAC": "Team",
-                                            "ELDBAFHCOBL": [
+                                            "target": "Team",
+                                            "targetPredicates": [
                                                 {
                                                     "$type": "ByTargetGlobalValue",
-                                                    "NPHOOPNDCAC": "Team",
-                                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TiggerAoe_Type",
+                                                    "target": "Team",
+                                                    "key": "_ActivityAbility_ArenaChallenge2_TiggerAoe_Type",
                                                     "value": 2.0,
-                                                    "ONPJJFKDCED": "LessAndEqual"
+                                                    "compareType": "LessAndEqual"
                                                 }
                                             ],
-                                            "NCNDEAPMKCP": [
+                                            "successActions": [
                                                 {
                                                     "$type": "FireEffect",
-                                                    "JBHFPDMBFHN": "Eff_Avatar_ShockWave_Electric",
-                                                    "NGDMCBABOJA": {
+                                                    "effectPattern": "Eff_Avatar_ShockWave_Electric",
+                                                    "born": {
                                                         "$type": "ConfigBornByGlobalValue",
                                                         "GDENJEFPMGC": "_Ability_ArenaChallenge2_AoePos",
                                                         "MICIJLHMIIH": ""
@@ -1019,16 +1019,16 @@
                                                 },
                                                 {
                                                     "$type": "TriggerAttackEvent",
-                                                    "DMCJDGELKBC": {
+                                                    "attackEvent": {
                                                         "attackPattern": {
                                                             "$type": "ConfigAttackSphere",
                                                             "lifeTime": "TriggerNoRepeat",
-                                                            "NGDMCBABOJA": {
+                                                            "born": {
                                                                 "$type": "ConfigBornByGlobalValue",
                                                                 "GDENJEFPMGC": "_Ability_ArenaChallenge2_AoePos",
                                                                 "MICIJLHMIIH": ""
                                                             },
-                                                            "ICGFCBOFFDI": 5.0
+                                                            "radius": 5.0
                                                         },
                                                         "attackInfo": {
                                                             "attackTag": "",
@@ -1053,26 +1053,26 @@
                                                             }
                                                         }
                                                     },
-                                                    "OJIFKEOCJGB": "Enemy"
+                                                    "targetType": "Enemy"
                                                 }
                                             ],
-                                            "BMIOBLGLPIM": [
+                                            "failActions": [
                                                 {
                                                     "$type": "Predicated",
-                                                    "ELDBAFHCOBL": [
+                                                    "targetPredicates": [
                                                         {
                                                             "$type": "ByTargetGlobalValue",
-                                                            "NPHOOPNDCAC": "Team",
-                                                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TiggerAoe_Type",
+                                                            "target": "Team",
+                                                            "key": "_ActivityAbility_ArenaChallenge2_TiggerAoe_Type",
                                                             "value": 3.0,
-                                                            "ONPJJFKDCED": "LessAndEqual"
+                                                            "compareType": "LessAndEqual"
                                                         }
                                                     ],
-                                                    "NCNDEAPMKCP": [
+                                                    "successActions": [
                                                         {
                                                             "$type": "FireEffect",
-                                                            "JBHFPDMBFHN": "Eff_Avatar_ShockWave_Water",
-                                                            "NGDMCBABOJA": {
+                                                            "effectPattern": "Eff_Avatar_ShockWave_Water",
+                                                            "born": {
                                                                 "$type": "ConfigBornByGlobalValue",
                                                                 "GDENJEFPMGC": "_Ability_ArenaChallenge2_AoePos",
                                                                 "MICIJLHMIIH": ""
@@ -1080,16 +1080,16 @@
                                                         },
                                                         {
                                                             "$type": "TriggerAttackEvent",
-                                                            "DMCJDGELKBC": {
+                                                            "attackEvent": {
                                                                 "attackPattern": {
                                                                     "$type": "ConfigAttackSphere",
                                                                     "lifeTime": "TriggerNoRepeat",
-                                                                    "NGDMCBABOJA": {
+                                                                    "born": {
                                                                         "$type": "ConfigBornByGlobalValue",
                                                                         "GDENJEFPMGC": "_Ability_ArenaChallenge2_AoePos",
                                                                         "MICIJLHMIIH": ""
                                                                     },
-                                                                    "ICGFCBOFFDI": 5.0
+                                                                    "radius": 5.0
                                                                 },
                                                                 "attackInfo": {
                                                                     "attackTag": "",
@@ -1114,14 +1114,14 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "OJIFKEOCJGB": "Enemy"
+                                                            "targetType": "Enemy"
                                                         }
                                                     ],
-                                                    "BMIOBLGLPIM": [
+                                                    "failActions": [
                                                         {
                                                             "$type": "FireEffect",
-                                                            "JBHFPDMBFHN": "Eff_Avatar_ShockWave_Ice",
-                                                            "NGDMCBABOJA": {
+                                                            "effectPattern": "Eff_Avatar_ShockWave_Ice",
+                                                            "born": {
                                                                 "$type": "ConfigBornByGlobalValue",
                                                                 "GDENJEFPMGC": "_Ability_ArenaChallenge2_AoePos",
                                                                 "MICIJLHMIIH": ""
@@ -1129,16 +1129,16 @@
                                                         },
                                                         {
                                                             "$type": "TriggerAttackEvent",
-                                                            "DMCJDGELKBC": {
+                                                            "attackEvent": {
                                                                 "attackPattern": {
                                                                     "$type": "ConfigAttackSphere",
                                                                     "lifeTime": "TriggerNoRepeat",
-                                                                    "NGDMCBABOJA": {
+                                                                    "born": {
                                                                         "$type": "ConfigBornByGlobalValue",
                                                                         "GDENJEFPMGC": "_Ability_ArenaChallenge2_AoePos",
                                                                         "MICIJLHMIIH": ""
                                                                     },
-                                                                    "ICGFCBOFFDI": 5.0
+                                                                    "radius": 5.0
                                                                 },
                                                                 "attackInfo": {
                                                                     "attackTag": "",
@@ -1163,7 +1163,7 @@
                                                                     }
                                                                 }
                                                             },
-                                                            "OJIFKEOCJGB": "Enemy"
+                                                            "targetType": "Enemy"
                                                         }
                                                     ]
                                                 }
@@ -1176,149 +1176,149 @@
                     ]
                 },
                 "UNIQUE_ActivityAbility_ArenaChallenge2_TiggerAoe_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "AttackCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "AttackCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TiggerAoe_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_ArenaChallenge2_TiggerAoe_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_TiggerAoe_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_ArenaChallenge2_TiggerAoe_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_ArenaChallenge2_TiggerAoe"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_ActivityAbility_ArenaChallenge2_TiggerAoe"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "Value_DamageSystemValue",
+                    "doOffStage": true,
+                    "key": "Value_DamageSystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_ArenaChallenge2_KillMonster",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Damage": 120.0,
                 "DamageSystemValue": 1.0,
                 "CDTime": 8.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 0.5,
                                 1.5,
                                 2.5,
                                 3.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team_Lv1",
                                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team_Lv2",
                                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team_Lv3"
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Ability_ArenaChallenge2_KillMonster_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_Ability_ArenaChallenge2_KillMonster_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team_Lv1": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv1"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv1"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team_Lv2": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv2"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv2"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team_Lv3": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv3"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv3"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv1": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1327,55 +1327,55 @@
                                 },
                                 {
                                     "$type": "ByTargetHPRatio",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "BCJJBMJKHED": 0.30000001192092896
+                                    "logic": "Lesser",
+                                    "HPRatio": 0.30000001192092896
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_Ability_ArenaChallenge2_KillMonster_CD",
+                                    "target": "Team",
+                                    "key": "_Ability_ArenaChallenge2_KillMonster_CD",
                                     "value": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "HAS_ELECTRIC_FAIRY_BUFF_Team",
+                                    "target": "Team",
+                                    "key": "HAS_ELECTRIC_FAIRY_BUFF_Team",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Monster"
+                                    "target": "Other",
+                                    "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Monster"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Monster_CD"
+                                    "target": "Team",
+                                    "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Monster_CD"
                                 },
                                 {
                                     "$type": "AddGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 3.0,
-                                    "KHAHOELDONA": 1.0
+                                    "key": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
+                                    "useLimitRange": true,
+                                    "maxValue": 3.0,
+                                    "minValue": 1.0
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv2": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1384,55 +1384,55 @@
                                 },
                                 {
                                     "$type": "ByTargetHPRatio",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "BCJJBMJKHED": 0.4000000059604645
+                                    "logic": "Lesser",
+                                    "HPRatio": 0.4000000059604645
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_Ability_ArenaChallenge2_KillMonster_CD",
+                                    "target": "Team",
+                                    "key": "_Ability_ArenaChallenge2_KillMonster_CD",
                                     "value": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "HAS_ELECTRIC_FAIRY_BUFF_Team",
+                                    "target": "Team",
+                                    "key": "HAS_ELECTRIC_FAIRY_BUFF_Team",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Monster"
+                                    "target": "Other",
+                                    "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Monster"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Monster_CD"
+                                    "target": "Team",
+                                    "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Monster_CD"
                                 },
                                 {
                                     "$type": "AddGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 3.0,
-                                    "KHAHOELDONA": 1.0
+                                    "key": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
+                                    "useLimitRange": true,
+                                    "maxValue": 3.0,
+                                    "minValue": 1.0
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_KillMonster_Handler_Avatar_Lv3": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1441,56 +1441,56 @@
                                 },
                                 {
                                     "$type": "ByTargetHPRatio",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "BCJJBMJKHED": 0.5
+                                    "logic": "Lesser",
+                                    "HPRatio": 0.5
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_Ability_ArenaChallenge2_KillMonster_CD",
+                                    "target": "Team",
+                                    "key": "_Ability_ArenaChallenge2_KillMonster_CD",
                                     "value": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "HAS_ELECTRIC_FAIRY_BUFF_Team",
+                                    "target": "Team",
+                                    "key": "HAS_ELECTRIC_FAIRY_BUFF_Team",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Other",
-                                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Monster"
+                                    "target": "Other",
+                                    "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Monster"
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Monster_CD"
+                                    "target": "Team",
+                                    "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Monster_CD"
                                 },
                                 {
                                     "$type": "AddGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 3.0,
-                                    "KHAHOELDONA": 1.0
+                                    "key": "_ActivityAbility_ArenaChallenge2_KillMonster_Layer",
+                                    "useLimitRange": true,
+                                    "maxValue": 3.0,
+                                    "minValue": 1.0
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_KillMonster_Monster": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ExtraAtkWave",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_EnergyDisk_ExtraAtkWave",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         },
@@ -1523,115 +1523,115 @@
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_KillMonster_Monster_CD": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CDTime",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CDTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_Ability_ArenaChallenge2_KillMonster_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_Ability_ArenaChallenge2_KillMonster_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_Ability_ArenaChallenge2_KillMonster_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_Ability_ArenaChallenge2_KillMonster_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "DamageSystemValue",
+                    "doOffStage": true,
+                    "key": "DamageSystemValue",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_ArenaChallenge2_KillMonster_Handler_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "CDTime": 4.0,
                 "Value_DamageSystemValue": 0.0,
                 "Value_DamageRate": 20.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_AutoMatron_WeakTag",
+                                    "key": "_MONSTER_AutoMatron_WeakTag",
                                     "value": 1.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD",
+                                    "target": "Team",
+                                    "key": "_ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD",
                                     "value": 0.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "HAS_ELECTRIC_FAIRY_BUFF_Team",
+                                    "target": "Team",
+                                    "key": "HAS_ELECTRIC_FAIRY_BUFF_Team",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalPos",
-                                    "NPHOOPNDCAC": "Target",
-                                    "HJJEAOMEOFI": "_ABILITY_ArenaChallenge2_AtkWeakTriggerThunderAoe_Pos",
-                                    "NGDMCBABOJA": {
+                                    "target": "Target",
+                                    "key": "_ABILITY_ArenaChallenge2_AtkWeakTriggerThunderAoe_Pos",
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
-                                        "JBPCKOKLHEB": true
+                                        "onGround": true
                                     },
                                     "OGADOPDNBMM": false
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_Damage"
+                                    "target": "Caster",
+                                    "modifierName": "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_Damage"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_Damage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Burst_Down_Lightning",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Avatar_Burst_Down_Lightning",
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
                                 "GDENJEFPMGC": "_ABILITY_ArenaChallenge2_AtkWeakTriggerThunderAoe_Pos",
                                 "MICIJLHMIIH": ""
@@ -1639,16 +1639,16 @@
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByGlobalValue",
                                         "GDENJEFPMGC": "_ABILITY_ArenaChallenge2_AtkWeakTriggerThunderAoe_Pos",
                                         "MICIJLHMIIH": ""
                                     },
-                                    "ICGFCBOFFDI": 5.0
+                                    "radius": 5.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1673,100 +1673,100 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD"
+                            "target": "Team",
+                            "modifierName": "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD"
                         }
                     ]
                 },
                 "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CDTime",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CDTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_Handler"
+                    "modifierName": "UNIQUE_ArenaChallenge2_AtkWeakTriggerThunderAoe_Handler"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "Value_DamageSystemValue",
+                    "doOffStage": true,
+                    "key": "Value_DamageSystemValue",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "SetGlobalValue",
-                    "NPHOOPNDCAC": "Team",
+                    "target": "Team",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ActivityAbility_ArenaChallenge2_AtkWeakTriggerThunderAoe_CD",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_ArenaChallenge2_KillMonsterThunder",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ThunderDuration": 2.0,
                 "ThunderDamageRatio": 5.0,
                 "ElementLevelCo": 1.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ArenaChallenge2_KillMonsterThunder_Handler_Team": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixin",
-                            "GAIGOBCNNEE": "KillMixinModifier"
+                            "modifierName": "KillMixinModifier"
                         }
                     ]
                 },
                 "KillMixinModifier": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByKillingMixin",
-                            "AJPHDMLEOGE": 0.6000000238418579,
-                            "OGFFGLGEOGF": [
+                            "detectWindow": 0.6000000238418579,
+                            "onKill": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Other",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Other",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -1774,21 +1774,21 @@
                                             ]
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "CurLocalAvatar",
-                                            "GAIGOBCNNEE": "GetPos"
+                                            "target": "CurLocalAvatar",
+                                            "modifierName": "GetPos"
                                         },
                                         {
                                             "$type": "CreateGadget",
-                                            "NPHOOPNDCAC": "CurLocalAvatar",
-                                            "NGDMCBABOJA": {
+                                            "target": "CurLocalAvatar",
+                                            "born": {
                                                 "$type": "ConfigBornByTarget"
                                             },
-                                            "CABLIPAKCGB": 44000308,
-                                            "DOLAJLACEDF": 1001,
-                                            "ONPOPLLHJLE": "SelfCamp"
+                                            "gadgetID": 44000308,
+                                            "campID": 1001,
+                                            "campTargetType": "SelfCamp"
                                         }
                                     ]
                                 }
@@ -1797,45 +1797,45 @@
                     ]
                 },
                 "GetPos": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalPos",
-                            "NPHOOPNDCAC": "Applier",
-                            "HJJEAOMEOFI": "ThunderPos",
-                            "NGDMCBABOJA": {
+                            "target": "Applier",
+                            "key": "ThunderPos",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.0,
-                                    "MFBOELKCPDP": 1.0
+                                    "minRandomRange": 0.0,
+                                    "maxRandomRange": 1.0
                                 }
                             }
                         }
                     ]
                 },
                 "WarningThunder": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "ThunderDuration",
+                    "modifierName": "",
+                    "duration": "ThunderDuration",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Ambor_AlertCircle",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Ambor_AlertCircle",
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
                                 "GDENJEFPMGC": "ThunderPos",
                                 "MICIJLHMIIH": ""
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_ThunderFall_01",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_ThunderFall_01",
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
                                 "GDENJEFPMGC": "ThunderPos",
                                 "MICIJLHMIIH": ""
@@ -1843,16 +1843,16 @@
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByGlobalValue",
                                         "GDENJEFPMGC": "ThunderPos",
                                         "MICIJLHMIIH": ""
                                     },
-                                    "ICGFCBOFFDI": 2.5
+                                    "radius": 2.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "Thuner_Falling",
@@ -1880,25 +1880,25 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "SelfCamp"
+                            "targetType": "SelfCamp"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "ElementLevelCo",
+                    "doOffStage": true,
+                    "key": "ElementLevelCo",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "AttachModifier",
-                    "NPHOOPNDCAC": "Team",
-                    "GAIGOBCNNEE": "UNIQUE_ArenaChallenge2_KillMonsterThunder_Handler_Team"
+                    "target": "Team",
+                    "modifierName": "UNIQUE_ArenaChallenge2_KillMonsterThunder_Handler_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

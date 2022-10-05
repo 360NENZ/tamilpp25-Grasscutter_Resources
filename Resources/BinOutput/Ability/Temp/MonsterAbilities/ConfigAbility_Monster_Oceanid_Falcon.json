@@ -3,19 +3,19 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Falcon_ElementState",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ElementState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Water",
                     "elementDurability": 100.0,
                     "DDLOLBGNLEF": false
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ElementState"
+                    "modifierName": "UNIQUE_ElementState"
                 },
                 {
                     "$type": "AttachAbilityStateResistance",
@@ -26,7 +26,7 @@
                 },
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Falcon_Eye"
+                    "effectPattern": "Eff_Monster_Oceanid_Falcon_Eye"
                 }
             ]
         }
@@ -35,44 +35,44 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Falcon_Dive",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "Dive",
-                    "GAIGOBCNNEE": "DiveState",
-                    "AAIFCLGLOMO": 0.375,
-                    "MMHONEIBHNP": 0.75
+                    "stateID": "Dive",
+                    "modifierName": "DiveState",
+                    "normalizeStart": 0.375,
+                    "normalizeEnd": 0.75
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Dive"
                     ],
-                    "IMHBEGIKDKB": 0.3199999928474426,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.3199999928474426,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "DiveState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
@@ -83,15 +83,15 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Falcon_Steer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalIdle"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 }
             ]
         }
@@ -100,21 +100,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Falcon_Die",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_AnimalDie",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Oceanid_AnimalDie",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByEntity"
                         },
-                        "KJNJNKLLNCN": "RootNode"
+                        "attachPointName": "RootNode"
                     }
                 }
             ]
@@ -124,130 +124,130 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Falcon_HealHp_Challenge",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_HEALHP_STATE_",
-                    "FEGIOIGELHB": 1.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_HEALHP_STATE_",
+                    "defaultGlobalValueOnCreate": 1.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Empty",
                         "UNIQUE_Falcon_Water_HealHp"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "HealHPHigh": 0.15000000596046448
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Falcon_Water_HealHp": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.5,
+                    "thinkInterval": 1.5,
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "SGV_MONSTERAFFIX_OCEANID_02_ANIMALHEAL_UP",
+                                    "key": "SGV_MONSTERAFFIX_OCEANID_02_ANIMALHEAL_UP",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "HealHP_Pause_AffixUp"
+                                    "modifierName": "HealHP_Pause_AffixUp"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "HealHP_Pause"
+                                    "modifierName": "HealHP_Pause"
                                 }
                             ]
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "SGV_MONSTERAFFIX_OCEANID_02_ANIMALHEAL_UP",
+                                    "key": "SGV_MONSTERAFFIX_OCEANID_02_ANIMALHEAL_UP",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "HealHP",
                                     "PMHINCGOKCF": "HealHPHigh"
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Falcon_Heal"
+                                    "effectPattern": "Eff_Monster_Oceanid_Falcon_Heal"
                                 }
                             ]
                         }
                     ]
                 },
                 "HealHP_Pause": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_HEALHP_STATE_",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_HEALHP_STATE_",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_HEALHP_STATE_",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_HEALHP_STATE_",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 1.0
                         }
                     ]
                 },
                 "HealHP_Pause_AffixUp": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.5,
+                    "modifierName": "",
+                    "duration": 1.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_HEALHP_STATE_",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_HEALHP_STATE_",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_HEALHP_STATE_",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_HEALHP_STATE_",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 1.0
                         }
                     ]
                 },
                 "Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 }
             }

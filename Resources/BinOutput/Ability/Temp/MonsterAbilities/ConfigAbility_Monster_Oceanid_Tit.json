@@ -3,10 +3,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Tit_JumpAtkBS",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Tit_JumpBS"
+                    "effectPattern": "Eff_Monster_Oceanid_Tit_JumpBS"
                 }
             ]
         }
@@ -15,65 +15,65 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Tit_JumpAtk_Alert",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "JumpAtk",
-                    "GAIGOBCNNEE": "JumpCollider",
-                    "AAIFCLGLOMO": 0.4300000071525574,
-                    "MMHONEIBHNP": 0.75
+                    "stateID": "JumpAtk",
+                    "modifierName": "JumpCollider",
+                    "normalizeStart": 0.4300000071525574,
+                    "normalizeEnd": 0.75
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "JumpAtk"
                     ],
-                    "IMHBEGIKDKB": 0.4000000059604645,
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.4000000059604645,
+                    "angularSpeed": 150.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "JumpCollider": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerSetCastShadow"
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerSetCastShadow",
                             "BGJPIMFBHDP": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_JumpAlert",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Oceanid_Frog_JumpAlert",
+                    "born": {
                         "$type": "ConfigBornByRushToPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     }
                 }
@@ -84,23 +84,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Tit_JumpAtk_Damage",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
                             "secondHeight": 2.5,
-                            "ICGFCBOFFDI": 10.0
+                            "radius": 10.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -132,11 +132,11 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Tit_JumpDamage"
+                    "effectPattern": "Eff_Monster_Oceanid_Tit_JumpDamage"
                 }
             ]
         }
@@ -145,29 +145,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Tit_ElementState",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ElementState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Water",
                     "elementDurability": 100.0,
                     "DDLOLBGNLEF": false
                 },
                 "Monster_Oceanid_Tit_CommonEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Tit_CommonEffectLoop"
+                            "effectPattern": "Eff_Monster_Oceanid_Tit_CommonEffectLoop"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ElementState"
+                    "modifierName": "UNIQUE_ElementState"
                 },
                 {
                     "$type": "AttachAbilityStateResistance",
@@ -184,13 +184,13 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTERAFFIX_OCEANID_ANIMAL_FOOTEFFECT_OFF",
+                                    "key": "_MONSTERAFFIX_OCEANID_ANIMAL_FOOTEFFECT_OFF",
                                     "value": 1.0
                                 }
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "Monster_Oceanid_Tit_CommonEffect"
+                    "modifierName": "Monster_Oceanid_Tit_CommonEffect"
                 }
             ]
         }
@@ -199,30 +199,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Tit_WaterWave",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "WaterWave"
                     ],
-                    "IMHBEGIKDKB": 0.75,
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.75,
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Tit_WaterWaveAS"
+                    "effectPattern": "Eff_Monster_Oceanid_Tit_WaterWaveAS"
                 },
                 {
                     "$type": "DamageByAttackValue",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByShape",
-                        "JBKKOJLJHDK": "CircleR7",
-                        "ONPOPLLHJLE": "Enemy",
-                        "CJJABKCAIEB": 1.0
+                        "shapeName": "CircleR7",
+                        "campTargetType": "Enemy",
+                        "sizeRatio": 1.0
                     },
                     "attackInfo": {
                         "attackTag": "",
@@ -250,76 +250,76 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Tit_BeingHit",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_BEINGHITSTATE_",
-                    "FEGIOIGELHB": 1.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_BEINGHITSTATE_",
+                    "defaultGlobalValueOnCreate": 1.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Empty",
                         "BeingHit"
                     ]
                 },
                 {
                     "$type": "AttachToAbilityStateMixin",
-                    "ELJGGBDOPIL": [
+                    "abilityStates": [
                         "ElementPetrifaction",
                         "ElementFreeze"
                     ],
-                    "GAIGOBCNNEE": "ChangeBeingHitState"
+                    "modifierName": "ChangeBeingHitState"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "BeingHit": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_AnimalBeHitSpecial",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Oceanid_AnimalBeHitSpecial",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "KJNJNKLLNCN": "RootNode"
+                                "attachPointName": "RootNode"
                             }
                         }
                     ]
                 },
                 "ChangeBeingHitState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_BEINGHITSTATE_",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_BEINGHITSTATE_",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_BEINGHITSTATE_",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_BEINGHITSTATE_",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 1.0
                         }
                     ]
                 },
                 "Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 }
             }

@@ -3,27 +3,27 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_Alert_ModeSwitch",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "GMFCOCAJBDM": "Lesser",
+                            "target": "SelfAttackTarget",
+                            "logic": "Lesser",
                             "value": 15.0
                         }
                     ],
-                    "HHFIHBEAPAP": "IsNear",
+                    "boolID": "IsNear",
                     "value": true
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": -1.0,
-                    "HJJEAOMEOFI": "_WYRM_ROCK_CRUSHING_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_CRUSHING_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -32,30 +32,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_PhaseCheck",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "GMFCOCAJBDM": "GreaterOrEqual",
+                            "target": "SelfAttackTarget",
+                            "logic": "GreaterOrEqual",
                             "value": 10.0
                         }
                     ],
-                    "HHFIHBEAPAP": "IsNear"
+                    "boolID": "IsNear"
                 },
                 {
                     "$type": "SetPoseBool",
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "GMFCOCAJBDM": "Lesser",
+                            "target": "SelfAttackTarget",
+                            "logic": "Lesser",
                             "value": 10.0
                         }
                     ],
-                    "HHFIHBEAPAP": "IsNear",
+                    "boolID": "IsNear",
                     "value": true
                 }
             ]
@@ -65,77 +65,77 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CreateFollowBullet",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Wyrm_Rock_FollowHitBox": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_Tail"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider_Roll"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillGadget",
                             "LBGGIBBMCMF": {
                                 "AKMLOIFOBPO": "Reversed",
-                                "APIAFGPIIHE": 42603014
+                                "configID": 42603014
                             }
                         },
                         {
                             "$type": "KillGadget",
                             "LBGGIBBMCMF": {
                                 "AKMLOIFOBPO": "Reversed",
-                                "APIAFGPIIHE": 42603015
+                                "configID": 42603015
                             }
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_Tail"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider_Roll"
                             ]
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 231,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42603014,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42603014,
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     },
                     "ENJEPFDLDDF": "Self",
@@ -146,18 +146,18 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorInt",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 241,
-                            "MOCGJNIDDAI": "SkillID"
+                            "parameter": "SkillID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42603015,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42603015,
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     },
                     "NJEOPILMKCN": true,
@@ -165,7 +165,7 @@
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Wyrm_Rock_FollowHitBox"
+                    "modifierName": "UNIQUE_Wyrm_Rock_FollowHitBox"
                 }
             ]
         }
@@ -174,10 +174,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_RemoveFollowBullet",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Wyrm_Rock_FollowHitBox"
+                    "modifierName": "UNIQUE_Wyrm_Rock_FollowHitBox"
                 }
             ]
         }
@@ -186,22 +186,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_FollowHitBox_Roll",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
                             "CFICIECHNKI": true,
-                            "LCDFJLIEENG": true,
-                            "NGDMCBABOJA": {
+                            "ignoreMassive": true,
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
                             "size": {
-                                "AEAAJCIDPED": 0.5,
-                                "KAAPLGBEDPM": 0.5,
-                                "PHDCJAHHIOG": 0.5
+                                "x": 0.5,
+                                "y": 0.5,
+                                "z": 0.5
                             }
                         },
                         "attackInfo": {
@@ -234,7 +234,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -243,22 +243,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_FollowHitBox_CrushAtk",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
                             "CFICIECHNKI": true,
-                            "LCDFJLIEENG": true,
-                            "NGDMCBABOJA": {
+                            "ignoreMassive": true,
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
                             "size": {
-                                "AEAAJCIDPED": 0.5,
-                                "KAAPLGBEDPM": 0.5,
-                                "PHDCJAHHIOG": 0.5
+                                "x": 0.5,
+                                "y": 0.5,
+                                "z": 0.5
                             }
                         },
                         "attackInfo": {
@@ -291,7 +291,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -306,23 +306,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_JumpAtk",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "IsNear",
+                    "boolID": "IsNear",
                     "value": true
                 },
                 {
                     "$type": "RushMove",
-                    "NPHOOPNDCAC": "SelfAttackTarget",
+                    "target": "SelfAttackTarget",
                     "FJCBIPKOKMF": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 2.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 2.0
                         },
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     },
                     "JLCCGHLNHOI": 8.0,
                     "GDCBDDNNPCM": 1.0
@@ -334,50 +334,50 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_JumpAtk_Alert",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "JumpAtk",
-                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_JumpAtk_Collider",
-                    "AAIFCLGLOMO": 0.23000000417232513,
-                    "MMHONEIBHNP": 0.6399999856948853
+                    "stateID": "JumpAtk",
+                    "modifierName": "Monster_Wyrm_Rock_JumpAtk_Collider",
+                    "normalizeStart": 0.23000000417232513,
+                    "normalizeEnd": 0.6399999856948853
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Wyrm_Rock_JumpAtk_Collider": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_Tail"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_Tail"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_JumpAtk_Land_Alert",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Wyrm_Rock_JumpAtk_Land_Alert",
+                    "born": {
                         "$type": "ConfigBornByRushToPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     }
                 },
@@ -399,7 +399,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_RollBS",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
@@ -407,21 +407,21 @@
                         "Roll_Loop",
                         "Roll_End"
                     ],
-                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_RollState"
+                    "modifierName": "Monster_Wyrm_Rock_RollState"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Wyrm_Rock_RollState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "HideUIBillBoard",
                             "COCENMAFJGD": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_Roll_Dust"
+                            "effectPattern": "Eff_Monster_Wyrm_Rock_Roll_Dust"
                         },
                         {
                             "$type": "TriggerAbility",
@@ -429,41 +429,41 @@
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "Rolling",
+                            "boolID": "Rolling",
                             "value": true
                         },
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_END",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_WYRM_ROCK_ROLL_END",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Monster_Wyrm_Rock_Roll_HitActive"
+                            "modifierName": "Monster_Wyrm_Rock_Roll_HitActive"
                         },
                         {
                             "$type": "AddGlobalValue",
                             "value": -999.0,
-                            "HJJEAOMEOFI": "_WYRM_NEAR_ENEMYCOUNT",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 4.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_WYRM_NEAR_ENEMYCOUNT",
+                            "useLimitRange": true,
+                            "maxValue": 4.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "TriggerAbility",
                             "abilityName": "Monster_Wyrm_Rock_CreateFollowBullet"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "HideUIBillBoard"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "Rolling"
+                            "boolID": "Rolling"
                         },
                         {
                             "$type": "TriggerAbility",
@@ -471,13 +471,13 @@
                         },
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR20",
-                                "ONPOPLLHJLE": "All",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR20",
+                                "campTargetType": "All",
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -485,14 +485,14 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_WYRM_NEAR_ENEMYCOUNT",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 4.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_WYRM_NEAR_ENEMYCOUNT",
+                                    "useLimitRange": true,
+                                    "maxValue": 4.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         },
@@ -501,12 +501,12 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_WYRM_NEAR_ENEMYCOUNT",
+                                    "key": "_WYRM_NEAR_ENEMYCOUNT",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ],
-                            "HHFIHBEAPAP": "IsNear",
+                            "boolID": "IsNear",
                             "value": true
                         },
                         {
@@ -514,27 +514,27 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_WYRM_NEAR_ENEMYCOUNT",
+                                    "key": "_WYRM_NEAR_ENEMYCOUNT",
                                     "value": 0.0
                                 }
                             ],
-                            "HHFIHBEAPAP": "DigTime",
+                            "boolID": "DigTime",
                             "value": true
                         },
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_MONSTER_WYRM_ROCK_DIGMODE",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_WYRM_ROCK_DIGMODE",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -544,42 +544,42 @@
                                 },
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "NPHOOPNDCAC": "TargetOwner",
+                                    "target": "TargetOwner",
                                     "value": 20.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_Roll_HitActive"
+                                    "target": "Caster",
+                                    "modifierName": "Monster_Wyrm_Rock_Roll_HitActive"
                                 }
                             ]
                         }
                     ]
                 },
                 "Monster_Wyrm_Rock_Roll_HitActive": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_GADGETHIT",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_WYRM_ROCK_ROLL_GADGETHIT",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_GADGETHIT",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_WYRM_ROCK_ROLL_GADGETHIT",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
@@ -590,30 +590,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_Roll_FindNext",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "roll_times_counter": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Wyrm_Rock_Roll_FindNext_Latency": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.4000000059604645,
+                    "modifierName": "",
+                    "duration": 0.4000000059604645,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.30000001192092896,
-                    "ILBIENDPCBG": [
+                    "thinkInterval": 0.30000001192092896,
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Monster_Wyrm_Rock_Roll_FindNext_TriggerAbility_Latency"
+                            "modifierName": "Monster_Wyrm_Rock_Roll_FindNext_TriggerAbility_Latency"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerAbility",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_COUNT",
+                                    "key": "_WYRM_ROCK_ROLL_COUNT",
                                     "value": 4.0,
-                                    "ONPJJFKDCED": "MoreThanAndEqual"
+                                    "compareType": "MoreThanAndEqual"
                                 }
                             ],
                             "abilityName": "Monster_Wyrm_Rock_Roll_StateCheck"
@@ -621,32 +621,32 @@
                     ]
                 },
                 "Monster_Wyrm_Rock_Roll_FindNext_TriggerAbility_Latency": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAbility",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_END",
+                                    "key": "_WYRM_ROCK_ROLL_END",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "abilityName": "Monster_Wyrm_Rock_Roll_FindNext"
                         },
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "WYRM_ROCK_FINDNEXT_MODIFIER!!!!!!!"
+                            "content": "WYRM_ROCK_FINDNEXT_MODIFIER!!!!!!!"
                         },
                         {
                             "$type": "SetAnimatorTrigger",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_END",
+                                    "key": "_WYRM_ROCK_ROLL_END",
                                     "value": 1.0
                                 }
                             ],
@@ -655,60 +655,60 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_ROLL_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SetGlobalValueToOverrideMap",
-                    "BPCFCANOMNH": "_WYRM_ROCK_ROLL_COUNT",
-                    "OGAHELLALBB": "roll_times_counter"
+                    "globalValueKey": "_WYRM_ROCK_ROLL_COUNT",
+                    "overrideMapKey": "roll_times_counter"
                 },
                 {
                     "$type": "AddGlobalValue",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByShape",
                         "DJLKFLJENEG": 1,
                         "AKMLOIFOBPO": "Random",
-                        "JBKKOJLJHDK": "CircleR20",
-                        "ONPOPLLHJLE": "All",
-                        "CJJABKCAIEB": 1.0
+                        "shapeName": "CircleR20",
+                        "campTargetType": "All",
+                        "sizeRatio": 1.0
                     },
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_DESTINATION",
+                            "key": "_WYRM_ROCK_ROLL_DESTINATION",
                             "value": 1.0
                         }
                     ],
                     "value": "roll_times_counter",
-                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_GADGET_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_ROLL_GADGET_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SetSelfAttackTarget",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByShape",
-                        "JBKKOJLJHDK": "CircleR30",
-                        "ONPOPLLHJLE": "All",
-                        "CJJABKCAIEB": 1.0
+                        "shapeName": "CircleR30",
+                        "campTargetType": "All",
+                        "sizeRatio": 1.0
                     },
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_GADGET_COUNT",
+                            "key": "_WYRM_ROCK_ROLL_GADGET_COUNT",
                             "value": "roll_times_counter"
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_DESTINATION",
+                            "key": "_WYRM_ROCK_ROLL_DESTINATION",
                             "value": 1.0
                         }
                     ],
@@ -716,65 +716,65 @@
                 },
                 {
                     "$type": "RushMove",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByShape",
-                        "JBKKOJLJHDK": "CircleR30",
-                        "ONPOPLLHJLE": "All",
-                        "CJJABKCAIEB": 1.0
+                        "shapeName": "CircleR30",
+                        "campTargetType": "All",
+                        "sizeRatio": 1.0
                     },
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_GADGET_COUNT",
+                            "key": "_WYRM_ROCK_ROLL_GADGET_COUNT",
                             "value": "roll_times_counter"
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_DESTINATION",
+                            "key": "_WYRM_ROCK_ROLL_DESTINATION",
                             "value": 1.0
                         }
                     ],
                     "FJCBIPKOKMF": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     },
                     "JLCCGHLNHOI": 8.0,
                     "GDCBDDNNPCM": 0.30000001192092896
                 },
                 {
                     "$type": "AddGlobalValue",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByShape",
-                        "JBKKOJLJHDK": "CircleR30",
-                        "ONPOPLLHJLE": "All",
-                        "CJJABKCAIEB": 1.0
+                        "shapeName": "CircleR30",
+                        "campTargetType": "All",
+                        "sizeRatio": 1.0
                     },
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_GADGET_COUNT",
+                            "key": "_WYRM_ROCK_ROLL_GADGET_COUNT",
                             "value": "roll_times_counter"
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_DESTINATION",
+                            "key": "_WYRM_ROCK_ROLL_DESTINATION",
                             "value": 1.0
                         }
                     ],
                     "value": -1.0,
-                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_DESTINATION",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_ROLL_DESTINATION",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_Roll_FindNext_Latency"
+                    "modifierName": "Monster_Wyrm_Rock_Roll_FindNext_Latency"
                 }
             ]
         }
@@ -783,12 +783,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_Roll_NextRound",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Wyrm_Rock_Roll_FindNext_Latency": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAbility",
                             "abilityName": "Monster_Wyrm_Rock_Roll_FindNext"
@@ -796,94 +796,94 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
                     "value": -4.0,
-                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_ROLL_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_WYRM_ROCK_CRUSHING_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_CRUSHING_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "CreateGadget",
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 5.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 5.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true
+                        "onGround": true,
+                        "alongGround": true
                     },
-                    "CABLIPAKCGB": 42603011,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Alliance"
+                    "gadgetID": 42603011,
+                    "campID": 4001,
+                    "campTargetType": "Alliance"
                 },
                 {
                     "$type": "CreateGadget",
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": -5.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": -5.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true
+                        "onGround": true,
+                        "alongGround": true
                     },
-                    "CABLIPAKCGB": 42603011,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Alliance"
+                    "gadgetID": 42603011,
+                    "campID": 4001,
+                    "campTargetType": "Alliance"
                 },
                 {
                     "$type": "CreateGadget",
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 5.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 5.0
                         },
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true
+                        "onGround": true,
+                        "alongGround": true
                     },
-                    "CABLIPAKCGB": 42603011,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Alliance"
+                    "gadgetID": 42603011,
+                    "campID": 4001,
+                    "campTargetType": "Alliance"
                 },
                 {
                     "$type": "CreateGadget",
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": -5.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": -5.0
                         },
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true
+                        "onGround": true,
+                        "alongGround": true
                     },
-                    "CABLIPAKCGB": 42603011,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Alliance"
+                    "gadgetID": 42603011,
+                    "campID": 4001,
+                    "campTargetType": "Alliance"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_Roll_FindNext_Latency"
+                    "modifierName": "Monster_Wyrm_Rock_Roll_FindNext_Latency"
                 }
             ]
         }
@@ -892,38 +892,38 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_Roll_StateCheck",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_GADGETHIT",
+                            "key": "_WYRM_ROCK_ROLL_GADGETHIT",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_COUNT",
+                            "key": "_WYRM_ROCK_ROLL_COUNT",
                             "value": 4.0,
-                            "JDHHMBHOOEC": 4.0
+                            "maxValue": 4.0
                         }
                     ],
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_END",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_ROLL_END",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "Predicated",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByShape",
-                        "JBKKOJLJHDK": "CircleR10",
-                        "ONPOPLLHJLE": "All",
-                        "CJJABKCAIEB": 1.0
+                        "shapeName": "CircleR10",
+                        "campTargetType": "All",
+                        "sizeRatio": 1.0
                     },
-                    "ELDBAFHCOBL": [
+                    "targetPredicates": [
                         {
                             "$type": "ByEntityTypes",
                             "entityTypes": [
@@ -931,14 +931,14 @@
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_END",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_WYRM_ROCK_ROLL_END",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
@@ -947,15 +947,15 @@
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_COUNT",
+                            "key": "_WYRM_ROCK_ROLL_COUNT",
                             "value": 4.0,
-                            "JDHHMBHOOEC": 4.0
+                            "maxValue": 4.0
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_END",
+                            "key": "_WYRM_ROCK_ROLL_END",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         }
                     ],
                     "abilityName": "Monster_Wyrm_Rock_Roll_NextRound"
@@ -967,14 +967,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_Roll_NextGadget",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_WYRM_ROCK_ROLL_DESTINATION",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_ROLL_DESTINATION",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -983,40 +983,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_TailSweep",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_CRUSHING_COUNT",
+                            "key": "_WYRM_ROCK_CRUSHING_COUNT",
                             "value": 0.0
                         }
                     ],
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_MONSTER_WYRM_ROCK_DIGMODE",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_MONSTER_WYRM_ROCK_DIGMODE",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "AddGlobalValue",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_CRUSHING_COUNT",
+                            "key": "_WYRM_ROCK_CRUSHING_COUNT",
                             "value": 1.0
                         }
                     ],
                     "value": -1.0,
-                    "HJJEAOMEOFI": "_MONSTER_WYRM_ROCK_DIGMODE",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_MONSTER_WYRM_ROCK_DIGMODE",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "DigTime",
+                    "boolID": "DigTime",
                     "value": true
                 }
             ]
@@ -1026,26 +1026,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CrushAtk_Reset",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "Crushing"
+                    "boolID": "Crushing"
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": -1.0,
-                    "HJJEAOMEOFI": "_WYRM_ROCK_CRUSHING_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WYRM_ROCK_CRUSHING_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SetAnimatorBool",
-                    "HHFIHBEAPAP": "CrushHitFlag"
+                    "boolID": "CrushHitFlag"
                 },
                 {
                     "$type": "SetAnimatorBool",
-                    "HHFIHBEAPAP": "FinalHitFlag",
+                    "boolID": "FinalHitFlag",
                     "value": true
                 }
             ]
@@ -1055,182 +1055,182 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CrushAtk",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "CrushAtk_NoHit"
                     ],
-                    "GAIGOBCNNEE": "Wyrm_Rock_CrushAtk_NoHit"
+                    "modifierName": "Wyrm_Rock_CrushAtk_NoHit"
                 },
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "CrushAtk_FailedBS"
                     ],
-                    "GAIGOBCNNEE": "Wyrm_Rock_CrushAtk_Failed"
+                    "modifierName": "Wyrm_Rock_CrushAtk_Failed"
                 },
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "CrushAtk_FinalHit"
                     ],
-                    "GAIGOBCNNEE": "Wyrm_Rock_CrushAtk_FinalHit"
+                    "modifierName": "Wyrm_Rock_CrushAtk_FinalHit"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Wyrm_Rock_CrushAtk_HitCheck": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.20000000298023224,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.20000000298023224,
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Applier",
-                            "ELDBAFHCOBL": [
+                            "target": "Applier",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 3.0
                                 },
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "ONPJJFKDCED": "Y",
+                                    "logic": "Lesser",
+                                    "compareType": "Y",
                                     "value": 3.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Other",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Other",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByHasShield",
-                                            "NPHOOPNDCAC": "Self",
+                                            "target": "Self",
                                             "type": "All"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "GAIGOBCNNEE": "Monster_Wyrm_Rock_CrushAtk_HitOnShield"
+                                            "target": "Caster",
+                                            "modifierName": "Monster_Wyrm_Rock_CrushAtk_HitOnShield"
                                         }
                                     ]
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_CrushAtk_HitResult"
+                                    "target": "Caster",
+                                    "modifierName": "Monster_Wyrm_Rock_CrushAtk_HitResult"
                                 }
                             ]
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Applier",
-                            "ELDBAFHCOBL": [
+                            "target": "Applier",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 3.0
                                 },
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "ONPJJFKDCED": "Y",
+                                    "logic": "Lesser",
+                                    "compareType": "Y",
                                     "value": 3.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Other",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Other",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByHasShield",
-                                            "NPHOOPNDCAC": "Self",
+                                            "target": "Self",
                                             "type": "All"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "ApplyModifier",
-                                            "NPHOOPNDCAC": "Caster",
-                                            "GAIGOBCNNEE": "Monster_Wyrm_Rock_CrushAtk_HitOnShield"
+                                            "target": "Caster",
+                                            "modifierName": "Monster_Wyrm_Rock_CrushAtk_HitOnShield"
                                         }
                                     ]
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_CrushAtk_HitResult"
+                                    "target": "Caster",
+                                    "modifierName": "Monster_Wyrm_Rock_CrushAtk_HitResult"
                                 }
                             ]
                         }
                     ]
                 },
                 "Monster_Wyrm_Rock_CrushAtk_HitOnShield": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "FinalHitFlag"
+                            "boolID": "FinalHitFlag"
                         }
                     ]
                 },
                 "Monster_Wyrm_Rock_CrushAtk_HitResult": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "CrushHitFlag",
+                            "boolID": "CrushHitFlag",
                             "value": true
                         }
                     ]
                 },
                 "Wyrm_Rock_CrushAtk_NoHit": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_CrushAtk_Miss"
+                            "effectPattern": "Eff_Monster_Wyrm_Rock_CrushAtk_Miss"
                         }
                     ]
                 },
                 "Wyrm_Rock_CrushAtk_Failed": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_CrushAtk_Failed"
+                            "effectPattern": "Eff_Monster_Wyrm_Rock_CrushAtk_Failed"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "BDAPFCGNBKA": 270.0,
-                                    "ICGFCBOFFDI": 3.0
+                                    "radius": 3.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1258,34 +1258,34 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "Wyrm_Rock_CrushAtk_FinalHit": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_CrushAtk_Hit"
+                            "effectPattern": "Eff_Monster_Wyrm_Rock_CrushAtk_Hit"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "BDAPFCGNBKA": 270.0,
-                                    "ICGFCBOFFDI": 3.0
+                                    "radius": 3.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1313,16 +1313,16 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "AllPlayerAvatars",
-                    "GAIGOBCNNEE": "UNIQUE_Wyrm_Rock_CrushAtk_HitCheck"
+                    "target": "AllPlayerAvatars",
+                    "modifierName": "UNIQUE_Wyrm_Rock_CrushAtk_HitCheck"
                 }
             ]
         }
@@ -1331,30 +1331,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CrushAtk_FinalHit",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "CrushAtk_FinalHit",
-                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_CrushAtk_FinalHit_LineEffect",
-                    "MMHONEIBHNP": 0.4000000059604645
+                    "stateID": "CrushAtk_FinalHit",
+                    "modifierName": "Monster_Wyrm_Rock_CrushAtk_FinalHit_LineEffect",
+                    "normalizeEnd": 0.4000000059604645
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Wyrm_Rock_CrushAtk_FinalHit_LineEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_CrushAtk_FinalHit_Line"
+                            "effectPattern": "Eff_Monster_Wyrm_Rock_CrushAtk_FinalHit_Line"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "IsNear",
+                    "boolID": "IsNear",
                     "value": true
                 }
             ]
@@ -1364,19 +1364,19 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CrushAtk_NoHit",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "DigTime",
+                    "boolID": "DigTime",
                     "value": true
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": -1.0,
-                    "HJJEAOMEOFI": "_MONSTER_WYRM_ROCK_DIGMODE",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_MONSTER_WYRM_ROCK_DIGMODE",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1385,32 +1385,32 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CrushAtk_Failed",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "CrushAtk_Failed"
                     ],
-                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_CrushAtk_FailedState"
+                    "modifierName": "Monster_Wyrm_Rock_CrushAtk_FailedState"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Wyrm_Rock_CrushAtk_FailedState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "DigTime",
+                            "boolID": "DigTime",
                             "value": true
                         },
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_WYRM_ROCK_DIGMODE",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_WYRM_ROCK_DIGMODE",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
@@ -1421,69 +1421,69 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CreateSeed",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42603012,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42603012,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 1.0,
-                            "PHDCJAHHIOG": 4.0
+                            "x": 0.0,
+                            "y": 1.0,
+                            "z": 4.0
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByEntity",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 1.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 1.0,
+                                "z": 0.0
                             },
-                            "LHNNAGIFPIB": 90.0
+                            "randomAngleHor": 90.0
                         },
-                        "KJNJNKLLNCN": "RootNode"
+                        "attachPointName": "RootNode"
                     }
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42603012,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42603012,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": -3.4000000953674316,
-                            "KAAPLGBEDPM": 1.0,
-                            "PHDCJAHHIOG": -2.0
+                            "x": -3.4000000953674316,
+                            "y": 1.0,
+                            "z": -2.0
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByEntity",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 1.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 1.0,
+                                "z": 0.0
                             },
-                            "LHNNAGIFPIB": 90.0
+                            "randomAngleHor": 90.0
                         },
-                        "KJNJNKLLNCN": "RootNode"
+                        "attachPointName": "RootNode"
                     }
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42603012,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42603012,
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 3.4000000953674316,
-                            "KAAPLGBEDPM": 1.0,
-                            "PHDCJAHHIOG": -2.0
+                            "x": 3.4000000953674316,
+                            "y": 1.0,
+                            "z": -2.0
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByEntity",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 1.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 1.0,
+                                "z": 0.0
                             },
-                            "LHNNAGIFPIB": 90.0
+                            "randomAngleHor": 90.0
                         }
                     }
                 }
@@ -1494,70 +1494,70 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_DigIn",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "DigIn",
                         "DigOut"
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Wyrm_Rock_DigState"
+                    "modifierName": "UNIQUE_Monster_Wyrm_Rock_DigState"
                 },
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "DigIn",
-                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_Dig_ModeManager",
-                    "AAIFCLGLOMO": 0.8999999761581421
+                    "stateID": "DigIn",
+                    "modifierName": "Monster_Wyrm_Rock_Dig_ModeManager",
+                    "normalizeStart": 0.8999999761581421
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Wyrm_Rock_Dig_ModeManager": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Monster_Wyrm_Rock_DigEnd_MaxTime"
+                            "modifierName": "UNIQUE_Monster_Wyrm_Rock_DigEnd_MaxTime"
                         },
                         {
                             "$type": "ClearLockTarget",
-                            "NPHOOPNDCAC": "CurLocalAvatar"
+                            "target": "CurLocalAvatar"
                         },
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_WYRM_ROCK_DIGMODE",
+                                    "key": "_MONSTER_WYRM_ROCK_DIGMODE",
                                     "value": 0.0,
-                                    "JDHHMBHOOEC": 1.0
+                                    "maxValue": 1.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "Monster_Wyrm_Rock_DigFindPosition_Near"
+                            "modifierName": "Monster_Wyrm_Rock_DigFindPosition_Near"
                         },
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_WYRM_ROCK_DIGMODE",
+                                    "key": "_MONSTER_WYRM_ROCK_DIGMODE",
                                     "value": 1.0,
-                                    "JDHHMBHOOEC": 1.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "maxValue": 1.0,
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "GAIGOBCNNEE": "Monster_Wyrm_Rock_DigFindPosition_Far"
+                            "modifierName": "Monster_Wyrm_Rock_DigFindPosition_Far"
                         }
                     ]
                 },
                 "UNIQUE_Monster_Wyrm_Rock_DigState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_Tail"
                             ]
@@ -1568,75 +1568,75 @@
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UnderGround_Invincible"
+                            "modifierName": "UnderGround_Invincible"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UnderGround_DenyLockOn"
+                            "modifierName": "UnderGround_DenyLockOn"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_Tail"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "HideUIBillBoard"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "UnderGround_Invincible"
+                            "modifierName": "UnderGround_Invincible"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "UnderGround_DenyLockOn"
+                            "modifierName": "UnderGround_DenyLockOn"
                         }
                     ]
                 },
                 "UnderGround_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "UnderGround_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 },
                 "Monster_Wyrm_Rock_DigFindPosition_Near": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Monster_Wyrm_Rock_DigOut_Alert_Near"
+                            "modifierName": "Monster_Wyrm_Rock_DigOut_Alert_Near"
                         }
                     ]
                 },
                 "Monster_Wyrm_Rock_DigFindPosition_Far": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.800000011920929,
+                    "modifierName": "",
+                    "duration": 0.800000011920929,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Monster_Wyrm_Rock_DigOut_Alert_Far"
+                            "modifierName": "Monster_Wyrm_Rock_DigOut_Alert_Far"
                         }
                     ]
                 },
                 "Monster_Wyrm_Rock_DigOut_Alert_Near": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TryFindBlinkPoint",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "DGICDMAKHOJ": 360.0,
                             "JLCCGHLNHOI": 2.0,
                             "GLALMCMAFJF": 5.0,
@@ -1647,20 +1647,20 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_DigOut_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Wyrm_Rock_DigOut_Alert",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "JBPCKOKLHEB": true,
-                                "ANAGBFPADIE": true
+                                "onGround": true,
+                                "alongGround": true
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "DigOutTrigger"
@@ -1668,13 +1668,13 @@
                     ]
                 },
                 "Monster_Wyrm_Rock_DigOut_Alert_Far": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TryFindBlinkPoint",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "DGICDMAKHOJ": 360.0,
                             "JLCCGHLNHOI": 15.0,
                             "GLALMCMAFJF": 20.0,
@@ -1685,20 +1685,20 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_DigOut_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Wyrm_Rock_DigOut_Alert",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "JBPCKOKLHEB": true,
-                                "ANAGBFPADIE": true
+                                "onGround": true,
+                                "alongGround": true
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "DigOutTrigger"
@@ -1712,19 +1712,19 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_DigOutEffect",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Wyrm_Rock_DigOut",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Wyrm_Rock_DigOut",
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 20.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 20.0,
+                            "z": 0.0
                         },
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true
+                        "onGround": true,
+                        "alongGround": true
                     }
                 }
             ]
@@ -1734,43 +1734,43 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_DigOut",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "DigOut",
-                    "GAIGOBCNNEE": "Monster_Wyrm_Rock_Dig_Collider",
-                    "MMHONEIBHNP": 0.550000011920929
+                    "stateID": "DigOut",
+                    "modifierName": "Monster_Wyrm_Rock_Dig_Collider",
+                    "normalizeEnd": 0.550000011920929
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Wyrm_Rock_Dig_Collider": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_Tail"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider",
                                 "PushCollider_Tail"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetSelfAttackTarget",
-                    "NPHOOPNDCAC": "SelfAttackTarget"
+                    "target": "SelfAttackTarget"
                 },
                 {
                     "$type": "TriggerAbility",
@@ -1781,17 +1781,17 @@
                     "predicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "GMFCOCAJBDM": "Lesser",
+                            "target": "SelfAttackTarget",
+                            "logic": "Lesser",
                             "value": 10.0
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_WYRM_ROCK_CRUSHING_COUNT",
+                            "key": "_WYRM_ROCK_CRUSHING_COUNT",
                             "value": 1.0
                         }
                     ],
-                    "HHFIHBEAPAP": "Crushing",
+                    "boolID": "Crushing",
                     "value": true
                 }
             ]
@@ -1801,29 +1801,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_DigEnd",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Monster_Wyrm_Rock_DigEnd_MaxTime": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 25.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 25.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "DigTime",
+                            "boolID": "DigTime",
                             "value": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "DigTime"
+                    "boolID": "DigTime"
                 },
                 {
                     "$type": "ReTriggerAISkillInitialCD",
-                    "FJNGOGJOBEE": [
+                    "skillIDs": [
                         201,
                         211,
                         212,
@@ -1833,7 +1833,7 @@
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Monster_Wyrm_Rock_DigEnd_MaxTime"
+                    "modifierName": "UNIQUE_Monster_Wyrm_Rock_DigEnd_MaxTime"
                 }
             ]
         }
@@ -1842,72 +1842,72 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_AnimationSteer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Turn"
                     ],
-                    "IMHBEGIKDKB": 99.0,
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 99.0,
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalAtk"
                     ],
-                    "IMHBEGIKDKB": 0.30000001192092896,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.30000001192092896,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackTraceMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "CrushAtk"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackTraceMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "JumpAtk"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackTraceMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RollEnd"
                     ],
-                    "HENDIIJFPCI": 60.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 60.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "DigOut"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "TailSweep"
                     ],
-                    "IMHBEGIKDKB": 0.30000001192092896,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.30000001192092896,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ]
         }
@@ -1916,44 +1916,44 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CrystalSeed_Trigger",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableBulletCollisionPluginTrigger",
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "EnableBulletCollisionPluginTrigger"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Timer"
+                    "modifierName": "Timer"
                 },
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_Trail"
+                    "effectPattern": "Eff_Element_Crystal_Rock_Trail"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "CreateGadget",
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "JBPCKOKLHEB": true,
-                        "NHPNHKBMAEO": {
+                        "onGround": true,
+                        "direction": {
                             "$type": "ConfigDirectionByWorld",
                             "GLNBFGDJBAJ": {
                                 "_x": 0.10000000149011612,
@@ -1962,9 +1962,9 @@
                             }
                         }
                     },
-                    "CABLIPAKCGB": 42603013,
-                    "DOLAJLACEDF": 1001,
-                    "ONPOPLLHJLE": "All"
+                    "gadgetID": 42603013,
+                    "campID": 1001,
+                    "campTargetType": "All"
                 }
             ]
         }
@@ -1973,174 +1973,174 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Wyrm_Rock_CrystalSeed",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Player_Rock_Shield_Level_Ratio": 0.0,
                 "Team_Crystal_Rock_SHield_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_CrystalSeed_Rock_Shield_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "GAIGOBCNNEE": "UNIQUE_CrystalSeed_Rock_Shield"
+                            "target": "Team",
+                            "modifierName": "UNIQUE_CrystalSeed_Rock_Shield"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "GAIGOBCNNEE": "UNIQUE_CrystalSeed_Rock_Shield"
+                            "target": "Team",
+                            "modifierName": "UNIQUE_CrystalSeed_Rock_Shield"
                         },
                         {
                             "$type": "AttachEffect",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "JBHFPDMBFHN": "Eff_Element_CrystalSeed_Absorb_Rock"
+                            "target": "CurLocalAvatar",
+                            "effectPattern": "Eff_Element_CrystalSeed_Absorb_Rock"
                         }
                     ]
                 },
                 "UNIQUE_CrystalSeed_Rock_Shield": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 15.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 15.0,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "GlobalMainShieldMixin",
-                            "ONOFEELAHJK": "Element_Rock",
-                            "KFDBBJLMOKJ": 360.0,
+                            "shieldType": "Element_Rock",
+                            "shieldAngle": 360.0,
                             "IDGEOBABPIE": "Player_Rock_Shield_Level_Ratio",
-                            "HBNBIBFHBKM": "",
-                            "FMAPKFDKKPB": "INFO_ELITE_DEFENCE",
-                            "BOCNCNPHCFL": [
+                            "costShieldRatioName": "",
+                            "showDamageText": "INFO_ELITE_DEFENCE",
+                            "onShieldBroken": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_Shield_Disappear"
+                                    "effectPattern": "Eff_Element_Crystal_Rock_Shield_Disappear"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_Shield",
+                            "effectPattern": "Eff_Element_Crystal_Rock_Shield",
                             "NAMCOFPMABJ": "UNIQUE_CrystalSeed_Rock_Shield_Child",
                             "OKJGAJDGGGA": false
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Element_Absorb_Rock_02"
+                            "effectPattern": "Eff_Element_Absorb_Rock_02"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "UNIQUE_CrystalSeed_Rock_Shield_Mark"
+                            "modifierName": "UNIQUE_CrystalSeed_Rock_Shield_Mark"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_Shield_Disappear"
+                            "effectPattern": "Eff_Element_Crystal_Rock_Shield_Disappear"
                         }
                     ]
                 },
                 "UNIQUE_CrystalSeed_Rock_Shield_Child": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "GlobalSubShieldMixin",
                             "DFKHGPCOINH": "UNIQUE_CrystalSeed_Rock_Shield"
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.0
                     },
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHitEnBreak",
-                                    "DCBBLJKHKCA": 0.0
+                                    "enBreak": 0.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "CrystalShieldHitEffect"
+                                    "target": "Team",
+                                    "modifierName": "CrystalShieldHitEffect"
                                 }
                             ]
                         }
                     ]
                 },
                 "CrystalShieldHitEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.30000001192092896,
+                    "modifierName": "",
+                    "duration": 0.30000001192092896,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SendEffectTrigger",
-                            "MOCGJNIDDAI": "BeHit",
-                            "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_Shield"
+                            "parameter": "BeHit",
+                            "effectPattern": "Eff_Element_Crystal_Rock_Shield"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_BeHit"
+                            "effectPattern": "Eff_Element_Crystal_Rock_BeHit"
                         }
                     ]
                 },
                 "UNIQUE_CrystalSeed_Rock_Shield_Mark": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_CrystalSeed_Rock_Shield_Mark",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_ABILITY_CrystalSeed_Rock_Shield_Mark",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 1.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ABILITY_CrystalSeed_Rock_Shield_Mark",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_CrystalSeed_Rock_Shield_Mark",
+                            "useLimitRange": true,
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Crystal_Rock_Seed_Fx": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_Seed"
+                            "effectPattern": "Eff_Element_Crystal_Rock_Seed"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_Seed_Disappear"
+                            "effectPattern": "Eff_Element_Crystal_Rock_Seed_Disappear"
                         }
                     ]
                 },
                 "Life_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 15.0,
+                    "modifierName": "",
+                    "duration": 15.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Element_Crystal_Rock_Seed_Disappear"
+                            "effectPattern": "Eff_Element_Crystal_Rock_Seed_Disappear"
                         },
                         {
                             "$type": "KillSelf"
@@ -2148,20 +2148,20 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Crystal_Rock_Seed_Fx"
+                    "modifierName": "Crystal_Rock_Seed_Fx"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Life_Timer"
+                    "modifierName": "Life_Timer"
                 }
             ],
-            "KJKECFBMHKH": [
+            "onFieldEnter": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "predicates": [
                         {
                             "$type": "ByEntityTypes",
@@ -2170,12 +2170,12 @@
                             ]
                         }
                     ],
-                    "HJJEAOMEOFI": "Player_Rock_Shield_Level_Ratio",
+                    "key": "Player_Rock_Shield_Level_Ratio",
                     "type": "PlayerShieldLevelCo"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "predicates": [
                         {
                             "$type": "ByEntityTypes",
@@ -2184,11 +2184,11 @@
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_CrystalSeed_Rock_Shield_Handler"
+                    "modifierName": "UNIQUE_CrystalSeed_Rock_Shield_Handler"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Crystal_Rock_Seed_Fx"
+                    "modifierName": "Crystal_Rock_Seed_Fx"
                 },
                 {
                     "$type": "KillSelf",

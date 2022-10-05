@@ -3,54 +3,54 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shaman_Ice_IceBurst",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "NormalAttack",
                         "NormalAttack_BS"
                     ],
-                    "GAIGOBCNNEE": "Monster_Shaman_Ice_WeaponEffectLoop"
+                    "modifierName": "Monster_Shaman_Ice_WeaponEffectLoop"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Shaman_Ice_WeaponEffectLoop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_WeaponLoop"
+                            "effectPattern": "Eff_Monster_Shaman_Ice_WeaponLoop"
                         }
                     ]
                 },
                 "Shamam_Ice_IceBurt_Damage": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.2000000476837158,
+                    "modifierName": "",
+                    "duration": 1.2000000476837158,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "NormalAttackOver"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_WeaponBS"
+                            "effectPattern": "Eff_Monster_Shaman_Ice_WeaponBS"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByGlobalValue",
                                         "GDENJEFPMGC": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
                                         "MICIJLHMIIH": ""
                                     },
                                     "secondHeight": 3.0,
-                                    "ICGFCBOFFDI": 1.5
+                                    "radius": 1.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -75,48 +75,48 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "CreateGadget",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
                                 "GDENJEFPMGC": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
                                 "MICIJLHMIIH": ""
                             },
-                            "CABLIPAKCGB": 42103014,
-                            "DOLAJLACEDF": 4001,
+                            "gadgetID": 42103014,
+                            "campID": 4001,
                             "CEBMHIFOHJM": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetGlobalPos",
-                    "NPHOOPNDCAC": "SelfAttackTarget",
-                    "HJJEAOMEOFI": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
-                    "NGDMCBABOJA": {
+                    "target": "SelfAttackTarget",
+                    "key": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
+                    "born": {
                         "$type": "ConfigBornByPredicatePoint",
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true,
+                        "onGround": true,
+                        "alongGround": true,
                         "BIOOFAHEGLA": 0.699999988079071
                     },
                     "OGADOPDNBMM": false
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_NormalAttack",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Shaman_Ice_NormalAttack",
+                    "born": {
                         "$type": "ConfigBornByGlobalValue",
-                        "JBPCKOKLHEB": true,
+                        "onGround": true,
                         "GDENJEFPMGC": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
                         "MICIJLHMIIH": ""
                     }
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Shamam_Ice_IceBurt_Damage"
+                    "modifierName": "Shamam_Ice_IceBurt_Damage"
                 }
             ]
         }
@@ -125,48 +125,48 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shaman_Ice_ContinuousIceBurst",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Shaman_Ice_NormalAttackPowerDamage": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.2999999523162842,
+                    "modifierName": "",
+                    "duration": 1.2999999523162842,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalPos",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "HJJEAOMEOFI": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "key": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
+                            "born": {
                                 "$type": "ConfigBornByPredicatePoint",
-                                "JBPCKOKLHEB": true,
-                                "ANAGBFPADIE": true,
+                                "onGround": true,
+                                "alongGround": true,
                                 "BIOOFAHEGLA": 0.4000000059604645
                             },
                             "OGADOPDNBMM": false
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_NormalAttack",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Shaman_Ice_NormalAttack",
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
                                 "GDENJEFPMGC": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
                                 "MICIJLHMIIH": ""
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByGlobalValue",
                                         "GDENJEFPMGC": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
                                         "MICIJLHMIIH": ""
                                     },
                                     "secondHeight": 3.0,
-                                    "ICGFCBOFFDI": 1.5
+                                    "radius": 1.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -192,44 +192,44 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "CreateGadget",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
                                 "GDENJEFPMGC": "_MONSTER_SHAMAN_ICE_ICEBURST_POS",
                                 "MICIJLHMIIH": ""
                             },
-                            "CABLIPAKCGB": 42103014,
-                            "DOLAJLACEDF": 4001,
+                            "gadgetID": 42103014,
+                            "campID": 4001,
                             "CEBMHIFOHJM": true
                         }
                     ]
                 },
                 "Monster_Shaman_Ice_NormalAttackPowerDamageDelay": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 7.0,
+                    "modifierName": "",
+                    "duration": 7.0,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.7000000476837158,
-                    "ILBIENDPCBG": [
+                    "thinkInterval": 1.7000000476837158,
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "NormalAttackOver"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Monster_Shaman_Ice_NormalAttackPowerDamage"
+                            "modifierName": "Monster_Shaman_Ice_NormalAttackPowerDamage"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Monster_Shaman_Ice_NormalAttackPowerDamageDelay"
+                    "modifierName": "Monster_Shaman_Ice_NormalAttackPowerDamageDelay"
                 }
             ]
         }
@@ -238,35 +238,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Shaman_NormalAttack_SlowDownArea",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "SlowDownArea_ElementDamage": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 5.0,
+                    "modifierName": "",
+                    "duration": 5.0,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 1.0,
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_NormalAttack_IceArea"
+                            "effectPattern": "Eff_Monster_Shaman_Ice_NormalAttack_IceArea"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
                                     "secondHeight": 3.0,
-                                    "ICGFCBOFFDI": 1.5
+                                    "radius": 1.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -287,15 +287,15 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "SlowDownArea_ElementDamage"
+                    "modifierName": "SlowDownArea_ElementDamage"
                 }
             ]
         }
@@ -304,30 +304,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shaman_Ice_EscapeState",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shaman_Escape": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 2.0,
+                    "modifierName": "",
+                    "duration": 2.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "EscapeState",
+                            "boolID": "EscapeState",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "EscapeState"
+                            "boolID": "EscapeState"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Shaman_Escape"
+                    "modifierName": "Shaman_Escape"
                 }
             ]
         }
@@ -336,45 +336,45 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shaman_Ice_AnimationSteer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalAttack_BS"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "SupportAttack_BS"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "MeleeAttack"
                     ],
-                    "IMHBEGIKDKB": 0.15000000596046448,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.15000000596046448,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Turn"
                     ],
-                    "EOOBFBGMGLD": 0.20000000298023224,
-                    "IMHBEGIKDKB": 0.75,
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "startNormalizedTime": 0.20000000298023224,
+                    "endNormalizedTime": 0.75,
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ]
         }
@@ -389,10 +389,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shaman_Ice_ClearPillarOnHitThrow",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Shaman_Create_IcePillar"
+                    "modifierName": "UNIQUE_Shaman_Create_IcePillar"
                 }
             ]
         }
@@ -401,30 +401,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shaman_Ice_CreatePillar",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_MONSTER_SHAMAN_ICE_HASPILLAR",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_MONSTER_SHAMAN_ICE_HASPILLAR",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Monster_Shaman_Ice_HasNoPillar",
                         "Monster_Shaman_Ice_HasPillar"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Shaman_Ice_HasNoPillar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "OnPillar"
+                            "boolID": "OnPillar"
                         },
                         {
                             "$type": "SetAnimatorInt",
@@ -434,33 +434,33 @@
                     ]
                 },
                 "Monster_Shaman_Ice_HasPillar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Shaman_Create_IcePillar"
+                            "modifierName": "UNIQUE_Shaman_Create_IcePillar"
                         }
                     ]
                 },
                 "UNIQUE_Shaman_Create_IcePillar": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             },
-                            "CABLIPAKCGB": 42103015,
-                            "DOLAJLACEDF": 4001,
+                            "gadgetID": 42103015,
+                            "campID": 4001,
                             "CEBMHIFOHJM": true
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "OnPillar",
+                            "boolID": "OnPillar",
                             "value": true
                         },
                         {
@@ -471,26 +471,26 @@
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_WATCHER_82068_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_WATCHER_82068_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IcePillar_LifeOver",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Shaman_Ice_IcePillar_LifeOver",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             }
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42103015
+                                "configID": 42103015
                             },
-                            "GAIGOBCNNEE": "Monster_Shaman_Ice_KillPillar"
+                            "modifierName": "Monster_Shaman_Ice_KillPillar"
                         },
                         {
                             "$type": "SetAnimatorInt",
@@ -499,21 +499,21 @@
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "OnPillar"
+                            "boolID": "OnPillar"
                         },
                         {
                             "$type": "AddGlobalValue",
                             "value": -2.0,
-                            "HJJEAOMEOFI": "_MONSTER_SHAMAN_ICE_HASPILLAR",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_SHAMAN_ICE_HASPILLAR",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "OnPillar"
+                            "boolID": "OnPillar"
                         },
                         {
                             "$type": "SetAnimatorInt",
@@ -523,39 +523,39 @@
                     ]
                 },
                 "Monster_Shaman_Ice_KillPillar": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_MONSTER_SHAMAN_ICE_HASPILLAR",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_MONSTER_SHAMAN_ICE_HASPILLAR",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ],
-            "OGFFGLGEOGF": [
+            "onKill": [
                 {
                     "$type": "DoWatcherSystemAction",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Self",
-                            "HJJEAOMEOFI": "_WATCHER_82068_",
+                            "target": "Self",
+                            "key": "_WATCHER_82068_",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         }
                     ],
-                    "GPGMPHIIAMD": 82068,
+                    "watcherId": 82068,
                     "LNGKALMLMGN": true
                 }
             ]
@@ -565,30 +565,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shaman_Ice_CreatePillar_Effect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Monster_Shaman_Ice_CreatePillarEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 2.0,
+                    "modifierName": "",
+                    "duration": 2.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_WeaponLoop"
+                            "effectPattern": "Eff_Monster_Shaman_Ice_WeaponLoop"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IcePillar_CreateBS",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Shaman_Ice_IcePillar_CreateBS",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             }
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Monster_Shaman_Ice_CreatePillarEffect"
+                    "modifierName": "Monster_Shaman_Ice_CreatePillarEffect"
                 }
             ]
         }
@@ -597,35 +597,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Shaman_IcePillar_Create",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "IcePillar_Element": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Frozen",
                     "elementDurability": 300.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ElementShieldMixin",
                             "elementType": "Ice",
-                            "FMAPKFDKKPB": "",
-                            "KFDBBJLMOKJ": 360.0,
-                            "PDGJDMOFOAO": 1.0,
+                            "showDamageText": "",
+                            "shieldAngle": 360.0,
+                            "shieldHPRatio": 1.0,
                             "damageRatio": 0.20000000298023224,
-                            "BOCNCNPHCFL": [
+                            "onShieldBroken": [
                                 {
                                     "$type": "SetPoseBool",
-                                    "NPHOOPNDCAC": "Owner",
-                                    "HHFIHBEAPAP": "OnPillar"
+                                    "target": "Owner",
+                                    "boolID": "OnPillar"
                                 },
                                 {
                                     "$type": "RemoveModifier",
-                                    "GAIGOBCNNEE": "IcePillar_Element"
+                                    "modifierName": "IcePillar_Element"
                                 }
                             ],
                             "HMLKELJFCKD": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Target",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Target",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -633,28 +633,28 @@
                                             ]
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetGlobalDir",
-                                            "NPHOOPNDCAC": "Target",
-                                            "HJJEAOMEOFI": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT",
-                                            "NGDMCBABOJA": {
+                                            "target": "Target",
+                                            "key": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT",
+                                            "born": {
                                                 "$type": "ConfigBornBySelf",
-                                                "NHPNHKBMAEO": {
+                                                "direction": {
                                                     "$type": "ConfigDirectionByLookAtEntity"
                                                 }
                                             },
                                             "OGADOPDNBMM": false
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetGlobalDir",
-                                            "NPHOOPNDCAC": "TargetOriginOwner",
-                                            "HJJEAOMEOFI": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT",
-                                            "NGDMCBABOJA": {
+                                            "target": "TargetOriginOwner",
+                                            "key": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT",
+                                            "born": {
                                                 "$type": "ConfigBornBySelf",
-                                                "NHPNHKBMAEO": {
+                                                "direction": {
                                                     "$type": "ConfigDirectionByLookAtEntity"
                                                 }
                                             },
@@ -664,10 +664,10 @@
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IcePillar_BeHitFailed",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Shaman_Ice_IcePillar_BeHitFailed",
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByGlobalValue",
                                             "MICIJLHMIIH": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT"
                                         }
@@ -677,8 +677,8 @@
                             "FFOEHJLIDFC": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "Target",
-                                    "ELDBAFHCOBL": [
+                                    "target": "Target",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -686,28 +686,28 @@
                                             ]
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetGlobalDir",
-                                            "NPHOOPNDCAC": "Target",
-                                            "HJJEAOMEOFI": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT",
-                                            "NGDMCBABOJA": {
+                                            "target": "Target",
+                                            "key": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT",
+                                            "born": {
                                                 "$type": "ConfigBornBySelf",
-                                                "NHPNHKBMAEO": {
+                                                "direction": {
                                                     "$type": "ConfigDirectionByLookAtEntity"
                                                 }
                                             },
                                             "OGADOPDNBMM": false
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetGlobalDir",
-                                            "NPHOOPNDCAC": "TargetOriginOwner",
-                                            "HJJEAOMEOFI": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT",
-                                            "NGDMCBABOJA": {
+                                            "target": "TargetOriginOwner",
+                                            "key": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT",
+                                            "born": {
                                                 "$type": "ConfigBornBySelf",
-                                                "NHPNHKBMAEO": {
+                                                "direction": {
                                                     "$type": "ConfigDirectionByLookAtEntity"
                                                 }
                                             },
@@ -717,10 +717,10 @@
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IcePillar_BeHitSuccess",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Shaman_Ice_IcePillar_BeHitSuccess",
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByGlobalValue",
                                             "MICIJLHMIIH": "_MONSTER_SHAMAN_ICE_ELEMENTSHIELD_HIT"
                                         }
@@ -730,48 +730,48 @@
                         },
                         {
                             "$type": "AttachModifierToElementDurabilityMixin",
-                            "CMEDACODLEA": [
+                            "valueSteps": [
                                 0.0,
                                 150.0,
                                 301.0
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Monster_Shaman_Ice_PillarLowD",
                                 "Empty"
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IcePillar_Create",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Shaman_Ice_IcePillar_Create",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IcePillar_LifeOver",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Shaman_Ice_IcePillar_LifeOver",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             }
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "Watcher_82069"
+                            "target": "Owner",
+                            "modifierName": "Watcher_82069"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "NPHOOPNDCAC": "Owner",
-                            "HHFIHBEAPAP": "OnPillar"
+                            "target": "Owner",
+                            "boolID": "OnPillar"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "UNIQUE_Shaman_Create_IcePillar"
+                            "target": "Owner",
+                            "modifierName": "UNIQUE_Shaman_Create_IcePillar"
                         },
                         {
                             "$type": "KillSelf"
@@ -779,36 +779,36 @@
                     ]
                 },
                 "Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Monster_Shaman_Ice_PillarLowD": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SendEffectTrigger",
-                            "MOCGJNIDDAI": "Damaged",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IcePillar_Create"
+                            "parameter": "Damaged",
+                            "effectPattern": "Eff_Monster_Shaman_Ice_IcePillar_Create"
                         }
                     ]
                 },
                 "Watcher_82069": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "DoWatcherSystemAction",
-                            "GPGMPHIIAMD": 82069,
+                            "watcherId": 82069,
                             "LNGKALMLMGN": true
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "IcePillar_Element"
+                    "modifierName": "IcePillar_Element"
                 }
             ]
         }
@@ -817,40 +817,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Shaman_Ice_PillarAoe",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Ice_PillarAoeDamage": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 4.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 4.0,
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Monster_Shaman_Ice_PillarStorageEffect"
+                            "modifierName": "Monster_Shaman_Ice_PillarStorageEffect"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Monster_Shaman_Ice_PillarStorageEffect"
+                            "modifierName": "Monster_Shaman_Ice_PillarStorageEffect"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IcePillar_IceBurst",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Shaman_Ice_IcePillar_IceBurst",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             }
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
                                     "secondHeight": 1.0,
-                                    "ICGFCBOFFDI": 3.0
+                                    "radius": 3.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -871,44 +871,44 @@
                                     "canBeModifiedBy": "OriginOwner"
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Monster_Shaman_Ice_PillarStorageEffectDelay"
+                            "modifierName": "Monster_Shaman_Ice_PillarStorageEffectDelay"
                         }
                     ]
                 },
                 "Monster_Shaman_Ice_PillarStorageEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 10.0,
+                    "modifierName": "",
+                    "duration": 10.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Shaman_Ice_IceBurst_Storage",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Shaman_Ice_IceBurst_Storage",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             }
                         }
                     ]
                 },
                 "Monster_Shaman_Ice_PillarStorageEffectDelay": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Monster_Shaman_Ice_PillarStorageEffect"
+                            "modifierName": "Monster_Shaman_Ice_PillarStorageEffect"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Ice_PillarAoeDamage"
+                    "modifierName": "Ice_PillarAoeDamage"
                 }
             ]
         }

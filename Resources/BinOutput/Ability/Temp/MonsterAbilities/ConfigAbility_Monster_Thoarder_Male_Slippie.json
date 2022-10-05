@@ -3,16 +3,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_SteerAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Dodge"
                     ],
-                    "IMHBEGIKDKB": 0.10000000149011612,
-                    "HENDIIJFPCI": 300.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 3.75
+                    "endNormalizedTime": 0.10000000149011612,
+                    "angularSpeed": 300.0,
+                    "attackTrigger": "",
+                    "attackDistance": 3.75
                 }
             ]
         }
@@ -21,40 +21,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_ShootArrow_WithRandom",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Aim"
                     ],
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 3.75
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 3.75
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501011,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501011,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LHNNAGIFPIB": 0.30000001192092896,
+                            "randomAngleHor": 0.30000001192092896,
                             "IOIAHLPJDMH": 0.5,
                             "INCAGGBCJNF": 20.0
                         },
-                        "KJNJNKLLNCN": "WeaponR"
+                        "attachPointName": "WeaponR"
                     }
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Arrow_AS"
+                    "effectPattern": "Eff_Monster_Hili_Fire_CrossBow_Arrow_AS"
                 }
             ]
         }
@@ -63,90 +63,90 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_Enhanced_Shot",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Aim",
                         "Aim_Enhanced"
                     ],
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 3.75
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 3.75
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Shoot_Enhanced"
                     ],
-                    "IMHBEGIKDKB": 0.10000000149011612,
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 3.75
+                    "endNormalizedTime": 0.10000000149011612,
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 3.75
                 },
                 {
                     "$type": "DoActionByStateIDMixin",
                     "stateIDs": [
                         "Ready"
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_THOARDER_MALE_SLIPPIE_ENHANCE_SHOOT_COUNT_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_THOARDER_MALE_SLIPPIE_ENHANCE_SHOOT_COUNT_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "EnhancedShootContinue",
+                            "boolID": "EnhancedShootContinue",
                             "value": true
                         }
                     ]
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_THOARDER_MALE_SLIPPIE_ENHANCE_SHOOT_COUNT_",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_THOARDER_MALE_SLIPPIE_ENHANCE_SHOOT_COUNT_",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SetAnimatorBool",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_THOARDER_MALE_SLIPPIE_ENHANCE_SHOOT_COUNT_",
+                            "key": "_THOARDER_MALE_SLIPPIE_ENHANCE_SHOOT_COUNT_",
                             "value": 3.0,
-                            "ONPJJFKDCED": "MoreThanAndEqual"
+                            "compareType": "MoreThanAndEqual"
                         }
                     ],
-                    "HHFIHBEAPAP": "EnhancedShootContinue"
+                    "boolID": "EnhancedShootContinue"
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501011,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501011,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LHNNAGIFPIB": 0.30000001192092896,
+                            "randomAngleHor": 0.30000001192092896,
                             "IOIAHLPJDMH": 0.5,
                             "INCAGGBCJNF": 60.0
                         },
-                        "KJNJNKLLNCN": "WeaponR"
+                        "attachPointName": "WeaponR"
                     }
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Thoarder_Male_Crossbow_Shoot_Fire_01"
+                    "effectPattern": "Eff_Monster_Thoarder_Male_Crossbow_Shoot_Fire_01"
                 }
             ]
         }
@@ -155,43 +155,43 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_FireEnchanted_Start",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EnhancedCrossbow": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToStateIDMixin",
                             "stateIDs": [
                                 "Aim_Enhanced",
                                 "Shoot_Enhanced"
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Thoarder_Male_Slippie_EnchantedShot_Effect"
+                            "modifierName": "UNIQUE_Thoarder_Male_Slippie_EnchantedShot_Effect"
                         }
                     ]
                 },
                 "UNIQUE_Thoarder_Male_Slippie_EnchantedShot_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Thoarder_Male_Crossbow_FireEnchanted_01"
+                            "effectPattern": "Eff_Monster_Thoarder_Male_Crossbow_FireEnchanted_01"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Thoarder_Male_Crossbow_FireEnchanted_01_End"
+                            "effectPattern": "Eff_Monster_Thoarder_Male_Crossbow_FireEnchanted_01_End"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "EnhancedCrossbow"
+                    "modifierName": "EnhancedCrossbow"
                 }
             ]
         }
@@ -200,10 +200,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Thoarder_Male_slippie_FireEnchanted_End",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Thoarder_Male_Slippie_EnchantedShot_Effect"
+                    "modifierName": "UNIQUE_Thoarder_Male_Slippie_EnchantedShot_Effect"
                 }
             ]
         }
@@ -212,27 +212,27 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_Dodge",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Dodge"
                     ],
-                    "GAIGOBCNNEE": "Dodge"
+                    "modifierName": "Dodge"
                 },
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         1001
                     ],
-                    "GAIGOBCNNEE": "GetUpDodge"
+                    "modifierName": "GetUpDodge"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GetUpDodge": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -247,7 +247,7 @@
                             "GOLCBAPOOLF": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "Dodge"
+                                    "modifierName": "Dodge"
                                 }
                             ],
                             "FLNFDMFPBCD": true
@@ -255,32 +255,32 @@
                     ]
                 },
                 "Dodge": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "DodgeInvincible"
+                            "modifierName": "DodgeInvincible"
                         }
                     ]
                 },
                 "DodgeInvincible": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.75,
+                    "modifierName": "",
+                    "duration": 0.75,
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "DodgeDenyLockOn": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.75,
+                    "modifierName": "",
+                    "duration": 1.75,
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 },
                 "DodgeSpeedup": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 2.25,
+                    "modifierName": "",
+                    "duration": 2.25,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_MoveSpeedRatio": 1.0499999523162842
                     }
                 }
@@ -291,27 +291,27 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_Dodge_BombThrow",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501003,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501003,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 0.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
                             },
                             "INCAGGBCJNF": 0.0
                         },
-                        "KJNJNKLLNCN": "WeaponL"
+                        "attachPointName": "WeaponL"
                     }
                 }
             ]
@@ -321,65 +321,65 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_ActivitySkill",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ServerUpdateGlobalValueMixin",
-                    "HJJEAOMEOFI": "_Server_Thoarder_Activity_Value_",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_Server_Thoarder_Activity_Value_",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "ActivitySkill"
                     ],
-                    "IMHBEGIKDKB": 0.30000001192092896,
-                    "HENDIIJFPCI": 480.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 3.75
+                    "endNormalizedTime": 0.30000001192092896,
+                    "angularSpeed": 480.0,
+                    "attackTrigger": "",
+                    "attackDistance": 3.75
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "FirecrackerHit"
                     ],
-                    "IMHBEGIKDKB": 0.30000001192092896,
-                    "HENDIIJFPCI": 480.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 3.75
+                    "endNormalizedTime": 0.30000001192092896,
+                    "angularSpeed": 480.0,
+                    "attackTrigger": "",
+                    "attackDistance": 3.75
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Thoarder_Male_Slippie_ActivitySkill_Manage": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 30.0,
+                    "modifierName": "",
+                    "duration": 30.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAISkillCDAvailableNow",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 501
                             ]
                         },
                         {
                             "$type": "UseSkillEliteSet",
-                            "AFIOIAPCKEJ": 1
+                            "skillEliteSetID": 1
                         }
                     ]
                 },
                 "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "BillboardFixedMarkMixin",
                             "NBPICDDNGEI": "Eff_UI_BillBoard_FixedMark_ForAngry"
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_FireSubHurtDelta": 0.6000000238418579,
                         "Actor_WaterSubHurtDelta": 0.6000000238418579,
                         "Actor_GrassSubHurtDelta": 0.6000000238418579,
@@ -389,28 +389,28 @@
                         "Actor_RockSubHurtDelta": 0.6000000238418579,
                         "Actor_PhysicalSubHurtDelta": 0.800000011920929
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Avatar_Properties_Defense_Up"
+                            "effectPattern": "Eff_Avatar_Properties_Defense_Up"
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Firecracker"
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "Thoarder_Male_Slippie_ActivitySkill_Manage"
+                                    "modifierName": "Thoarder_Male_Slippie_ActivitySkill_Manage"
                                 },
                                 {
                                     "$type": "SetAnimatorTrigger",
@@ -418,61 +418,61 @@
                                 },
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "GAIGOBCNNEE": "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect"
+                                    "modifierName": "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect"
                                 }
                             ]
                         }
                     ]
                 },
                 "ActivitySkill_ExitBattle": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect"
+                            "modifierName": "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect"
                         },
                         {
                             "$type": "SetAISkillCDAvailableNow",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 501
                             ]
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Self",
-                            "HJJEAOMEOFI": "_THOARDER_ELITE_TAG_",
+                            "target": "Self",
+                            "key": "_THOARDER_ELITE_TAG_",
                             "value": 1.0
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect"
+                    "modifierName": "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect"
+                    "modifierName": "UNIQUE_Thoarder_Male_Slippie_ActivitySkill_Effect"
                 },
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Thoarder_Male_Shovel_WildSlam_BS_01",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Thoarder_Male_Shovel_WildSlam_BS_01",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "KJNJNKLLNCN": "MoveHead"
+                        "attachPointName": "MoveHead"
                     }
                 }
             ]
@@ -482,183 +482,183 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_FireArrow",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "FireArrow_Aim"
                     ],
-                    "IMHBEGIKDKB": 2.0,
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 3.75
+                    "endNormalizedTime": 2.0,
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 3.75
                 },
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "FireArrow_Aim"
                     ],
-                    "GAIGOBCNNEE": "ShowAimingEffect"
+                    "modifierName": "ShowAimingEffect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ShowAimingEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Aim_01",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Hili_Fire_CrossBow_Aim_01",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "WeaponR"
+                                "attachPointName": "WeaponR"
                             }
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501011,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501011,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 0.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
                             },
                             "INCAGGBCJNF": 60.0,
                             "ACCCPLDEJNB": 30.0
                         },
-                        "KJNJNKLLNCN": "WeaponR"
+                        "attachPointName": "WeaponR"
                     }
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501011,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501011,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 0.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
                             },
                             "INCAGGBCJNF": 60.0,
                             "ACCCPLDEJNB": 30.0
                         },
-                        "KJNJNKLLNCN": "WeaponR"
+                        "attachPointName": "WeaponR"
                     }
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501011,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501011,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 5.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 5.0,
+                                "z": 0.0
                             },
                             "INCAGGBCJNF": 60.0,
                             "ACCCPLDEJNB": 30.0
                         },
-                        "KJNJNKLLNCN": "WeaponR"
+                        "attachPointName": "WeaponR"
                     }
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501011,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501011,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 10.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 10.0,
+                                "z": 0.0
                             },
                             "INCAGGBCJNF": 60.0,
                             "ACCCPLDEJNB": 30.0
                         },
-                        "KJNJNKLLNCN": "WeaponR"
+                        "attachPointName": "WeaponR"
                     }
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501011,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501011,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": -5.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": -5.0,
+                                "z": 0.0
                             },
                             "INCAGGBCJNF": 60.0,
                             "ACCCPLDEJNB": 30.0
                         },
-                        "KJNJNKLLNCN": "WeaponR"
+                        "attachPointName": "WeaponR"
                     }
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42501011,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42501011,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.20000000298023224,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.10000000149011612
+                            "x": 0.20000000298023224,
+                            "y": 0.0,
+                            "z": 0.10000000149011612
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": -10.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": -10.0,
+                                "z": 0.0
                             },
                             "INCAGGBCJNF": 60.0,
                             "ACCCPLDEJNB": 30.0
                         },
-                        "KJNJNKLLNCN": "WeaponR"
+                        "attachPointName": "WeaponR"
                     }
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Arrow_AS"
+                    "effectPattern": "Eff_Monster_Hili_Fire_CrossBow_Arrow_AS"
                 }
             ]
         }
@@ -667,54 +667,54 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Thoarder_Male_Slippie_FireArrow_Damage",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FireEffectModifier": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Fire",
                     "elementDurability": 50.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Arrow_Particle"
+                            "effectPattern": "Eff_Monster_Hili_Fire_CrossBow_Arrow_Particle"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_Arrow_Trail"
+                            "effectPattern": "Eff_Monster_Hili_Fire_CrossBow_Arrow_Trail"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "FireEffectModifier"
+                    "modifierName": "FireEffectModifier"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
                     "predicates": [
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Fire"
+                            "element": "Fire"
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "target": "Owner",
+                            "key": "_ELITEAFFIX_ATTACK_ENHANCE",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         }
                     ],
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "MLOEFNBPCCH": "Both",
-                            "NGDMCBABOJA": {
+                            "checkHitLayerType": "Both",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 0.3499999940395355
+                            "radius": 0.3499999940395355
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -740,31 +740,31 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "TriggerAttackEvent",
                     "predicates": [
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Fire"
+                            "element": "Fire"
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "target": "Owner",
+                            "key": "_ELITEAFFIX_ATTACK_ENHANCE",
                             "value": 1.0
                         }
                     ],
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "MLOEFNBPCCH": "Both",
-                            "NGDMCBABOJA": {
+                            "checkHitLayerType": "Both",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 0.75
+                            "radius": 0.75
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -790,7 +790,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "TriggerAttackEvent",
@@ -800,35 +800,35 @@
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Fire"
+                                    "element": "Fire"
                                 }
                             ]
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "target": "Owner",
+                            "key": "_ELITEAFFIX_ATTACK_ENHANCE",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         }
                     ],
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "MLOEFNBPCCH": "Both",
-                            "NGDMCBABOJA": {
+                            "checkHitLayerType": "Both",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -0.5
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": -0.5
                                 }
                             },
                             "size": {
-                                "AEAAJCIDPED": 0.10000000149011612,
-                                "KAAPLGBEDPM": 0.10000000149011612,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 0.10000000149011612,
+                                "y": 0.10000000149011612,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -849,7 +849,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "TriggerAttackEvent",
@@ -859,34 +859,34 @@
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Fire"
+                                    "element": "Fire"
                                 }
                             ]
                         },
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                            "target": "Owner",
+                            "key": "_ELITEAFFIX_ATTACK_ENHANCE",
                             "value": 1.0
                         }
                     ],
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "MLOEFNBPCCH": "Both",
-                            "NGDMCBABOJA": {
+                            "checkHitLayerType": "Both",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -0.5
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": -0.5
                                 }
                             },
                             "size": {
-                                "AEAAJCIDPED": 0.10000000149011612,
-                                "KAAPLGBEDPM": 0.10000000149011612,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 0.10000000149011612,
+                                "y": 0.10000000149011612,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -907,23 +907,23 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Fire"
+                            "element": "Fire"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Hili_Fire_CrossBow_ArrowHit",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Hili_Fire_CrossBow_ArrowHit",
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.3499999940395355
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.3499999940395355
                         }
                     }
                 },
@@ -932,7 +932,7 @@
                     "predicates": [
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Fire"
+                            "element": "Fire"
                         }
                     ],
                     "OFIGOLJOGPJ": "",
@@ -951,7 +951,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Fire"
+                                    "element": "Fire"
                                 }
                             ]
                         }
@@ -966,7 +966,7 @@
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "FireEffectModifier"
+                    "modifierName": "FireEffectModifier"
                 }
             ]
         }

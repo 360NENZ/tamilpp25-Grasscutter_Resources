@@ -3,14 +3,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_StateControl",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToHPPercentMixin",
-                    "CMEDACODLEA": [
+                    "valueSteps": [
                         0.6000000238418579,
                         0.20000000298023224
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Invoker_Empty",
                         "UNIQUE_Invoker_Deacon_Fire_NormalState",
                         "UNIQUE_Invoker_Deacon_Fire_ElementState"
@@ -18,14 +18,14 @@
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         10.0
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_Invoker_Deacon_Fire_NoFireCoreCount",
                         "UNIQUE_Invoker_Deacon_Fire_HasFireCoreCount"
                     ]
@@ -36,13 +36,13 @@
                         402,
                         403
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 3.0,
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
@@ -51,13 +51,13 @@
                     "poseIDs": [
                         303
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 2.0,
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
@@ -66,63 +66,63 @@
                     "poseIDs": [
                         302
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Invoker_Deacon_Fire_Limbo": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_HpThresholdRatio": 0.15000000596046448
                     },
                     "state": "Limbo",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_Standby"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_Standby"
                         }
                     ]
                 },
                 "Invoker_Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_Invoker_Deacon_Fire_NormalState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "NormalStage",
+                            "boolID": "NormalStage",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "NormalStage"
+                            "boolID": "NormalStage"
                         }
                     ]
                 },
                 "UNIQUE_Invoker_Deacon_Fire_ElementState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState",
+                            "boolID": "ElementState",
                             "value": true
                         },
                         {
@@ -131,48 +131,48 @@
                     ]
                 },
                 "UNIQUE_Invoker_Deacon_Fire_NoFireCoreCount": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "HasFireCore"
+                            "boolID": "HasFireCore"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "MaxFireCore"
+                            "boolID": "MaxFireCore"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "HasFireCore",
+                            "boolID": "HasFireCore",
                             "value": true
                         }
                     ]
                 },
                 "UNIQUE_Invoker_Deacon_Fire_HasFireCoreCount": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "HasFireCore",
+                            "boolID": "HasFireCore",
                             "value": true
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "MaxFireCore"
+                            "boolID": "MaxFireCore"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_Limbo"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_Limbo"
                 },
                 {
                     "$type": "TriggerAbility",
@@ -185,117 +185,117 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_AnimatorSteer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Alert"
                     ],
-                    "HENDIIJFPCI": 250.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 250.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "HellFire"
                     ],
-                    "HENDIIJFPCI": 250.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 250.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "FireCoreExplodeHit"
                     ],
-                    "HENDIIJFPCI": 250.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 250.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalIdle"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalAtk"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "BurnAtk"
                     ],
-                    "IMHBEGIKDKB": 0.4000000059604645,
-                    "HENDIIJFPCI": 300.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.4000000059604645,
+                    "angularSpeed": 300.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RangeAtk"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "MeleeAtk"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Blink"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "HellFireAtkLoop"
                     ],
-                    "IMHBEGIKDKB": 0.0,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.0,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "HellFireAtkBS"
                     ],
-                    "IMHBEGIKDKB": 0.0,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.0,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "HellFireAtkAS"
                     ],
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ]
         }
@@ -304,25 +304,25 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_Transform",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         402,
                         403
                     ],
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_Transform"
+                    "modifierName": "Invoker_Deacon_Fire_Transform"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "ElementShield_DurabilityImprove": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_Transform": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 5.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 5.0,
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "TransformTrigger",
@@ -330,48 +330,48 @@
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_Transform_LockHP"
+                            "modifierName": "Invoker_Deacon_Fire_Transform_LockHP"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_Transform_NoHeal"
+                            "modifierName": "Invoker_Deacon_Fire_Transform_NoHeal"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_ELEMENTSTATE",
+                                    "key": "_MONSTER_INVOKER_DEACON_FIRE_ELEMENTSTATE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_ElementShield"
+                            "modifierName": "UNIQUE_Invoker_Deacon_Fire_ElementShield"
                         }
                     ],
                     "AMJKBHJBBGN": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_ElementShield"
+                            "modifierName": "UNIQUE_Invoker_Deacon_Fire_ElementShield"
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_Transform_LockHP": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "LockHP"
                 },
                 "Invoker_Deacon_Fire_Transform_NoHeal": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "NoHeal"
                 },
                 "UNIQUE_Invoker_Deacon_Fire_ElementShield": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Fire",
                     "elementDurability": [
                         1800.0,
@@ -380,13 +380,13 @@
                         1800.0,
                         "Add"
                     ],
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ElementShieldMixin",
                             "elementType": "Fire",
-                            "FMAPKFDKKPB": "",
-                            "KFDBBJLMOKJ": 360.0,
-                            "PDGJDMOFOAO": 1.0,
+                            "showDamageText": "",
+                            "shieldAngle": 360.0,
+                            "shieldHPRatio": 1.0,
                             "damageRatio": 0.20000000298023224,
                             "NGOKEFIDFCJ": true
                         },
@@ -398,7 +398,7 @@
                         },
                         {
                             "$type": "AttachModifierToElementDurabilityMixin",
-                            "CMEDACODLEA": [
+                            "valueSteps": [
                                 0.5,
                                 [
                                     300.0,
@@ -415,98 +415,98 @@
                                     "Add"
                                 ]
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "UNIQUE_Invoker_Deacon_Fire_Transform",
                                 "Invoker_Empty"
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_ELEMENTSTATE",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_ELEMENTSTATE",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_DISAPPEAR",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_DISAPPEAR",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AttachAbilityStateResistance",
-                            "KPGAIMMIKDA": 14001
+                            "resistanceListID": 14001
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_ELEMENTSTATE",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_ELEMENTSTATE",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState"
+                            "boolID": "ElementState"
                         },
                         {
                             "$type": "KillSelf",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_DISAPPEAR",
+                                    "key": "_MONSTER_INVOKER_DEACON_FIRE_DISAPPEAR",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ]
                         }
                     ]
                 },
                 "Invoker_Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_Invoker_Deacon_Fire_Transform": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "TransformStage",
+                            "boolID": "TransformStage",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "TransformStage"
+                            "boolID": "TransformStage"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValueToOverrideMap",
-                    "BPCFCANOMNH": "_MONSTERAFFIX_ELEMENTSHIELD_DURABILITYIMPROVE",
-                    "OGAHELLALBB": "ElementShield_DurabilityImprove"
+                    "globalValueKey": "_MONSTERAFFIX_ELEMENTSHIELD_DURABILITYIMPROVE",
+                    "overrideMapKey": "ElementShield_DurabilityImprove"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_ElementShield"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_ElementShield"
                 },
                 {
                     "$type": "SetAISkillCDAvailableNow",
-                    "FJNGOGJOBEE": [
+                    "skillIDs": [
                         211
                     ]
                 },
@@ -521,7 +521,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_Disappear",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
@@ -529,79 +529,79 @@
                         902,
                         903
                     ],
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_DisappearController"
+                    "modifierName": "Invoker_Deacon_Fire_DisappearController"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_DisappearController": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_DISAPPEAR",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_DISAPPEAR",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_ElementShield"
+                            "modifierName": "UNIQUE_Invoker_Deacon_Fire_ElementShield"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState"
+                            "boolID": "ElementState"
                         },
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTERAFFIX_QUEST_RETURNTOBORN",
+                                    "key": "_MONSTERAFFIX_QUEST_RETURNTOBORN",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_ReturnToBornController"
+                                    "modifierName": "Invoker_Deacon_Fire_ReturnToBornController"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_Disappear"
+                                    "modifierName": "Invoker_Deacon_Fire_Disappear"
                                 }
                             ]
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_Disappear_Invincible"
+                            "modifierName": "Invoker_Deacon_Fire_Disappear_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_Disappear_DenyLockOn"
+                            "modifierName": "Invoker_Deacon_Fire_Disappear_DenyLockOn"
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_Disappear_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "Invoker_Deacon_Fire_Disappear_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 },
                 "Invoker_Deacon_Fire_Disappear": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "DisappearState",
+                            "boolID": "DisappearState",
                             "value": true
                         },
                         {
@@ -618,33 +618,33 @@
                     ]
                 },
                 "Invoker_Deacon_Fire_ReturnToBornController": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToPoseIDMixin",
                             "poseIDs": [
                                 902,
                                 903
                             ],
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_ReturnToBorn"
+                            "modifierName": "Invoker_Deacon_Fire_ReturnToBorn"
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "WanderState",
+                            "boolID": "WanderState",
                             "value": true
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_ReturnToBorn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachActionToModifierMixin",
-                            "KCICDEJLIJD": [
+                            "onAdded": [
                                 {
                                     "$type": "TriggerSetVisible"
                                 },
@@ -654,19 +654,19 @@
                                 },
                                 {
                                     "$type": "EnableHitBoxByName",
-                                    "EACGOCFODIC": [
+                                    "hitBoxNames": [
                                         "HitBox",
                                         "HeadBox"
                                     ]
                                 },
                                 {
                                     "$type": "EnablePushColliderName",
-                                    "LEHFIPJFKBC": [
+                                    "pushColliderNames": [
                                         "PushCollider"
                                     ]
                                 }
                             ],
-                            "ILBIENDPCBG": [
+                            "onRemoved": [
                                 {
                                     "$type": "TriggerSetVisible",
                                     "ACDFJMCPFGH": true
@@ -676,36 +676,36 @@
                                 },
                                 {
                                     "$type": "EnableHitBoxByName",
-                                    "EACGOCFODIC": [
+                                    "hitBoxNames": [
                                         "HitBox",
                                         "HeadBox"
                                     ],
-                                    "PAHBCOACBAI": true
+                                    "setEnable": true
                                 },
                                 {
                                     "$type": "EnablePushColliderName",
-                                    "LEHFIPJFKBC": [
+                                    "pushColliderNames": [
                                         "PushCollider"
                                     ],
-                                    "PAHBCOACBAI": true
+                                    "setEnable": true
                                 }
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_BornHigh"
+                            "effectPattern": "Eff_Monster_Invoker_BornHigh"
                         },
                         {
                             "$type": "TriggerAbility",
                             "abilityName": "Invoker_Deacon_Fire_FireCoreKilled"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_BornHigh"
+                            "effectPattern": "Eff_Monster_Invoker_BornHigh"
                         }
                     ]
                 }
@@ -716,22 +716,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_FireDebuff_LoseHP",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Avatar_MaxHp": 0.0,
                 "Monster_Max_Attack": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FireDebuff_Delay_Damage_OnAttackLanded": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Invoker_Deacon_Fire_FireDebuff"
                                     ]
                                 },
@@ -743,14 +743,14 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "TargetTeam",
-                                    "GAIGOBCNNEE": "UNIQUE_FireDebuff_Delay_Damage_Logic"
+                                    "target": "TargetTeam",
+                                    "modifierName": "UNIQUE_FireDebuff_Delay_Damage_Logic"
                                 }
                             ]
                         }
@@ -758,46 +758,46 @@
                 },
                 "UNIQUE_FireDebuff_Delay_Damage_Logic": {
                     "LAFGKJBLBGP": "Level",
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 4.0,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 4.0,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.5,
-                    "FNJKJKACMCH": [
+                    "thinkInterval": 1.5,
+                    "modifierMixins": [
                         {
                             "$type": "LocalAvatarsMixin",
-                            "GAIGOBCNNEE": "FireDebuff_Delay_Damage_Effect_Icon"
+                            "modifierName": "FireDebuff_Delay_Damage_Effect_Icon"
                         },
                         {
                             "$type": "CurLocalAvatarMixinV2",
-                            "GAIGOBCNNEE": "FireDebuff_Delay_Damage_Effect"
+                            "modifierName": "FireDebuff_Delay_Damage_Effect"
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_FireDebuff_LoseHP"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_FireDebuff_LoseHP"
                         },
                         {
                             "$type": "GetFightProperty",
-                            "ACOKKHADPOJ": true,
+                            "doOffStage": true,
                             "OEPIJDHFHNG": "Caster",
                             "JFKIOPEJMIN": "FIGHT_PROP_CUR_ATTACK",
-                            "BPCFCANOMNH": "_MONSTER_MAX_ATTACK_"
+                            "globalValueKey": "_MONSTER_MAX_ATTACK_"
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "_MONSTER_MAX_ATTACK_",
-                            "OGAHELLALBB": "Monster_Max_Attack"
+                            "doOffStage": true,
+                            "globalValueKey": "_MONSTER_MAX_ATTACK_",
+                            "overrideMapKey": "Monster_Max_Attack"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "LoseHP",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByNot",
@@ -811,12 +811,12 @@
                                     "$type": "ByGameTimeIsLocked"
                                 }
                             ],
-                            "PDLLIFICICJ": [
+                            "amount": [
                                 0.20000000298023224,
                                 "Monster_Max_Attack",
                                 "Mul"
                             ],
-                            "AJAHODOGLMH": 0.15000000596046448,
+                            "amountByTargetMaxHPRatio": 0.15000000596046448,
                             "GPKPABKLPLM": 0.15000000596046448,
                             "NPCCIJINMGO": false,
                             "IMKEAGOJBPA": true,
@@ -826,8 +826,8 @@
                         },
                         {
                             "$type": "LoseHP",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByIsLocalAvatar"
@@ -836,12 +836,12 @@
                                     "$type": "ByGameTimeIsLocked"
                                 }
                             ],
-                            "PDLLIFICICJ": [
+                            "amount": [
                                 0.20000000298023224,
                                 "Monster_Max_Attack",
                                 "Mul"
                             ],
-                            "AJAHODOGLMH": 0.15000000596046448,
+                            "amountByTargetMaxHPRatio": 0.15000000596046448,
                             "IMKEAGOJBPA": true,
                             "LCEHMPAGCPL": true,
                             "GPDAKLCBNFI": true,
@@ -849,17 +849,17 @@
                         },
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
+                            "target": "CurLocalAvatar",
                             "predicates": [
                                 {
                                     "$type": "ByIsLocalAvatar"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_FireDebuff_Damage"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_FireDebuff_Damage"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_FireDebuff_Delay_Damage_Logic"
+                            "modifierName": "UNIQUE_FireDebuff_Delay_Damage_Logic"
                         }
                     ],
                     "HFBALDBFOOH": [
@@ -867,25 +867,25 @@
                     ]
                 },
                 "FireDebuff_Delay_Damage_Effect_Icon": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ONGKIIJLFCG": 90006
+                    "buffID": 90006
                 },
                 "FireDebuff_Delay_Damage_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_CommonSkill_FireDebuff_LoseHP"
+                            "effectPattern": "Eff_Monster_CommonSkill_FireDebuff_LoseHP"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "FireDebuff_Delay_Damage_OnAttackLanded"
+                    "modifierName": "FireDebuff_Delay_Damage_OnAttackLanded"
                 }
             ]
         }
@@ -894,136 +894,136 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_NormalAtk",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_NormalAtk01": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.15000000596046448,
+                    "modifierName": "",
+                    "duration": 0.15000000596046448,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGAAOMEHOGE": 42203004,
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "bulletID": 42203004,
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget"
                                 },
-                                "KJNJNKLLNCN": "NormalAtk01",
+                                "attachPointName": "NormalAtk01",
                                 "MMFHENHCBGB": "Self"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_NormalAtk02"
+                            "modifierName": "Invoker_Deacon_Fire_NormalAtk02"
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_NormalAtk02": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.15000000596046448,
+                    "modifierName": "",
+                    "duration": 0.15000000596046448,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGAAOMEHOGE": 42203004,
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "bulletID": 42203004,
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget"
                                 },
-                                "KJNJNKLLNCN": "NormalAtk02",
+                                "attachPointName": "NormalAtk02",
                                 "MMFHENHCBGB": "Self"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_NormalAtk03"
+                            "modifierName": "Invoker_Deacon_Fire_NormalAtk03"
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_NormalAtk03": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.15000000596046448,
+                    "modifierName": "",
+                    "duration": 0.15000000596046448,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGAAOMEHOGE": 42203004,
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "bulletID": 42203004,
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget"
                                 },
-                                "KJNJNKLLNCN": "NormalAtk03",
+                                "attachPointName": "NormalAtk03",
                                 "MMFHENHCBGB": "Self"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_NormalAtk04"
+                            "modifierName": "Invoker_Deacon_Fire_NormalAtk04"
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_NormalAtk04": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.15000000596046448,
+                    "modifierName": "",
+                    "duration": 0.15000000596046448,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGAAOMEHOGE": 42203004,
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "bulletID": 42203004,
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget"
                                 },
-                                "KJNJNKLLNCN": "NormalAtk04",
+                                "attachPointName": "NormalAtk04",
                                 "MMFHENHCBGB": "Self"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_NormalAtk05"
+                            "modifierName": "Invoker_Deacon_Fire_NormalAtk05"
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_NormalAtk05": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.15000000596046448,
+                    "modifierName": "",
+                    "duration": 0.15000000596046448,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGAAOMEHOGE": 42203004,
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "bulletID": 42203004,
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget"
                                 },
-                                "KJNJNKLLNCN": "NormalAtk05",
+                                "attachPointName": "NormalAtk05",
                                 "MMFHENHCBGB": "Self"
                             }
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_NormalAtk01"
+                    "modifierName": "Invoker_Deacon_Fire_NormalAtk01"
                 }
             ]
         }
@@ -1032,28 +1032,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_NormalAtk_Bullet",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Invoker_Deacon_Fire_NormalAtk_Bullet": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_NormalAtk01_Bullet"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_NormalAtk01_Bullet"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_NormalAtk_Bullet"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_NormalAtk_Bullet"
                 }
             ]
         }
@@ -1062,30 +1062,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_NormalAtk_Explode",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_NormalAtk01_Explosion"
+                    "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_NormalAtk01_Explosion"
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_NormalAtk_Bullet"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_NormalAtk_Bullet"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
-                            "ICGFCBOFFDI": 0.5
+                            "radius": 0.5
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1110,7 +1110,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -1119,56 +1119,56 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_BurnAtk",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_BurnAtk_Alert": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalPos",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_BURNATK_POS",
+                            "target": "SelfAttackTarget",
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_BURNATK_POS",
                             "OGADOPDNBMM": false
                         },
                         {
                             "$type": "CreateGadget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.5,
-                                    "MFBOELKCPDP": 1.0
+                                    "minRandomRange": 0.5,
+                                    "maxRandomRange": 1.0
                                 },
-                                "JBPCKOKLHEB": true,
-                                "NHPNHKBMAEO": {
+                                "onGround": true,
+                                "direction": {
                                     "$type": "ConfigDirectionByDefault",
-                                    "LGPBCMEFEJB": {
-                                        "AEAAJCIDPED": 0.0,
-                                        "KAAPLGBEDPM": 0.0,
-                                        "PHDCJAHHIOG": 0.0
+                                    "angleOffset": {
+                                        "x": 0.0,
+                                        "y": 0.0,
+                                        "z": 0.0
                                     }
                                 },
                                 "GDENJEFPMGC": "_MONSTER_INVOKER_DEACON_FIRE_BURNATK_POS",
                                 "MICIJLHMIIH": ""
                             },
-                            "CABLIPAKCGB": 42203006,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy",
+                            "gadgetID": 42203006,
+                            "campID": 4001,
+                            "campTargetType": "Enemy",
                             "CEBMHIFOHJM": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_BurnAtk_Alert"
+                    "modifierName": "Invoker_Deacon_Fire_BurnAtk_Alert"
                 },
                 {
                     "$type": "SetAISkillCDAvailableNow",
-                    "FJNGOGJOBEE": [
+                    "skillIDs": [
                         261
                     ]
                 }
@@ -1179,58 +1179,58 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_BurnAtk_Pos",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_BurnAtk_Pos": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_BurnAtk01_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_BurnAtk01_Alert",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         },
                         {
                             "$type": "TriggerBullet",
-                            "NGAAOMEHOGE": 42203005,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42203005,
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.10000000149011612,
-                                    "KAAPLGBEDPM": 6.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.10000000149011612,
+                                    "y": 6.0,
+                                    "z": 0.0
                                 },
-                                "JBPCKOKLHEB": true,
-                                "NHPNHKBMAEO": {
+                                "onGround": true,
+                                "direction": {
                                     "$type": "ConfigDirectionByLookAtEntity"
                                 }
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 3.0
+                                    "radius": 3.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1249,15 +1249,15 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_BurnAtk_Pos"
+                    "modifierName": "Invoker_Deacon_Fire_BurnAtk_Pos"
                 }
             ]
         }
@@ -1266,28 +1266,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_BurnAtk_Bullet",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Invoker_Deacon_Fire_BurnAtk_Bullet": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_BurnAtk01_Bullet"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_BurnAtk01_Bullet"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_BurnAtk_Bullet"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_BurnAtk_Bullet"
                 }
             ]
         }
@@ -1296,33 +1296,33 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_BurnAtk_Explosion",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_BurnAtk01_Explosion",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_BurnAtk01_Explosion",
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint",
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true
+                        "onGround": true,
+                        "alongGround": true
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "JBPCKOKLHEB": true,
-                                "ANAGBFPADIE": true
+                                "onGround": true,
+                                "alongGround": true
                             },
-                            "ICGFCBOFFDI": 3.0
+                            "radius": 3.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1356,31 +1356,31 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "SetGlobalPos",
-                    "NPHOOPNDCAC": "OriginOwner",
-                    "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_BURNATK_POS",
-                    "NGDMCBABOJA": {
+                    "target": "OriginOwner",
+                    "key": "_MONSTER_INVOKER_DEACON_FIRE_BURNATK_POS",
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true
+                        "onGround": true,
+                        "alongGround": true
                     }
                 },
                 {
                     "$type": "TriggerAbility",
-                    "NPHOOPNDCAC": "OriginOwner",
+                    "target": "OriginOwner",
                     "abilityName": "Invoker_Deacon_Fire_BurnAtk_SummonFireCore"
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_BurnAtk_Bullet"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_BurnAtk_Bullet"
                 }
             ]
         }
@@ -1389,42 +1389,42 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_BurnAtk_SummonFireCore",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "CreateGadget",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
+                            "key": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
                             "value": 0.0,
-                            "ONPJJFKDCED": "LessAndEqual"
+                            "compareType": "LessAndEqual"
                         }
                     ],
                     "OAKAJFOAANM": true,
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByGlobalValue",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.800000011920929,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.800000011920929,
+                            "z": 0.0
                         },
                         "GDENJEFPMGC": "_MONSTER_INVOKER_DEACON_FIRE_BURNATK_POS",
                         "MICIJLHMIIH": ""
                     },
                     "JCAMCEOBIFG": true,
-                    "CABLIPAKCGB": 42203007,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Enemy",
+                    "gadgetID": 42203007,
+                    "campID": 4001,
+                    "campTargetType": "Enemy",
                     "CEBMHIFOHJM": true
                 }
             ]
@@ -1434,22 +1434,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_MeleeAtk",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_MeleeAtkHandler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Invoker_Deacon_Fire_MeleeAtk"
+                            "modifierName": "Invoker_Deacon_Fire_MeleeAtk"
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_MeleeAtk": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAbility",
                             "abilityName": "Invoker_Deacon_Fire_MeleeAtk_Explosion"
@@ -1457,10 +1457,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_MeleeAtk"
+                    "modifierName": "Invoker_Deacon_Fire_MeleeAtk"
                 }
             ]
         }
@@ -1469,29 +1469,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_MeleeAtk_Explosion",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_MeleeAtk_Explosion": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
                                     "KECPGHFBFMA": 0.25,
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 4.0,
-                                    "ICGFCBOFFDI": 8.0
+                                    "radius": 8.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1523,15 +1523,15 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_MeleeAtk_Explosion"
+                    "modifierName": "Invoker_Deacon_Fire_MeleeAtk_Explosion"
                 }
             ]
         }
@@ -1540,67 +1540,67 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_FireCoreAbilities",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_FireCoreLoopTime_",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_FireCoreLoopTime_",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Invoker_Deacon_Fire_FireCoreStateOff",
                         "Invoker_Deacon_Fire_FireCoreStateOn"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Invoker_Deacon_Fire_FireCoreLoop": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_FireCoreLoop",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_FireCoreLoop",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "KJNJNKLLNCN": "RootNode"
+                                "attachPointName": "RootNode"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 },
                 "UNIQUE_Invoker_Deacon_Fire_FireCoreShieldBar": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Fire",
                     "elementDurability": 150.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ElementShieldMixin",
                             "elementType": "Fire",
-                            "FMAPKFDKKPB": "",
-                            "KFDBBJLMOKJ": 360.0,
-                            "PDGJDMOFOAO": 1.0,
+                            "showDamageText": "",
+                            "shieldAngle": 360.0,
+                            "shieldHPRatio": 1.0,
                             "damageRatio": 0.0
                         },
                         {
                             "$type": "ShieldBarMixin",
-                            "BOCNCNPHCFL": [
+                            "onShieldBroken": [
                                 {
                                     "$type": "ActCameraShake",
                                     "cameraShake": {
@@ -1613,65 +1613,65 @@
                                     }
                                 }
                             ],
-                            "FMAPKFDKKPB": ""
+                            "showDamageText": ""
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetSelfAttackTarget",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
                                 "DJLKFLJENEG": 1,
                                 "AKMLOIFOBPO": "Nearest",
-                                "JBKKOJLJHDK": "CircleR50",
-                                "ONPOPLLHJLE": "AllExceptSelf",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR50",
+                                "campTargetType": "AllExceptSelf",
+                                "sizeRatio": 1.0
                             },
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_ELEMENTSTATE",
+                                    "key": "_MONSTER_INVOKER_DEACON_FIRE_ELEMENTSTATE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
+                            "target": "Owner",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ]
                         },
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "Owner",
-                            "NGAAOMEHOGE": 42203009,
-                            "NGDMCBABOJA": {
+                            "target": "Owner",
+                            "bulletID": 42203009,
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 1.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 1.0,
+                                    "z": 0.0
                                 },
-                                "KJNJNKLLNCN": "FirePoint",
+                                "attachPointName": "FirePoint",
                                 "MMFHENHCBGB": "Self"
                             },
                             "ENJEPFDLDDF": "Owner"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_FireCoreLoop"
+                            "modifierName": "UNIQUE_Invoker_Deacon_Fire_FireCoreLoop"
                         },
                         {
                             "$type": "KillSelf"
@@ -1680,8 +1680,8 @@
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1695,17 +1695,17 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHitElement",
-                                            "NPHOOPNDCAC": "Self"
+                                            "target": "Self"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "NPHOOPNDCAC": "Self",
-                                            "GOMLPAOIKJA": "Fire"
+                                            "target": "Self",
+                                            "element": "Fire"
                                         }
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ActCameraShake",
                                     "cameraShake": {
@@ -1719,10 +1719,10 @@
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Regisvine_Fire_BlazeSeed_Hit_Ineffective",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Regisvine_Fire_BlazeSeed_Hit_Ineffective",
+                                    "born": {
                                         "$type": "ConfigBornByHitPoint",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByBackToHitBoxCenter"
                                         }
                                     }
@@ -1731,8 +1731,8 @@
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1746,33 +1746,33 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHitElement",
-                                            "NPHOOPNDCAC": "Self",
-                                            "GOMLPAOIKJA": "Wind"
+                                            "target": "Self",
+                                            "element": "Wind"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "NPHOOPNDCAC": "Self",
-                                            "GOMLPAOIKJA": "Water"
+                                            "target": "Self",
+                                            "element": "Water"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "NPHOOPNDCAC": "Self",
-                                            "GOMLPAOIKJA": "Ice"
+                                            "target": "Self",
+                                            "element": "Ice"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "NPHOOPNDCAC": "Self",
-                                            "GOMLPAOIKJA": "Electric"
+                                            "target": "Self",
+                                            "element": "Electric"
                                         },
                                         {
                                             "$type": "ByHitElement",
-                                            "NPHOOPNDCAC": "Self",
-                                            "GOMLPAOIKJA": "Rock"
+                                            "target": "Self",
+                                            "element": "Rock"
                                         }
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ActCameraShake",
                                     "cameraShake": {
@@ -1786,15 +1786,15 @@
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_NormalAtk01_Explosion",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_NormalAtk01_Explosion",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "KJNJNKLLNCN": "RootNode"
+                                        "attachPointName": "RootNode"
                                     }
                                 }
                             ]
@@ -1802,121 +1802,121 @@
                     ]
                 },
                 "Invoker_Deacon_Fire_FireCoreBornOn": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.2000000476837158,
+                    "modifierName": "",
+                    "duration": 1.2000000476837158,
                     "elementDurability": 100.0
                 },
                 "Invoker_Deacon_Fire_FireCoreStateOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SendEffectTrigger",
-                            "MOCGJNIDDAI": "Spell",
+                            "parameter": "Spell",
                             "type": "Bool",
                             "weight": 1,
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_FireCoreLoop"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_FireCoreLoop"
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_FireCoreStateOff": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SendEffectTrigger",
-                            "MOCGJNIDDAI": "Spell",
+                            "parameter": "Spell",
                             "type": "Bool",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_FireCoreLoop"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_FireCoreLoop"
                         }
                     ]
                 },
                 "Empty_State": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "EnablePushColliderName",
-                    "LEHFIPJFKBC": [
+                    "pushColliderNames": [
                         "PushCollider"
                     ],
-                    "PAHBCOACBAI": true
+                    "setEnable": true
                 },
                 {
                     "$type": "EnableHitBoxByName",
-                    "EACGOCFODIC": [
+                    "hitBoxNames": [
                         "HitBox"
                     ],
-                    "PAHBCOACBAI": true
+                    "setEnable": true
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_FireCoreLoop"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_FireCoreLoop"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_FireCoreBornOn"
+                    "modifierName": "Invoker_Deacon_Fire_FireCoreBornOn"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_FireCoreShieldBar"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_FireCoreShieldBar"
                 },
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "HideUIBillBoard"
                 },
                 {
                     "$type": "SetAnimatorBool",
-                    "HHFIHBEAPAP": "Spell"
+                    "boolID": "Spell"
                 }
             ],
-            "OGFFGLGEOGF": [
+            "onKill": [
                 {
                     "$type": "HideUIBillBoard",
                     "COCENMAFJGD": true
                 },
                 {
                     "$type": "EnablePushColliderName",
-                    "LEHFIPJFKBC": [
+                    "pushColliderNames": [
                         "PushCollider"
                     ]
                 },
                 {
                     "$type": "EnableHitBoxByName",
-                    "EACGOCFODIC": [
+                    "hitBoxNames": [
                         "HitBox"
                     ]
                 },
                 {
                     "$type": "AddGlobalValue",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "value": -1.0,
-                    "HJJEAOMEOFI": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_Monster_Invoker_Deacon_Fire_FireCoreCount_",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_FireCoreAS",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_FireCoreAS",
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "KJNJNKLLNCN": "RootNode"
+                        "attachPointName": "RootNode"
                     }
                 }
             ]
@@ -1926,37 +1926,37 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_FiceCoreOwnerAtk_Hit",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_FireCore_HitOwner_Bullet": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "JBIFBFBINJL": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetType",
-                                    "OJIFKEOCJGB": "OriginOwner"
+                                    "targetType": "OriginOwner"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerAttackEvent",
-                                    "DMCJDGELKBC": {
+                                    "attackEvent": {
                                         "attackPattern": {
                                             "$type": "ConfigAttackSphere",
                                             "lifeTime": "TriggerNoRepeat",
-                                            "NGDMCBABOJA": {
+                                            "born": {
                                                 "$type": "ConfigBornByCollisionPoint",
                                                 "offset": {
-                                                    "AEAAJCIDPED": 0.0,
-                                                    "KAAPLGBEDPM": 0.0,
-                                                    "PHDCJAHHIOG": 0.0
+                                                    "x": 0.0,
+                                                    "y": 0.0,
+                                                    "z": 0.0
                                                 },
-                                                "ANAGBFPADIE": true
+                                                "alongGround": true
                                             },
-                                            "ICGFCBOFFDI": 1.0
+                                            "radius": 1.0
                                         },
                                         "attackInfo": {
                                             "attackTag": "",
@@ -1991,17 +1991,17 @@
                                 },
                                 {
                                     "$type": "AddElementDurability",
-                                    "NPHOOPNDCAC": "Target",
+                                    "target": "Target",
                                     "value": -300.0,
-                                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_ElementShield",
+                                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_ElementShield",
                                     "elementType": "Fire",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 7200.0,
-                                    "KHAHOELDONA": 0.0
+                                    "useLimitRange": true,
+                                    "maxValue": 7200.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "SetAnimatorTrigger",
-                                    "NPHOOPNDCAC": "Target",
+                                    "target": "Target",
                                     "triggerID": "FireCoreExplodeHit",
                                     "IFJLLJJCLNC": true
                                 }
@@ -2010,37 +2010,37 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_FireCore_HitOwner_Bullet"
+                    "modifierName": "Invoker_Deacon_Fire_FireCore_HitOwner_Bullet"
                 },
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_FireCore_Bullet"
+                    "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_FireCore_Bullet"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Target",
-                    "ELDBAFHCOBL": [
+                    "target": "Target",
+                    "targetPredicates": [
                         {
                             "$type": "ByTargetType",
-                            "OJIFKEOCJGB": "OriginOwner"
+                            "targetType": "OriginOwner"
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByCollisionPoint"
                                     },
-                                    "ICGFCBOFFDI": 3.0
+                                    "radius": 3.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -2060,17 +2060,17 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "All"
+                            "targetType": "All"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_FireCore_Hit",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_FireCore_Hit",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             }
                         },
@@ -2086,58 +2086,58 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_RangeAtk",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Deacon_Fire_RangeAtk": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.100000023841858,
+                    "modifierName": "",
+                    "duration": 1.100000023841858,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_RangeAtk01_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_RangeAtk01_Alert",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "RangeAtk01"
+                                "attachPointName": "RangeAtk01"
                             }
                         },
                         {
                             "$type": "TriggerBullet",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGAAOMEHOGE": 42203008,
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "bulletID": 42203008,
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget"
                                 },
-                                "KJNJNKLLNCN": "BurnAtk01",
+                                "attachPointName": "BurnAtk01",
                                 "MMFHENHCBGB": "Self"
                             }
                         }
                     ]
                 },
                 "Invoker_Deacon_Fire_RangeAtk_Alert": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NGAAOMEHOGE": 42203008,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42203008,
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget"
                                 },
-                                "KJNJNKLLNCN": "BurnAtk01"
+                                "attachPointName": "BurnAtk01"
                             }
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Invoker_Deacon_Fire_RangeAtk"
+                    "modifierName": "Invoker_Deacon_Fire_RangeAtk"
                 }
             ]
         }
@@ -2146,28 +2146,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_RangeAtk_Bullet",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Invoker_Deacon_Fire_RangeAtk_Bullet": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_RangeAtk01_Bullet"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_RangeAtk01_Bullet"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_RangeAtk_Bullet"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_RangeAtk_Bullet"
                 }
             ]
         }
@@ -2176,7 +2176,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_RangeAtk_Explosion",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireHitEffect",
                     "OFIGOLJOGPJ": "",
@@ -2186,8 +2186,8 @@
                 },
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Target",
-                    "ELDBAFHCOBL": [
+                    "target": "Target",
+                    "targetPredicates": [
                         {
                             "$type": "ByEntityTypes",
                             "entityTypes": [
@@ -2198,11 +2198,11 @@
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_RangeAtk01_Explosion",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_RangeAtk01_Explosion",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             }
                         }
@@ -2210,19 +2210,19 @@
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
-                            "ICGFCBOFFDI": 3.0
+                            "radius": 3.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2248,11 +2248,11 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_RangeAtk_Bullet"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_RangeAtk_Bullet"
                 }
             ]
         }
@@ -2261,14 +2261,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_HellFire",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "HellFireAtkBS",
                         "HellFireAtkLoop"
                     ],
-                    "GAIGOBCNNEE": "WeaponEffcet_Loop"
+                    "modifierName": "WeaponEffcet_Loop"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -2276,141 +2276,141 @@
                         "HellFireAtkBS",
                         "HellFireAtkLoop"
                     ],
-                    "GAIGOBCNNEE": "Create_HellFire_Loop"
+                    "modifierName": "Create_HellFire_Loop"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Create_HellFire_Loop": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 200.0,
+                    "modifierName": "",
+                    "duration": 200.0,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 2.0,
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Create_HellFire_Fellow"
+                            "modifierName": "Create_HellFire_Fellow"
                         }
                     ]
                 },
                 "Create_HellFire_Fellow": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalPos",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "HJJEAOMEOFI": "_HELLFIREPOS_",
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "key": "_HELLFIREPOS_",
+                            "born": {
                                 "$type": "ConfigBornByPredicatePoint",
-                                "JBPCKOKLHEB": true,
+                                "onGround": true,
                                 "BIOOFAHEGLA": 0.5
                             },
                             "OGADOPDNBMM": false
                         },
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.0,
-                                    "MFBOELKCPDP": 0.5
+                                    "minRandomRange": 0.0,
+                                    "maxRandomRange": 0.5
                                 },
-                                "JBPCKOKLHEB": true,
+                                "onGround": true,
                                 "GDENJEFPMGC": "_HELLFIREPOS_",
                                 "MICIJLHMIIH": ""
                             },
-                            "CABLIPAKCGB": 42203011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42203011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Create_HellFire_Near"
+                            "modifierName": "Create_HellFire_Near"
                         }
                     ]
                 },
                 "Create_HellFire_Near": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.0,
-                                    "MFBOELKCPDP": 7.5
+                                    "minRandomRange": 0.0,
+                                    "maxRandomRange": 7.5
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             },
-                            "CABLIPAKCGB": 42203011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42203011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Create_HellFire_Away"
+                            "modifierName": "Create_HellFire_Away"
                         }
                     ]
                 },
                 "Create_HellFire_Away": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 7.5,
-                                    "MFBOELKCPDP": 15.0
+                                    "minRandomRange": 7.5,
+                                    "maxRandomRange": 15.0
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             },
-                            "CABLIPAKCGB": 42203011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42203011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ]
                 },
                 "WeaponEffcet_Loop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_HellFireAtk01"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_HellFireAtk01"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetGlobalValue",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByChildren",
-                        "APIAFGPIIHE": 42203007
+                        "configID": 42203007
                     },
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_FireCoreLoopTime_",
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_FireCoreLoopTime_",
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -2419,51 +2419,51 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_HellFireAtk",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByStateIDMixin",
                     "stateIDs": [
                         "HellFire"
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "HellFire_Rings"
+                            "modifierName": "HellFire_Rings"
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_HELLFIRE",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_HELLFIRE",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetOverrideMapValue",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
+                                    "key": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
                                     "value": 1.0
                                 }
                             ],
                             "value": 1.0,
-                            "OGAHELLALBB": "Invoker_Deacon_Fire_HellFire_Count"
+                            "overrideMapKey": "Invoker_Deacon_Fire_HellFire_Count"
                         },
                         {
                             "$type": "SetOverrideMapValue",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
+                                    "key": "_MONSTER_INVOKER_DEACON_FIRE_STATE",
                                     "value": 3.0
                                 }
                             ],
                             "value": 2.0,
-                            "OGAHELLALBB": "Invoker_Deacon_Fire_HellFire_Count"
+                            "overrideMapKey": "Invoker_Deacon_Fire_HellFire_Count"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "AttackContinue",
+                            "boolID": "AttackContinue",
                             "value": true
                         }
                     ]
@@ -2474,162 +2474,162 @@
                         "HellFireAtkBS",
                         "HellFire"
                     ],
-                    "GAIGOBCNNEE": "HellFire_Rings"
+                    "modifierName": "HellFire_Rings"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Invoker_Deacon_Fire_HellFire_Count": 1.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Create_HellFire_Loop": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 2.0,
+                    "modifierName": "",
+                    "duration": 2.0,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Create_HellFire"
+                            "modifierName": "Create_HellFire"
                         }
                     ]
                 },
                 "Create_HellFire": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalPos",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "HJJEAOMEOFI": "_HELLFIREPOS_",
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "key": "_HELLFIREPOS_",
+                            "born": {
                                 "$type": "ConfigBornByPredicatePoint",
-                                "JBPCKOKLHEB": true,
+                                "onGround": true,
                                 "BIOOFAHEGLA": 0.5
                             },
                             "OGADOPDNBMM": false
                         },
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByGlobalValue",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.0,
-                                    "MFBOELKCPDP": 0.5
+                                    "minRandomRange": 0.0,
+                                    "maxRandomRange": 0.5
                                 },
-                                "JBPCKOKLHEB": true,
+                                "onGround": true,
                                 "GDENJEFPMGC": "_HELLFIREPOS_",
                                 "MICIJLHMIIH": ""
                             },
-                            "CABLIPAKCGB": 42203011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42203011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Create_HellFire_RandomBorn1"
+                            "modifierName": "Create_HellFire_RandomBorn1"
                         }
                     ]
                 },
                 "Create_HellFire_RandomBorn1": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 0.0,
-                                    "MFBOELKCPDP": 7.5
+                                    "minRandomRange": 0.0,
+                                    "maxRandomRange": 7.5
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             },
-                            "CABLIPAKCGB": 42203011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42203011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Create_HellFire_RandomBorn2"
+                            "modifierName": "Create_HellFire_RandomBorn2"
                         }
                     ]
                 },
                 "Create_HellFire_RandomBorn2": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 7.5,
-                                    "MFBOELKCPDP": 15.0
+                                    "minRandomRange": 7.5,
+                                    "maxRandomRange": 15.0
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             },
-                            "CABLIPAKCGB": 42203011,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "gadgetID": 42203011,
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ]
                 },
                 "HellFire_Rings": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_Wings"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_Wings"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_Wings_AS"
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_Wings_AS"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Create_HellFire"
+                    "modifierName": "Create_HellFire"
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_HELLFIRE",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_MONSTER_INVOKER_DEACON_FIRE_HELLFIRE",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SetAnimatorBool",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_MONSTER_INVOKER_DEACON_FIRE_HELLFIRE",
+                            "key": "_MONSTER_INVOKER_DEACON_FIRE_HELLFIRE",
                             "value": "Invoker_Deacon_Fire_HellFire_Count",
-                            "ONPJJFKDCED": "MoreThanAndEqual"
+                            "compareType": "MoreThanAndEqual"
                         }
                     ],
-                    "HHFIHBEAPAP": "AttackContinue"
+                    "boolID": "AttackContinue"
                 }
             ]
         }
@@ -2638,11 +2638,11 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_FireCoreKilled",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "KillServerGadget",
                     "LBGGIBBMCMF": {
-                        "APIAFGPIIHE": 42203007
+                        "configID": 42203007
                     }
                 }
             ]
@@ -2652,68 +2652,68 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Invoker_Deacon_Fire_HellFire_Logic",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "HellFire_Alert": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.8999999761581421,
+                    "modifierName": "",
+                    "duration": 0.8999999761581421,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireSubEmitterEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_HellFireAtk01_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_HellFireAtk01_Alert",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "HellFire_Damage"
+                            "modifierName": "HellFire_Damage"
                         }
                     ]
                 },
                 "HellFire_Damage": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireSubEmitterEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Invoker_Deacon_Fire_HellFireAtk01_Damage",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Invoker_Deacon_Fire_HellFireAtk01_Damage",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "JBPCKOKLHEB": true
+                                        "onGround": true
                                     },
                                     "secondHeight": 2.0,
-                                    "ICGFCBOFFDI": 1.5
+                                    "radius": 1.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "Invoker_Deacon_Fire_FireDebuff",
@@ -2739,15 +2739,15 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "HellFire_Alert"
+                    "modifierName": "HellFire_Alert"
                 }
             ]
         }
@@ -2756,63 +2756,63 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonsterAffix_Invoker_Deacon_Fire_Elite_Property",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Invoker_Deacon_Fire_Elite_Property": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_MaxHPRatio": 0.5
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Invoker_Deacon_Fire_Elite_Property"
+                    "modifierName": "UNIQUE_Invoker_Deacon_Fire_Elite_Property"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonsterAffix_Invoker_Deacon_Fire_Elite_Summon",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Invoker_Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Invoker_Deacon_Fire_Elite_HPSummon": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 5.0,
+                    "modifierName": "",
+                    "duration": 5.0,
                     "elementDurability": 100.0
                 },
                 "Invoker_Deacon_Fire_Elite_ElementDurabilitySummon": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 5.0,
+                    "modifierName": "",
+                    "duration": 5.0,
                     "elementDurability": 100.0
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonsterAffix_Invoker_Deacon_Fire_EliteSkill",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_INVOKER_ELITE_TAG",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_INVOKER_ELITE_TAG",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

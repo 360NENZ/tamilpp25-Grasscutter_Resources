@@ -3,79 +3,79 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_PoseHandler",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_SYLPH_POSE_TAG_",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_SYLPH_POSE_TAG_",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Pose_None",
                         "Pose_Activated"
                     ]
                 },
                 {
                     "$type": "AttachModifierToHPPercentMixinV2",
-                    "CMEDACODLEA": [
+                    "valueSteps": [
                         0.019999999552965164
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Sylph_Empty",
                         "Sylph_DyingPoseState"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Sylph_Limbo": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_HpThresholdRatio": 0.0
                     },
                     "state": "Limbo"
                 },
                 "Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Achieve_Moniter": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "DoWatcherSystemAction",
-                            "GPGMPHIIAMD": 82125,
+                            "watcherId": 82125,
                             "LNGKALMLMGN": true
                         }
                     ]
                 },
                 "UNIQUE_Sylph_ChargeBar": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ChargeBarMixin",
                             "JHEDELNOMHP": 2,
                             "DDGAMGECBHI": 0.0,
-                            "JDHHMBHOOEC": 100.0
+                            "maxValue": 100.0
                         },
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_CHARGEBAR_VALUE",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_CHARGEBAR_VALUE",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -0.5,
                                 0.5,
                                 99.5,
                                 100.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Achieve_Moniter",
                                 "Empty",
                                 "ChargeActivated"
@@ -89,8 +89,8 @@
                                 {
                                     "$type": "AddChargeBarValue",
                                     "value": 20.0,
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         },
@@ -102,8 +102,8 @@
                                 {
                                     "$type": "AddChargeBarValue",
                                     "value": 40.0,
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         },
@@ -115,8 +115,8 @@
                                 {
                                     "$type": "AddChargeBarValue",
                                     "value": 70.0,
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         },
@@ -128,13 +128,13 @@
                                 {
                                     "$type": "AddChargeBarValue",
                                     "value": 100.0,
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetChargeBarValue",
                             "value": 0.0
@@ -142,28 +142,28 @@
                     ]
                 },
                 "ChargeActivated": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_SYLPH_POSE_TAG_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "NormalToActivated"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_SYLPH_POSE_TAG_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "ResetAnimatorTrigger",
@@ -172,209 +172,209 @@
                     ]
                 },
                 "Pose_None": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ActivatedTag"
+                            "boolID": "ActivatedTag"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "ActivatedTag"
+                            "boolID": "ActivatedTag"
                         }
                     ]
                 },
                 "Pose_Activated": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Entity_WeightRatio": 2.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ActivatedTag",
+                            "boolID": "ActivatedTag",
                             "value": true
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "ActivatedTag",
+                            "boolID": "ActivatedTag",
                             "value": true
                         },
                         {
                             "$type": "SetAISkillCDAvailableNow",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 601
                             ]
                         },
                         {
                             "$type": "ReTriggerAISkillInitialCD",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 601
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBoxBody"
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBoxBody_Activated"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider_Activated"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 },
                 "Sylph_DyingPoseState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.0,
                         "Actor_SubHurtDelta": 1.0
                     },
                     "state": "DenyLockOn",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "DyingState",
+                            "boolID": "DyingState",
                             "value": true
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBoxBody"
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBoxBody_Activated"
                             ]
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_SYLPH_DEATH_TAG_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_SYLPH_DEATH_TAG_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Dying_IsGhostToAllied"
+                            "modifierName": "Dying_IsGhostToAllied"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Dying_IsGhostToEnemy"
+                            "modifierName": "Dying_IsGhostToEnemy"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Dying_LockHP"
+                            "modifierName": "Dying_LockHP"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Dying_NoHeal"
+                            "modifierName": "Dying_NoHeal"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "DyingState"
+                            "boolID": "DyingState"
                         },
                         {
                             "$type": "EnableHitBoxByName",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
+                                    "key": "_SYLPH_POSE_TAG_",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBoxBody"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnableHitBoxByName",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
+                                    "key": "_SYLPH_POSE_TAG_",
                                     "value": 1.0
                                 }
                             ],
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBoxBody_Activated"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_SYLPH_DEATH_TAG_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_SYLPH_DEATH_TAG_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Dying_IsGhostToAllied": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "IsGhostToAllied"
                 },
                 "Dying_IsGhostToEnemy": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "IsGhostToEnemy"
                 },
                 "Dying_LockHP": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "LockHP"
                 },
                 "Dying_NoHeal": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "NoHeal"
                 },
                 "Sylph_Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Sylph_Limbo"
+                    "modifierName": "UNIQUE_Sylph_Limbo"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Sylph_ChargeBar"
+                    "modifierName": "UNIQUE_Sylph_ChargeBar"
                 },
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_SYLPH_DEATH_TAG_",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_SYLPH_DEATH_TAG_",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -383,33 +383,33 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_PoseAction",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         211,
                         311
                     ],
-                    "GAIGOBCNNEE": "Sylph_DyingAnimState"
+                    "modifierName": "Sylph_DyingAnimState"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Sylph_DyingAnimState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.20000000298023224,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.20000000298023224,
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
+                                    "key": "_SYLPH_POSE_TAG_",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "HHFIHBEAPAP": "DeathTag",
+                            "boolID": "DeathTag",
                             "value": true
                         },
                         {
@@ -417,47 +417,47 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
+                                    "key": "_SYLPH_POSE_TAG_",
                                     "value": 1.0
                                 }
                             ],
-                            "HHFIHBEAPAP": "ActivatedDeathTag",
+                            "boolID": "ActivatedDeathTag",
                             "value": true
                         },
                         {
                             "$type": "RemoveModifierByAbilityStateResistanceID",
-                            "KPGAIMMIKDA": 13002
+                            "resistanceListID": 13002
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorBool",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
+                                    "key": "_SYLPH_POSE_TAG_",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "HHFIHBEAPAP": "DeathTag"
+                            "boolID": "DeathTag"
                         },
                         {
                             "$type": "SetAnimatorBool",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
+                                    "key": "_SYLPH_POSE_TAG_",
                                     "value": 1.0
                                 }
                             ],
-                            "HHFIHBEAPAP": "ActivatedDeathTag"
+                            "boolID": "ActivatedDeathTag"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "RemoveModifierByAbilityStateResistanceID",
-                            "KPGAIMMIKDA": 13002
+                            "resistanceListID": 13002
                         }
                     ]
                 }
@@ -468,77 +468,77 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_Steer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalIdle"
                     ],
-                    "HENDIIJFPCI": 240.0,
-                    "NCAENFOANAG": ""
+                    "angularSpeed": 240.0,
+                    "attackTrigger": ""
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Warning"
                     ],
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": ""
+                    "angularSpeed": 150.0,
+                    "attackTrigger": ""
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RockBullet_BS"
                     ],
-                    "IMHBEGIKDKB": 0.800000011920929,
-                    "HENDIIJFPCI": 360.0,
-                    "NCAENFOANAG": ""
+                    "endNormalizedTime": 0.800000011920929,
+                    "angularSpeed": 360.0,
+                    "attackTrigger": ""
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RockBullet_Loop_01",
                         "RockBullet_Loop_02",
                         "RockBullet_Loop_03"
                     ],
-                    "IMHBEGIKDKB": 0.20000000298023224,
-                    "HENDIIJFPCI": 90.0,
-                    "NCAENFOANAG": ""
+                    "endNormalizedTime": 0.20000000298023224,
+                    "angularSpeed": 90.0,
+                    "attackTrigger": ""
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RockBullet_AS"
                     ],
-                    "EOOBFBGMGLD": 0.699999988079071,
-                    "HENDIIJFPCI": 240.0,
-                    "NCAENFOANAG": ""
+                    "startNormalizedTime": 0.699999988079071,
+                    "angularSpeed": 240.0,
+                    "attackTrigger": ""
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "FlyHor_BS"
                     ],
-                    "IMHBEGIKDKB": 0.5,
-                    "HENDIIJFPCI": 360.0,
-                    "NCAENFOANAG": ""
+                    "endNormalizedTime": 0.5,
+                    "angularSpeed": 360.0,
+                    "attackTrigger": ""
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "FlyHor_AS"
                     ],
-                    "EOOBFBGMGLD": 0.5,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": ""
+                    "startNormalizedTime": 0.5,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": ""
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Activated_Earthquake"
                     ],
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": ""
+                    "angularSpeed": 120.0,
+                    "attackTrigger": ""
                 }
             ]
         }
@@ -547,51 +547,51 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_ExitBattle",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToPoseIDMixin",
                     "poseIDs": [
                         901
                     ],
-                    "GAIGOBCNNEE": "ExitBattle"
+                    "modifierName": "ExitBattle"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ExitBattle": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
+                                    "key": "_SYLPH_POSE_TAG_",
                                     "value": 1.0
                                 }
                             ],
                             "triggerID": "ActivatedToNormal"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_SYLPH_POSE_TAG_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_SYLPH_POSE_TAG_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "DyingState"
+                            "boolID": "DyingState"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ActivatedTag"
+                            "boolID": "ActivatedTag"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "ActivatedTag"
+                            "boolID": "ActivatedTag"
                         },
                         {
                             "$type": "SetChargeBarValue",
@@ -599,7 +599,7 @@
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Sylph_Face"
+                            "modifierName": "UNIQUE_Sylph_Face"
                         }
                     ]
                 }
@@ -610,7 +610,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_RockBullet",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
@@ -618,28 +618,28 @@
                         "RockBullet_Loop_02",
                         "RockBullet_Loop_03"
                     ],
-                    "GAIGOBCNNEE": "RockBullet_Eff"
+                    "modifierName": "RockBullet_Eff"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RockBullet_Eff": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_RockBullet_Body"
+                            "effectPattern": "Eff_Monster_Sylph_Rock_RockBullet_Body"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42006201,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42006201,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "KJNJNKLLNCN": "BulletAttachPoint"
+                        "attachPointName": "BulletAttachPoint"
                     }
                 }
             ]
@@ -649,40 +649,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Sylph_Rock_RockBullet_Hit",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RockBullet_Eff": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_RockBullet_Loop"
+                            "effectPattern": "Eff_Monster_Sylph_Rock_RockBullet_Loop"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "RockBullet_Eff"
+                    "modifierName": "RockBullet_Eff"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
-                            "ICGFCBOFFDI": 0.5
+                            "radius": 0.5
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -704,11 +704,11 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_RockBullet_AS"
+                    "effectPattern": "Eff_Monster_Sylph_Rock_RockBullet_AS"
                 }
             ]
         }
@@ -717,40 +717,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_FlyHor",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "FlyHor_Loop"
                     ],
-                    "GAIGOBCNNEE": "FlyHor_FollowBullet"
+                    "modifierName": "FlyHor_FollowBullet"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FlyHor_FollowBullet": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ResetAnimatorTrigger",
                             "triggerID": "FlyHorEnd"
                         },
                         {
                             "$type": "TriggerBullet",
-                            "NGAAOMEHOGE": 42006203,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42006203,
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             },
                             "NJEOPILMKCN": true,
                             "ENJEPFDLDDF": "Self"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42006203
+                                "configID": 42006203
                             }
                         }
                     ]
@@ -762,65 +762,65 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_FlyHor_RushMove",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "FlyHor_Loop"
                     ],
-                    "GAIGOBCNNEE": "FlyHor_EffHandler"
+                    "modifierName": "FlyHor_EffHandler"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FlyHor_EffHandler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "FlyHor_Eff"
+                            "modifierName": "FlyHor_Eff"
                         }
                     ]
                 },
                 "FlyHor_Eff": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_Fly"
+                            "effectPattern": "Eff_Monster_Sylph_Rock_Fly"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "SelfAttackTarget",
-                    "ELDBAFHCOBL": [
+                    "target": "SelfAttackTarget",
+                    "targetPredicates": [
                         {
                             "$type": "ByTargetPositionToSelfPosition",
-                            "GMFCOCAJBDM": "LesserOrEqual",
+                            "logic": "LesserOrEqual",
                             "value": 8.0
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "TurnDirectionToPos",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
+                            "target": "SelfAttackTarget",
                             "FJCBIPKOKMF": {
                                 "$type": "ConfigBornByTarget"
                             }
                         },
                         {
                             "$type": "TryFindBlinkPointByBorn",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "NGDMCBABOJA": {
+                            "target": "SelfAttackTarget",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 8.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 8.0
                                 }
                             },
                             "GIEHOPEJIMK": "BlinkHitSceneTestByThreeSegments",
@@ -840,15 +840,15 @@
                             "POGPMFFDEMG": true
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "TryFindBlinkPointByBorn",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 8.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 8.0
                                 }
                             },
                             "GIEHOPEJIMK": "BlinkHitSceneTestByThreeSegments",
@@ -871,7 +871,7 @@
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "FlyHor_Eff"
+                    "modifierName": "FlyHor_Eff"
                 }
             ]
         }
@@ -880,17 +880,17 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Sylph_Rock_FlyHor_FollowBullet_Hit",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 1.0
+                            "radius": 1.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -912,11 +912,11 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "SetAnimatorTrigger",
-                    "NPHOOPNDCAC": "Owner",
+                    "target": "Owner",
                     "triggerID": "FlyHorEnd"
                 },
                 {
@@ -929,21 +929,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_FlyHigh",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FlyHigh_Bullet": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerBullet",
-                            "NGAAOMEHOGE": 42006202,
-                            "NGDMCBABOJA": {
+                            "bulletID": 42006202,
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 4.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 4.0,
+                                    "z": 0.0
                                 }
                             },
                             "NJEOPILMKCN": true
@@ -951,10 +951,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "FlyHigh_Bullet"
+                    "modifierName": "FlyHigh_Bullet"
                 }
             ]
         }
@@ -963,35 +963,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Sylph_Rock_RockBall_Hit",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RockBall_Eff": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_RockBall"
+                            "effectPattern": "Eff_Monster_Sylph_Rock_RockBall"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "RockBall_Eff"
+                    "modifierName": "RockBall_Eff"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 1.0
+                            "radius": 1.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1013,20 +1013,20 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "RockBall_Eff"
+                    "modifierName": "RockBall_Eff"
                 },
                 {
                     "$type": "KillSelf"
                 }
             ],
-            "OGFFGLGEOGF": [
+            "onKill": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_RockBall_AS"
+                    "effectPattern": "Eff_Monster_Sylph_Rock_RockBall_AS"
                 }
             ]
         }
@@ -1035,40 +1035,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_Deathrattle",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Deathrattle"
                     ],
-                    "GAIGOBCNNEE": "Deathrattle_Pos"
+                    "modifierName": "Deathrattle_Pos"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Deathrattle_Pos": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "KJNJNKLLNCN": "RootNode"
+                                "attachPointName": "RootNode"
                             },
-                            "CABLIPAKCGB": 42006206,
-                            "DOLAJLACEDF": 4001,
+                            "gadgetID": 42006206,
+                            "campID": 4001,
                             "CEBMHIFOHJM": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Sylph_Limbo"
+                            "modifierName": "UNIQUE_Sylph_Limbo"
                         },
                         {
                             "$type": "KillSelf"
@@ -1082,45 +1082,45 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Sylph_Rock_DeathPosAction",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Deathrattle_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.2000000476837158,
+                    "modifierName": "",
+                    "duration": 1.2000000476837158,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_Deathrattle"
+                            "effectPattern": "Eff_Monster_Sylph_Rock_Deathrattle"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Deathrattle_Actions"
+                            "modifierName": "Deathrattle_Actions"
                         }
                     ]
                 },
                 "Deathrattle_Actions": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "KJNJNKLLNCN": "RootNode"
+                                        "attachPointName": "RootNode"
                                     },
-                                    "ICGFCBOFFDI": 2.5
+                                    "radius": 2.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1141,29 +1141,29 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "Deathrattle_LifeHandler": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 5.0,
+                    "modifierName": "",
+                    "duration": 5.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Deathrattle_Timer"
+                    "modifierName": "Deathrattle_Timer"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Deathrattle_LifeHandler"
+                    "modifierName": "Deathrattle_LifeHandler"
                 }
             ]
         }
@@ -1172,18 +1172,18 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_Activated_Earthquake",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42006204,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42006204,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "KJNJNKLLNCN": "BulletAttachPoint"
+                        "attachPointName": "BulletAttachPoint"
                     }
                 }
             ]
@@ -1193,35 +1193,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Sylph_Rock_Activated_EarthquakeBullet_Hit",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EarthquakeBullet_Eff": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_Activated_Earthquake_EnergyBullet"
+                            "effectPattern": "Eff_Monster_Sylph_Rock_Activated_Earthquake_EnergyBullet"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "EarthquakeBullet_Eff"
+                    "modifierName": "EarthquakeBullet_Eff"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             },
-                            "ICGFCBOFFDI": 6.0
+                            "radius": 6.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1243,23 +1243,23 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_Activated_Earthquake_Damage",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Sylph_Rock_Activated_Earthquake_Damage",
+                    "born": {
                         "$type": "ConfigBornBySelf",
-                        "JBPCKOKLHEB": true,
-                        "NHPNHKBMAEO": {
+                        "onGround": true,
+                        "direction": {
                             "$type": "ConfigDirectionByDefault",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": 0.0,
-                                "KAAPLGBEDPM": 0.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
                             }
                         },
-                        "ANAGBFPADIE": true
+                        "alongGround": true
                     }
                 },
                 {
@@ -1272,41 +1272,41 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Rock_Activated_Deathrattle",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Activated_Deathrattle"
                     ],
-                    "GAIGOBCNNEE": "Activated_Deathrattle_Pos"
+                    "modifierName": "Activated_Deathrattle_Pos"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Activated_Deathrattle_Pos": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_CHANNELLERSLAB_SYLPH_ELITETAG_",
+                                    "key": "_CHANNELLERSLAB_SYLPH_ELITETAG_",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "KJNJNKLLNCN": "RootNode"
+                                "attachPointName": "RootNode"
                             },
-                            "CABLIPAKCGB": 42006205,
-                            "DOLAJLACEDF": 4001,
+                            "gadgetID": 42006205,
+                            "campID": 4001,
                             "CEBMHIFOHJM": true
                         },
                         {
@@ -1314,28 +1314,28 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_CHANNELLERSLAB_SYLPH_ELITETAG_",
+                                    "key": "_CHANNELLERSLAB_SYLPH_ELITETAG_",
                                     "value": 1.0
                                 }
                             ],
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "KJNJNKLLNCN": "RootNode"
+                                "attachPointName": "RootNode"
                             },
-                            "CABLIPAKCGB": 42006207,
-                            "DOLAJLACEDF": 4001,
+                            "gadgetID": 42006207,
+                            "campID": 4001,
                             "CEBMHIFOHJM": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Sylph_Limbo"
+                            "modifierName": "UNIQUE_Sylph_Limbo"
                         },
                         {
                             "$type": "KillSelf"
@@ -1349,45 +1349,45 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Sylph_Rock_Activated_DeathPosAction",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Activated_Deathrattle_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.7999999523162842,
+                    "modifierName": "",
+                    "duration": 1.7999999523162842,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_Activated_Deathrattle"
+                            "effectPattern": "Eff_Monster_Sylph_Rock_Activated_Deathrattle"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Activated_Deathrattle_Actions"
+                            "modifierName": "Activated_Deathrattle_Actions"
                         }
                     ]
                 },
                 "Activated_Deathrattle_Actions": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "KJNJNKLLNCN": "RootNode"
+                                        "attachPointName": "RootNode"
                                     },
-                                    "ICGFCBOFFDI": 7.0
+                                    "radius": 7.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1408,29 +1408,29 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "Activated_Deathrattle_LifeHandler": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 5.0,
+                    "modifierName": "",
+                    "duration": 5.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Activated_Deathrattle_Timer"
+                    "modifierName": "Activated_Deathrattle_Timer"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Activated_Deathrattle_LifeHandler"
+                    "modifierName": "Activated_Deathrattle_LifeHandler"
                 }
             ]
         }
@@ -1439,49 +1439,49 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Sylph_Rock_Elite_Activated_DeathPosAction",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DeathrattleDamage": 0.0,
                 "DeathrattleChargeUp": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Activated_Deathrattle_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.7999999523162842,
+                    "modifierName": "",
+                    "duration": 1.7999999523162842,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Sylph_Rock_Activated_Deathrattle_Enhanced"
+                            "effectPattern": "Eff_Monster_Sylph_Rock_Activated_Deathrattle_Enhanced"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Activated_Deathrattle_Actions"
+                            "modifierName": "Activated_Deathrattle_Actions"
                         }
                     ]
                 },
                 "Activated_Deathrattle_Actions": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.20000000298023224,
+                    "modifierName": "",
+                    "duration": 0.20000000298023224,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "KJNJNKLLNCN": "RootNode"
+                                        "attachPointName": "RootNode"
                                     },
-                                    "ICGFCBOFFDI": 10.0
+                                    "radius": 10.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1502,17 +1502,17 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR50",
-                                "ONPOPLLHJLE": "All",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR50",
+                                "campTargetType": "All",
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1521,77 +1521,77 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_CHANNELLERSLAB_SYLPH_ELITETAG_",
+                                    "key": "_CHANNELLERSLAB_SYLPH_ELITETAG_",
                                     "value": 1.0
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Self",
-                                    "HJJEAOMEOFI": "_CHANNELLERSLAB_SYLPH_DEATHRATTLECHARGE_GADGETTAG_",
+                                    "target": "Self",
+                                    "key": "_CHANNELLERSLAB_SYLPH_DEATHRATTLECHARGE_GADGETTAG_",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Target",
-                                    "GAIGOBCNNEE": "Activated_Deathrattle_DeathrattleChargeUp"
+                                    "target": "Target",
+                                    "modifierName": "Activated_Deathrattle_DeathrattleChargeUp"
                                 }
                             ]
                         }
                     ]
                 },
                 "Activated_Deathrattle_DeathrattleChargeUp": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddChargeBarValue",
                             "value": "DeathrattleChargeUp",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Common_AddChargeValue"
+                            "effectPattern": "Eff_Monster_Common_AddChargeValue"
                         }
                     ]
                 },
                 "Activated_Deathrattle_LifeHandler": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 5.0,
+                    "modifierName": "",
+                    "duration": 5.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Activated_Deathrattle_Timer"
+                    "modifierName": "Activated_Deathrattle_Timer"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Activated_Deathrattle_LifeHandler"
+                    "modifierName": "Activated_Deathrattle_LifeHandler"
                 },
                 {
                     "$type": "SetGlobalValue",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "NPHOOPNDCAC": "Owner",
-                            "HJJEAOMEOFI": "_CHANNELLERSLAB_SYLPH_DEATHRATTLECHARGE_",
+                            "target": "Owner",
+                            "key": "_CHANNELLERSLAB_SYLPH_DEATHRATTLECHARGE_",
                             "value": 1.0
                         }
                     ],
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_CHANNELLERSLAB_SYLPH_DEATHRATTLECHARGE_GADGETTAG_",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_CHANNELLERSLAB_SYLPH_DEATHRATTLECHARGE_GADGETTAG_",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ]
         }

@@ -3,12 +3,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Deathrattle_PlayOnce",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "DeathTag_Change": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorInt",
                             "intID": "NoMoreDeath",
@@ -17,10 +17,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "DeathTag_Change"
+                    "modifierName": "DeathTag_Change"
                 }
             ]
         }
@@ -29,47 +29,47 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_SpecialState",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "SpecialState"
                     ],
-                    "GAIGOBCNNEE": "SpecialState"
+                    "modifierName": "SpecialState"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Override_Sylph_RandomAction": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "SpecialState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RandomAction"
+                            "boolID": "RandomAction"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RandomAction",
+                            "boolID": "RandomAction",
                             "value": true
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_SYLPH_SPECIAL_STATE_",
-                            "EODOIECEPEF": true,
+                            "key": "_SYLPH_SPECIAL_STATE_",
+                            "useLimitRange": true,
                             "FACHGOPKJKE": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_SYLPH_SPECIAL_STATE_",
-                            "OGAHELLALBB": "Override_Sylph_RandomAction"
+                            "globalValueKey": "_SYLPH_SPECIAL_STATE_",
+                            "overrideMapKey": "Override_Sylph_RandomAction"
                         },
                         {
                             "$type": "SetAnimatorFloat",
@@ -79,20 +79,20 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_SYLPH_SPECIAL_STATE_",
-                    "EODOIECEPEF": true,
+                    "key": "_SYLPH_SPECIAL_STATE_",
+                    "useLimitRange": true,
                     "FACHGOPKJKE": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "SetGlobalValueToOverrideMap",
-                    "BPCFCANOMNH": "_SYLPH_SPECIAL_STATE_",
-                    "OGAHELLALBB": "Override_Sylph_RandomAction"
+                    "globalValueKey": "_SYLPH_SPECIAL_STATE_",
+                    "overrideMapKey": "Override_Sylph_RandomAction"
                 },
                 {
                     "$type": "SetAnimatorFloat",
@@ -106,12 +106,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Sylph_Activated_FaceChange",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Sylph_Face": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ReplaceFaceAnimationMixin",
                             "BFLDBBNINMJ": [
@@ -133,10 +133,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Sylph_Face"
+                    "modifierName": "UNIQUE_Sylph_Face"
                 }
             ]
         }
@@ -145,24 +145,24 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonsterAffix_Property_HpDown_Sylph",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_MonsterAffix_Property_HpDown_Sylph": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_MaxHPRatio": -0.8999999761581421
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_MonsterAffix_Property_HpDown_Sylph"
+                    "modifierName": "UNIQUE_MonsterAffix_Property_HpDown_Sylph"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

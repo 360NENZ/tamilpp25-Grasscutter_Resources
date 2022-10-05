@@ -3,7 +3,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Frog_JumpAtkBS",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ActCameraShake",
                     "cameraShake": {
@@ -17,7 +17,7 @@
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_JumpBS"
+                    "effectPattern": "Eff_Monster_Oceanid_Frog_JumpBS"
                 }
             ]
         }
@@ -26,65 +26,65 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Frog_JumpAtk_Alert",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "JumpAtk",
-                    "GAIGOBCNNEE": "JumpCollider",
-                    "AAIFCLGLOMO": 0.6299999952316284,
-                    "MMHONEIBHNP": 0.8600000143051147
+                    "stateID": "JumpAtk",
+                    "modifierName": "JumpCollider",
+                    "normalizeStart": 0.6299999952316284,
+                    "normalizeEnd": 0.8600000143051147
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "JumpAtk"
                     ],
-                    "IMHBEGIKDKB": 0.6000000238418579,
-                    "HENDIIJFPCI": 90.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.6000000238418579,
+                    "angularSpeed": 90.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "JumpCollider": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerSetCastShadow"
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerSetCastShadow",
                             "BGJPIMFBHDP": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_JumpAlert",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Oceanid_Frog_JumpAlert",
+                    "born": {
                         "$type": "ConfigBornByRushToPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     }
                 }
@@ -95,23 +95,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Frog_JumpAtk_Damage",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
                             "secondHeight": 2.5,
-                            "ICGFCBOFFDI": 10.0
+                            "radius": 10.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -143,11 +143,11 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Tit_JumpDamage"
+                    "effectPattern": "Eff_Monster_Oceanid_Tit_JumpDamage"
                 }
             ]
         }
@@ -156,29 +156,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Frog_ElementState",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ElementState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Water",
                     "elementDurability": 100.0,
                     "DDLOLBGNLEF": false
                 },
                 "Monster_Oceanid_Frog_CommonEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_CommonEffectLoop"
+                            "effectPattern": "Eff_Monster_Oceanid_Frog_CommonEffectLoop"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ElementState"
+                    "modifierName": "UNIQUE_ElementState"
                 },
                 {
                     "$type": "AttachAbilityStateResistance",
@@ -195,7 +195,7 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTERAFFIX_OCEANID_ANIMAL_SPMASK",
+                                    "key": "_MONSTERAFFIX_OCEANID_ANIMAL_SPMASK",
                                     "value": 1.0
                                 }
                             ]
@@ -205,13 +205,13 @@
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTERAFFIX_OCEANID_ANIMAL_FOOTEFFECT_OFF",
+                                    "key": "_MONSTERAFFIX_OCEANID_ANIMAL_FOOTEFFECT_OFF",
                                     "value": 1.0
                                 }
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "Monster_Oceanid_Frog_CommonEffect"
+                    "modifierName": "Monster_Oceanid_Frog_CommonEffect"
                 }
             ]
         }
@@ -220,40 +220,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Frog_WaterWave",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "WaterWave"
                     ],
-                    "IMHBEGIKDKB": 0.75,
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.75,
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Turn"
                     ],
-                    "IMHBEGIKDKB": 0.8999999761581421,
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 1.5
+                    "endNormalizedTime": 0.8999999761581421,
+                    "angularSpeed": 150.0,
+                    "attackTrigger": "",
+                    "attackDistance": 1.5
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42005006,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42005006,
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 1.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 1.0
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
                             "IHHIKIACOML": "Horizontal",
                             "INCAGGBCJNF": 45.0
@@ -262,7 +262,7 @@
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_WaterWaveBS"
+                    "effectPattern": "Eff_Monster_Oceanid_Frog_WaterWaveBS"
                 }
             ]
         }
@@ -271,12 +271,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Frog_WaterWave_Damage",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "LifeTime": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf",
                             "duration": 1.0
@@ -284,21 +284,21 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_WaterWaveLoop"
+                    "effectPattern": "Eff_Monster_Oceanid_Frog_WaterWaveLoop"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "LifeTime"
+                    "modifierName": "LifeTime"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "Predicated",
-                    "NPHOOPNDCAC": "Target",
-                    "ELDBAFHCOBL": [
+                    "target": "Target",
+                    "targetPredicates": [
                         {
                             "$type": "ByEntityTypes",
                             "entityTypes": [
@@ -306,22 +306,22 @@
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByCollisionPoint",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         }
                                     },
-                                    "ICGFCBOFFDI": 1.0
+                                    "radius": 1.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -343,7 +343,7 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
@@ -354,30 +354,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Frog_DeathExplode_Damage",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "LifeTimer": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 4.0,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": 4.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_DeathWaterBall"
+                            "effectPattern": "Eff_Monster_Oceanid_Frog_DeathWaterBall"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_DeathWaterBallExplode"
+                            "effectPattern": "Eff_Monster_Oceanid_Frog_DeathWaterBallExplode"
                         },
                         {
                             "$type": "DamageByAttackValue",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR30H3",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR30H3",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
                             "attackInfo": {
                                 "attackTag": "Oceanid_Frog_Explode",
@@ -412,16 +412,16 @@
                     ]
                 },
                 "Oceanid_Frog_Explode_Watcher": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Target",
-                            "ELDBAFHCOBL": [
+                            "target": "Target",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Oceanid_Frog_Explode"
                                     ]
                                 },
@@ -432,35 +432,35 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Target",
-                                    "GAIGOBCNNEE": "Frog_Exploded"
+                                    "target": "Target",
+                                    "modifierName": "Frog_Exploded"
                                 }
                             ]
                         }
                     ]
                 },
                 "Frog_Exploded": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR62",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR62",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_STAGE_",
+                                    "key": "_STAGE_",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "MoreThanAndEqual"
+                                    "compareType": "MoreThanAndEqual"
                                 },
                                 {
                                     "$type": "ByEntityTypes",
@@ -469,39 +469,39 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Target",
-                                    "GAIGOBCNNEE": "Frog_Exploded_Handler"
+                                    "target": "Target",
+                                    "modifierName": "Frog_Exploded_Handler"
                                 }
                             ]
                         }
                     ]
                 },
                 "Frog_Exploded_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_OCEANID_DEATHEXPLODED_",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_OCEANID_DEATHEXPLODED_",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "LifeTimer"
+                    "modifierName": "LifeTimer"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Oceanid_Frog_Explode_Watcher"
+                    "modifierName": "Oceanid_Frog_Explode_Watcher"
                 }
             ]
         }
@@ -510,30 +510,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Oceanid_Affix_DeathExplode",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Oceanid_Affix_DeathExplode_LifeTimer": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 4.0,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": 4.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_DeathWaterBall_EffigyChallenge"
+                            "effectPattern": "Eff_Monster_Oceanid_Frog_DeathWaterBall_EffigyChallenge"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Oceanid_Frog_DeathWaterBallExplode_EffigyChallenge"
+                            "effectPattern": "Eff_Monster_Oceanid_Frog_DeathWaterBallExplode_EffigyChallenge"
                         },
                         {
                             "$type": "DamageByAttackValue",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR7",
-                                "ONPOPLLHJLE": "Enemy",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR7",
+                                "campTargetType": "Enemy",
+                                "sizeRatio": 1.0
                             },
                             "attackInfo": {
                                 "attackTag": "Oceanid_Frog_Explode",
@@ -568,10 +568,10 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Oceanid_Affix_DeathExplode_LifeTimer"
+                    "modifierName": "Oceanid_Affix_DeathExplode_LifeTimer"
                 }
             ]
         }
@@ -580,18 +580,18 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Oceanid_Frog_DyingBS",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Oceanid_Frog_DeathExplode": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ReplaceEventPatternMixin",
-                            "LELEMIDJLMK": [
+                            "oldPatterns": [
                                 "Monster_Slime_Fire_02_NormalAttack"
                             ],
-                            "ECCHFNODIPH": [
+                            "newPatterns": [
                                 "Monster_Slime_Fire_02_NormalAttack_Fire"
                             ]
                         },
@@ -600,16 +600,16 @@
                             "ONMCEPIGGAM": [
                                 42005007
                             ],
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Enemy"
+                            "campID": 4001,
+                            "campTargetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Oceanid_Frog_DeathExplode"
+                    "modifierName": "UNIQUE_Oceanid_Frog_DeathExplode"
                 }
             ]
         }

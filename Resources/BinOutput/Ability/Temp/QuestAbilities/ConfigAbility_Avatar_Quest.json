@@ -3,39 +3,39 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Player_StaminaReduced_AbilityGroup",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Avatar_StaminaReduced_AbilityGroup": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToStateIDMixin",
                             "stateIDs": [
                                 "Fly"
                             ],
-                            "GAIGOBCNNEE": "Avatar_Flying_StaminaReduced"
+                            "modifierName": "Avatar_Flying_StaminaReduced"
                         },
                         {
                             "$type": "AttachToAnimatorStateIDMixin",
                             "stateIDs": [
                                 "Run"
                             ],
-                            "GAIGOBCNNEE": "Avatar_Flying_StaminaReduced"
+                            "modifierName": "Avatar_Flying_StaminaReduced"
                         }
                     ]
                 },
                 "Avatar_Flying_StaminaReduced": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_CostStaminaRatio": -0.8999999761581421,
                         "Actor_EndureDelta": 0.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachAbilityStateResistance",
-                            "KPGAIMMIKDA": 11002
+                            "resistanceListID": 11002
                         },
                         {
                             "$type": "SetAvatarHitBuckets",
@@ -46,10 +46,10 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Avatar_StaminaReduced_AbilityGroup"
+                    "modifierName": "UNIQUE_Avatar_StaminaReduced_AbilityGroup"
                 }
             ]
         }
@@ -58,10 +58,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Remove_Avatar_Player_StaminaReduced_AbilityGroup",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Avatar_StaminaReduced_AbilityGroup"
+                    "modifierName": "UNIQUE_Avatar_StaminaReduced_AbilityGroup"
                 }
             ]
         }
@@ -70,15 +70,15 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_Player_QuestFireDrug_AbilityGroup",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_AlbedoQuest_Fire_DrugWater": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 8.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 8.0,
                     "elementType": "Fire",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 1.0,
+                    "onAdded": [
                         {
                             "$type": "DamageByAttackValue",
                             "attackInfo": {
@@ -100,7 +100,7 @@
                             }
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "DamageByAttackValue",
                             "attackInfo": {
@@ -124,10 +124,10 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_AlbedoQuest_Fire_DrugWater"
+                    "modifierName": "UNIQUE_AlbedoQuest_Fire_DrugWater"
                 }
             ]
         }
@@ -136,13 +136,13 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_QuestAbility_XiaoTriggerElementalBurst",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "AutoTriggerAbility": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "stacking": "Multiple",
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "DoSkill"
@@ -155,15 +155,15 @@
                     ]
                 },
                 "UNIQUE_QuestBuff_DeductElemEnergy": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 5.0,
-                    "FNJKJKACMCH": [
+                    "thinkInterval": 5.0,
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByEnergyChangeMixin",
-                            "FNHOFLJNEOD": [
+                            "elementTypes": [
                                 "Water",
                                 "Rock",
                                 "Fire",
@@ -172,18 +172,18 @@
                                 "Wind",
                                 "Ice"
                             ],
-                            "HAIBPADIJMD": true,
-                            "PODACCOMKHD": [
+                            "doWhenEnergyMax": true,
+                            "onGainEnergyByBall": [
                                 {
                                     "$type": "HealHP",
-                                    "AJAHODOGLMH": 0.10000000149011612
+                                    "amountByTargetMaxHPRatio": 0.10000000149011612
                                 }
                             ]
                         },
                         {
                             "$type": "ReviveElemEnergyMixin",
-                            "KPBMABEIBHE": 0.5,
-                            "HMHDCLAJCLB": -30.0,
+                            "period": 0.5,
+                            "baseEnergy": -30.0,
                             "ratio": 1.0
                         },
                         {
@@ -191,92 +191,92 @@
                             "DLEFDCFBLDE": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "CurLocalAvatar",
+                                    "target": "CurLocalAvatar",
                                     "predicates": [
                                         {
                                             "$type": "ByHasFeatureTag",
-                                            "AMIONINAMLE": [
+                                            "featureTagIDs": [
                                                 10026
                                             ]
                                         }
                                     ],
-                                    "GAIGOBCNNEE": "AutoTriggerAbility"
+                                    "modifierName": "AutoTriggerAbility"
                                 }
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "QuestBuff_XiaoTriggerElementalBurst",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "QuestBuff_XiaoTriggerElementalBurst",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "QuestBuff_XiaoTriggerElementalBurst"
+                            "key": "QuestBuff_XiaoTriggerElementalBurst"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AddElementDurability",
                             "value": 100.0,
-                            "GAIGOBCNNEE": "UNIQUE_HowlingSoul_Main_Handler",
-                            "JDHHMBHOOEC": 3.4028234663852886e+38
+                            "modifierName": "UNIQUE_HowlingSoul_Main_Handler",
+                            "maxValue": 3.4028234663852886e+38
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "CurLocalAvatar",
+                    "target": "CurLocalAvatar",
                     "predicates": [
                         {
                             "$type": "ByHasFeatureTag",
-                            "AMIONINAMLE": [
+                            "featureTagIDs": [
                                 10026
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "AutoTriggerAbility"
+                    "modifierName": "AutoTriggerAbility"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "CurLocalAvatar",
-                    "ACOKKHADPOJ": true,
+                    "target": "CurLocalAvatar",
+                    "doOffStage": true,
                     "predicates": [
                         {
                             "$type": "ByHasFeatureTag",
-                            "AMIONINAMLE": [
+                            "featureTagIDs": [
                                 10026
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_QuestBuff_DeductElemEnergy"
+                    "modifierName": "UNIQUE_QuestBuff_DeductElemEnergy"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_QuestAbility_ClearFollowPet",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "FollowAttachPointEffectMixin",
-                    "GAIGOBCNNEE": "ClearFollowPet",
+                    "modifierName": "ClearFollowPet",
                     "LBCJDGDFIBC": "QuestBlank"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ClearFollowPet": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 }
             }
@@ -286,16 +286,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_QuestAbility_RandomDeadTime",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DeadTime_RandomInterval": 25.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_QuestAbility_RandomDeadTime_Interval": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "DeadTime_RandomInterval",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "DeadTime_RandomInterval",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerAbility",
                             "abilityName": "Avatar_QuestAbility_DeadTime"
@@ -307,52 +307,52 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetRandomOverrideMapValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "MOCGLDDNLKO": 30.0,
                     "DMNANPGJBJH": 20.0,
-                    "OGAHELLALBB": "DeadTime_RandomInterval"
+                    "overrideMapKey": "DeadTime_RandomInterval"
                 },
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_QuestAbility_RandomDeadTime_Interval"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_QuestAbility_RandomDeadTime_Interval"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetRandomOverrideMapValue",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "MOCGLDDNLKO": 30.0,
                     "DMNANPGJBJH": 20.0,
-                    "OGAHELLALBB": "DeadTime_RandomInterval"
+                    "overrideMapKey": "DeadTime_RandomInterval"
                 },
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_QuestAbility_RandomDeadTime_Interval"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_QuestAbility_RandomDeadTime_Interval"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_QuestAbility_DeadTime",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByEventMixin",
                     "PDKJAFAIDFL": [
                         {
-                            "MFKFDKDKKNJ": "ElementDeadTime",
-                            "OAEEBLALAPO": [
+                            "abilityState": "ElementDeadTime",
+                            "actions": [
                                 {
                                     "$type": "DebugLog",
-                                    "ACOKKHADPOJ": true,
-                                    "CBEDAJEGJBM": "!!!!!!!!!!!SetAvatarCanShakeOn!!!!!!!!!!"
+                                    "doOffStage": true,
+                                    "content": "!!!!!!!!!!!SetAvatarCanShakeOn!!!!!!!!!!"
                                 },
                                 {
                                     "$type": "ForceEnableShakeOffButton",
@@ -363,16 +363,16 @@
                     ],
                     "LDPHCDDGEBA": [
                         {
-                            "MFKFDKDKKNJ": "ElementDeadTime",
-                            "OAEEBLALAPO": [
+                            "abilityState": "ElementDeadTime",
+                            "actions": [
                                 {
                                     "$type": "DebugLog",
-                                    "ACOKKHADPOJ": true,
-                                    "CBEDAJEGJBM": "!!!!!!!!!!!SetAvatarCanShakeOff!!!!!!!!!!"
+                                    "doOffStage": true,
+                                    "content": "!!!!!!!!!!!SetAvatarCanShakeOff!!!!!!!!!!"
                                 },
                                 {
                                     "$type": "ForceEnableShakeOffButton",
-                                    "ACOKKHADPOJ": true
+                                    "doOffStage": true
                                 }
                             ]
                         }
@@ -380,68 +380,68 @@
                     "LIINFCJLBOP": ""
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DeadTime": 5.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_QuestAbility_DeadTime": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "DeadTime",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "DeadTime",
                     "elementDurability": 350.0,
                     "state": "ElementDeadTime",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CallLuaTask",
-                            "ELEDCPEHJOH": "12041",
-                            "MANLGGPLODK": "ShougunQuest_Timestop"
+                            "targetAlias": "12041",
+                            "valueString": "ShougunQuest_Timestop"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "DebugLog",
-                            "ACOKKHADPOJ": true,
-                            "CBEDAJEGJBM": "!!!!!!!!!!!SetAvatarCanShakeOff!!!!!!!!!!"
+                            "doOffStage": true,
+                            "content": "!!!!!!!!!!!SetAvatarCanShakeOff!!!!!!!!!!"
                         },
                         {
                             "$type": "ForceEnableShakeOffButton",
-                            "ACOKKHADPOJ": true
+                            "doOffStage": true
                         }
                     ]
                 }
             },
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "DebugLog",
-                    "ACOKKHADPOJ": true,
-                    "CBEDAJEGJBM": "!!!!!!!!!!!SetAvatarCanShakeOff!!!!!!!!!!"
+                    "doOffStage": true,
+                    "content": "!!!!!!!!!!!SetAvatarCanShakeOff!!!!!!!!!!"
                 },
                 {
                     "$type": "ForceEnableShakeOffButton",
-                    "ACOKKHADPOJ": true
+                    "doOffStage": true
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_QuestAbility_DeadTime"
+                    "modifierName": "UNIQUE_QuestAbility_DeadTime"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Avatar_QuestAbility_ReviveEnergy",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ReviveElemEnergy",
-                    "ACOKKHADPOJ": true,
+                    "doOffStage": true,
                     "value": 100.0
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

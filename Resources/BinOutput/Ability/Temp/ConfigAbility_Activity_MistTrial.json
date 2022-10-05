@@ -3,7 +3,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_FallingBuff",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AttackRate": 0.05999999865889549,
                 "Value_BuffCount": 0.0,
                 "Value_OnceCount": 10.0,
@@ -11,17 +11,17 @@
                 "Value_Time": 30.0,
                 "Temp_Count": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarHandle": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -30,97 +30,97 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "FallingAttack"
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AddGlobalValue",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "ACOKKHADPOJ": true,
+                                    "target": "Caster",
+                                    "doOffStage": true,
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_Ability_SuperTrial_FallingBuff_AttackCount",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": "Value_OnceCount",
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_Ability_SuperTrial_FallingBuff_AttackCount",
+                                    "useLimitRange": true,
+                                    "maxValue": "Value_OnceCount",
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "CheckCount"
+                                    "target": "Caster",
+                                    "doOffStage": true,
+                                    "modifierName": "CheckCount"
                                 }
                             ]
                         }
                     ]
                 },
                 "CheckCount": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_Ability_SuperTrial_FallingBuff_AttackCount",
-                            "OGAHELLALBB": "Temp_Count"
+                            "globalValueKey": "_Ability_SuperTrial_FallingBuff_AttackCount",
+                            "overrideMapKey": "Temp_Count"
                         },
                         {
                             "$type": "Repeated",
                             "JGBAKAECJOD": "Temp_Count",
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "AddGlobalValue",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_Ability_SuperTrial_FallingBuff_BuffCount",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": "Value_MaxCount",
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_Ability_SuperTrial_FallingBuff_BuffCount",
+                                    "useLimitRange": true,
+                                    "maxValue": "Value_MaxCount",
+                                    "minValue": 0.0
                                 }
                             ]
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "NPHOOPNDCAC": "Caster",
-                            "ACOKKHADPOJ": true,
-                            "BPCFCANOMNH": "_Ability_SuperTrial_FallingBuff_BuffCount",
-                            "OGAHELLALBB": "Value_BuffCount"
+                            "target": "Caster",
+                            "doOffStage": true,
+                            "globalValueKey": "_Ability_SuperTrial_FallingBuff_BuffCount",
+                            "overrideMapKey": "Value_BuffCount"
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarBuff"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarBuff"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarBuff"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarBuff"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarBuff_AvatarTimer"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "modifierName": "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarBuff_AvatarTimer"
                         },
                         {
                             "$type": "ClearGlobalValue",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "HJJEAOMEOFI": "_Ability_SuperTrial_FallingBuff_AttackCount"
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "key": "_Ability_SuperTrial_FallingBuff_AttackCount"
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Value_Time",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Value_Time",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": [
                             "Value_AttackRate",
                             "Value_BuffCount",
@@ -128,80 +128,80 @@
                         ]
                     },
                     "state": "AttackUp",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "ShowBuffEffect"
+                            "modifierName": "ShowBuffEffect"
                         }
                     ]
                 },
                 "ShowBuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.5,
+                    "modifierName": "",
+                    "duration": 1.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Activity_SuperTrial_Buff"
+                            "effectPattern": "Eff_Activity_SuperTrial_Buff"
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarBuff_AvatarTimer": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Value_Time",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Value_Time",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "ACOKKHADPOJ": true,
-                            "HJJEAOMEOFI": "_Ability_SuperTrial_FallingBuff_BuffCount"
+                            "doOffStage": true,
+                            "key": "_Ability_SuperTrial_FallingBuff_BuffCount"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarHandle"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_FallingBuff_AvatarHandle"
                 }
             ],
-            "ILBIENDPCBG": [
+            "onRemoved": [
                 {
                     "$type": "ClearGlobalValue",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "_Ability_SuperTrial_FallingBuff_BuffCount"
+                    "doOffStage": true,
+                    "key": "_Ability_SuperTrial_FallingBuff_BuffCount"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_FallingAreaAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "CurLocalAvatarMixin",
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_FallingAreaAttack_Avatar"
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_FallingAreaAttack_Avatar"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AreaAttackCD": 1.0,
                 "Value_DamageRate": 1.2000000476837158,
                 "Value_DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_FallingAreaAttack_Avatar": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "FallingAttack"
                             ],
                             "damagePercentageRatio": "Value_DamageRate"
@@ -209,187 +209,187 @@
                     ]
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_ShieldDamageUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "_Ability_SuperTrial_ShieldDamageUp_Check",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_Ability_SuperTrial_ShieldDamageUp_Check",
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "UNIQUE_ActivityAbility_SuperTrial_ShieldDamageUp_NoBuff",
                         "UNIQUE_ActivityAbility_SuperTrial_ShieldDamageUp_HasBuff"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AttackRate": 0.5
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_ShieldDamageUp_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "ACOKKHADPOJ": true,
-                            "ELDBAFHCOBL": [
+                            "doOffStage": true,
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHasShield",
                                     "type": "All"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AddGlobalValue",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_Ability_SuperTrial_ShieldDamageUp_Check",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 1.0,
-                                    "KHAHOELDONA": 1.0
+                                    "key": "_Ability_SuperTrial_ShieldDamageUp_Check",
+                                    "useLimitRange": true,
+                                    "maxValue": 1.0,
+                                    "minValue": 1.0
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "AddGlobalValue",
-                                    "ACOKKHADPOJ": true,
+                                    "doOffStage": true,
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_Ability_SuperTrial_ShieldDamageUp_Check",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_Ability_SuperTrial_ShieldDamageUp_Check",
+                                    "useLimitRange": true,
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_ShieldDamageUp_NoBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_ShieldDamageUp_HasBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "Value_AttackRate"
                         }
                     ],
                     "state": "AttackUp",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "ShowBuffEffect"
+                            "modifierName": "ShowBuffEffect"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "ShowBuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.5,
+                    "modifierName": "",
+                    "duration": 1.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Activity_SuperTrial_Buff"
+                            "effectPattern": "Eff_Activity_SuperTrial_Buff"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_ShieldDamageUp_Handler"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_ShieldDamageUp_Handler"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_GainShieldAreaAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByGainCrystalSeedMixin",
-                    "FNHOFLJNEOD": [
+                    "elementTypes": [
                         "Fire",
                         "Water",
                         "Electric",
                         "Ice"
                     ],
-                    "OAEEBLALAPO": [
+                    "actions": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_GainShieldAttack_CD",
+                                    "target": "Team",
+                                    "key": "_ActivityAbility_SuperTrial_GainShieldAttack_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "GAIGOBCNNEE": "TriggerGainShieldAreaAttack"
+                            "modifierName": "TriggerGainShieldAreaAttack"
                         }
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AreaAttackCD": 1.0,
                 "Value_DamageRate": 4.0,
                 "Value_DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "TriggerGainShieldAreaAttack": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_GainShieldAttack_TeamCD"
+                            "target": "Team",
+                            "modifierName": "UNIQUE_ActivityAbility_SuperTrial_GainShieldAttack_TeamCD"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Stages_GainWave_01"
+                            "effectPattern": "Eff_Stages_GainWave_01"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "Applier",
-                            "DMCJDGELKBC": {
+                            "target": "Applier",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "JBPCKOKLHEB": true
+                                        "onGround": true
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -412,206 +412,206 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_GainShieldAttack_TeamCD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Value_AreaAttackCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Value_AreaAttackCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_GainShieldAttack_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_SuperTrial_GainShieldAttack_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_GainShieldAttack_CD"
+                            "key": "_ActivityAbility_SuperTrial_GainShieldAttack_CD"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "Value_DamageSystemValue",
+                    "key": "Value_DamageSystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_HealingDamageUp",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToPredicateMixin",
-                    "PDPENHIADJD": "HP",
+                    "onEvent": "HP",
                     "predicates": [
                         {
                             "$type": "ByTargetHPRatio",
-                            "GMFCOCAJBDM": "GreaterOrEqual",
-                            "BCJJBMJKHED": "Value_HpRate"
+                            "logic": "GreaterOrEqual",
+                            "HPRatio": "Value_HpRate"
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_HealingDamageUp_Buff"
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_HealingDamageUp_Buff"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_HpRate": 0.8999999761581421,
                 "Value_AttackRate": 0.5
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_HealingDamageUp_Buff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "Value_AttackRate"
                         }
                     ],
                     "state": "AttackUp",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "ShowBuffEffect"
+                            "modifierName": "ShowBuffEffect"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "ShowBuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.5,
+                    "modifierName": "",
+                    "duration": 1.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Activity_SuperTrial_Buff"
+                            "effectPattern": "Eff_Activity_SuperTrial_Buff"
                         }
                     ]
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_HealingReviveElemEnergy",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByEventMixin",
                     "type": "Current",
-                    "PDPENHIADJD": "HPUp",
-                    "OAEEBLALAPO": [
+                    "onEvent": "HPUp",
+                    "actions": [
                         {
                             "$type": "ReviveElemEnergy",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_HealingReviveElemEnergy_CD",
+                                    "target": "Team",
+                                    "key": "_ActivityAbility_SuperTrial_HealingReviveElemEnergy_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
                             "value": "Value_ReviveElemEnergy"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_HealingReviveElemEnergy_TeamCD"
+                            "target": "Team",
+                            "modifierName": "UNIQUE_ActivityAbility_SuperTrial_HealingReviveElemEnergy_TeamCD"
                         }
                     ],
                     "LIINFCJLBOP": ""
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_ReviveElemEnergy": 3.0,
                 "Value_CD": 1.5
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_HealingReviveElemEnergy_TeamCD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Value_CD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Value_CD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_HealingReviveElemEnergy_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_SuperTrial_HealingReviveElemEnergy_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_HealingReviveElemEnergy_CD"
+                            "key": "_ActivityAbility_SuperTrial_HealingReviveElemEnergy_CD"
                         }
                     ]
                 }
             },
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_ElementMasteryUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_Delta": 300.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_ElementMasteryUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_ElemMasteryDelta": "Value_Delta"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_ElementMasteryUp"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_ElementMasteryUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_ElementReactionAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByElementReactionMixin",
                     "entityTypes": [
                         "Monster"
                     ],
-                    "KEFGMDOFKHM": [
+                    "reactionTypes": [
                         "Explode",
                         "Stream",
                         "Burning",
@@ -628,61 +628,61 @@
                         "CrystallizeIce",
                         "CrystallizeFire"
                     ],
-                    "OAEEBLALAPO": [
+                    "actions": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Other",
+                            "target": "Other",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_ElementReactionAttack_CD",
+                                    "target": "Team",
+                                    "key": "_ActivityAbility_SuperTrial_ElementReactionAttack_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "GAIGOBCNNEE": "TriggerElementReactionAttack"
+                            "modifierName": "TriggerElementReactionAttack"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_ElementReactionAttack_TeamCD"
+                            "target": "Team",
+                            "modifierName": "UNIQUE_ActivityAbility_SuperTrial_ElementReactionAttack_TeamCD"
                         }
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_DamageRate": 4.0,
                 "Value_DamageSystemValue": 0.0,
                 "Value_AreaAttackCD": 1.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "TriggerElementReactionAttack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Stages_GainWave_01"
+                            "effectPattern": "Eff_Stages_GainWave_01"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "Applier",
-                            "DMCJDGELKBC": {
+                            "target": "Applier",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "JBPCKOKLHEB": true
+                                        "onGround": true
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -705,60 +705,60 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_ElementReactionAttack_TeamCD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Value_AreaAttackCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Value_AreaAttackCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_ElementReactionAttack_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_SuperTrial_ElementReactionAttack_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_ElementReactionAttack_CD"
+                            "key": "_ActivityAbility_SuperTrial_ElementReactionAttack_CD"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "Value_DamageSystemValue",
+                    "doOffStage": true,
+                    "key": "Value_DamageSystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_MeleeDamageUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AttackRate": 0.75
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_MeleeDamageUp_Buff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "NormalAttack_01",
                                 "NormalAttack_02",
                                 "NormalAttack_03",
@@ -768,15 +768,15 @@
                                 "ExtraAttack",
                                 "FallingAttack"
                             ],
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "Value_AttackRate"
                         }
                     ],
                     "state": "AttackUp",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
                     "predicates": [
@@ -789,32 +789,32 @@
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_MeleeDamageUp_Buff"
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_MeleeDamageUp_Buff"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_MeleeAreaAttack",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AreaAttackCD": 2.0,
                 "Value_DamageRate": 4.0,
                 "Value_DamageSystemValue": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_MeleeAreaAttack_Avatar": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Other",
-                            "ELDBAFHCOBL": [
+                            "target": "Other",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -823,7 +823,7 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "NormalAttack_01",
                                         "NormalAttack_02",
                                         "NormalAttack_03",
@@ -835,54 +835,54 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
-                                    "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_MeleeAreaAttack_CD",
+                                    "target": "Team",
+                                    "key": "_ActivityAbility_SuperTrial_MeleeAreaAttack_CD",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "CurLocalAvatar",
-                                    "GAIGOBCNNEE": "TriggerMeleeAreaAttack"
+                                    "target": "CurLocalAvatar",
+                                    "modifierName": "TriggerMeleeAreaAttack"
                                 }
                             ]
                         }
                     ]
                 },
                 "TriggerMeleeAreaAttack": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Team",
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_MeleeAreaAttack_TeamCD"
+                            "target": "Team",
+                            "modifierName": "UNIQUE_ActivityAbility_SuperTrial_MeleeAreaAttack_TeamCD"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Stages_GainWave_01"
+                            "effectPattern": "Eff_Stages_GainWave_01"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "Applier",
-                            "DMCJDGELKBC": {
+                            "target": "Applier",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": 0.0,
+                                            "z": 0.0
                                         },
-                                        "JBPCKOKLHEB": true
+                                        "onGround": true
                                     },
-                                    "ICGFCBOFFDI": 4.0
+                                    "radius": 4.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -905,34 +905,34 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_MeleeAreaAttack_TeamCD": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Value_AreaAttackCD",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Value_AreaAttackCD",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_MeleeAreaAttack_CD",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_SuperTrial_MeleeAreaAttack_CD",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_MeleeAreaAttack_CD"
+                            "key": "_ActivityAbility_SuperTrial_MeleeAreaAttack_CD"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
                     "predicates": [
@@ -945,50 +945,50 @@
                             ]
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_MeleeAreaAttack_Avatar"
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_MeleeAreaAttack_Avatar"
                 },
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "ACOKKHADPOJ": true,
-                    "HJJEAOMEOFI": "Value_DamageSystemValue",
+                    "doOffStage": true,
+                    "key": "Value_DamageSystemValue",
                     "type": "ElementLevelCo"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_RangeNoEnemyAttackUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AttackRate": 0.75
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_HasEnemy",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_HasEnemy",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
                                 "AKMLOIFOBPO": "Nearest",
-                                "JBKKOJLJHDK": "CircleR5",
-                                "ONPOPLLHJLE": "Enemy",
+                                "shapeName": "CircleR5",
+                                "campTargetType": "Enemy",
                                 "AFLAEMMPLPN": "CurLocalAvatar",
-                                "CJJABKCAIEB": 1.0
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -996,120 +996,120 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_HasEnemy",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_HasEnemy",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         },
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_HasEnemy",
+                                    "key": "_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_HasEnemy",
                                     "value": 0.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_AvatarBuff"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_AvatarBuff"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_AvatarBuff"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_AvatarBuff"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_AvatarBuff": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "Value_AttackRate"
                         }
                     ],
                     "state": "AttackUp",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "ShowBuffEffect"
+                            "modifierName": "ShowBuffEffect"
                         }
                     ],
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "ShowBuffEffect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.5,
+                    "modifierName": "",
+                    "duration": 1.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Activity_SuperTrial_Buff"
+                            "effectPattern": "Eff_Activity_SuperTrial_Buff"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_Team"
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyAttackUp_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_SpeedRate": 0.20000000298023224,
                 "Value_CostStaminaRatio": -0.5
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_Team": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_HasEnemy",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_HasEnemy",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
                                 "AKMLOIFOBPO": "Nearest",
-                                "JBKKOJLJHDK": "CircleR5",
-                                "ONPOPLLHJLE": "Enemy",
+                                "shapeName": "CircleR5",
+                                "campTargetType": "Enemy",
                                 "AFLAEMMPLPN": "CurLocalAvatar",
-                                "CJJABKCAIEB": 1.0
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1117,51 +1117,51 @@
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_HasEnemy",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_HasEnemy",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         },
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_HasEnemy",
+                                    "key": "_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_HasEnemy",
                                     "value": 0.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_AvatarBuff_01"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_AvatarBuff_01"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_AvatarBuff_01"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_AvatarBuff_01"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_AvatarBuff_01": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToStateIDMixin",
                             "stateIDs": [
@@ -1172,260 +1172,260 @@
                                 "LiquidStrike_Move",
                                 "LiquidStrike_Stand"
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_AvatarBuff_02"
+                            "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_AvatarBuff_02"
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_MoveSpeedRatio": "Value_SpeedRate"
                     },
                     "state": "SpeedUp",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_AvatarBuff_02": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_CostStaminaRatio": "Value_CostStaminaRatio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_Team"
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RangeNoEnemyStaminaReduction_Team"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_RandomRoomRevive",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_Hp": 1.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_RandomRoomRoomRevive": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ReviveDeadAvatar",
-                            "NPHOOPNDCAC": "AllPlayerAvatars",
-                            "AJAHODOGLMH": "Value_Hp",
-                            "AFPAPIFKIHK": 1.0
+                            "target": "AllPlayerAvatars",
+                            "amountByTargetMaxHPRatio": "Value_Hp",
+                            "cdRatio": 1.0
                         },
                         {
                             "$type": "HealHP",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "target": "CurTeamAvatars",
                             "PMHINCGOKCF": "Value_Hp"
                         },
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "OnAdded:ActivityAbility_SuperTrial_RandomRoomRevive!!!!!!!!!!!"
+                            "content": "OnAdded:ActivityAbility_SuperTrial_RandomRoomRevive!!!!!!!!!!!"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RandomRoomRoomRevive"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RandomRoomRoomRevive"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_RandomRoomAttackUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AttackRate": 0.5
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ActivityAbility_SuperTrial_RandomRoomAttackUp": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
+                    "stacking": "Multiple",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "Value_AttackRate"
                     },
                     "state": "AttackUp",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Caster",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "ActivityAbility_SuperTrial_RandomRoomAttackUp"
+                    "target": "Caster",
+                    "doOffStage": true,
+                    "modifierName": "ActivityAbility_SuperTrial_RandomRoomAttackUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_RandomRoomSpeedUp",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_SpeedRate": 0.20000000298023224
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ActivityAbility_SuperTrial_RandomRoomSpeedUp": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
+                    "stacking": "Multiple",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_MoveSpeedRatio": "Value_SpeedRate"
                     },
                     "state": "SpeedUp",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Caster",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "ActivityAbility_SuperTrial_RandomRoomSpeedUp"
+                    "target": "Caster",
+                    "doOffStage": true,
+                    "modifierName": "ActivityAbility_SuperTrial_RandomRoomSpeedUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_RandomRoomRevive_Copy",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_Hp": 1.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_ActivityAbility_SuperTrial_RandomRoomRoomRevive": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ReviveDeadAvatar",
-                            "AJAHODOGLMH": "Value_Hp",
-                            "AFPAPIFKIHK": 1.0
+                            "amountByTargetMaxHPRatio": "Value_Hp",
+                            "cdRatio": 1.0
                         },
                         {
                             "$type": "HealHP",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "target": "CurTeamAvatars",
                             "PMHINCGOKCF": "Value_Hp"
                         },
                         {
                             "$type": "DebugLog",
-                            "CBEDAJEGJBM": "OnAdded:ActivityAbility_SuperTrial_RandomRoomRevive!!!!!!!!!!!"
+                            "content": "OnAdded:ActivityAbility_SuperTrial_RandomRoomRevive!!!!!!!!!!!"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "UNIQUE_ActivityAbility_SuperTrial_RandomRoomRoomRevive"
+                    "doOffStage": true,
+                    "modifierName": "UNIQUE_ActivityAbility_SuperTrial_RandomRoomRoomRevive"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_RandomRoomAttackUp_Copy",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_AttackRate": 0.5
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ActivityAbility_SuperTrial_RandomRoomAttackUp": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
+                    "stacking": "Multiple",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "Value_AttackRate"
                     },
                     "state": "AttackUp",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Caster",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "ActivityAbility_SuperTrial_RandomRoomAttackUp"
+                    "target": "Caster",
+                    "doOffStage": true,
+                    "modifierName": "ActivityAbility_SuperTrial_RandomRoomAttackUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_SuperTrial_RandomRoomSpeedUp_Copy",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Value_SpeedRate": 0.20000000298023224
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ActivityAbility_SuperTrial_RandomRoomSpeedUp": {
-                    "FGJPBKGPNJJ": "Multiple",
-                    "GAIGOBCNNEE": "",
+                    "stacking": "Multiple",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_MoveSpeedRatio": "Value_SpeedRate"
                     },
                     "state": "SpeedUp",
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "NPHOOPNDCAC": "Caster",
-                    "ACOKKHADPOJ": true,
-                    "GAIGOBCNNEE": "ActivityAbility_SuperTrial_RandomRoomSpeedUp"
+                    "target": "Caster",
+                    "doOffStage": true,
+                    "modifierName": "ActivityAbility_SuperTrial_RandomRoomSpeedUp"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MistTrial_Level_1",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ServerUpdateGlobalValueMixin",
-                    "HJJEAOMEOFI": "SGV_ABILITY_Mist_Level",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "SGV_ABILITY_Mist_Level",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 1.0
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_ABILITY_Mist_Level",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_ABILITY_Mist_Level",
+                    "valueSteps": [
                         0.5,
                         1.5,
                         2.5,
                         3.5,
                         4.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "Blank",
                         "Blank",
@@ -1436,114 +1436,114 @@
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv1",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv2",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv3",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv4",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ]
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Override_Ratio": 0.0,
                 "Damage_Ratio_Lv1": 0.0,
                 "Damage_Ratio_Lv2": 0.0,
                 "Damage_Ratio_Lv3": 0.0,
                 "Damage_Ratio_Lv4": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "MistTrial_Level1_Handler_OnTeam": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level1_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level1_Handler_OnAvatar"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level1_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level1_Handler_OnAvatar"
                         }
                     ]
                 },
                 "MistTrial_Level1_Handler_OnAvatar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "BNNAFHAMNJG": true,
+                            "ignoreEventInfo": true,
                             "damagePercentageRatio": "Override_Ratio",
                             "predicates": [
                                 {
                                     "$type": "ByHasAbilityState",
-                                    "MFKFDKDKKNJ": "ElementFrozen"
+                                    "abilityState": "ElementFrozen"
                                 }
                             ]
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "MistTrial_Level1_Handler_OnTeam"
+                    "modifierName": "MistTrial_Level1_Handler_OnTeam"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MistTrial_Level_2",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ServerUpdateGlobalValueMixin",
-                    "HJJEAOMEOFI": "SGV_ABILITY_Mist_Level",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "SGV_ABILITY_Mist_Level",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 1.0
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_ABILITY_Mist_Level",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_ABILITY_Mist_Level",
+                    "valueSteps": [
                         0.5,
                         1.5,
                         2.5,
                         3.5,
                         4.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "Blank",
                         "Blank",
@@ -1554,82 +1554,82 @@
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv1",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             },
                             {
                                 "$type": "RemoveModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "MistTrial_Level2_ShockDamageUp"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "MistTrial_Level2_ShockDamageUp"
                             },
                             {
                                 "$type": "AttachModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "MistTrial_Level2_ShockDamageUp"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "MistTrial_Level2_ShockDamageUp"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv2",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             },
                             {
                                 "$type": "RemoveModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "MistTrial_Level2_ShockDamageUp"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "MistTrial_Level2_ShockDamageUp"
                             },
                             {
                                 "$type": "AttachModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "MistTrial_Level2_ShockDamageUp"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "MistTrial_Level2_ShockDamageUp"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv3",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             },
                             {
                                 "$type": "RemoveModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "MistTrial_Level2_ShockDamageUp"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "MistTrial_Level2_ShockDamageUp"
                             },
                             {
                                 "$type": "AttachModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "MistTrial_Level2_ShockDamageUp"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "MistTrial_Level2_ShockDamageUp"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv4",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             },
                             {
                                 "$type": "RemoveModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "MistTrial_Level2_ShockDamageUp"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "MistTrial_Level2_ShockDamageUp"
                             },
                             {
                                 "$type": "AttachModifier",
-                                "NPHOOPNDCAC": "CurTeamAvatars",
-                                "ACOKKHADPOJ": true,
-                                "GAIGOBCNNEE": "MistTrial_Level2_ShockDamageUp"
+                                "target": "CurTeamAvatars",
+                                "doOffStage": true,
+                                "modifierName": "MistTrial_Level2_ShockDamageUp"
                             }
                         ]
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Override_Ratio": 0.0,
                 "Damage_Ratio_Lv1": 0.0,
                 "Damage_Ratio_Lv2": 0.0,
@@ -1639,70 +1639,70 @@
                 "CD_Minus": 0.0,
                 "Energy": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "MistTrial_Level2_CdMinus_Handler_OnTeam": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level2_CdMinus_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level2_CdMinus_Handler_OnAvatar"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level2_CdMinus_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level2_CdMinus_Handler_OnAvatar"
                         }
                     ]
                 },
                 "MistTrial_Level2_CdMinus_Handler_OnAvatar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Shock"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_CdMinus_OnTeam"
+                                    "target": "Team",
+                                    "modifierName": "UNIQUE_MistTrial_CdMinus_OnTeam"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_MistTrial_CdMinus_OnTeam": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CD_Interval",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CD_Interval",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ReviveElemEnergy",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
                             "value": "Energy"
                         },
                         {
                             "$type": "ModifyAvatarSkillCD",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "ACOKKHADPOJ": true,
-                            "CDBCHJIFPKA": [
+                            "target": "CurTeamAvatars",
+                            "doOffStage": true,
+                            "skillSlot": [
                                 5
                             ],
                             "KHBEPNBNHOI": [
@@ -1716,46 +1716,46 @@
                     ]
                 },
                 "MistTrial_Level2_ShockDamageUp": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_ElemReactElectricDelta": "Override_Ratio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "MistTrial_Level2_CdMinus_Handler_OnTeam"
+                    "modifierName": "MistTrial_Level2_CdMinus_Handler_OnTeam"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MistTrial_Level_3",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ServerUpdateGlobalValueMixin",
-                    "HJJEAOMEOFI": "SGV_ABILITY_Mist_Level",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "SGV_ABILITY_Mist_Level",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 1.0
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_ABILITY_Mist_Level",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_ABILITY_Mist_Level",
+                    "valueSteps": [
                         0.5,
                         1.5,
                         2.5,
                         3.5,
                         4.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "Blank",
                         "Blank",
@@ -1766,34 +1766,34 @@
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv1",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv2",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv3",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv4",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ]
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "System_Damage": 0.0,
                 "Override_Ratio": 0.0,
                 "Damage_Ratio_Lv1": 0.0,
@@ -1802,76 +1802,76 @@
                 "Damage_Ratio_Lv4": 0.0,
                 "CD_Interval": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "MistTrial_Level3_Melt_Handler_OnTeam": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level3_Melt_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level3_Melt_Handler_OnAvatar"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level3_Melt_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level3_Melt_Handler_OnAvatar"
                         }
                     ]
                 },
                 "MistTrial_Level3_Melt_Handler_OnAvatar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Melt",
                                 "Stream"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "Team",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Melt_OnTeam"
+                                    "target": "Team",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Melt_OnTeam"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_MistTrial_Melt_OnTeam": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "CD_Interval",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "CD_Interval",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
+                            "effectPattern": "Eff_EnergyDisk_ElementalBurst_Wave_R40"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "DMCJDGELKBC": {
+                            "target": "CurLocalAvatar",
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf"
                                     },
-                                    "ICGFCBOFFDI": 5.0
+                                    "radius": 5.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1896,48 +1896,48 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetSystemValueToOverrideMap",
-                    "HJJEAOMEOFI": "System_Damage",
+                    "key": "System_Damage",
                     "type": "ElementLevelCo"
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "MistTrial_Level3_Melt_Handler_OnTeam"
+                    "modifierName": "MistTrial_Level3_Melt_Handler_OnTeam"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MistTrial_Level_4",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ServerUpdateGlobalValueMixin",
-                    "HJJEAOMEOFI": "SGV_ABILITY_Mist_Level",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "SGV_ABILITY_Mist_Level",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 1.0
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_ABILITY_Mist_Level",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_ABILITY_Mist_Level",
+                    "valueSteps": [
                         0.5,
                         1.5,
                         2.5,
                         3.5,
                         4.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "Blank",
                         "Blank",
@@ -1948,34 +1948,34 @@
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv1",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv2",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv3",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv4",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ]
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Override_Ratio": 0.0,
                 "Damage_Ratio_Lv1": 0.0,
                 "Damage_Ratio_Lv2": 0.0,
@@ -1983,54 +1983,54 @@
                 "Damage_Ratio_Lv4": 0.0,
                 "Duration": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "MistTrial_Level4_Reaction_Handler_OnTeam": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level4_Reaction_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level4_Reaction_Handler_OnAvatar"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level4_Reaction_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level4_Reaction_Handler_OnAvatar"
                         }
                     ]
                 },
                 "MistTrial_Level4_Reaction_Handler_OnAvatar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Explode"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Buff_Explode"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Buff_Explode"
                                 },
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Buff_Explode"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Buff_Explode"
                                 }
                             ]
                         },
@@ -2039,21 +2039,21 @@
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "Superconductor"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Buff_Superconductor"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Buff_Superconductor"
                                 },
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Buff_Superconductor"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Buff_Superconductor"
                                 }
                             ]
                         },
@@ -2062,24 +2062,24 @@
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "SwirlFire",
                                 "SwirlWater",
                                 "SwirlElectric",
                                 "SwirlIce"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Buff_Swirl"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Buff_Swirl"
                                 },
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Buff_Swirl"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Buff_Swirl"
                                 }
                             ]
                         },
@@ -2088,102 +2088,102 @@
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "CrystallizeFire",
                                 "CrystallizeWater",
                                 "CrystallizeElectric",
                                 "CrystallizeIce"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Buff_Crystal"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Buff_Crystal"
                                 },
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Buff_Crystal"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Buff_Crystal"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_MistTrial_Buff_Explode": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Duration",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Duration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddHurtDelta": "Override_Ratio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_MistTrial_Buff_Superconductor": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Duration",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Duration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddHurtDelta": "Override_Ratio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_MistTrial_Buff_Swirl": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Duration",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Duration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddHurtDelta": "Override_Ratio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 },
                 "UNIQUE_MistTrial_Buff_Crystal": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Duration",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Duration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddHurtDelta": "Override_Ratio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "MistTrial_Level4_Reaction_Handler_OnTeam"
+                    "modifierName": "MistTrial_Level4_Reaction_Handler_OnTeam"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MistTrial_Level_5",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ServerUpdateGlobalValueMixin",
-                    "HJJEAOMEOFI": "SGV_ABILITY_Mist_Level",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "SGV_ABILITY_Mist_Level",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 1.0
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_ABILITY_Mist_Level",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_ABILITY_Mist_Level",
+                    "valueSteps": [
                         0.5,
                         1.5,
                         2.5,
                         3.5,
                         4.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "Blank",
                         "Blank",
@@ -2194,47 +2194,47 @@
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv1",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv2",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv3",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv4",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ]
                     ]
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "_ABILITY_MistTrial_BurstLevel",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_ABILITY_MistTrial_BurstLevel",
+                    "valueSteps": [
                         -0.5,
                         9.5,
                         10.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "MistTrial_Level5_FullBurst_OnTeam"
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Override_Ratio": 0.0,
                 "Burst_Level": 0.0,
                 "Damage_Ratio_Lv1": 0.0,
@@ -2244,61 +2244,61 @@
                 "AttackSpeed_Ratio": 0.0,
                 "MoveSpeed_Ratio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "MistTrial_Level5_Charge_Handler_OnTeam": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level5_Charge_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level5_Charge_Handler_OnAvatar"
                         },
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "UNIQUE_MistTrial_BurstDamageUp_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "UNIQUE_MistTrial_BurstDamageUp_OnAvatar"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level5_Charge_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level5_Charge_Handler_OnAvatar"
                         },
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "UNIQUE_MistTrial_BurstDamageUp_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "UNIQUE_MistTrial_BurstDamageUp_OnAvatar"
                         }
                     ]
                 },
                 "MistTrial_Level5_Charge_Handler_OnAvatar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "OnAvatarUseSkillMixin",
-                            "MLBANMCFDAF": [
+                            "onTriggerUltimateSkill": [
                                 {
                                     "$type": "AddGlobalValue",
-                                    "NPHOOPNDCAC": "Team",
+                                    "target": "Team",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_MistTrial_BurstLevel",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 10.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_MistTrial_BurstLevel",
+                                    "useLimitRange": true,
+                                    "maxValue": 10.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "SetGlobalValueToOverrideMap",
-                                    "NPHOOPNDCAC": "Team",
-                                    "BPCFCANOMNH": "_ABILITY_MistTrial_BurstLevel",
-                                    "OGAHELLALBB": "Burst_Level"
+                                    "target": "Team",
+                                    "globalValueKey": "_ABILITY_MistTrial_BurstLevel",
+                                    "overrideMapKey": "Burst_Level"
                                 }
                             ],
                             "CAHFPMLJFAK": 0.20000000298023224
@@ -2306,14 +2306,14 @@
                     ]
                 },
                 "UNIQUE_MistTrial_BurstDamageUp_OnAvatar": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ModifyDamageMixin",
-                            "NMJGDKCDFOJ": [
+                            "attackTags": [
                                 "Elemental_Burst"
                             ],
                             "damagePercentageRatio": [
@@ -2325,73 +2325,73 @@
                     ]
                 },
                 "MistTrial_Level5_FullBurst_OnTeam": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level5_FullBurst_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level5_FullBurst_OnAvatar"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_Level5_FullBurst_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_Level5_FullBurst_OnAvatar"
                         }
                     ]
                 },
                 "MistTrial_Level5_FullBurst_OnAvatar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_AttackSpeedRatio": "AttackSpeed_Ratio",
                         "Animator_MoveSpeedRatio": "MoveSpeed_Ratio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_ABILITY_MistTrial_BurstLevel",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_ABILITY_MistTrial_BurstLevel",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "MistTrial_Level5_Charge_Handler_OnTeam"
+                    "modifierName": "MistTrial_Level5_Charge_Handler_OnTeam"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "ActivityAbility_MistTrial_Level_6",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "ServerUpdateGlobalValueMixin",
-                    "HJJEAOMEOFI": "SGV_ABILITY_Mist_Level",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 4.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "SGV_ABILITY_Mist_Level",
+                    "useLimitRange": true,
+                    "maxValue": 4.0,
+                    "minValue": 1.0
                 },
                 {
                     "$type": "AttachModifierToSelfGlobalValueNoInitMixin",
-                    "BPCFCANOMNH": "SGV_ABILITY_Mist_Level",
-                    "CMEDACODLEA": [
+                    "globalValueKey": "SGV_ABILITY_Mist_Level",
+                    "valueSteps": [
                         0.5,
                         1.5,
                         2.5,
                         3.5,
                         4.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Blank",
                         "Blank",
                         "Blank",
@@ -2402,34 +2402,34 @@
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv1",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv2",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv3",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ],
                         [
                             {
                                 "$type": "SetOverrideMapValue",
                                 "value": "Damage_Ratio_Lv4",
-                                "OGAHELLALBB": "Override_Ratio"
+                                "overrideMapKey": "Override_Ratio"
                             }
                         ]
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Override_Ratio": 0.0,
                 "Damage_Ratio_Lv1": 0.0,
                 "Damage_Ratio_Lv2": 0.0,
@@ -2437,135 +2437,135 @@
                 "Damage_Ratio_Lv4": 0.0,
                 "Duration": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Blank": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "MistTrial_SwirlAttackUp_Handler_OnTeam": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 2.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 2.0,
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_SwirlAttackUp_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_SwirlAttackUp_Handler_OnAvatar"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AttachModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
-                            "GAIGOBCNNEE": "MistTrial_SwirlAttackUp_Handler_OnAvatar"
+                            "target": "CurTeamAvatars",
+                            "modifierName": "MistTrial_SwirlAttackUp_Handler_OnAvatar"
                         }
                     ]
                 },
                 "MistTrial_SwirlAttackUp_Handler_OnAvatar": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByElementReactionMixin",
                             "entityTypes": [
                                 "Monster"
                             ],
-                            "KEFGMDOFKHM": [
+                            "reactionTypes": [
                                 "SwirlFire",
                                 "SwirlWater",
                                 "SwirlElectric",
                                 "SwirlIce"
                             ],
-                            "OAEEBLALAPO": [
+                            "actions": [
                                 {
                                     "$type": "RemoveUniqueModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Swirl_AttackUp"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Swirl_AttackUp"
                                 },
                                 {
                                     "$type": "AttachModifier",
-                                    "NPHOOPNDCAC": "CurTeamAvatars",
-                                    "ACOKKHADPOJ": true,
-                                    "GAIGOBCNNEE": "UNIQUE_MistTrial_Swirl_AttackUp"
+                                    "target": "CurTeamAvatars",
+                                    "doOffStage": true,
+                                    "modifierName": "UNIQUE_MistTrial_Swirl_AttackUp"
                                 }
                             ]
                         }
                     ]
                 },
                 "UNIQUE_MistTrial_Swirl_AttackUp": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": "Duration",
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": "Duration",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AttackRatio": "Override_Ratio"
                     },
-                    "FBMJEOALKEJ": true
+                    "isLimitedProperties": true
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "MistTrial_SwirlAttackUp_Handler_OnTeam"
+                    "modifierName": "MistTrial_SwirlAttackUp_Handler_OnTeam"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonsterAffix_Property_HpUp_01_ForMistTrial",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "HPUpRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_MonsterAffix_Property_HpUp_01_ForMistTrial": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_MaxHPRatio": "HPUpRatio"
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_MonsterAffix_Property_HpUp_01_ForMistTrial"
+                    "modifierName": "UNIQUE_MonsterAffix_Property_HpUp_01_ForMistTrial"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     },
     {
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonsterAffix_Property_HpUp_02_ForMistTrial",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "HPUpRatio": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_MonsterAffix_Property_HpUp_02_ForMistTrial": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_MaxHPRatio": "HPUpRatio"
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_MonsterAffix_Property_HpUp_02_ForMistTrial"
+                    "modifierName": "UNIQUE_MonsterAffix_Property_HpUp_02_ForMistTrial"
                 }
             ],
-            "FEFIHIEHDOM": true
+            "isDynamicAbility": true
         }
     }
 ]

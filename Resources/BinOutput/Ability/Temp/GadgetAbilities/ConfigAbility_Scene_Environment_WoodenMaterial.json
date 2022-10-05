@@ -3,15 +3,15 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Environment_WoodenMaterial_Bramble_Interact",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Bramble_Burning": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 30.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ShieldBarMixin",
-                            "FMAPKFDKKPB": ""
+                            "showDamageText": ""
                         },
                         {
                             "$type": "RejectAttackMixin",
@@ -22,22 +22,22 @@
                             "type": "Current",
                             "PDKJAFAIDFL": [
                                 {
-                                    "MFKFDKDKKNJ": "ElementBurning",
-                                    "OAEEBLALAPO": [
+                                    "abilityState": "ElementBurning",
+                                    "actions": [
                                         {
                                             "$type": "AttachModifier",
-                                            "GAIGOBCNNEE": "Burning_Effect"
+                                            "modifierName": "Burning_Effect"
                                         }
                                     ]
                                 }
                             ],
                             "LDPHCDDGEBA": [
                                 {
-                                    "MFKFDKDKKNJ": "ElementBurning",
-                                    "OAEEBLALAPO": [
+                                    "abilityState": "ElementBurning",
+                                    "actions": [
                                         {
                                             "$type": "RemoveModifier",
-                                            "GAIGOBCNNEE": "Burning_Effect"
+                                            "modifierName": "Burning_Effect"
                                         }
                                     ]
                                 }
@@ -46,21 +46,21 @@
                         }
                     ],
                     "state": "Limbo",
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_WoodenObject_BurnOut",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_SceneObj_WoodenObject_BurnOut",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "AttachPoint1"
+                                "attachPointName": "AttachPoint1"
                             }
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_WoodenObject_BurnOut",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_SceneObj_WoodenObject_BurnOut",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "AttachPoint2"
+                                "attachPointName": "AttachPoint2"
                             }
                         },
                         {
@@ -69,36 +69,36 @@
                     ]
                 },
                 "Burning_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Element_Burning"
+                            "effectPattern": "Eff_Element_Burning"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
                     "value": 2.0,
-                    "HJJEAOMEOFI": "_CUSTOM_ATTACK_SHAPE_TYPE",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 2.0,
-                    "KHAHOELDONA": 2.0
+                    "key": "_CUSTOM_ATTACK_SHAPE_TYPE",
+                    "useLimitRange": true,
+                    "maxValue": 2.0,
+                    "minValue": 2.0
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_ABILITY_BURNING_IGNITE_ONLY",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "_ABILITY_BURNING_IGNITE_ONLY",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 1.0
                 },
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Bramble_Burning"
+                    "modifierName": "Bramble_Burning"
                 }
             ]
         }
@@ -107,10 +107,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Environment_WoodenMaterial_Bramble_Attack",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "DamageByAttackValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "attackInfo": {
                         "attackTag": "_Bramble_Attack",
                         "attenuationTag": "",
@@ -138,42 +138,42 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Environment_WoodenMaterial_WoodenObject_Interact",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "WoodMaterial": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 30.0,
                     "state": "Limbo",
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Die_Effect"
+                            "modifierName": "Die_Effect"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_WoodenObject_DeathType",
-                            "JDHHMBHOOEC": 0.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_WoodenObject_DeathType",
+                            "maxValue": 0.0,
+                            "minValue": 0.0
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByNot",
                                     "predicates": [
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Fire"
+                                            "element": "Fire"
                                         },
                                         {
                                             "$type": "ByHitDamage",
-                                            "GMFCOCAJBDM": "Equal",
-                                            "GOCKFJJFLHN": 0.0
+                                            "logic": "Equal",
+                                            "damage": 0.0
                                         }
                                     ]
                                 },
@@ -182,15 +182,15 @@
                                     "predicates": [
                                         {
                                             "$type": "ByHasElement",
-                                            "GOMLPAOIKJA": "Fire"
+                                            "element": "Fire"
                                         }
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_SceneObj_WoodenObject_Broken"
+                                    "effectPattern": "Eff_SceneObj_WoodenObject_Broken"
                                 },
                                 {
                                     "$type": "KillSelf"
@@ -199,26 +199,26 @@
                         },
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Water"
+                                    "element": "Water"
                                 },
                                 {
                                     "$type": "ByNot",
                                     "predicates": [
                                         {
                                             "$type": "ByHitDamage",
-                                            "GMFCOCAJBDM": "Equal",
-                                            "GOCKFJJFLHN": 0.0
+                                            "logic": "Equal",
+                                            "damage": 0.0
                                         }
                                     ]
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_SceneObj_WoodenObject_Broken"
+                                    "effectPattern": "Eff_SceneObj_WoodenObject_Broken"
                                 },
                                 {
                                     "$type": "KillSelf"
@@ -228,54 +228,54 @@
                     ]
                 },
                 "Die_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_WoodenObject_DeathType",
+                                    "key": "_WoodenObject_DeathType",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_SceneObj_WoodenObject_BurnOut"
+                            "effectPattern": "Eff_SceneObj_WoodenObject_BurnOut"
                         },
                         {
                             "$type": "KillSelf",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_WoodenObject_DeathType",
+                                    "key": "_WoodenObject_DeathType",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ]
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "WoodMaterial"
+                    "modifierName": "WoodMaterial"
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_WoodenObject_DeathType",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_WoodenObject_DeathType",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_ABILITY_BURNING_IGNITE_ONLY",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "_ABILITY_BURNING_IGNITE_ONLY",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 1.0
                 }
             ]
         }
@@ -284,18 +284,18 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Environment_WoodenMaterial_FirewoodStacks_Interact",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "NormalModifier": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 50.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_LeafBlanket_01_Burnout",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_SceneObj_LeafBlanket_01_Burnout",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "AttachPoint"
+                                "attachPointName": "AttachPoint"
                             }
                         },
                         {
@@ -304,18 +304,18 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "NormalModifier"
+                    "modifierName": "NormalModifier"
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_ABILITY_BURNING_IGNITE_ONLY",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "_ABILITY_BURNING_IGNITE_ONLY",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 1.0
                 }
             ]
         }
@@ -324,75 +324,75 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Environment_WoodenMaterial_BrambleWorld_Interact",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Burning": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementType": "Grass",
                     "elementDurability": 30.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ShieldBarMixin",
-                            "FMAPKFDKKPB": ""
+                            "showDamageText": ""
                         }
                     ],
                     "state": "Limbo",
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_WoodenObject_BurnOut",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_SceneObj_WoodenObject_BurnOut",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "AttachPoint1"
+                                "attachPointName": "AttachPoint1"
                             }
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_SceneObj_WoodenObject_BurnOut",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_SceneObj_WoodenObject_BurnOut",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "AttachPoint2"
+                                "attachPointName": "AttachPoint2"
                             }
                         },
                         {
                             "$type": "KillSelf"
                         }
                     ],
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Double_Attack"
+                            "modifierName": "Double_Attack"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Double_Attack"
+                            "modifierName": "Double_Attack"
                         }
                     ]
                 },
                 "Double_Attack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.75,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 0.75,
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "ACOKKHADPOJ": true,
-                            "DMCJDGELKBC": {
+                            "doOffStage": true,
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackBox",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.15000000596046448,
-                                            "KAAPLGBEDPM": 0.75,
-                                            "PHDCJAHHIOG": -0.5
+                                            "x": 0.15000000596046448,
+                                            "y": 0.75,
+                                            "z": -0.5
                                         }
                                     },
                                     "size": {
-                                        "AEAAJCIDPED": 4.400000095367432,
-                                        "KAAPLGBEDPM": 1.5,
-                                        "PHDCJAHHIOG": 0.800000011920929
+                                        "x": 4.400000095367432,
+                                        "y": 1.5,
+                                        "z": 0.800000011920929
                                     }
                                 },
                                 "attackInfo": {
@@ -414,23 +414,23 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "Burning"
+                    "modifierName": "Burning"
                 },
                 {
                     "$type": "AddGlobalValue",
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_ABILITY_BURNING_IGNITE_ONLY",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 1.0
+                    "key": "_ABILITY_BURNING_IGNITE_ONLY",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 1.0
                 }
             ]
         }
@@ -439,10 +439,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Environment_WoodenMaterial_BrambleWorld_Attack",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "DamageByAttackValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "attackInfo": {
                         "attackTag": "",
                         "attenuationTag": "",
@@ -470,17 +470,17 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Item_Moving_Trap_Attack",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "test": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "DamageByAttackValue",
-                    "NPHOOPNDCAC": "Target",
+                    "target": "Target",
                     "attackInfo": {
                         "attackTag": "",
                         "attenuationTag": "",
@@ -503,7 +503,7 @@
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "test"
+                    "modifierName": "test"
                 }
             ]
         }
@@ -512,7 +512,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "SceneObj_Environment_WoodenMaterial_GinSengTree",
-            "KJKECFBMHKH": [
+            "onFieldEnter": [
                 {
                     "$type": "ExecuteGadgetLua"
                 }

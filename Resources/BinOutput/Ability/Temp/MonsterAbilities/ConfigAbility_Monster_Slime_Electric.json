@@ -3,14 +3,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_ResistShock",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ResistShock": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachAbilityStateResistance",
-                            "KPGAIMMIKDA": 14004
+                            "resistanceListID": 14004
                         }
                     ]
                 }
@@ -21,10 +21,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_TestTool_Discharge",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState"
+                    "modifierName": "UNIQUE_SLime_Electric_ElementState"
                 }
             ]
         }
@@ -33,22 +33,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_02_ElementState",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToElementTypeMixin",
-                    "FNHOFLJNEOD": [
+                    "elementTypes": [
                         "Electric"
                     ],
-                    "GDLDGAGGKPN": true,
-                    "GAIGOBCNNEE": "ElectricDetect"
+                    "reject": true,
+                    "modifierName": "ElectricDetect"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DischargeTime": 7.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ElectricDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
@@ -56,13 +56,13 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": 3.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
                             "abilityName": "Slime_Electric_02_ElementState"
@@ -70,29 +70,29 @@
                     ]
                 },
                 "UNIQUE_SLime_Electric_ElementState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Electric",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -1.0,
                                 0.5,
                                 1.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Discharge_Timer",
                                 "Discharge_Timer_Off"
                             ]
                         },
                         {
                             "$type": "FieldEntityCountChangeMixin",
-                            "ONPOPLLHJLE": "SelfCamp",
-                            "ELDBAFHCOBL": [
+                            "campTargetType": "SelfCamp",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -101,29 +101,29 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                                     "value": 1.0
                                 },
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
-                            "KJKECFBMHKH": [
+                            "onFieldEnter": [
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "GILFKOBKGLI": {
+                                    "otherTargets": {
                                         "$type": "SelectTargetsByLCTrigger",
-                                        "ONPOPLLHJLE": "SelfCamp"
+                                        "campTargetType": "SelfCamp"
                                     },
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -132,18 +132,18 @@
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                                             "value": 1.0
                                         },
                                         {
                                             "$type": "ByHasElement",
-                                            "GOMLPAOIKJA": "Electric"
+                                            "element": "Electric"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPartControlTarget",
-                                            "NPHOOPNDCAC": "Target",
+                                            "target": "Target",
                                             "JEBAOIKDKPN": [
                                                 "AntennaControl"
                                             ]
@@ -152,23 +152,23 @@
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
@@ -179,14 +179,14 @@
                                             "enable": true
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "EnablePartControl",
@@ -197,21 +197,21 @@
                                     ]
                                 }
                             ],
-                            "JPKNDOGGOIN": [
+                            "onFieldExit": [
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": -1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "GILFKOBKGLI": {
+                                    "otherTargets": {
                                         "$type": "SelectTargetsByLCTrigger",
-                                        "ONPOPLLHJLE": "SelfCamp"
+                                        "campTargetType": "SelfCamp"
                                     },
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -220,18 +220,18 @@
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                                             "value": 1.0
                                         },
                                         {
                                             "$type": "ByHasElement",
-                                            "GOMLPAOIKJA": "Electric"
+                                            "element": "Electric"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPartControlTarget",
-                                            "NPHOOPNDCAC": "Target",
+                                            "target": "Target",
                                             "JEBAOIKDKPN": [
                                                 "AntennaControl"
                                             ]
@@ -240,23 +240,23 @@
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
@@ -267,14 +267,14 @@
                                             "enable": true
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "EnablePartControl",
@@ -287,58 +287,58 @@
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState",
+                            "boolID": "ElementState",
                             "value": true
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "SkinShader",
+                            "boolID": "SkinShader",
                             "value": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Idle"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Idle"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY"
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Discharge_Transition"
+                            "modifierName": "Discharge_Transition"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState"
+                            "boolID": "ElementState"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "SkinShader"
+                            "boolID": "SkinShader"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "RebornTimer"
+                            "modifierName": "RebornTimer"
                         }
                     ],
                     "onBeingHit": [
@@ -347,58 +347,58 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
                             "value": 25.0,
-                            "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 100.0,
-                            "KHAHOELDONA": 0.0
+                            "modifierName": "UNIQUE_SLime_Electric_ElementState",
+                            "useLimitRange": true,
+                            "maxValue": 100.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "RebornTimer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 7.5,
+                    "modifierName": "",
+                    "duration": 7.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RebornGCD",
+                            "boolID": "RebornGCD",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RebornGCD"
+                            "boolID": "RebornGCD"
                         }
                     ]
                 },
                 "Discharge": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.05000000074505806,
+                    "modifierName": "",
+                    "duration": 0.05000000074505806,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_Ready"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_Ready"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": -0.15000000596046448,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": -0.15000000596046448,
+                                    "z": 0.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByEntity"
                                 },
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         },
                         {
@@ -407,16 +407,16 @@
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerAlways",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.3499999940395355,
-                                            "PHDCJAHHIOG": -0.5
+                                            "x": 0.0,
+                                            "y": 0.3499999940395355,
+                                            "z": -0.5
                                         }
                                     },
                                     "secondHeight": 0.5,
-                                    "ICGFCBOFFDI": 1.5499999523162842
+                                    "radius": 1.5499999523162842
                                 },
                                 "OAJAAMIHJME": {
                                     "Enemy": {
@@ -455,72 +455,72 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
-                            "EODOIECEPEF": true,
+                            "key": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
+                            "useLimitRange": true,
                             "FACHGOPKJKE": true,
-                            "JDHHMBHOOEC": 9.0,
-                            "KHAHOELDONA": 5.0
+                            "maxValue": 9.0,
+                            "minValue": 5.0
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
-                            "OGAHELLALBB": "DischargeTime"
+                            "globalValueKey": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
+                            "overrideMapKey": "DischargeTime"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "AddElementDurability",
                             "value": -25.0,
-                            "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 100.0,
-                            "KHAHOELDONA": 0.0
+                            "modifierName": "UNIQUE_SLime_Electric_ElementState",
+                            "useLimitRange": true,
+                            "maxValue": 100.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Discharge_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "DischargeTime",
+                    "modifierName": "",
+                    "duration": "DischargeTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_Gap",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_Gap",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
                                     "value": 0.0,
                                     "EODMLMGMLNP": true
                                 }
                             ],
-                            "GAIGOBCNNEE": "Discharge_Transition"
+                            "modifierName": "Discharge_Transition"
                         },
                         {
                             "$type": "SetAnimatorTrigger",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
                                     "value": 0.0,
                                     "EODMLMGMLNP": true
                                 }
@@ -531,57 +531,57 @@
                     ]
                 },
                 "Discharge_Timer_Off": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_Gap",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_Gap",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         }
                     ]
                 },
                 "Discharge_Transition": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_BS"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_BS"
                         },
                         {
                             "$type": "TriggerFaceAnimation",
                             "MLAABKAIOAP": "Attack"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
-                            "GAIGOBCNNEE": "Discharge"
+                            "modifierName": "Discharge"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState"
+                    "modifierName": "UNIQUE_SLime_Electric_ElementState"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState"
+                    "modifierName": "UNIQUE_SLime_Electric_ElementState"
                 }
             ]
         }
@@ -590,42 +590,42 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_03_ElementState",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToElementTypeMixin",
-                    "FNHOFLJNEOD": [
+                    "elementTypes": [
                         "Electric"
                     ],
-                    "GDLDGAGGKPN": true,
-                    "GAIGOBCNNEE": "ElectricDetect"
+                    "reject": true,
+                    "modifierName": "ElectricDetect"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DischargeTime": 7.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ElectricDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": 3.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "RemoveModifier",
-                                    "GAIGOBCNNEE": "RebornTimer"
+                                    "modifierName": "RebornTimer"
                                 },
                                 {
                                     "$type": "TriggerAbility",
@@ -636,40 +636,40 @@
                     ]
                 },
                 "UNIQUE_SLime_Electric_ElementState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Electric",
                     "elementDurability": 200.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ReplaceEventPatternMixin",
-                            "LELEMIDJLMK": [
+                            "oldPatterns": [
                                 "Monster_Slime_Electric_03_NormalAttack",
                                 "Monster_Slime_Electric_JumpAttack"
                             ],
-                            "ECCHFNODIPH": [
+                            "newPatterns": [
                                 "Monster_Slime_Electric_03_NormalAttack_Electric",
                                 "Monster_Slime_Electric_JumpAttack_Electric"
                             ]
                         },
                         {
                             "$type": "AttachModifierToSelfGlobalValueMixin",
-                            "BPCFCANOMNH": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
-                            "FEGIOIGELHB": 0.0,
-                            "CMEDACODLEA": [
+                            "globalValueKey": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                            "defaultGlobalValueOnCreate": 0.0,
+                            "valueSteps": [
                                 -1.0,
                                 0.5,
                                 1.5
                             ],
-                            "MIEPCOONDEM": [
+                            "modifierNameSteps": [
                                 "Discharge_Timer",
                                 "Discharge_Timer_Off"
                             ]
                         },
                         {
                             "$type": "FieldEntityCountChangeMixin",
-                            "ONPOPLLHJLE": "SelfCamp",
-                            "ELDBAFHCOBL": [
+                            "campTargetType": "SelfCamp",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -678,29 +678,29 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                                     "value": 1.0
                                 },
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
-                            "KJKECFBMHKH": [
+                            "onFieldEnter": [
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "GILFKOBKGLI": {
+                                    "otherTargets": {
                                         "$type": "SelectTargetsByLCTrigger",
-                                        "ONPOPLLHJLE": "SelfCamp"
+                                        "campTargetType": "SelfCamp"
                                     },
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -709,18 +709,18 @@
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                                             "value": 1.0
                                         },
                                         {
                                             "$type": "ByHasElement",
-                                            "GOMLPAOIKJA": "Electric"
+                                            "element": "Electric"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPartControlTarget",
-                                            "NPHOOPNDCAC": "Target",
+                                            "target": "Target",
                                             "JEBAOIKDKPN": [
                                                 "AntennaControl"
                                             ]
@@ -729,23 +729,23 @@
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
@@ -756,14 +756,14 @@
                                             "enable": true
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "EnablePartControl",
@@ -774,21 +774,21 @@
                                     ]
                                 }
                             ],
-                            "JPKNDOGGOIN": [
+                            "onFieldExit": [
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": -1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "GILFKOBKGLI": {
+                                    "otherTargets": {
                                         "$type": "SelectTargetsByLCTrigger",
-                                        "ONPOPLLHJLE": "SelfCamp"
+                                        "campTargetType": "SelfCamp"
                                     },
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByEntityTypes",
                                             "entityTypes": [
@@ -797,18 +797,18 @@
                                         },
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                                             "value": 1.0
                                         },
                                         {
                                             "$type": "ByHasElement",
-                                            "GOMLPAOIKJA": "Electric"
+                                            "element": "Electric"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPartControlTarget",
-                                            "NPHOOPNDCAC": "Target",
+                                            "target": "Target",
                                             "JEBAOIKDKPN": [
                                                 "AntennaControl"
                                             ]
@@ -817,23 +817,23 @@
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
@@ -844,14 +844,14 @@
                                             "enable": true
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "EnablePartControl",
@@ -864,58 +864,58 @@
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState",
+                            "boolID": "ElementState",
                             "value": true
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "SkinShader",
+                            "boolID": "SkinShader",
                             "value": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Idle"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Idle"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY"
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Discharge_Transition"
+                            "modifierName": "Discharge_Transition"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState"
+                            "boolID": "ElementState"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "SkinShader"
+                            "boolID": "SkinShader"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "RebornTimer"
+                            "modifierName": "RebornTimer"
                         }
                     ],
                     "onBeingHit": [
@@ -924,58 +924,58 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
                             "value": 25.0,
-                            "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 200.0,
-                            "KHAHOELDONA": 0.0
+                            "modifierName": "UNIQUE_SLime_Electric_ElementState",
+                            "useLimitRange": true,
+                            "maxValue": 200.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "RebornTimer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 15.0,
+                    "modifierName": "",
+                    "duration": 15.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RebornGCD",
+                            "boolID": "RebornGCD",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RebornGCD"
+                            "boolID": "RebornGCD"
                         }
                     ]
                 },
                 "Discharge": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.05000000074505806,
+                    "modifierName": "",
+                    "duration": 0.05000000074505806,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_Ready"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_Ready"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": -0.30000001192092896,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": -0.30000001192092896,
+                                    "z": 0.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByEntity"
                                 },
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         },
                         {
@@ -984,16 +984,16 @@
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.75,
-                                            "PHDCJAHHIOG": -0.6000000238418579
+                                            "x": 0.0,
+                                            "y": 0.75,
+                                            "z": -0.6000000238418579
                                         }
                                     },
                                     "secondHeight": 0.75,
-                                    "ICGFCBOFFDI": 2.9000000953674316
+                                    "radius": 2.9000000953674316
                                 },
                                 "OAJAAMIHJME": {
                                     "Enemy": {
@@ -1032,72 +1032,72 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
-                            "EODOIECEPEF": true,
+                            "key": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
+                            "useLimitRange": true,
                             "FACHGOPKJKE": true,
-                            "JDHHMBHOOEC": 9.0,
-                            "KHAHOELDONA": 5.0
+                            "maxValue": 9.0,
+                            "minValue": 5.0
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
-                            "OGAHELLALBB": "DischargeTime"
+                            "globalValueKey": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
+                            "overrideMapKey": "DischargeTime"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "AddElementDurability",
                             "value": -25.0,
-                            "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 200.0,
-                            "KHAHOELDONA": 0.0
+                            "modifierName": "UNIQUE_SLime_Electric_ElementState",
+                            "useLimitRange": true,
+                            "maxValue": 200.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Discharge_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "DischargeTime",
+                    "modifierName": "",
+                    "duration": "DischargeTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_Gap",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_Gap",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
                                     "value": 0.0,
                                     "EODMLMGMLNP": true
                                 }
                             ],
-                            "GAIGOBCNNEE": "Discharge_Transition"
+                            "modifierName": "Discharge_Transition"
                         },
                         {
                             "$type": "SetAnimatorTrigger",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_POSITIVE_COUNT",
                                     "value": 0.0,
                                     "EODMLMGMLNP": true
                                 }
@@ -1108,57 +1108,57 @@
                     ]
                 },
                 "Discharge_Timer_Off": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_Gap",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_Gap",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         }
                     ]
                 },
                 "Discharge_Transition": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_BS"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_BS"
                         },
                         {
                             "$type": "TriggerFaceAnimation",
                             "MLAABKAIOAP": "Attack"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
-                            "GAIGOBCNNEE": "Discharge"
+                            "modifierName": "Discharge"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState"
+                    "modifierName": "UNIQUE_SLime_Electric_ElementState"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState"
+                    "modifierName": "UNIQUE_SLime_Electric_ElementState"
                 }
             ]
         }
@@ -1167,42 +1167,42 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_03_Positive_ElementState",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToElementTypeMixin",
-                    "FNHOFLJNEOD": [
+                    "elementTypes": [
                         "Electric"
                     ],
-                    "GDLDGAGGKPN": true,
-                    "GAIGOBCNNEE": "ElectricDetect"
+                    "reject": true,
+                    "modifierName": "ElectricDetect"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DischargeTime": 7.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ElectricDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "value": 3.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "RemoveModifier",
-                                    "GAIGOBCNNEE": "RebornTimer"
+                                    "modifierName": "RebornTimer"
                                 },
                                 {
                                     "$type": "TriggerAbility",
@@ -1213,26 +1213,26 @@
                     ]
                 },
                 "UNIQUE_SLime_Electric_ElementState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Electric",
                     "elementDurability": 500.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ReplaceEventPatternMixin",
-                            "LELEMIDJLMK": [
+                            "oldPatterns": [
                                 "Monster_Slime_Electric_03_NormalAttack",
                                 "Monster_Slime_Electric_JumpAttack"
                             ],
-                            "ECCHFNODIPH": [
+                            "newPatterns": [
                                 "Monster_Slime_Electric_03_NormalAttack_Electric",
                                 "Monster_Slime_Electric_JumpAttack_Electric"
                             ]
                         },
                         {
                             "$type": "FieldEntityCountChangeMixin",
-                            "ONPOPLLHJLE": "SelfCamp",
-                            "ELDBAFHCOBL": [
+                            "campTargetType": "SelfCamp",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1241,41 +1241,41 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                                     "value": 0.0
                                 },
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
-                            "KJKECFBMHKH": [
+                            "onFieldEnter": [
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
@@ -1286,14 +1286,14 @@
                                             "enable": true
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "EnablePartControl",
@@ -1304,33 +1304,33 @@
                                     ]
                                 }
                             ],
-                            "JPKNDOGGOIN": [
+                            "onFieldExit": [
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": -1.0,
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
-                                    "JDHHMBHOOEC": 0.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
+                                    "maxValue": 0.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "Predicated",
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetGlobalValue",
-                                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
+                                            "key": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
                                             "value": 0.0,
-                                            "ONPJJFKDCED": "MoreThan"
+                                            "compareType": "MoreThan"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract",
+                                            "boolID": "IsAttract",
                                             "value": true
                                         },
                                         {
@@ -1341,14 +1341,14 @@
                                             "enable": true
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "SetPoseBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "SetAnimatorBool",
-                                            "HHFIHBEAPAP": "IsAttract"
+                                            "boolID": "IsAttract"
                                         },
                                         {
                                             "$type": "EnablePartControl",
@@ -1361,66 +1361,66 @@
                             ]
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState",
+                            "boolID": "ElementState",
                             "value": true
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "SkinShader",
+                            "boolID": "SkinShader",
                             "value": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Positive_Idle"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Positive_Idle"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY"
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "Discharge_Transition"
+                            "modifierName": "Discharge_Transition"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "ElementState"
+                            "boolID": "ElementState"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "SkinShader"
+                            "boolID": "SkinShader"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "IsAttract"
+                            "boolID": "IsAttract"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsAttract"
+                            "boolID": "IsAttract"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "RebornTimer"
+                            "modifierName": "RebornTimer"
                         }
                     ],
                     "onBeingHit": [
@@ -1429,58 +1429,58 @@
                             "predicates": [
                                 {
                                     "$type": "ByHitElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
                             "value": 25.0,
-                            "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 500.0,
-                            "KHAHOELDONA": 0.0
+                            "modifierName": "UNIQUE_SLime_Electric_ElementState",
+                            "useLimitRange": true,
+                            "maxValue": 500.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "RebornTimer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 15.0,
+                    "modifierName": "",
+                    "duration": 15.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RebornGCD",
+                            "boolID": "RebornGCD",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RebornGCD"
+                            "boolID": "RebornGCD"
                         }
                     ]
                 },
                 "Discharge": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.05000000074505806,
+                    "modifierName": "",
+                    "duration": 0.05000000074505806,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Positive_Discharge_Ready"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Positive_Discharge_Ready"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Positive_Discharge",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Positive_Discharge",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": -0.30000001192092896,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": -0.30000001192092896,
+                                    "z": 0.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByEntity"
                                 },
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         },
                         {
@@ -1489,16 +1489,16 @@
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.75,
-                                            "PHDCJAHHIOG": -0.6000000238418579
+                                            "x": 0.0,
+                                            "y": 0.75,
+                                            "z": -0.6000000238418579
                                         }
                                     },
                                     "secondHeight": 0.75,
-                                    "ICGFCBOFFDI": 2.9000000953674316
+                                    "radius": 2.9000000953674316
                                 },
                                 "OAJAAMIHJME": {
                                     "Enemy": {
@@ -1537,45 +1537,45 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
-                            "EODOIECEPEF": true,
+                            "key": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
+                            "useLimitRange": true,
                             "FACHGOPKJKE": true,
-                            "JDHHMBHOOEC": 9.0,
-                            "KHAHOELDONA": 5.0
+                            "maxValue": 9.0,
+                            "minValue": 5.0
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
-                            "OGAHELLALBB": "DischargeTime"
+                            "globalValueKey": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
+                            "overrideMapKey": "DischargeTime"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "AddElementDurability",
                             "value": -25.0,
-                            "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 500.0,
-                            "KHAHOELDONA": 0.0
+                            "modifierName": "UNIQUE_SLime_Electric_ElementState",
+                            "useLimitRange": true,
+                            "maxValue": 500.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Discharge_Positive": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.05000000074505806,
+                    "modifierName": "",
+                    "duration": 0.05000000074505806,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR15",
-                                "ONPOPLLHJLE": "SelfCamp",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR15",
+                                "campTargetType": "SelfCamp",
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -1584,18 +1584,18 @@
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                                     "value": 0.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "NPHOOPNDCAC": "Target",
-                                    "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Positive_Discharge_Current",
-                                    "NGDMCBABOJA": {
+                                    "target": "Target",
+                                    "effectPattern": "Eff_Monster_Slime_Electric_Positive_Discharge_Current",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "KJNJNKLLNCN": "ElectrifiedBody",
+                                        "attachPointName": "ElectrifiedBody",
                                         "MMFHENHCBGB": "Caster"
                                     }
                                 },
@@ -1613,33 +1613,33 @@
                                 },
                                 {
                                     "$type": "SetAnimatorTrigger",
-                                    "NPHOOPNDCAC": "Target",
+                                    "target": "Target",
                                     "triggerID": "Discharge_Current",
                                     "IFJLLJJCLNC": true
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Target",
-                                    "GAIGOBCNNEE": "Discharge_Negative"
+                                    "target": "Target",
+                                    "modifierName": "Discharge_Negative"
                                 },
                                 {
                                     "$type": "SetSelfAttackTarget",
-                                    "NPHOOPNDCAC": "Target"
+                                    "target": "Target"
                                 },
                                 {
                                     "$type": "SetGlobalValueByTargetDistance",
-                                    "NPHOOPNDCAC": "Target",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_DISCHARGE_CURRENT_DISTANCE"
+                                    "target": "Target",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_DISCHARGE_CURRENT_DISTANCE"
                                 },
                                 {
                                     "$type": "TriggerBullet",
-                                    "NGAAOMEHOGE": 42001006,
-                                    "NGDMCBABOJA": {
+                                    "bulletID": 42001006,
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByAttackTarget"
                                         },
-                                        "KJNJNKLLNCN": "RootNode"
+                                        "attachPointName": "RootNode"
                                     }
                                 }
                             ]
@@ -1647,28 +1647,28 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
-                            "EODOIECEPEF": true,
+                            "key": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
+                            "useLimitRange": true,
                             "FACHGOPKJKE": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 3.0
+                            "maxValue": 5.0,
+                            "minValue": 3.0
                         },
                         {
                             "$type": "SetGlobalValueToOverrideMap",
-                            "BPCFCANOMNH": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
-                            "OGAHELLALBB": "DischargeTime"
+                            "globalValueKey": "_ABILITY_SLIME_ELECTRIC_DISCHARGE",
+                            "overrideMapKey": "DischargeTime"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Discharge_Timer"
+                            "modifierName": "Discharge_Timer"
                         },
                         {
                             "$type": "AddElementDurability",
                             "value": -25.0,
-                            "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 500.0,
-                            "KHAHOELDONA": 0.0
+                            "modifierName": "UNIQUE_SLime_Electric_ElementState",
+                            "useLimitRange": true,
+                            "maxValue": 500.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "ResetAIAttackTarget"
@@ -1676,29 +1676,29 @@
                     ]
                 },
                 "Discharge_Negative": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_BS"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_BS"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge_Ready"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge_Ready"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Discharge",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Discharge",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByEntity"
                                 },
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         },
                         {
@@ -1707,16 +1707,16 @@
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": 0.75,
-                                            "PHDCJAHHIOG": -0.6000000238418579
+                                            "x": 0.0,
+                                            "y": 0.75,
+                                            "z": -0.6000000238418579
                                         }
                                     },
                                     "secondHeight": 0.75,
-                                    "ICGFCBOFFDI": 2.9000000953674316
+                                    "radius": 2.9000000953674316
                                 },
                                 "OAJAAMIHJME": {
                                     "Enemy": {
@@ -1755,36 +1755,36 @@
                     ]
                 },
                 "Discharge_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "DischargeTime",
+                    "modifierName": "",
+                    "duration": "DischargeTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Positive_Discharge_Gap",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Electric_Positive_Discharge_Gap",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "ElectrifiedBody"
+                                "attachPointName": "ElectrifiedBody"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
-                            "GAIGOBCNNEE": "Discharge_Transition"
+                            "modifierName": "Discharge_Transition"
                         },
                         {
                             "$type": "SetAnimatorTrigger",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
                             "triggerID": "Discharge",
@@ -1793,67 +1793,67 @@
                     ]
                 },
                 "Discharge_Transition": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Positive_Discharge_BS"
+                            "effectPattern": "Eff_Monster_Slime_Electric_Positive_Discharge_BS"
                         },
                         {
                             "$type": "TriggerFaceAnimation",
                             "MLAABKAIOAP": "Attack"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
                                     "value": 0.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "GAIGOBCNNEE": "Discharge"
+                            "modifierName": "Discharge"
                         },
                         {
                             "$type": "ApplyModifier",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
+                                    "key": "_ABILITY_SLIME_ELECTRIC_NEGATIVE_COUNT",
                                     "value": 0.0,
                                     "EODMLMGMLNP": true,
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ],
-                            "GAIGOBCNNEE": "Discharge_Positive"
+                            "modifierName": "Discharge_Positive"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState"
+                    "modifierName": "UNIQUE_SLime_Electric_ElementState"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_SLime_Electric_ElementState"
+                    "modifierName": "UNIQUE_SLime_Electric_ElementState"
                 }
             ]
         }
@@ -1862,37 +1862,37 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_Current_Damage",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "DischargeTargetDistance": 10.0
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetGlobalValueToOverrideMap",
                     "NPNCFCJOJLE": true,
-                    "BPCFCANOMNH": "_ABILITY_SLIME_ELECTRIC_DISCHARGE_CURRENT_DISTANCE",
-                    "OGAHELLALBB": "DischargeTargetDistance"
+                    "globalValueKey": "_ABILITY_SLIME_ELECTRIC_DISCHARGE_CURRENT_DISTANCE",
+                    "overrideMapKey": "DischargeTargetDistance"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.800000011920929,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.800000011920929,
+                                    "z": 0.0
                                 },
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByAttackTarget"
                                 }
                             },
                             "size": {
-                                "AEAAJCIDPED": 0.6000000238418579,
-                                "KAAPLGBEDPM": 1.2000000476837158,
-                                "PHDCJAHHIOG": "DischargeTargetDistance"
+                                "x": 0.6000000238418579,
+                                "y": 1.2000000476837158,
+                                "z": "DischargeTargetDistance"
                             }
                         },
                         "attackInfo": {
@@ -1916,7 +1916,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "KillSelf"
@@ -1928,19 +1928,19 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_JumpGround_castShadow",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerSetCastShadow",
                     "predicates": [
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Electric"
+                            "element": "Electric"
                         }
                     ]
                 },
                 {
                     "$type": "EnablePushColliderName",
-                    "LEHFIPJFKBC": [
+                    "pushColliderNames": [
                         "PushCollider"
                     ]
                 },
@@ -1949,30 +1949,30 @@
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                             "value": 0.0
                         },
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Electric"
+                            "element": "Electric"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_JumpPrepared"
+                    "effectPattern": "Eff_Monster_Slime_Electric_JumpPrepared"
                 },
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                             "value": 1.0
                         },
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Electric"
+                            "element": "Electric"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Positive_JumpPrepared"
+                    "effectPattern": "Eff_Monster_Slime_Electric_Positive_JumpPrepared"
                 },
                 {
                     "$type": "ActCameraShake",
@@ -1992,51 +1992,51 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_JumpGround_Alert",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "JumpGround_Alert": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Fire_JumpGround_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Slime_Fire_JumpGround_Alert",
+                            "born": {
                                 "$type": "ConfigBornByRushToPoint"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerSetCastShadow",
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ],
                             "BGJPIMFBHDP": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "JumpGround_Alert"
+                    "modifierName": "JumpGround_Alert"
                 }
             ]
         }
@@ -2045,86 +2045,86 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_JumpGround_Attack",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_MonsterEliteAffix_DefaultState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "UseSkillEliteSet",
-                            "AFIOIAPCKEJ": 1
+                            "skillEliteSetID": 1
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ELITEAFFIX_TAG",
+                            "key": "_ELITEAFFIX_TAG",
                             "value": 0.0,
-                            "ONPJJFKDCED": "NoneOrEqual"
+                            "compareType": "NoneOrEqual"
                         }
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_MonsterEliteAffix_DefaultState"
+                    "modifierName": "UNIQUE_MonsterEliteAffix_DefaultState"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                             "value": 0.0
                         },
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Electric"
+                            "element": "Electric"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_JumpGround"
+                    "effectPattern": "Eff_Monster_Slime_Electric_JumpGround"
                 },
                 {
                     "$type": "FireEffect",
                     "predicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
+                            "key": "_ABILITY_SLIME_ELECTRIC_PROPERITY",
                             "value": 1.0
                         },
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Electric"
+                            "element": "Electric"
                         }
                     ],
-                    "JBHFPDMBFHN": "Eff_Monster_Slime_Electric_Positive_JumpGround"
+                    "effectPattern": "Eff_Monster_Slime_Electric_Positive_JumpGround"
                 },
                 {
                     "$type": "TriggerAttackEvent",
                     "predicates": [
                         {
                             "$type": "ByHasElement",
-                            "GOMLPAOIKJA": "Electric"
+                            "element": "Electric"
                         }
                     ],
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
                             "secondHeight": 1.5,
-                            "ICGFCBOFFDI": 2.0
+                            "radius": 2.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2155,7 +2155,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "TriggerAttackEvent",
@@ -2165,25 +2165,25 @@
                             "predicates": [
                                 {
                                     "$type": "ByHasElement",
-                                    "GOMLPAOIKJA": "Electric"
+                                    "element": "Electric"
                                 }
                             ]
                         }
                     ],
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
                             "secondHeight": 1.5,
-                            "ICGFCBOFFDI": 1.25
+                            "radius": 1.25
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2213,7 +2213,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -2222,36 +2222,36 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Electric_AnimationSteer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Turn"
                     ],
-                    "IMHBEGIKDKB": 0.5400000214576721,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.5400000214576721,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "JumpAttack"
                     ],
-                    "IMHBEGIKDKB": 0.20000000298023224,
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.20000000298023224,
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalAttack"
                     ],
-                    "IMHBEGIKDKB": 0.25,
-                    "HENDIIJFPCI": 360.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.25,
+                    "angularSpeed": 360.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ]
         }

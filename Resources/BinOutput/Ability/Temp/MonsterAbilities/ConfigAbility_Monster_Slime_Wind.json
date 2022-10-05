@@ -3,21 +3,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_02_GravityAdjust",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "HitThrow"
                     ],
-                    "GAIGOBCNNEE": "GravityAdjust"
+                    "modifierName": "GravityAdjust"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GravityAdjust": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.375,
+                    "modifierName": "",
+                    "duration": 0.375,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddGravityScale": -18.0
                     }
                 }
@@ -28,21 +28,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_03_GravityAdjust",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "HitThrow"
                     ],
-                    "GAIGOBCNNEE": "GravityAdjust"
+                    "modifierName": "GravityAdjust"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "GravityAdjust": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.6000000238418579,
+                    "modifierName": "",
+                    "duration": 0.6000000238418579,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddGravityScale": -20.0
                     }
                 }
@@ -53,7 +53,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_02_InAir",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
@@ -61,40 +61,40 @@
                         "HitThrowDrop_BlowUp",
                         "HitThrowDrop_InAir"
                     ],
-                    "GAIGOBCNNEE": "BlowUpState"
+                    "modifierName": "BlowUpState"
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "BlowUp"
                     ],
-                    "HENDIIJFPCI": 90.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "angularSpeed": 90.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "BlowUpState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToPoseIDMixin",
                             "poseIDs": [
                                 2,
                                 102
                             ],
-                            "GAIGOBCNNEE": "InAirState"
+                            "modifierName": "InAirState"
                         }
                     ]
                 },
                 "InAirState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddGravityScale": -1.899999976158142
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveVelocityForce",
                             "forces": [
@@ -103,31 +103,31 @@
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_InAir"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_InAir"
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ],
                     "onBeingHit": [
@@ -140,7 +140,7 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 }
                             ]
                         }
@@ -153,7 +153,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_03_InAir",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
@@ -162,60 +162,60 @@
                         "HitThrowDrop_InAir",
                         "HitThrowDrop_InAir_Long"
                     ],
-                    "GAIGOBCNNEE": "BlowUpState"
+                    "modifierName": "BlowUpState"
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "JumpAttack",
                         "BlowUp"
                     ],
-                    "EOOBFBGMGLD": 0.8600000143051147,
-                    "HENDIIJFPCI": 90.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "startNormalizedTime": 0.8600000143051147,
+                    "angularSpeed": 90.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "BlowUpState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToPoseIDMixin",
                             "poseIDs": [
                                 2,
                                 102
                             ],
-                            "GAIGOBCNNEE": "InAirState"
+                            "modifierName": "InAirState"
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_ELITEAFFIX_ATTACK_ENHANCE",
+                                    "key": "_ELITEAFFIX_ATTACK_ENHANCE",
                                     "value": 1.0,
                                     "EODMLMGMLNP": true
                                 }
                             ],
-                            "HHFIHBEAPAP": "Elite_Modifier",
+                            "boolID": "Elite_Modifier",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "EnableAirAtk"
+                            "boolID": "EnableAirAtk"
                         }
                     ]
                 },
                 "InAirState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveVelocityForce",
                             "forces": [
@@ -224,31 +224,31 @@
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_InAir"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_InAir"
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ],
                     "onBeingHit": [
@@ -261,7 +261,7 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 }
                             ]
                         }
@@ -274,10 +274,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_03_HitThrowToGround",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "EnableAirAtk",
+                    "boolID": "EnableAirAtk",
                     "value": true
                 }
             ]
@@ -287,7 +287,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_Die_Dither",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "StartDither",
                     "duration": 0.5
@@ -299,23 +299,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_02_Die",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_DieInAir"
+                    "effectPattern": "Eff_Monster_Slime_Wind_DieInAir"
                 },
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_DieInAir_Trail"
+                    "effectPattern": "Eff_Monster_Slime_Wind_DieInAir_Trail"
                 },
                 {
                     "$type": "CreateGadget",
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByTarget"
                     },
-                    "CABLIPAKCGB": 42001010,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "All"
+                    "gadgetID": 42001010,
+                    "campID": 4001,
+                    "campTargetType": "All"
                 },
                 {
                     "$type": "ActCameraShake",
@@ -336,38 +336,38 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_02_Die_WindZone",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "WindZone": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR4",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR4",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             },
                             "BHELOIADOLH": -10.0,
                             "HBBLBBPBLGE": 1.0,
                             "IPDEDFHPHPO": 0.0,
-                            "OJIFKEOCJGB": "All",
+                            "targetType": "All",
                             "predicates": [
                                 {
                                     "$type": "ByTargetWeight",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "IHCNHDLDFKC": 100.0
                                 }
                             ],
-                            "GAIGOBCNNEE": ""
+                            "modifierName": ""
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "WindZone"
+                    "modifierName": "WindZone"
                 }
             ]
         }
@@ -376,23 +376,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_03_Die",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_DieInAir_Trail"
+                    "effectPattern": "Eff_Monster_Slime_Wind_DieInAir_Trail"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_DieInAir"
+                    "effectPattern": "Eff_Monster_Slime_Wind_DieInAir"
                 },
                 {
                     "$type": "CreateGadget",
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByTarget"
                     },
-                    "CABLIPAKCGB": 42001011,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "All"
+                    "gadgetID": 42001011,
+                    "campID": 4001,
+                    "campTargetType": "All"
                 },
                 {
                     "$type": "ActCameraShake",
@@ -413,64 +413,64 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_03_Die_WindZone",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "WindZone": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR8",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR8",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             },
                             "BHELOIADOLH": -15.0,
                             "HBBLBBPBLGE": 3.0,
                             "IPDEDFHPHPO": 0.0,
-                            "OJIFKEOCJGB": "All",
+                            "targetType": "All",
                             "predicates": [
                                 {
                                     "$type": "ByTargetWeight",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "IHCNHDLDFKC": 100.0
                                 }
                             ],
-                            "GAIGOBCNNEE": ""
+                            "modifierName": ""
                         }
                     ]
                 },
                 "Airflow": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 8.0,
+                    "modifierName": "",
+                    "duration": 8.0,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AirFlowMixin",
-                            "CABLIPAKCGB": 42001016,
-                            "ONPOPLLHJLE": "All",
-                            "NGDMCBABOJA": {
+                            "gadgetID": 42001016,
+                            "campTargetType": "All",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_Airflow"
+                            "effectPattern": "Eff_Monster_Slime_Wind_Airflow"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "WindZone"
+                    "modifierName": "WindZone"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Airflow"
+                    "modifierName": "Airflow"
                 }
             ]
         }
@@ -479,13 +479,13 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_02_CompressAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "CompressAttack_BS"
                     ],
-                    "GAIGOBCNNEE": "CompressAtk_BlowUp"
+                    "modifierName": "CompressAtk_BlowUp"
                 },
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
@@ -493,57 +493,57 @@
                         "CompressAttack",
                         "CompressAttack_AS"
                     ],
-                    "GAIGOBCNNEE": "CompressAtk_Effect"
+                    "modifierName": "CompressAtk_Effect"
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "CompressAttack"
                     ],
-                    "IMHBEGIKDKB": 0.25,
-                    "HENDIIJFPCI": 240.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.25,
+                    "angularSpeed": 240.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "CompressAtk_BlowUp": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_InAir"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_InAir"
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "BlowUpDie",
+                            "boolID": "BlowUpDie",
                             "value": true
                         },
                         {
@@ -555,27 +555,27 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 }
                             ]
                         }
                     ]
                 },
                 "CompressAtk_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_CompressAtk_Trail"
+                            "effectPattern": "Eff_Monster_Slime_Wind_CompressAtk_Trail"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "CompressAtk_Effect"
+                    "modifierName": "CompressAtk_Effect"
                 }
             ]
         }
@@ -584,13 +584,13 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_03_CompressAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "CompressAttack_BS"
                     ],
-                    "GAIGOBCNNEE": "CompressAtk_BlowUp"
+                    "modifierName": "CompressAtk_BlowUp"
                 },
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
@@ -598,57 +598,57 @@
                         "CompressAttack",
                         "CompressAttack_AS"
                     ],
-                    "GAIGOBCNNEE": "CompressAtk_Effect"
+                    "modifierName": "CompressAtk_Effect"
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "CompressAttack"
                     ],
-                    "IMHBEGIKDKB": 0.4000000059604645,
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.4000000059604645,
+                    "angularSpeed": 150.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "CompressAtk_BlowUp": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_InAir"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_InAir"
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "BlowUpDie",
+                            "boolID": "BlowUpDie",
                             "value": true
                         },
                         {
@@ -660,27 +660,27 @@
                                 },
                                 {
                                     "$type": "ByHitDamage",
-                                    "GOCKFJJFLHN": 0.0
+                                    "damage": 0.0
                                 }
                             ]
                         }
                     ]
                 },
                 "CompressAtk_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_CompressAtk_Trail"
+                            "effectPattern": "Eff_Monster_Slime_Wind_CompressAtk_Trail"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "CompressAtk_Effect"
+                    "modifierName": "CompressAtk_Effect"
                 }
             ]
         }
@@ -689,17 +689,17 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_TargetAltitude_Charge",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
                     "predicates": [
                         {
                             "$type": "ByTargetAltitude",
-                            "GMFCOCAJBDM": "GreaterOrEqual",
+                            "logic": "GreaterOrEqual",
                             "value": 4.0
                         }
                     ],
-                    "HHFIHBEAPAP": "HitInAir",
+                    "boolID": "HitInAir",
                     "value": true
                 }
             ]
@@ -709,7 +709,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_BlowUpToGround",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
@@ -717,34 +717,34 @@
                         "HitThrowDrop_BlowUp",
                         "HitThrowDrop_InAir"
                     ],
-                    "GAIGOBCNNEE": "BlowUpEffect"
+                    "modifierName": "BlowUpEffect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "BlowUpEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_BlowUpState"
+                            "effectPattern": "Eff_Monster_Slime_Wind_BlowUpState"
                         },
                         {
                             "$type": "HideUIBillBoard",
                             "COCENMAFJGD": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "HideUIBillBoard"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "HitInAir"
+                    "boolID": "HitInAir"
                 }
             ]
         }
@@ -753,15 +753,15 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_AirAtk_Tirgger",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetAnimatorTrigger",
                     "predicates": [
                         {
                             "$type": "ByAnimatorFloat",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 102.0,
-                            "MOCGJNIDDAI": "PoseID"
+                            "parameter": "PoseID"
                         }
                     ],
                     "triggerID": "AirAtk",
@@ -774,29 +774,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_AirAtk",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
                     "predicates": [
                         {
                             "$type": "ByAnimatorFloat",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 102.0,
-                            "MOCGJNIDDAI": "PoseID"
+                            "parameter": "PoseID"
                         }
                     ],
-                    "NGAAOMEHOGE": 42001007,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42001007,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "KAAPLGBEDPM": 0.25,
-                            "PHDCJAHHIOG": 1.75
+                            "y": 0.25,
+                            "z": 1.75
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
                             "IHHIKIACOML": "Horizontal"
                         },
-                        "KJNJNKLLNCN": "RootNode"
+                        "attachPointName": "RootNode"
                     }
                 },
                 {
@@ -804,9 +804,9 @@
                     "predicates": [
                         {
                             "$type": "ByAnimatorFloat",
-                            "GMFCOCAJBDM": "Equal",
+                            "logic": "Equal",
                             "value": 102.0,
-                            "MOCGJNIDDAI": "PoseID"
+                            "parameter": "PoseID"
                         }
                     ],
                     "POCPPGDMDEA": {
@@ -823,35 +823,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_AirAtk_Explode",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "AirAtk_Loop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Slime_Wind_AirAtk_Missile"
+                            "effectPattern": "Eff_Monster_Slime_Wind_AirAtk_Missile"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "AirAtk_Loop"
+                    "modifierName": "AirAtk_Loop"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             },
-                            "ICGFCBOFFDI": 1.0
+                            "radius": 1.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -877,11 +877,11 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "AirAtk_Loop"
+                    "modifierName": "AirAtk_Loop"
                 }
             ]
         }
@@ -890,30 +890,30 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_03_JumpAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "JumpAttack"
                     ],
-                    "GAIGOBCNNEE": "JumpAttack_InAir"
+                    "modifierName": "JumpAttack_InAir"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "JumpAttack_InAir": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "SkillInAir",
+                            "boolID": "SkillInAir",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "SkillInAir"
+                            "boolID": "SkillInAir"
                         }
                     ]
                 }
@@ -924,36 +924,36 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Slime_Wind_AnimationSteer",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "Turn"
                     ],
-                    "IMHBEGIKDKB": 0.5400000214576721,
-                    "HENDIIJFPCI": 180.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.5400000214576721,
+                    "angularSpeed": 180.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "NormalAttack"
                     ],
-                    "IMHBEGIKDKB": 0.25,
-                    "HENDIIJFPCI": 360.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.25,
+                    "angularSpeed": 360.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "JumpAttack"
                     ],
-                    "IMHBEGIKDKB": 0.5,
-                    "HENDIIJFPCI": 120.0,
-                    "NCAENFOANAG": "",
-                    "BBHBLAIEHAJ": 12.0
+                    "endNormalizedTime": 0.5,
+                    "angularSpeed": 120.0,
+                    "attackTrigger": "",
+                    "attackDistance": 12.0
                 }
             ]
         }

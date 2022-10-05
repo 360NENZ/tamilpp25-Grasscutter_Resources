@@ -3,23 +3,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_DigOut_Alert",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "DigOut_BS",
-                    "GAIGOBCNNEE": "DigOut_Alert",
-                    "MMHONEIBHNP": 0.4000000059604645
+                    "stateID": "DigOut_BS",
+                    "modifierName": "DigOut_Alert",
+                    "normalizeEnd": 0.4000000059604645
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "DigOut_Alert": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_DigOutAttack_Warning",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Mimik_Fire_DigOutAttack_Warning",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             }
                         }
@@ -32,29 +32,29 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_Attack02_Effect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Attack02_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Attack02_01"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Attack02_01"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Attack02_Effect"
+                    "modifierName": "Attack02_Effect"
                 }
             ],
-            "OGFFGLGEOGF": [
+            "onKill": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "Attack02_Effect"
+                    "modifierName": "Attack02_Effect"
                 }
             ]
         }
@@ -63,7 +63,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_FruitManager",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "RejectAttackMixin",
                     "attackTag": "BurningDamage"
@@ -97,7 +97,7 @@
                         8301,
                         8302
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Fruit01"
+                    "modifierName": "UNIQUE_Fruit01"
                 },
                 {
                     "$type": "AttachToPoseIDMixin",
@@ -120,7 +120,7 @@
                         8301,
                         8302
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Fruit02"
+                    "modifierName": "UNIQUE_Fruit02"
                 },
                 {
                     "$type": "AttachToPoseIDMixin",
@@ -135,253 +135,253 @@
                         8301,
                         8302
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Fruit03"
+                    "modifierName": "UNIQUE_Fruit03"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "FruitCount": 3.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Fruit01": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerSetRenderersEnable",
-                            "GEDDBEFBOKD": [
+                            "renderNames": [
                                 "Lights01"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit01_Idle"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Fruit01_Idle"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Appear",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Appear",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "Fruit01"
+                                "attachPointName": "Fruit01"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42601005
+                                "configID": 42601005
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_MIMIK_IS_FRUITMOVETARGET",
+                                    "key": "_MONSTER_MIMIK_IS_FRUITMOVETARGET",
                                     "value": 1.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Bullet",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Bullet",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByAttachPoint",
-                                            "LGPBCMEFEJB": {
-                                                "AEAAJCIDPED": 0.0,
-                                                "KAAPLGBEDPM": 180.0,
-                                                "PHDCJAHHIOG": 0.0
+                                            "angleOffset": {
+                                                "x": 0.0,
+                                                "y": 180.0,
+                                                "z": 0.0
                                             },
-                                            "KJNJNKLLNCN": "Fruit01",
+                                            "attachPointName": "Fruit01",
                                             "MMFHENHCBGB": "Self"
                                         },
-                                        "KJNJNKLLNCN": "Fruit01"
+                                        "attachPointName": "Fruit01"
                                     }
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Disappear",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Disappear",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "KJNJNKLLNCN": "Fruit01"
+                                        "attachPointName": "Fruit01"
                                     }
                                 }
                             ]
                         },
                         {
                             "$type": "TriggerSetRenderersEnable",
-                            "GEDDBEFBOKD": [
+                            "renderNames": [
                                 "Lights01"
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Fruit02": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerSetRenderersEnable",
-                            "GEDDBEFBOKD": [
+                            "renderNames": [
                                 "Lights02"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit02_Idle"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Fruit02_Idle"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Appear",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Appear",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "Fruit02"
+                                "attachPointName": "Fruit02"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42601005
+                                "configID": 42601005
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_MIMIK_IS_FRUITMOVETARGET",
+                                    "key": "_MONSTER_MIMIK_IS_FRUITMOVETARGET",
                                     "value": 1.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Bullet",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Bullet",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByAttachPoint",
-                                            "LGPBCMEFEJB": {
-                                                "AEAAJCIDPED": 0.0,
-                                                "KAAPLGBEDPM": 180.0,
-                                                "PHDCJAHHIOG": 0.0
+                                            "angleOffset": {
+                                                "x": 0.0,
+                                                "y": 180.0,
+                                                "z": 0.0
                                             },
-                                            "KJNJNKLLNCN": "Fruit02",
+                                            "attachPointName": "Fruit02",
                                             "MMFHENHCBGB": "Self"
                                         },
-                                        "KJNJNKLLNCN": "Fruit02"
+                                        "attachPointName": "Fruit02"
                                     }
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Disappear",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Disappear",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "KJNJNKLLNCN": "Fruit02"
+                                        "attachPointName": "Fruit02"
                                     }
                                 }
                             ]
                         },
                         {
                             "$type": "TriggerSetRenderersEnable",
-                            "GEDDBEFBOKD": [
+                            "renderNames": [
                                 "Lights02"
                             ]
                         }
                     ]
                 },
                 "UNIQUE_Fruit03": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "TriggerSetRenderersEnable",
-                            "GEDDBEFBOKD": [
+                            "renderNames": [
                                 "Lights03"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit03_Idle"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Fruit03_Idle"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Appear",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Appear",
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
-                                "KJNJNKLLNCN": "Fruit03"
+                                "attachPointName": "Fruit03"
                             }
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42601005
+                                "configID": 42601005
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_MIMIK_IS_FRUITMOVETARGET",
+                                    "key": "_MONSTER_MIMIK_IS_FRUITMOVETARGET",
                                     "value": 1.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Bullet",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Bullet",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "NHPNHKBMAEO": {
+                                        "direction": {
                                             "$type": "ConfigDirectionByAttachPoint",
-                                            "LGPBCMEFEJB": {
-                                                "AEAAJCIDPED": 0.0,
-                                                "KAAPLGBEDPM": 180.0,
-                                                "PHDCJAHHIOG": 0.0
+                                            "angleOffset": {
+                                                "x": 0.0,
+                                                "y": 180.0,
+                                                "z": 0.0
                                             },
-                                            "KJNJNKLLNCN": "Fruit03",
+                                            "attachPointName": "Fruit03",
                                             "MMFHENHCBGB": "Self"
                                         },
-                                        "KJNJNKLLNCN": "Fruit03"
+                                        "attachPointName": "Fruit03"
                                     }
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Disappear",
-                                    "NGDMCBABOJA": {
+                                    "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Disappear",
+                                    "born": {
                                         "$type": "ConfigBornByAttachPoint",
-                                        "KJNJNKLLNCN": "Fruit03"
+                                        "attachPointName": "Fruit03"
                                     }
                                 }
                             ]
                         },
                         {
                             "$type": "TriggerSetRenderersEnable",
-                            "GEDDBEFBOKD": [
+                            "renderNames": [
                                 "Lights03"
                             ]
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AddGlobalValue",
                     "value": 3.0,
-                    "HJJEAOMEOFI": "_MONSTER_MIMIK_FRUITCOUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 3.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_MONSTER_MIMIK_FRUITCOUNT",
+                    "useLimitRange": true,
+                    "maxValue": 3.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -390,10 +390,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_ElementState_On",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetAnimatorTrigger",
-                    "NPHOOPNDCAC": "Caster",
+                    "target": "Caster",
                     "triggerID": "NonetoStage1",
                     "IFJLLJJCLNC": true
                 }
@@ -404,10 +404,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_ElementState_Off",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetAnimatorTrigger",
-                    "NPHOOPNDCAC": "Caster",
+                    "target": "Caster",
                     "triggerID": "Stage1toNone",
                     "IFJLLJJCLNC": true
                 }
@@ -418,50 +418,50 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_Fruit_Effect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Mimik_Fire_Fruit_Effect": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_Fruit"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox_Fruit"
                             ]
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Mimik_Fire_Fruit_Effect"
+                    "modifierName": "UNIQUE_Mimik_Fire_Fruit_Effect"
                 }
             ]
         }
@@ -470,7 +470,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_AbsorbFruit_WeightManager",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -478,14 +478,14 @@
                         "AbsorbFruit_Loop",
                         "UpperShoot02"
                     ],
-                    "GAIGOBCNNEE": "AddWeight"
+                    "modifierName": "AddWeight"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "AddWeight": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Entity_WeightRatio": 5.0
                     }
                 }
@@ -496,26 +496,26 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_AbsorbFruit",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "AbsorbFruit_Loop"
                     ],
-                    "GAIGOBCNNEE": "UNIQUE_Mimik_Fire_Fruit"
+                    "modifierName": "UNIQUE_Mimik_Fire_Fruit"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Mimik_Fire_Fruit": {
-                    "FGJPBKGPNJJ": "Unique",
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "stacking": "Unique",
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Fire",
                     "elementDurability": 50.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "ShieldBarMixin",
-                            "BOCNCNPHCFL": [
+                            "onShieldBroken": [
                                 {
                                     "$type": "ActCameraShake",
                                     "cameraShake": {
@@ -529,33 +529,33 @@
                                 },
                                 {
                                     "$type": "TriggerAbility",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "abilityName": "Monster_Mimik_Fire_DownManager"
                                 },
                                 {
                                     "$type": "SetPoseBool",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "HHFIHBEAPAP": "Down",
+                                    "target": "Caster",
+                                    "boolID": "Down",
                                     "value": true
                                 },
                                 {
                                     "$type": "SetAnimatorTrigger",
-                                    "NPHOOPNDCAC": "Caster",
+                                    "target": "Caster",
                                     "triggerID": "DownTrigger",
                                     "IFJLLJJCLNC": true
                                 }
                             ],
-                            "FMAPKFDKKPB": ""
+                            "showDamageText": ""
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_ABILITY_MIMIK_FIRE_FRUIT",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_MIMIK_FIRE_FRUIT",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "TriggerAbility",
@@ -563,27 +563,27 @@
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_AbsorbFruit_Loop_01"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_AbsorbFruit_Loop_01"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -1.0,
-                            "HJJEAOMEOFI": "_ABILITY_MIMIK_FIRE_FRUIT",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_ABILITY_MIMIK_FIRE_FRUIT",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Mimik_Fire_Fruit_Effect"
+                            "modifierName": "UNIQUE_Mimik_Fire_Fruit_Effect"
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Mimik_Fire_Fruit"
+                            "modifierName": "UNIQUE_Mimik_Fire_Fruit"
                         }
                     ],
                     "GGGOKPHACFK": true
@@ -595,40 +595,40 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_DownManager",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "Down_AS"
                     ],
-                    "GAIGOBCNNEE": "RecoverManager"
+                    "modifierName": "RecoverManager"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_DownTimer": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 15.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 15.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Down_01"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Down_01"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Down_02"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Down_02"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "Recover",
+                            "boolID": "Recover",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "Down"
+                            "boolID": "Down"
                         },
                         {
                             "$type": "SetAnimatorTrigger",
@@ -639,17 +639,17 @@
                     "GGGOKPHACFK": true
                 },
                 "RecoverManager": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.5,
+                    "modifierName": "",
+                    "duration": 1.5,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "Recover"
+                            "boolID": "Recover"
                         },
                         {
                             "$type": "ReTriggerAISkillInitialCD",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 301,
                                 311,
                                 312
@@ -659,10 +659,10 @@
                     "GGGOKPHACFK": true
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_DownTimer"
+                    "modifierName": "UNIQUE_DownTimer"
                 }
             ]
         }
@@ -671,36 +671,36 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Mimik_Fire_AbsorbFruit_DoFruitMoveEffect",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "AbsorbFruit_BS"
                     ],
-                    "GAIGOBCNNEE": "Effect"
+                    "modifierName": "Effect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "CreateGadget",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByAttachPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "KJNJNKLLNCN": "BulletSource",
+                                "attachPointName": "BulletSource",
                                 "MMFHENHCBGB": "Self"
                             },
                             "MLHHDMOKLBG": true,
-                            "CABLIPAKCGB": 42601005,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "Self"
+                            "gadgetID": 42601005,
+                            "campID": 4001,
+                            "campTargetType": "Self"
                         },
                         {
                             "$type": "SetPartControlTarget",
@@ -720,11 +720,11 @@
                             "enable": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillGadget",
                             "LBGGIBBMCMF": {
-                                "APIAFGPIIHE": 42601005
+                                "configID": 42601005
                             }
                         },
                         {
@@ -744,28 +744,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Mimik_AbsorbFruit_Fire_FruitMoveEffect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Effect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.75,
+                    "modifierName": "",
+                    "duration": 0.75,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Fruit_Bullet"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Fruit_Bullet"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Effect"
+                    "modifierName": "Effect"
                 }
             ]
         }
@@ -774,23 +774,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_FruitReborn_Effect",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "FruitReborn_Act"
                     ],
-                    "GAIGOBCNNEE": "FruitReborn_Effect"
+                    "modifierName": "FruitReborn_Effect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FruitReborn_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_FruitReborn_UnderGround"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_FruitReborn_UnderGround"
                         }
                     ]
                 }
@@ -801,35 +801,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_RangedAttack01",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_RangedAttack01_02",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Mimik_Fire_RangedAttack01_02",
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 1.7000000476837158,
-                            "PHDCJAHHIOG": 0.5
+                            "x": 0.0,
+                            "y": 1.7000000476837158,
+                            "z": 0.5
                         }
                     }
                 },
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42601008,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42601008,
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 1.7000000476837158,
-                            "PHDCJAHHIOG": 0.5
+                            "x": 0.0,
+                            "y": 1.7000000476837158,
+                            "z": 0.5
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByEntity",
-                            "LGPBCMEFEJB": {
-                                "AEAAJCIDPED": -45.0,
-                                "KAAPLGBEDPM": 0.0,
-                                "PHDCJAHHIOG": 0.0
+                            "angleOffset": {
+                                "x": -45.0,
+                                "y": 0.0,
+                                "z": 0.0
                             }
                         }
                     }
@@ -841,7 +841,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_RangedAttack01_TriggerShaderEffect01",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetAnimatorTrigger",
                     "triggerID": "RangedAttack01Glow01Trigger",
@@ -854,7 +854,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_RangedAttack01_TriggerShaderEffect02",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetAnimatorTrigger",
                     "triggerID": "RangedAttack01Glow02Trigger",
@@ -867,23 +867,23 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_UpperShoot02",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42601009,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42601009,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
                             "IHHIKIACOML": "Horizontal",
                             "INCAGGBCJNF": 15.0
                         },
-                        "KJNJNKLLNCN": "BulletSource"
+                        "attachPointName": "BulletSource"
                     }
                 }
             ]
@@ -893,32 +893,32 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_Bomb_Loop",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Mimik_Fire_Bomb_Loop": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Bomb_Bullet_01"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Bomb_Bullet_01"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Bomb_Bullet_01_Trail"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_Bomb_Bullet_01_Trail"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Mimik_Fire_Bomb_Loop"
+                    "modifierName": "UNIQUE_Mimik_Fire_Bomb_Loop"
                 }
             ]
         }
@@ -927,43 +927,43 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Monster_Mimik_Fire_Bomb_Explode",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_Bomb_Bullet_01_Hit",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Mimik_Fire_Bomb_Bullet_01_Hit",
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         },
-                        "JBPCKOKLHEB": true,
-                        "ANAGBFPADIE": true
+                        "onGround": true,
+                        "alongGround": true
                     }
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Mimik_Fire_Bomb_Loop"
+                    "modifierName": "UNIQUE_Mimik_Fire_Bomb_Loop"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
                             "KECPGHFBFMA": 0.5,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 },
-                                "JBPCKOKLHEB": true,
-                                "ANAGBFPADIE": true
+                                "onGround": true,
+                                "alongGround": true
                             },
-                            "ICGFCBOFFDI": 3.0
+                            "radius": 3.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -986,7 +986,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -995,32 +995,32 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Mimik_Fire_WilloWisp_Loop",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Mimik_Fire_WilloWisp_Loop": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_WilloWisp_Bullet"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_WilloWisp_Bullet"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_WilloWisp_Bullet_Trail"
+                            "effectPattern": "Eff_Monster_Mimik_Fire_WilloWisp_Bullet_Trail"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "KillSelf"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Mimik_Fire_WilloWisp_Loop"
+                    "modifierName": "UNIQUE_Mimik_Fire_WilloWisp_Loop"
                 }
             ]
         }
@@ -1029,39 +1029,39 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Mimik_Fire_WilloWisp_Explode",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Mimik_Fire_WilloWisp_Explode",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Mimik_Fire_WilloWisp_Explode",
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     }
                 },
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Mimik_Fire_WilloWisp_Loop"
+                    "modifierName": "UNIQUE_Mimik_Fire_WilloWisp_Loop"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
                             "KECPGHFBFMA": 0.25,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
-                            "ICGFCBOFFDI": 1.5
+                            "radius": 1.5
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1087,7 +1087,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }

@@ -3,7 +3,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_WindEffect",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -15,25 +15,25 @@
                         "RandomWalk",
                         "HurricaneRush_Drop"
                     ],
-                    "GAIGOBCNNEE": "WindEffect"
+                    "modifierName": "WindEffect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "WindEffect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 200.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_Idle"
+                            "effectPattern": "Eff_Monster_Elemental_Wind_Idle"
                         }
                     ]
                 }
@@ -44,21 +44,21 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_FlyState",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Elemental_Wind_FlyState": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseInt",
                             "intID": "State"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "WeakTrigger"
@@ -69,7 +69,7 @@
                             "weight": 1
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "TriggerAbility",
                             "abilityName": "Elemental_Wind_Die"
@@ -77,10 +77,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Elemental_Wind_FlyState"
+                    "modifierName": "UNIQUE_Elemental_Wind_FlyState"
                 }
             ]
         }
@@ -89,10 +89,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_Die",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Elemental_Wind_FlyState"
+                    "modifierName": "UNIQUE_Elemental_Wind_FlyState"
                 },
                 {
                     "$type": "ResetAnimatorTrigger",
@@ -105,24 +105,24 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_WeakStart",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Weak_Start"
                     ],
-                    "GAIGOBCNNEE": "WeakStart"
+                    "modifierName": "WeakStart"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "WeakStart": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Entity_WeightRatio": 0.20000000298023224,
                         "Actor_EndureDelta": 1.0
                     },
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseInt",
                             "intID": "State",
@@ -135,10 +135,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "WeakStart"
+                    "modifierName": "WeakStart"
                 }
             ]
         }
@@ -147,16 +147,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_WeakTimer",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "WeakTimer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 5.0,
+                    "modifierName": "",
+                    "duration": 5.0,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Entity_WeightRatio": 0.20000000298023224,
                         "Actor_EndureDelta": 1.0
                     },
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetAnimatorTrigger",
                             "triggerID": "WeakEndTrigger"
@@ -164,10 +164,10 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "WeakTimer"
+                    "modifierName": "WeakTimer"
                 }
             ]
         }
@@ -176,14 +176,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_RandomWalk",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RandomWalk"
                     ],
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": ""
+                    "angularSpeed": 150.0,
+                    "attackTrigger": ""
                 }
             ]
         }
@@ -192,7 +192,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_HurricaneRush_Drop",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -201,38 +201,38 @@
                         "HurricaneRush_Loop",
                         "HurricaneRush_AS"
                     ],
-                    "GAIGOBCNNEE": "HurricaneRush_State"
+                    "modifierName": "HurricaneRush_State"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "HurricaneRush_Drop"
                     ],
-                    "GAIGOBCNNEE": "HurricaneRush_Drop"
+                    "modifierName": "HurricaneRush_Drop"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "HurricaneRush_State": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "SkillDrop",
+                            "boolID": "SkillDrop",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "SkillDrop"
+                            "boolID": "SkillDrop"
                         }
                     ]
                 },
                 "HurricaneRush_Drop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddGravityScale": -1.0
                     }
                 }
@@ -243,48 +243,48 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_HurricaneRush",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "HurricaneRush_BS"
                     ],
-                    "HENDIIJFPCI": 150.0,
-                    "NCAENFOANAG": ""
+                    "angularSpeed": 150.0,
+                    "attackTrigger": ""
                 },
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "HurricaneRush_BS"
                     ],
-                    "GAIGOBCNNEE": "HurricaneRush_BS"
+                    "modifierName": "HurricaneRush_BS"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "HurricaneRush_Loop"
                     ],
-                    "GAIGOBCNNEE": "HurricaneRush_Loop"
+                    "modifierName": "HurricaneRush_Loop"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "HurricaneRush_BS": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_Shock_BS"
+                            "effectPattern": "Eff_Monster_Elemental_Wind_Shock_BS"
                         }
                     ]
                 },
                 "HurricaneRush_Loop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_HurricaneRush_Loop"
+                            "effectPattern": "Eff_Monster_Elemental_Wind_HurricaneRush_Loop"
                         },
                         {
                             "$type": "ResetAnimatorTrigger",
@@ -292,24 +292,24 @@
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "ELDBAFHCOBL": [
+                            "target": "SelfAttackTarget",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 12.5
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetAnimatorBool",
-                                    "HHFIHBEAPAP": "DistanceFaraway"
+                                    "boolID": "DistanceFaraway"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "SetAnimatorBool",
-                                    "HHFIHBEAPAP": "DistanceFaraway",
+                                    "boolID": "DistanceFaraway",
                                     "value": true
                                 }
                             ]
@@ -317,23 +317,23 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": -5.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": -5.0,
+                                    "z": 0.0
                                 }
                             },
                             "secondHeight": 10.0,
-                            "ICGFCBOFFDI": 3.0
+                            "radius": 3.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -360,7 +360,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -369,98 +369,98 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_Shock_BS",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Shock_BS"
                     ],
-                    "GAIGOBCNNEE": "Shock_BS"
+                    "modifierName": "Shock_BS"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Shock_Fall"
                     ],
-                    "GAIGOBCNNEE": "Shock_Fall"
+                    "modifierName": "Shock_Fall"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shock_BS": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR10",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR10",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             },
                             "BHELOIADOLH": 3.75,
                             "HBBLBBPBLGE": 1.0,
                             "IPDEDFHPHPO": 0.5,
-                            "OJIFKEOCJGB": "All",
+                            "targetType": "All",
                             "predicates": [
                                 {
                                     "$type": "ByTargetWeight",
-                                    "GMFCOCAJBDM": "LesserOrEqual",
+                                    "logic": "LesserOrEqual",
                                     "IHCNHDLDFKC": 100.0
                                 }
                             ],
-                            "GAIGOBCNNEE": ""
+                            "modifierName": ""
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_Shock_BS"
+                            "effectPattern": "Eff_Monster_Elemental_Wind_Shock_BS"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_Shock_BS_OnGround",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Elemental_Wind_Shock_BS_OnGround",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_Shock_Alert",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Elemental_Wind_Shock_Alert",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Elemental_Wind_FlyState"
+                            "modifierName": "UNIQUE_Elemental_Wind_FlyState"
                         }
                     ]
                 },
                 "Shock_Fall": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddGravityScale": 12.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 }
@@ -471,7 +471,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_Shock_AS",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -479,53 +479,53 @@
                         "Shock_AS",
                         "Shock_Up"
                     ],
-                    "GAIGOBCNNEE": "Shock_Drop"
+                    "modifierName": "Shock_Drop"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Shock_Drop": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "SkillDrop",
+                            "boolID": "SkillDrop",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "SkillDrop"
+                            "boolID": "SkillDrop"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_Shock_Wave",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Elemental_Wind_Shock_Wave",
+                    "born": {
                         "$type": "ConfigBornByTarget",
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackCircle",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornBySelf",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.0
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.0
                                 }
                             },
                             "secondHeight": 2.0,
-                            "ICGFCBOFFDI": 5.0
+                            "radius": 5.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -552,7 +552,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -561,63 +561,63 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_EarthWrath_BS",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "EarthWrath_BS"
                     ],
-                    "GAIGOBCNNEE": "EarthWrath_BS"
+                    "modifierName": "EarthWrath_BS"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EarthWrath_BS": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_EarthWrath_BS"
+                            "effectPattern": "Eff_Monster_Elemental_Wind_EarthWrath_BS"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "EarthWrath_BS_Ground"
+                            "modifierName": "EarthWrath_BS_Ground"
                         }
                     ]
                 },
                 "EarthWrath_BS_Ground": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.25,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.25,
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_EarthWrath_BS_01",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Elemental_Wind_EarthWrath_BS_01",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": -9.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": -9.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 10.0,
-                                    "ICGFCBOFFDI": 1.0
+                                    "radius": 1.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -648,136 +648,136 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 },
                 "UNIQUE_EarthWrath_Airflow": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.5,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 1.5,
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "SelfAttackTarget",
-                            "ELDBAFHCOBL": [
+                            "target": "SelfAttackTarget",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "GreaterOrEqual",
+                                    "logic": "GreaterOrEqual",
                                     "value": 7.0
                                 },
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 12.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "CreateGadget",
-                                    "NPHOOPNDCAC": "SelfAttackTarget",
+                                    "target": "SelfAttackTarget",
                                     "NJEOPILMKCN": true,
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByTarget",
-                                        "HAGMNJAHNLG": {
+                                        "bornRandom": {
                                             "$type": "BornRandomFromCenter",
-                                            "LJCNOPEIJEF": 0.75,
-                                            "MFBOELKCPDP": 2.25
+                                            "minRandomRange": 0.75,
+                                            "maxRandomRange": 2.25
                                         },
-                                        "JBPCKOKLHEB": true
+                                        "onGround": true
                                     },
                                     "OADJJGJKKLA": {
                                         "enable": true,
                                         "PCLKNLDEHGH": 10.0
                                     },
-                                    "CABLIPAKCGB": 42002001,
-                                    "DOLAJLACEDF": 4001,
-                                    "ONPOPLLHJLE": "All"
+                                    "gadgetID": 42002001,
+                                    "campID": 4001,
+                                    "campTargetType": "All"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "Predicated",
-                                    "NPHOOPNDCAC": "SelfAttackTarget",
-                                    "ELDBAFHCOBL": [
+                                    "target": "SelfAttackTarget",
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByTargetPositionToSelfPosition",
-                                            "GMFCOCAJBDM": "Lesser",
+                                            "logic": "Lesser",
                                             "value": 7.0
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "CreateGadget",
                                             "NJEOPILMKCN": true,
-                                            "NGDMCBABOJA": {
+                                            "born": {
                                                 "$type": "ConfigBornByTarget",
-                                                "HAGMNJAHNLG": {
+                                                "bornRandom": {
                                                     "$type": "BornRandomFromCenter",
-                                                    "LJCNOPEIJEF": 6.0,
-                                                    "MFBOELKCPDP": 6.0
+                                                    "minRandomRange": 6.0,
+                                                    "maxRandomRange": 6.0
                                                 },
-                                                "JBPCKOKLHEB": true
+                                                "onGround": true
                                             },
                                             "OADJJGJKKLA": {
                                                 "enable": true,
                                                 "PCLKNLDEHGH": 10.0
                                             },
-                                            "CABLIPAKCGB": 42002001,
-                                            "DOLAJLACEDF": 4001,
-                                            "ONPOPLLHJLE": "All"
+                                            "gadgetID": 42002001,
+                                            "campID": 4001,
+                                            "campTargetType": "All"
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "Predicated",
-                                            "NPHOOPNDCAC": "SelfAttackTarget",
-                                            "ELDBAFHCOBL": [
+                                            "target": "SelfAttackTarget",
+                                            "targetPredicates": [
                                                 {
                                                     "$type": "ByTargetPositionToSelfPosition",
-                                                    "GMFCOCAJBDM": "GreaterOrEqual",
+                                                    "logic": "GreaterOrEqual",
                                                     "value": 12.0
                                                 }
                                             ],
-                                            "NCNDEAPMKCP": [
+                                            "successActions": [
                                                 {
                                                     "$type": "CreateGadget",
-                                                    "NPHOOPNDCAC": "SelfAttackTarget",
+                                                    "target": "SelfAttackTarget",
                                                     "NJEOPILMKCN": true,
-                                                    "NGDMCBABOJA": {
+                                                    "born": {
                                                         "$type": "ConfigBornByTarget",
-                                                        "JBPCKOKLHEB": true
+                                                        "onGround": true
                                                     },
                                                     "OADJJGJKKLA": {
                                                         "enable": true,
                                                         "PCLKNLDEHGH": 10.0
                                                     },
-                                                    "CABLIPAKCGB": 42002001,
-                                                    "DOLAJLACEDF": 4001,
-                                                    "ONPOPLLHJLE": "All"
+                                                    "gadgetID": 42002001,
+                                                    "campID": 4001,
+                                                    "campTargetType": "All"
                                                 }
                                             ],
-                                            "BMIOBLGLPIM": [
+                                            "failActions": [
                                                 {
                                                     "$type": "CreateGadget",
                                                     "NJEOPILMKCN": true,
-                                                    "NGDMCBABOJA": {
+                                                    "born": {
                                                         "$type": "ConfigBornByTarget",
-                                                        "HAGMNJAHNLG": {
+                                                        "bornRandom": {
                                                             "$type": "BornRandomFromCenter",
-                                                            "LJCNOPEIJEF": 5.0,
-                                                            "MFBOELKCPDP": 10.0
+                                                            "minRandomRange": 5.0,
+                                                            "maxRandomRange": 10.0
                                                         },
-                                                        "JBPCKOKLHEB": true
+                                                        "onGround": true
                                                     },
                                                     "OADJJGJKKLA": {
                                                         "enable": true,
                                                         "PCLKNLDEHGH": 10.0
                                                     },
-                                                    "CABLIPAKCGB": 42002001,
-                                                    "DOLAJLACEDF": 4001,
-                                                    "ONPOPLLHJLE": "All"
+                                                    "gadgetID": 42002001,
+                                                    "campID": 4001,
+                                                    "campTargetType": "All"
                                                 }
                                             ]
                                         }
@@ -786,54 +786,54 @@
                             ]
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "CreateGadget",
                             "NJEOPILMKCN": true,
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByTarget",
-                                "HAGMNJAHNLG": {
+                                "bornRandom": {
                                     "$type": "BornRandomFromCenter",
-                                    "LJCNOPEIJEF": 5.0,
-                                    "MFBOELKCPDP": 10.0
+                                    "minRandomRange": 5.0,
+                                    "maxRandomRange": 10.0
                                 },
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             },
                             "OADJJGJKKLA": {
                                 "enable": true,
                                 "PCLKNLDEHGH": 10.0
                             },
-                            "CABLIPAKCGB": 42002001,
-                            "DOLAJLACEDF": 4001,
-                            "ONPOPLLHJLE": "All"
+                            "gadgetID": 42002001,
+                            "campID": 4001,
+                            "campTargetType": "All"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "CreateGadget",
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": -10.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": -10.0,
+                            "z": 0.0
                         },
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     },
-                    "CABLIPAKCGB": 42002002,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "All"
+                    "gadgetID": 42002002,
+                    "campID": 4001,
+                    "campTargetType": "All"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "EarthWrath_BS_Ground"
+                    "modifierName": "EarthWrath_BS_Ground"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EarthWrath_Airflow"
+                    "modifierName": "UNIQUE_EarthWrath_Airflow"
                 }
             ]
         }
@@ -842,68 +842,68 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_EarthWrath_Over",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "EarthWrath_BS",
                         "EarthWrath_Burst"
                     ],
-                    "GAIGOBCNNEE": "EarthWrath_State"
+                    "modifierName": "EarthWrath_State"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EarthWrath_State": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_EarthWrath_Airflow"
+                            "modifierName": "UNIQUE_EarthWrath_Airflow"
                         },
                         {
                             "$type": "SendEffectTrigger",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42002002
+                                "configID": 42002002
                             },
-                            "MOCGJNIDDAI": "EarthWrathEnd",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_EarthWrath_Area"
+                            "parameter": "EarthWrathEnd",
+                            "effectPattern": "Eff_Monster_Elemental_Wind_EarthWrath_Area"
                         },
                         {
                             "$type": "KillSelf",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42002002
+                                "configID": 42002002
                             },
                             "duration": 1.5
                         },
                         {
                             "$type": "KillSelf",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42002001
+                                "configID": 42002001
                             }
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Elemental_Wind_FlyState"
+                            "modifierName": "UNIQUE_Elemental_Wind_FlyState"
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "EarthWrath_State"
+                            "modifierName": "EarthWrath_State"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveUniqueModifier",
-                    "GAIGOBCNNEE": "UNIQUE_EarthWrath_Airflow"
+                    "modifierName": "UNIQUE_EarthWrath_Airflow"
                 }
             ]
         }
@@ -912,28 +912,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_EarthWrath_Area",
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_EarthWrath_Area"
+                    "effectPattern": "Eff_Monster_Elemental_Wind_EarthWrath_Area"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "NGDMCBABOJA": {
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": 0.5
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": 0.5
                                 }
                             },
-                            "ICGFCBOFFDI": 1.0
+                            "radius": 1.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -965,7 +965,7 @@
                             "canBeModifiedBy": "OriginOwner"
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -974,57 +974,57 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_EarthWrath_Burst",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "EarthWrath_Burst"
                     ],
-                    "GAIGOBCNNEE": "EarthWrath_Burst_State"
+                    "modifierName": "EarthWrath_Burst_State"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EarthWrath_Burst_State": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "EarthWrath_Burst"
+                            "modifierName": "EarthWrath_Burst"
                         }
                     ]
                 },
                 "EarthWrath_Burst": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.5,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.5,
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Elemental_Wind_EarthWrath_Burst",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Elemental_Wind_EarthWrath_Burst",
+                            "born": {
                                 "$type": "ConfigBornByTarget",
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": -9.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": -9.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 7.0,
-                                    "ICGFCBOFFDI": 15.0
+                                    "radius": 15.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1045,24 +1045,24 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackCircle",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornBySelf",
                                         "offset": {
-                                            "AEAAJCIDPED": 0.0,
-                                            "KAAPLGBEDPM": -9.0,
-                                            "PHDCJAHHIOG": 0.0
+                                            "x": 0.0,
+                                            "y": -9.0,
+                                            "z": 0.0
                                         }
                                     },
                                     "secondHeight": 15.0,
-                                    "ICGFCBOFFDI": 3.0
+                                    "radius": 3.0
                                 },
                                 "attackInfo": {
                                     "attackTag": "",
@@ -1083,15 +1083,15 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "EarthWrath_Burst"
+                    "modifierName": "EarthWrath_Burst"
                 }
             ]
         }
@@ -1100,27 +1100,27 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Elemental_Wind_AirflowField_Create",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "AirflowField_Create": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AirFlowMixin",
-                            "CABLIPAKCGB": 42002003,
-                            "ONPOPLLHJLE": "All",
-                            "NGDMCBABOJA": {
+                            "gadgetID": 42002003,
+                            "campTargetType": "All",
+                            "born": {
                                 "$type": "ConfigBornByTarget"
                             }
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "AirflowField_Create"
+                    "modifierName": "AirflowField_Create"
                 }
             ]
         }

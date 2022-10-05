@@ -3,16 +3,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_AIStateInitial",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByPoseIDMixin",
                     "poseIDs": [
                         1
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "ReTriggerAISkillInitialCD",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 202
                             ]
                         }
@@ -23,10 +23,10 @@
                     "poseIDs": [
                         2
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "ReTriggerAISkillInitialCD",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 101,
                                 102,
                                 103,
@@ -43,7 +43,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_Random",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
@@ -52,27 +52,27 @@
                         "FlyUp",
                         "Disappear"
                     ],
-                    "GAIGOBCNNEE": "Random_MoveSpeedRatio"
+                    "modifierName": "Random_MoveSpeedRatio"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "RandomSpeed": 0.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Random_MoveSpeedRatio": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Animator_MoveSpeedRatio": "RandomSpeed"
                     }
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "SetRandomOverrideMapValue",
                     "MOCGLDDNLKO": 0.10000000149011612,
                     "DMNANPGJBJH": -0.10000000149011612,
-                    "OGAHELLALBB": "RandomSpeed"
+                    "overrideMapKey": "RandomSpeed"
                 }
             ]
         }
@@ -81,52 +81,52 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_FlyDown",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "FlyDown"
                     ],
-                    "GAIGOBCNNEE": "FlyState_Down"
+                    "modifierName": "FlyState_Down"
                 },
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "Land"
                     ],
-                    "GAIGOBCNNEE": "FlyDown_Land"
+                    "modifierName": "FlyDown_Land"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FlyState_Down": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "FlyState",
+                            "boolID": "FlyState",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "FlyState"
+                            "boolID": "FlyState"
                         }
                     ]
                 },
                 "FlyDown_Land": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_AddGravityScale": -1.9900000095367432
                     }
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "FlyState"
+                    "boolID": "FlyState"
                 }
             ]
         }
@@ -135,10 +135,10 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_FlyUp",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "FlyState",
+                    "boolID": "FlyState",
                     "value": true
                 }
             ]
@@ -148,48 +148,48 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_ToWander",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "NormalMove"
                     ],
-                    "GAIGOBCNNEE": "NormalMove_Effect"
+                    "modifierName": "NormalMove_Effect"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "Run"
                     ],
-                    "GAIGOBCNNEE": "Run_Effect"
+                    "modifierName": "Run_Effect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "NormalMove_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Animal_Wigeon_Ripple_Walk"
+                            "effectPattern": "Eff_Animal_Wigeon_Ripple_Walk"
                         }
                     ]
                 },
                 "Run_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Animal_Wigeon_Ripple_Run"
+                            "effectPattern": "Eff_Animal_Wigeon_Ripple_Run"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "WanderState",
+                    "boolID": "WanderState",
                     "value": true
                 }
             ]
@@ -199,7 +199,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_ToIdle",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -213,25 +213,25 @@
                         "Alert",
                         "SurroundAction"
                     ],
-                    "GAIGOBCNNEE": "NormalIdle_Effect"
+                    "modifierName": "NormalIdle_Effect"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "NormalIdle_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Animal_Wigeon_Ripple_Standby"
+                            "effectPattern": "Eff_Animal_Wigeon_Ripple_Standby"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "WanderState"
+                    "boolID": "WanderState"
                 }
             ]
         }
@@ -240,48 +240,48 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_Flee",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "Run"
                     ],
-                    "GAIGOBCNNEE": "FleeState"
+                    "modifierName": "FleeState"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "FleeState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "FleeState"
+                            "boolID": "FleeState"
                         }
                     ]
                 },
                 "BeHitDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "onBeingHit": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "FleeState",
+                            "boolID": "FleeState",
                             "value": true
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "AttachModifier",
-                    "GAIGOBCNNEE": "BeHitDetect"
+                    "modifierName": "BeHitDetect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetPoseBool",
-                    "HHFIHBEAPAP": "FleeState",
+                    "boolID": "FleeState",
                     "value": true
                 }
             ]
@@ -291,27 +291,27 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_Disappear",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToAnimatorStateIDMixin",
                     "stateIDs": [
                         "Disappear"
                     ],
-                    "GAIGOBCNNEE": "DisappearTimer"
+                    "modifierName": "DisappearTimer"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "DisappearTimer": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "StartDither",
                             "duration": 4.0
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "Disappear",
+                            "boolID": "Disappear",
                             "value": true
                         },
                         {
@@ -330,16 +330,16 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Animal_Wigeon_FlyEffect",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Animal_Common_Feather",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Animal_Common_Feather",
+                    "born": {
                         "$type": "ConfigBornByTarget",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 0.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 0.0
                         }
                     }
                 }

@@ -3,20 +3,20 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Initialize",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_CommonState": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachAbilityStateResistance",
-                            "ACOKKHADPOJ": true,
-                            "KPGAIMMIKDA": 13002
+                            "doOffStage": true,
+                            "resistanceListID": 13002
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ShowUICombatBar",
                     "JFJHBPNMMHH": true,
@@ -24,7 +24,7 @@
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_CommonState"
+                    "modifierName": "Tartaglia_CommonState"
                 }
             ]
         }
@@ -33,12 +33,12 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ReminderController",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "EnterTalkTimer_Quest": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ShowReminder",
                             "angularVelocityThreshold": 201010101
@@ -46,10 +46,10 @@
                     ]
                 },
                 "EnterTalkTimer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ShowReminder",
                             "angularVelocityThreshold": 200340101
@@ -57,26 +57,26 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "Predicated",
-                    "ELDBAFHCOBL": [
+                    "targetPredicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_MONSTERAFFIX_QUEST_ADJUST",
+                            "key": "_MONSTERAFFIX_QUEST_ADJUST",
                             "value": 1.0
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "EnterTalkTimer_Quest"
+                            "modifierName": "EnterTalkTimer_Quest"
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "EnterTalkTimer"
+                            "modifierName": "EnterTalkTimer"
                         }
                     ]
                 }
@@ -87,27 +87,27 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Airwall_01",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_Airwall_FireDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.25,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.25,
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_AirWall_01"
+                            "effectPattern": "Eff_Monster_Tartaglia_AirWall_01"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR20",
-                                "ONPOPLLHJLE": "All",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR20",
+                                "campTargetType": "All",
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -119,27 +119,27 @@
                                     "value": 17.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Target",
-                                    "GAIGOBCNNEE": "Tartaglia_Airwall_Fire"
+                                    "target": "Target",
+                                    "modifierName": "Tartaglia_Airwall_Fire"
                                 }
                             ]
                         }
                     ]
                 },
                 "Tartaglia_Airwall_Fire": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementType": "Fire",
                     "elementDurability": 50.0
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_Airwall_FireDetect"
+                    "modifierName": "Tartaglia_Airwall_FireDetect"
                 }
             ]
         }
@@ -148,28 +148,28 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Airwall_02",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_Airwall_FireDetect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 0.25,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 0.25,
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "ACOKKHADPOJ": true,
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_AirWall_02"
+                            "doOffStage": true,
+                            "effectPattern": "Eff_Monster_Tartaglia_AirWall_02"
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "Predicated",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByShape",
-                                "JBKKOJLJHDK": "CircleR25",
-                                "ONPOPLLHJLE": "All",
-                                "CJJABKCAIEB": 1.0
+                                "shapeName": "CircleR25",
+                                "campTargetType": "All",
+                                "sizeRatio": 1.0
                             },
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByEntityTypes",
                                     "entityTypes": [
@@ -181,27 +181,27 @@
                                     "value": 21.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "NPHOOPNDCAC": "Target",
-                                    "GAIGOBCNNEE": "Tartaglia_Airwall_Fire"
+                                    "target": "Target",
+                                    "modifierName": "Tartaglia_Airwall_Fire"
                                 }
                             ]
                         }
                     ]
                 },
                 "Tartaglia_Airwall_Fire": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementType": "Fire",
                     "elementDurability": 50.0
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_Airwall_FireDetect"
+                    "modifierName": "Tartaglia_Airwall_FireDetect"
                 }
             ]
         }
@@ -210,7 +210,7 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_EquipController",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
@@ -227,7 +227,7 @@
                         "PowerAttack",
                         "PowerAttack_Flexible"
                     ],
-                    "GAIGOBCNNEE": "Tartaglia_EquipController_Bow"
+                    "modifierName": "Tartaglia_EquipController_Bow"
                 },
                 {
                     "$type": "AttachToStateIDMixin",
@@ -239,40 +239,40 @@
                         "DefendAttack",
                         "Recover"
                     ],
-                    "GAIGOBCNNEE": "Tartaglia_EquipController_Blade"
+                    "modifierName": "Tartaglia_EquipController_Blade"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_EquipController_Bow": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_EQUIPCONTROLLER_BOW",
+                                    "key": "_MONSTER_TARTAGLIA_EQUIPCONTROLLER_BOW",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCreateGadgetToEquipPart",
-                                    "CABLIPAKCGB": 50004032,
+                                    "gadgetID": 50004032,
                                     "EPBOKNDHCPD": "equip01"
                                 },
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_EQUIPCONTROLLER_BOW",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 1.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_MONSTER_TARTAGLIA_EQUIPCONTROLLER_BOW",
+                                    "useLimitRange": true,
+                                    "maxValue": 1.0,
+                                    "minValue": 0.0
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "TriggerHideWeapon",
                                     "ACDFJMCPFGH": true,
@@ -284,11 +284,11 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "HasBow",
+                            "boolID": "HasBow",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerHideWeapon",
                             "FLCNICMDANB": [
@@ -297,49 +297,49 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "HasBow"
+                            "boolID": "HasBow"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_Disappear"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_Disappear"
                         }
                     ]
                 },
                 "Tartaglia_EquipController_Blade": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_EQUIPCONTROLLER_BLADE",
+                                    "key": "_MONSTER_TARTAGLIA_EQUIPCONTROLLER_BLADE",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "TriggerCreateGadgetToEquipPart",
-                                    "CABLIPAKCGB": 50004035,
+                                    "gadgetID": 50004035,
                                     "EPBOKNDHCPD": "equip02"
                                 },
                                 {
                                     "$type": "TriggerCreateGadgetToEquipPart",
-                                    "CABLIPAKCGB": 50004036,
+                                    "gadgetID": 50004036,
                                     "EPBOKNDHCPD": "equip03"
                                 },
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_EQUIPCONTROLLER_BLADE",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 1.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_MONSTER_TARTAGLIA_EQUIPCONTROLLER_BLADE",
+                                    "useLimitRange": true,
+                                    "maxValue": 1.0,
+                                    "minValue": 0.0
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "TriggerHideWeapon",
                                     "ACDFJMCPFGH": true,
@@ -352,11 +352,11 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "HasBlade",
+                            "boolID": "HasBlade",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "TriggerHideWeapon",
                             "FLCNICMDANB": [
@@ -366,15 +366,15 @@
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "HasBlade"
+                            "boolID": "HasBlade"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Blade_DisappearR"
+                            "effectPattern": "Eff_Monster_Tartaglia_Blade_DisappearR"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Blade_DisappearL"
+                            "effectPattern": "Eff_Monster_Tartaglia_Blade_DisappearL"
                         }
                     ]
                 }
@@ -385,22 +385,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Tartaglia_Bow",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "MonEquip_Tartaglia_Bow": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_Weapon"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_Weapon"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "MonEquip_Tartaglia_Bow"
+                    "modifierName": "MonEquip_Tartaglia_Bow"
                 }
             ]
         }
@@ -409,22 +409,22 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "MonEquip_Tartaglia_Blade_Water",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "MonEquip_Tartaglia_Blade_Water": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Blade_Weapon"
+                            "effectPattern": "Eff_Monster_Tartaglia_Blade_Weapon"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "MonEquip_Tartaglia_Blade_Water"
+                    "modifierName": "MonEquip_Tartaglia_Blade_Water"
                 }
             ]
         }
@@ -433,89 +433,89 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_GapController",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Tartaglia_Active_RandomTime": 15.0,
                 "Tartaglia_StopAttack_RandomTime": 3.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_GapController_Initial": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 3.0,
+                    "modifierName": "",
+                    "duration": 3.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "StopAttack",
+                            "boolID": "StopAttack",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "StopAttack"
+                            "boolID": "StopAttack"
                         },
                         {
                             "$type": "SetRandomOverrideMapValue",
                             "MOCGLDDNLKO": 15.0,
                             "DMNANPGJBJH": 8.0,
-                            "OGAHELLALBB": "Tartaglia_Active_RandomTime"
+                            "overrideMapKey": "Tartaglia_Active_RandomTime"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Tartaglia_GapController_Active"
+                            "modifierName": "Tartaglia_GapController_Active"
                         }
                     ]
                 },
                 "Tartaglia_GapController_Active": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "Tartaglia_Active_RandomTime",
+                    "modifierName": "",
+                    "duration": "Tartaglia_Active_RandomTime",
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetRandomOverrideMapValue",
                             "MOCGLDDNLKO": 3.0,
                             "DMNANPGJBJH": 2.0,
-                            "OGAHELLALBB": "Tartaglia_StopAttack_RandomTime"
+                            "overrideMapKey": "Tartaglia_StopAttack_RandomTime"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Tartaglia_GapController_StopAttack"
+                            "modifierName": "Tartaglia_GapController_StopAttack"
                         }
                     ]
                 },
                 "Tartaglia_GapController_StopAttack": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": "Tartaglia_StopAttack_RandomTime",
+                    "modifierName": "",
+                    "duration": "Tartaglia_StopAttack_RandomTime",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "StopAttack",
+                            "boolID": "StopAttack",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "StopAttack"
+                            "boolID": "StopAttack"
                         },
                         {
                             "$type": "SetRandomOverrideMapValue",
                             "MOCGLDDNLKO": 15.0,
                             "DMNANPGJBJH": 8.0,
-                            "OGAHELLALBB": "Tartaglia_Active_RandomTime"
+                            "overrideMapKey": "Tartaglia_Active_RandomTime"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GAIGOBCNNEE": "Tartaglia_GapController_Active"
+                            "modifierName": "Tartaglia_GapController_Active"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_GapController_Initial"
+                    "modifierName": "Tartaglia_GapController_Initial"
                 }
             ]
         }
@@ -524,35 +524,35 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Riptide_Over",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_MONSTER_TARTAGLIA_RIPTIDE_OVER",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_MONSTER_TARTAGLIA_RIPTIDE_OVER",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         1.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Tartaglia_Empty",
                         "Tartaglia_Riptide_Over"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "Tartaglia_Riptide_Over": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "AllTeams",
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide_TeamController"
+                            "target": "AllTeams",
+                            "modifierName": "UNIQUE_Tartaglia_Riptide_TeamController"
                         }
                     ]
                 }
@@ -563,14 +563,14 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Riptide_Detect",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_Riptide_Detect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "AIJPLNMHBEN": [
+                    "onAttackLanded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "predicates": [
                                 {
                                     "$type": "ByEntityTypes",
@@ -580,191 +580,191 @@
                                 },
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Tartaglia_Riptide"
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide_TeamSearcher"
+                            "modifierName": "UNIQUE_Tartaglia_Riptide_TeamSearcher"
                         },
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Target",
+                            "target": "Target",
                             "predicates": [
                                 {
                                     "$type": "ByAttackTags",
-                                    "NMJGDKCDFOJ": [
+                                    "attackTags": [
                                         "Tartaglia_Riptide_Explosion"
                                     ]
                                 },
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
                                     "value": 1.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide_Explosion"
+                            "modifierName": "UNIQUE_Tartaglia_Riptide_Explosion"
                         }
                     ]
                 },
                 "UNIQUE_Tartaglia_Riptide_Explosion": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_EXPLOSION",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE_EXPLOSION",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide"
+                            "modifierName": "UNIQUE_Tartaglia_Riptide"
                         }
                     ]
                 },
                 "UNIQUE_Tartaglia_Riptide_TeamSearcher": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 0.10000000149011612,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 0.10000000149011612,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "predicates": [
                                 {
                                     "$type": "ByTargetHPRatio",
-                                    "NPHOOPNDCAC": "Caster",
-                                    "BCJJBMJKHED": 0.0
+                                    "target": "Caster",
+                                    "HPRatio": 0.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide_TeamController"
+                            "modifierName": "UNIQUE_Tartaglia_Riptide_TeamController"
                         }
                     ]
                 },
                 "UNIQUE_Tartaglia_Riptide_TeamController": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 30.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 30.0,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "CurLocalAvatarMixin",
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide"
+                            "modifierName": "UNIQUE_Tartaglia_Riptide"
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "CurLocalAvatar",
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide"
+                            "target": "CurLocalAvatar",
+                            "modifierName": "UNIQUE_Tartaglia_Riptide"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Riptide"
+                            "effectPattern": "Eff_Monster_Tartaglia_Riptide"
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Riptide_Remove"
+                            "effectPattern": "Eff_Monster_Tartaglia_Riptide_Remove"
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "target": "CurTeamAvatars",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
                                     "value": 1.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide"
+                            "modifierName": "UNIQUE_Tartaglia_Riptide"
                         },
                         {
                             "$type": "SetGlobalValue",
-                            "NPHOOPNDCAC": "CurTeamAvatars",
+                            "target": "CurTeamAvatars",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "UNIQUE_Tartaglia_Riptide": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementType": "Water",
                     "elementDurability": 25.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE_AVATAR",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_EXPLOSION",
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_EXPLOSION",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "NoneOrEqual"
+                                    "compareType": "NoneOrEqual"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "SetGlobalValue",
                                     "value": 0.0,
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_EXPLOSION",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 1.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_EXPLOSION",
+                                    "useLimitRange": true,
+                                    "maxValue": 1.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "FireEffect",
-                                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Riptide_Explosion"
+                                    "effectPattern": "Eff_Monster_Tartaglia_Riptide_Explosion"
                                 },
                                 {
                                     "$type": "DamageByAttackValue",
@@ -790,44 +790,44 @@
                         },
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE",
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE",
                                     "value": 1.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide_TeamController"
+                            "modifierName": "UNIQUE_Tartaglia_Riptide_TeamController"
                         }
                     ],
-                    "OGFFGLGEOGF": [
+                    "onKill": [
                         {
                             "$type": "RemoveUniqueModifier",
-                            "NPHOOPNDCAC": "Team",
+                            "target": "Team",
                             "predicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE",
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE",
                                     "value": 1.0
                                 }
                             ],
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Riptide_TeamController"
+                            "modifierName": "UNIQUE_Tartaglia_Riptide_TeamController"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_Riptide_Detect"
+                    "modifierName": "Tartaglia_Riptide_Detect"
                 },
                 {
                     "$type": "CreateGadget",
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByActionPoint",
-                        "JBPCKOKLHEB": true,
+                        "onGround": true,
                         "FJHFIALOBFM": "AureaePoint",
                         "LLLNBABIECO": {
                             "$type": "SelectActionPointByID",
@@ -835,23 +835,23 @@
                         }
                     },
                     "JCAMCEOBIFG": true,
-                    "CABLIPAKCGB": 42903005,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Enemy",
+                    "gadgetID": 42903005,
+                    "campID": 4001,
+                    "campTargetType": "Enemy",
                     "CEBMHIFOHJM": true
                 }
             ],
-            "OGFFGLGEOGF": [
+            "onKill": [
                 {
                     "$type": "SetGlobalValue",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsBySelfGroup",
                         "weight": 3
                     },
                     "value": 1.0,
-                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_OVER",
-                    "JDHHMBHOOEC": 0.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_OVER",
+                    "maxValue": 0.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -860,251 +860,251 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Riptide_AIController",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToSelfGlobalValueMixin",
-                    "BPCFCANOMNH": "_MONSTER_TARTAGLIA_RIPTIDE_LEVEL",
-                    "FEGIOIGELHB": 0.0,
-                    "CMEDACODLEA": [
+                    "globalValueKey": "_MONSTER_TARTAGLIA_RIPTIDE_LEVEL",
+                    "defaultGlobalValueOnCreate": 0.0,
+                    "valueSteps": [
                         -0.5,
                         0.5,
                         2.5,
                         4.5
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Tartaglia_Riptide_Level_Empty",
                         "Tartaglia_Riptide_Level_1st",
                         "Tartaglia_Riptide_Level_2nd"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_Riptide_AIController": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 1.0,
-                    "PBDDACFFPOE": [
+                    "thinkInterval": 1.0,
+                    "onThinkInterval": [
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_COUNT",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE_COUNT",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         },
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "AllTeams",
-                            "ELDBAFHCOBL": [
+                            "target": "AllTeams",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE",
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE",
                                     "value": 1.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "SetGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_COUNT",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 1.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_COUNT",
+                                    "useLimitRange": true,
+                                    "maxValue": 1.0,
+                                    "minValue": 0.0
                                 }
                             ]
                         },
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_COUNT",
+                                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_COUNT",
                                     "value": 0.0,
-                                    "ONPJJFKDCED": "MoreThan"
+                                    "compareType": "MoreThan"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "Tartaglia_Riptide_AIController_Count"
+                                    "modifierName": "Tartaglia_Riptide_AIController_Count"
                                 }
                             ],
-                            "BMIOBLGLPIM": [
+                            "failActions": [
                                 {
                                     "$type": "RemoveModifier",
-                                    "GAIGOBCNNEE": "Tartaglia_Riptide_AIController_Count"
+                                    "modifierName": "Tartaglia_Riptide_AIController_Count"
                                 }
                             ]
                         }
                     ]
                 },
                 "Tartaglia_Riptide_AIController_Count": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "IKKMDDLDLIN": 5.0,
-                    "KCICDEJLIJD": [
+                    "thinkInterval": 5.0,
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "Tartaglia_Riptide_SetTrue"
+                            "target": "Owner",
+                            "modifierName": "Tartaglia_Riptide_SetTrue"
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_LEVEL",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 4.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE_LEVEL",
+                            "useLimitRange": true,
+                            "maxValue": 4.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "Tartaglia_Riptide_SetFalse"
+                            "target": "Owner",
+                            "modifierName": "Tartaglia_Riptide_SetFalse"
                         },
                         {
                             "$type": "SetGlobalValue",
                             "value": 0.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_LEVEL",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 4.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE_LEVEL",
+                            "useLimitRange": true,
+                            "maxValue": 4.0,
+                            "minValue": 0.0
                         }
                     ],
-                    "PBDDACFFPOE": [
+                    "onThinkInterval": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_LEVEL",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 4.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_RIPTIDE_LEVEL",
+                            "useLimitRange": true,
+                            "maxValue": 4.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Tartaglia_Riptide_SetTrue": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "HasRiptide",
+                            "boolID": "HasRiptide",
                             "value": true
                         }
                     ]
                 },
                 "Tartaglia_Riptide_SetFalse": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "HasRiptide"
+                            "boolID": "HasRiptide"
                         }
                     ]
                 },
                 "Tartaglia_Riptide_Level_1st": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "Tartaglia_Riptide_SetTrue_1st"
+                            "target": "Owner",
+                            "modifierName": "Tartaglia_Riptide_SetTrue_1st"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "Tartaglia_Riptide_SetFalse_1st"
+                            "target": "Owner",
+                            "modifierName": "Tartaglia_Riptide_SetFalse_1st"
                         }
                     ]
                 },
                 "Tartaglia_Riptide_SetTrue_1st": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RiptideLevel_1st",
+                            "boolID": "RiptideLevel_1st",
                             "value": true
                         }
                     ]
                 },
                 "Tartaglia_Riptide_SetFalse_1st": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RiptideLevel_1st"
+                            "boolID": "RiptideLevel_1st"
                         }
                     ]
                 },
                 "Tartaglia_Riptide_Level_2nd": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "Tartaglia_Riptide_SetTrue_2nd"
+                            "target": "Owner",
+                            "modifierName": "Tartaglia_Riptide_SetTrue_2nd"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "Owner",
-                            "GAIGOBCNNEE": "Tartaglia_Riptide_SetFalse_2nd"
+                            "target": "Owner",
+                            "modifierName": "Tartaglia_Riptide_SetFalse_2nd"
                         }
                     ]
                 },
                 "Tartaglia_Riptide_SetTrue_2nd": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RiptideLevel_2nd",
+                            "boolID": "RiptideLevel_2nd",
                             "value": true
                         }
                     ]
                 },
                 "Tartaglia_Riptide_SetFalse_2nd": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "RiptideLevel_2nd"
+                            "boolID": "RiptideLevel_2nd"
                         }
                     ]
                 },
                 "Tartaglia_Riptide_Level_Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_Riptide_AIController"
+                    "modifierName": "Tartaglia_Riptide_AIController"
                 },
                 {
                     "$type": "SetGlobalValue",
                     "value": 0.0,
-                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_RIPTIDE_COUNT",
-                    "EODOIECEPEF": true,
-                    "JDHHMBHOOEC": 1.0,
-                    "KHAHOELDONA": 0.0
+                    "key": "_MONSTER_TARTAGLIA_RIPTIDE_COUNT",
+                    "useLimitRange": true,
+                    "maxValue": 1.0,
+                    "minValue": 0.0
                 }
             ]
         }
@@ -1113,70 +1113,70 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Transform",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachModifierToHPPercentMixin",
-                    "CMEDACODLEA": [
+                    "valueSteps": [
                         0.05000000074505806
                     ],
-                    "MIEPCOONDEM": [
+                    "modifierNameSteps": [
                         "Tartaglia_Empty",
                         "UNIQUE_Tartaglia_Transform"
                     ]
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Tartaglia_Limbo": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_HpThresholdRatio": 0.0
                     },
                     "state": "Limbo"
                 },
                 "Tartaglia_Empty": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0
                 },
                 "UNIQUE_Tartaglia_Transform": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToAnimatorStateIDMixin",
                             "stateIDs": [
                                 "Transform"
                             ],
-                            "GAIGOBCNNEE": "Tartaglia_Transform_Handler"
+                            "modifierName": "Tartaglia_Transform_Handler"
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_EndureDelta": 0.0
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ClearEndura"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "ResetPosition",
+                            "boolID": "ResetPosition",
                             "value": true
                         }
                     ]
                 },
                 "Tartaglia_Transform_Handler": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsBySelfGroup",
                                 "weight": 3
                             },
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_Transform_Effect"
+                            "modifierName": "UNIQUE_Tartaglia_Transform_Effect"
                         },
                         {
                             "$type": "KillSelf",
@@ -1188,27 +1188,27 @@
                     ]
                 },
                 "UNIQUE_Tartaglia_Transform_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Transform"
+                            "effectPattern": "Eff_Monster_Tartaglia_Transform"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_TransformAS"
+                            "effectPattern": "Eff_Monster_Tartaglia_TransformAS"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Tartaglia_Limbo"
+                    "modifierName": "UNIQUE_Tartaglia_Limbo"
                 }
             ]
         }
@@ -1217,96 +1217,96 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ResetPosition",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "ResetPosition",
-                    "GAIGOBCNNEE": "Tartaglia_ResetPosition",
-                    "AAIFCLGLOMO": 0.035999998450279236,
-                    "MMHONEIBHNP": 0.13899999856948853
+                    "stateID": "ResetPosition",
+                    "modifierName": "Tartaglia_ResetPosition",
+                    "normalizeStart": 0.035999998450279236,
+                    "normalizeEnd": 0.13899999856948853
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_ResetPosition": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableAfterImage",
                             "enable": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMove"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMove"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMoveBS"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMoveBS"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_ResetPosition_Invincible"
+                            "modifierName": "Tartaglia_ResetPosition_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_ResetPosition_DenyLockOn"
+                            "modifierName": "Tartaglia_ResetPosition_DenyLockOn"
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableAfterImage"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMoveAS"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMoveAS"
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 },
                 "Tartaglia_ResetPosition_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "Tartaglia_ResetPosition_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TryFindBlinkPointByBorn",
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByActionPoint",
-                        "JBPCKOKLHEB": true,
+                        "onGround": true,
                         "FJHFIALOBFM": "AureaePoint",
                         "LLLNBABIECO": {
                             "$type": "SelectActionPointByID",
@@ -1335,24 +1335,24 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ResetPosition_Done",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Tartaglia_ResetPosition_Done": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "ClearUp",
+                            "boolID": "ClearUp",
                             "value": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Tartaglia_ResetPosition_Done"
+                    "modifierName": "UNIQUE_Tartaglia_ResetPosition_Done"
                 }
             ]
         }
@@ -1361,39 +1361,39 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ClearUp",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_ClearUp_WindZone": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR10",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR10",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             },
                             "BHELOIADOLH": -10.0,
                             "HBBLBBPBLGE": 3.0,
                             "IPDEDFHPHPO": 0.0,
-                            "OJIFKEOCJGB": "All",
-                            "GAIGOBCNNEE": ""
+                            "targetType": "All",
+                            "modifierName": ""
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_ClearUp"
+                    "effectPattern": "Eff_Monster_Tartaglia_ClearUp"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "ICGFCBOFFDI": 12.0
+                            "radius": 12.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -1424,11 +1424,11 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_ClearUp_WindZone"
+                    "modifierName": "Tartaglia_ClearUp_WindZone"
                 }
             ]
         }
@@ -1437,24 +1437,24 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ClearUp_Done",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "UNIQUE_Tartaglia_ClearUp_Done": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
+                    "modifierName": "",
+                    "isUnique": true,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "Transform",
+                            "boolID": "Transform",
                             "value": true
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "UNIQUE_Tartaglia_ClearUp_Done"
+                    "modifierName": "UNIQUE_Tartaglia_ClearUp_Done"
                 }
             ]
         }
@@ -1463,150 +1463,150 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ChangePosition",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "ChangePosition"
                     ],
-                    "GAIGOBCNNEE": "Tartaglia_ChangePosition_State"
+                    "modifierName": "Tartaglia_ChangePosition_State"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_ChangePosition_State": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToNormalizedTimeMixin",
-                            "EFAJCDMGOHL": "ChangePosition01",
-                            "GAIGOBCNNEE": "Tartaglia_ChangePosition01",
-                            "MMHONEIBHNP": 0.05999999865889549
+                            "stateID": "ChangePosition01",
+                            "modifierName": "Tartaglia_ChangePosition01",
+                            "normalizeEnd": 0.05999999865889549
                         },
                         {
                             "$type": "AttachToNormalizedTimeMixin",
-                            "EFAJCDMGOHL": "ChangePosition02",
-                            "GAIGOBCNNEE": "Tartaglia_ChangePosition02",
-                            "MMHONEIBHNP": 0.05999999865889549
+                            "stateID": "ChangePosition02",
+                            "modifierName": "Tartaglia_ChangePosition02",
+                            "normalizeEnd": 0.05999999865889549
                         },
                         {
                             "$type": "AttachToNormalizedTimeMixin",
-                            "EFAJCDMGOHL": "ChangePosition03",
-                            "GAIGOBCNNEE": "Tartaglia_ChangePosition03",
-                            "MMHONEIBHNP": 0.05999999865889549
+                            "stateID": "ChangePosition03",
+                            "modifierName": "Tartaglia_ChangePosition03",
+                            "normalizeEnd": 0.05999999865889549
                         }
                     ]
                 },
                 "Tartaglia_ChangePosition01": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_ChangePosition"
+                            "modifierName": "Tartaglia_ChangePosition"
                         }
                     ]
                 },
                 "Tartaglia_ChangePosition02": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_ChangePosition"
+                            "modifierName": "Tartaglia_ChangePosition"
                         }
                     ]
                 },
                 "Tartaglia_ChangePosition03": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_ChangePosition"
+                            "modifierName": "Tartaglia_ChangePosition"
                         }
                     ]
                 },
                 "Tartaglia_ChangePosition": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableAfterImage",
                             "enable": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_ChangePosition"
+                            "effectPattern": "Eff_Monster_Tartaglia_ChangePosition"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_ChangePositionBS"
+                            "effectPattern": "Eff_Monster_Tartaglia_ChangePositionBS"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_ChangePosition_Invincible"
+                            "modifierName": "Tartaglia_ChangePosition_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_ChangePosition_DenyLockOn"
+                            "modifierName": "Tartaglia_ChangePosition_DenyLockOn"
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableAfterImage"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_ChangePositionAS"
+                            "effectPattern": "Eff_Monster_Tartaglia_ChangePositionAS"
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 },
                 "Tartaglia_ChangePosition_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "Tartaglia_ChangePosition_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TryFindBlinkPointByBorn",
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByActionPoint",
-                        "JBPCKOKLHEB": true,
+                        "onGround": true,
                         "FJHFIALOBFM": "AureaePoint",
                         "LLLNBABIECO": {
                             "$type": "SelectActionPointByAwayFromAvatar",
@@ -1637,15 +1637,15 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Defend",
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Tartaglia_Defend_RandomValue": 0.0,
                 "Tartaglia_DefendAttack_Probability": 0.12999999523162842
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_Defend": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -1669,7 +1669,7 @@
                                 {
                                     "$type": "SetRandomOverrideMapValue",
                                     "MOCGLDDNLKO": 1.0,
-                                    "OGAHELLALBB": "Tartaglia_Defend_RandomValue"
+                                    "overrideMapKey": "Tartaglia_Defend_RandomValue"
                                 },
                                 {
                                     "$type": "SetAnimatorFloat",
@@ -1679,14 +1679,14 @@
                                 {
                                     "$type": "AddGlobalValue",
                                     "value": 1.0,
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_DEFEND",
-                                    "EODOIECEPEF": true,
-                                    "JDHHMBHOOEC": 1.0,
-                                    "KHAHOELDONA": 0.0
+                                    "key": "_MONSTER_TARTAGLIA_DEFEND",
+                                    "useLimitRange": true,
+                                    "maxValue": 1.0,
+                                    "minValue": 0.0
                                 },
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "Tartaglia_Defend_Effect"
+                                    "modifierName": "Tartaglia_Defend_Effect"
                                 }
                             ]
                         }
@@ -1694,30 +1694,30 @@
                     "onBeingHit": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetGlobalValue",
-                                    "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_DEFEND",
+                                    "key": "_MONSTER_TARTAGLIA_DEFEND",
                                     "value": 1.0
                                 },
                                 {
                                     "$type": "ByHitEnBreak",
-                                    "DCBBLJKHKCA": 0.0
+                                    "enBreak": 0.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "Predicated",
-                                    "ELDBAFHCOBL": [
+                                    "targetPredicates": [
                                         {
                                             "$type": "ByHitElement",
-                                            "GOMLPAOIKJA": "Water"
+                                            "element": "Water"
                                         }
                                     ],
-                                    "NCNDEAPMKCP": [
+                                    "successActions": [
                                         {
                                             "$type": "RemoveModifier",
-                                            "GAIGOBCNNEE": "Tartaglia_Defend_Effect"
+                                            "modifierName": "Tartaglia_Defend_Effect"
                                         },
                                         {
                                             "$type": "SetAnimatorTrigger",
@@ -1725,8 +1725,8 @@
                                         },
                                         {
                                             "$type": "Predicated",
-                                            "NPHOOPNDCAC": "Target",
-                                            "ELDBAFHCOBL": [
+                                            "target": "Target",
+                                            "targetPredicates": [
                                                 {
                                                     "$type": "ByEntityTypes",
                                                     "entityTypes": [
@@ -1734,28 +1734,28 @@
                                                     ]
                                                 }
                                             ],
-                                            "NCNDEAPMKCP": [
+                                            "successActions": [
                                                 {
                                                     "$type": "TurnDirection",
-                                                    "NPHOOPNDCAC": "Target"
+                                                    "target": "Target"
                                                 }
                                             ],
-                                            "BMIOBLGLPIM": [
+                                            "failActions": [
                                                 {
                                                     "$type": "TurnDirection",
-                                                    "NPHOOPNDCAC": "TargetOriginOwner"
+                                                    "target": "TargetOriginOwner"
                                                 }
                                             ]
                                         }
                                     ],
-                                    "BMIOBLGLPIM": [
+                                    "failActions": [
                                         {
                                             "$type": "Randomed",
-                                            "PLKDGIELEEF": "Tartaglia_DefendAttack_Probability",
-                                            "NCNDEAPMKCP": [
+                                            "chance": "Tartaglia_DefendAttack_Probability",
+                                            "successActions": [
                                                 {
                                                     "$type": "RemoveModifier",
-                                                    "GAIGOBCNNEE": "Tartaglia_Defend_Effect"
+                                                    "modifierName": "Tartaglia_Defend_Effect"
                                                 },
                                                 {
                                                     "$type": "SetAnimatorTrigger",
@@ -1763,8 +1763,8 @@
                                                 },
                                                 {
                                                     "$type": "Predicated",
-                                                    "NPHOOPNDCAC": "Target",
-                                                    "ELDBAFHCOBL": [
+                                                    "target": "Target",
+                                                    "targetPredicates": [
                                                         {
                                                             "$type": "ByEntityTypes",
                                                             "entityTypes": [
@@ -1772,16 +1772,16 @@
                                                             ]
                                                         }
                                                     ],
-                                                    "NCNDEAPMKCP": [
+                                                    "successActions": [
                                                         {
                                                             "$type": "TurnDirection",
-                                                            "NPHOOPNDCAC": "Target"
+                                                            "target": "Target"
                                                         }
                                                     ],
-                                                    "BMIOBLGLPIM": [
+                                                    "failActions": [
                                                         {
                                                             "$type": "TurnDirection",
-                                                            "NPHOOPNDCAC": "TargetOriginOwner"
+                                                            "target": "TargetOriginOwner"
                                                         }
                                                     ]
                                                 }
@@ -1794,46 +1794,46 @@
                         {
                             "$type": "AddGlobalValue",
                             "value": -10.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_DEFEND",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 1.0,
-                            "KHAHOELDONA": 0.0
+                            "key": "_MONSTER_TARTAGLIA_DEFEND",
+                            "useLimitRange": true,
+                            "maxValue": 1.0,
+                            "minValue": 0.0
                         }
                     ]
                 },
                 "Tartaglia_Defend_Effect": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Blade_Defend"
+                            "effectPattern": "Eff_Monster_Tartaglia_Blade_Defend"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "StopAttack",
+                            "boolID": "StopAttack",
                             "value": true
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Blade_Defend_Broken"
+                            "effectPattern": "Eff_Monster_Tartaglia_Blade_Defend_Broken"
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "StopAttack"
+                            "boolID": "StopAttack"
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "FireEffect",
-                            "NPHOOPNDCAC": "Target",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Blade_Defend_BeHit",
-                            "NGDMCBABOJA": {
+                            "target": "Target",
+                            "effectPattern": "Eff_Monster_Tartaglia_Blade_Defend_BeHit",
+                            "born": {
                                 "$type": "ConfigBornBySelf",
-                                "NHPNHKBMAEO": {
+                                "direction": {
                                     "$type": "ConfigDirectionByLookAtEntity"
                                 }
                             }
@@ -1841,14 +1841,14 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_Defend"
+                    "modifierName": "Tartaglia_Defend"
                 },
                 {
                     "$type": "SetAnimatorBool",
-                    "HHFIHBEAPAP": "DefendState",
+                    "boolID": "DefendState",
                     "value": true
                 }
             ]
@@ -1858,64 +1858,64 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_Recover",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByStateIDMixin",
                     "stateIDs": [
                         "BeHit"
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "Predicated",
-                            "ELDBAFHCOBL": [
+                            "targetPredicates": [
                                 {
                                     "$type": "ByAnimatorBool",
                                     "value": true,
-                                    "MOCGJNIDDAI": "DefendState"
+                                    "parameter": "DefendState"
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "ApplyModifier",
-                                    "GAIGOBCNNEE": "Tartaglia_Recover_Timer"
+                                    "modifierName": "Tartaglia_Recover_Timer"
                                 }
                             ]
                         }
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Tartaglia_Recover_RandomTime": 7.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_Recover_WindZone": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 0.5,
+                    "modifierName": "",
+                    "duration": 0.5,
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "WindZoneMixin",
-                            "JBKKOJLJHDK": "CircleR10",
-                            "NGDMCBABOJA": {
+                            "shapeName": "CircleR10",
+                            "born": {
                                 "$type": "ConfigBornBySelf"
                             },
                             "BHELOIADOLH": -10.0,
                             "HBBLBBPBLGE": 3.0,
                             "IPDEDFHPHPO": 0.0,
-                            "OJIFKEOCJGB": "All",
-                            "GAIGOBCNNEE": ""
+                            "targetType": "All",
+                            "modifierName": ""
                         }
                     ]
                 },
                 "Tartaglia_Recover_Timer": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": [
+                    "modifierName": "",
+                    "duration": [
                         1.0,
                         "Tartaglia_Recover_RandomTime",
                         "Add"
                     ],
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "MonsterDefendMixin",
                             "stateIDs": [
@@ -1929,12 +1929,12 @@
                             "GOLCBAPOOLF": [
                                 {
                                     "$type": "RemoveModifier",
-                                    "GAIGOBCNNEE": "Tartaglia_Recover_Timer"
+                                    "modifierName": "Tartaglia_Recover_Timer"
                                 }
                             ]
                         }
                     ],
-                    "FFOHEEFOELN": {
+                    "properties": {
                         "Actor_PhysicalSubHurtDelta": -0.30000001192092896,
                         "Actor_FireSubHurtDelta": -0.30000001192092896,
                         "Actor_ElecSubHurtDelta": -0.30000001192092896,
@@ -1944,45 +1944,45 @@
                         "Actor_IceSubHurtDelta": -0.30000001192092896,
                         "Actor_RockSubHurtDelta": -0.30000001192092896
                     },
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "StopAttack",
+                            "boolID": "StopAttack",
                             "value": true
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "DefendState"
+                            "boolID": "DefendState"
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ClearEndura"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "DefendState",
+                            "boolID": "DefendState",
                             "value": true
                         },
                         {
                             "$type": "SetAISkillCDAvailableNow",
-                            "FJNGOGJOBEE": [
+                            "skillIDs": [
                                 601
                             ]
                         },
                         {
                             "$type": "SetPoseBool",
-                            "HHFIHBEAPAP": "StopAttack"
+                            "boolID": "StopAttack"
                         }
                     ],
                     "onBeingHit": [
                         {
                             "$type": "TurnDirectionToPos",
-                            "NPHOOPNDCAC": "TargetOriginOwner",
+                            "target": "TargetOriginOwner",
                             "predicates": [
                                 {
                                     "$type": "ByHitEnBreak",
-                                    "DCBBLJKHKCA": 0.0
+                                    "enBreak": 0.0
                                 }
                             ],
                             "FJCBIPKOKMF": {
@@ -1992,24 +1992,24 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "SetAISkillCDAvailableNow",
-                    "FJNGOGJOBEE": [
+                    "skillIDs": [
                         501
                     ]
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Blade_Recover"
+                    "effectPattern": "Eff_Monster_Tartaglia_Blade_Recover"
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackSphere",
                             "lifeTime": "TriggerNoRepeat",
-                            "ICGFCBOFFDI": 8.0
+                            "radius": 8.0
                         },
                         "attackInfo": {
                             "attackTag": "",
@@ -2040,11 +2040,11 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_Recover_WindZone"
+                    "modifierName": "Tartaglia_Recover_WindZone"
                 }
             ]
         }
@@ -2053,75 +2053,75 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_NormalAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByStateIDMixin",
                     "stateIDs": [
                         "NormalAttack"
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -10.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_NORMALATTACK",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_MONSTER_TARTAGLIA_BOW_NORMALATTACK",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 1.0
                         },
                         {
                             "$type": "SetRandomOverrideMapValue",
                             "MOCGLDDNLKO": 4.5,
                             "DMNANPGJBJH": 0.5,
-                            "OGAHELLALBB": "Tartaglia_NormalAttack_Count"
+                            "overrideMapKey": "Tartaglia_NormalAttack_Count"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsAttackOver"
+                            "boolID": "IsAttackOver"
                         }
                     ]
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Tartaglia_NormalAttack_Count": 3.0
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42903002,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42903002,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
                             "IHHIKIACOML": "Vertical",
                             "INCAGGBCJNF": 30.0
                         },
-                        "KJNJNKLLNCN": "WeaponL"
+                        "attachPointName": "WeaponL"
                     }
                 },
                 {
                     "$type": "Predicated",
-                    "ELDBAFHCOBL": [
+                    "targetPredicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_NORMALATTACK",
+                            "key": "_MONSTER_TARTAGLIA_BOW_NORMALATTACK",
                             "value": "Tartaglia_NormalAttack_Count",
-                            "ONPJJFKDCED": "LessAndEqual"
+                            "compareType": "LessAndEqual"
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_NORMALATTACK",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_MONSTER_TARTAGLIA_BOW_NORMALATTACK",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 1.0
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsAttackOver",
+                            "boolID": "IsAttackOver",
                             "value": true
                         }
                     ]
@@ -2133,59 +2133,59 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_NormalAttack_Arrow",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "NormalAttack_Arrow_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_NormalAttack_Arrow"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_NormalAttack_Arrow"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_NormalAttack_ArrowTrail"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_NormalAttack_ArrowTrail"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "NormalAttack_Arrow_Effect"
+                    "modifierName": "NormalAttack_Arrow_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "NormalAttack_Arrow_Effect"
+                    "modifierName": "NormalAttack_Arrow_Effect"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_NormalAttack_ArrowHit",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Tartaglia_Bow_NormalAttack_ArrowHit",
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint"
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "MLOEFNBPCCH": "Both",
-                            "NGDMCBABOJA": {
+                            "checkHitLayerType": "Both",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -0.5
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": -0.5
                                 }
                             },
                             "size": {
-                                "AEAAJCIDPED": 0.10000000149011612,
-                                "KAAPLGBEDPM": 0.10000000149011612,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 0.10000000149011612,
+                                "y": 0.10000000149011612,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -2206,7 +2206,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -2215,111 +2215,111 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_RangeAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToStateIDMixin",
                     "stateIDs": [
                         "RangeAttack",
                         "RangeAttack_Steer"
                     ],
-                    "GAIGOBCNNEE": "Tartaglia_RangeAttack"
+                    "modifierName": "Tartaglia_RangeAttack"
                 },
                 {
                     "$type": "SteerAttackMixin",
-                    "EHNAPMMMNFI": [
+                    "steerStateIDs": [
                         "RangeAttack_Steer"
                     ],
-                    "IMHBEGIKDKB": 0.5,
-                    "HENDIIJFPCI": 450.0,
-                    "NCAENFOANAG": ""
+                    "endNormalizedTime": 0.5,
+                    "angularSpeed": 450.0,
+                    "attackTrigger": ""
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Tartaglia_RangeAttack_Count": 3.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_RangeAttack": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "AttachToAnimatorStateIDMixin",
                             "stateIDs": [
                                 "RangeAttackLoop01",
                                 "RangeAttackLoop02"
                             ],
-                            "GAIGOBCNNEE": "Tartaglia_RangeAttack_Effect"
+                            "modifierName": "Tartaglia_RangeAttack_Effect"
                         }
                     ],
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -10.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_RANGEATTACK",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_MONSTER_TARTAGLIA_BOW_RANGEATTACK",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 1.0
                         },
                         {
                             "$type": "SetRandomOverrideMapValue",
                             "MOCGLDDNLKO": 4.5,
                             "DMNANPGJBJH": 0.5,
-                            "OGAHELLALBB": "Tartaglia_RangeAttack_Count"
+                            "overrideMapKey": "Tartaglia_RangeAttack_Count"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsAttackOver"
+                            "boolID": "IsAttackOver"
                         }
                     ]
                 },
                 "Tartaglia_RangeAttack_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_RangeAttackLoop"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_RangeAttackLoop"
                         }
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42903001,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42903001,
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.75,
-                            "PHDCJAHHIOG": 1.0
+                            "x": 0.0,
+                            "y": 0.75,
+                            "z": 1.0
                         }
                     }
                 },
                 {
                     "$type": "Predicated",
-                    "ELDBAFHCOBL": [
+                    "targetPredicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_RANGEATTACK",
+                            "key": "_MONSTER_TARTAGLIA_BOW_RANGEATTACK",
                             "value": "Tartaglia_RangeAttack_Count",
-                            "ONPJJFKDCED": "LessAndEqual"
+                            "compareType": "LessAndEqual"
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_RANGEATTACK",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 5.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_MONSTER_TARTAGLIA_BOW_RANGEATTACK",
+                            "useLimitRange": true,
+                            "maxValue": 5.0,
+                            "minValue": 1.0
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsAttackOver",
+                            "boolID": "IsAttackOver",
                             "value": true
                         }
                     ]
@@ -2331,32 +2331,32 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_RangeAttack_Bullet",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "RangeAttack_Bullet_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_RangeAttack_Bullet"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_RangeAttack_Bullet"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_RangeAttack_BulletTrail"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_RangeAttack_BulletTrail"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "RangeAttack_Bullet_Effect"
+                    "modifierName": "RangeAttack_Bullet_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "Predicated",
-                    "ELDBAFHCOBL": [
+                    "targetPredicates": [
                         {
                             "$type": "ByNot",
                             "predicates": [
@@ -2364,47 +2364,47 @@
                                     "$type": "ByAttackNotHitScene",
                                     "attackPattern": {
                                         "$type": "ConfigAttackSphere",
-                                        "NGDMCBABOJA": {
+                                        "born": {
                                             "$type": "ConfigBornByCollisionPoint"
                                         },
-                                        "ICGFCBOFFDI": 0.25
+                                        "radius": 0.25
                                     }
                                 }
                             ]
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "RemoveModifier",
-                            "GAIGOBCNNEE": "RangeAttack_Bullet_Effect"
+                            "modifierName": "RangeAttack_Bullet_Effect"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_RangeAttack_BulletHitScene",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_RangeAttack_BulletHitScene",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
-                                "JBPCKOKLHEB": true
+                                "onGround": true
                             }
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_RangeAttack_BulletHit",
-                            "NGDMCBABOJA": {
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_RangeAttack_BulletHit",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint"
                             }
                         },
                         {
                             "$type": "TriggerAttackEvent",
-                            "DMCJDGELKBC": {
+                            "attackEvent": {
                                 "attackPattern": {
                                     "$type": "ConfigAttackSphere",
                                     "lifeTime": "TriggerNoRepeat",
-                                    "NGDMCBABOJA": {
+                                    "born": {
                                         "$type": "ConfigBornByCollisionPoint"
                                     },
-                                    "ICGFCBOFFDI": 0.5
+                                    "radius": 0.5
                                 },
                                 "attackInfo": {
                                     "attackTag": "Tartaglia_Riptide",
@@ -2424,7 +2424,7 @@
                                     }
                                 }
                             },
-                            "OJIFKEOCJGB": "Enemy"
+                            "targetType": "Enemy"
                         }
                     ]
                 }
@@ -2435,18 +2435,18 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ComboAttack_Default",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42903003,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42903003,
+                    "born": {
                         "$type": "ConfigBornByAttachPoint",
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
                             "IHHIKIACOML": "Vertical",
                             "INCAGGBCJNF": 30.0
                         },
-                        "KJNJNKLLNCN": "WeaponL"
+                        "attachPointName": "WeaponL"
                     }
                 }
             ]
@@ -2456,18 +2456,18 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ComboAttack_Special_01",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42903003,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42903003,
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": -0.12939999997615814,
-                            "KAAPLGBEDPM": 1.50600004196167,
-                            "PHDCJAHHIOG": 0.3553999960422516
+                            "x": -0.12939999997615814,
+                            "y": 1.50600004196167,
+                            "z": 0.3553999960422516
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
                             "IHHIKIACOML": "Vertical",
                             "INCAGGBCJNF": 30.0
@@ -2481,18 +2481,18 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ComboAttack_Special_02",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TriggerBullet",
-                    "NGAAOMEHOGE": 42903003,
-                    "NGDMCBABOJA": {
+                    "bulletID": 42903003,
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": -0.020999999716877937,
-                            "KAAPLGBEDPM": 1.100000023841858,
-                            "PHDCJAHHIOG": 1.399999976158142
+                            "x": -0.020999999716877937,
+                            "y": 1.100000023841858,
+                            "z": 1.399999976158142
                         },
-                        "NHPNHKBMAEO": {
+                        "direction": {
                             "$type": "ConfigDirectionByAttackTarget",
                             "IHHIKIACOML": "Vertical",
                             "INCAGGBCJNF": 30.0
@@ -2506,59 +2506,59 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ComboAttack_Arrow",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "ComboAttack_Arrow_Effect": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_ComboAttack_Arrow"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_ComboAttack_Arrow"
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_ComboAttack_ArrowTrail"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_ComboAttack_ArrowTrail"
                         }
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "ComboAttack_Arrow_Effect"
+                    "modifierName": "ComboAttack_Arrow_Effect"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "RemoveModifier",
-                    "GAIGOBCNNEE": "ComboAttack_Arrow_Effect"
+                    "modifierName": "ComboAttack_Arrow_Effect"
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_ComboAttack_ArrowHit",
-                    "NGDMCBABOJA": {
+                    "effectPattern": "Eff_Monster_Tartaglia_Bow_ComboAttack_ArrowHit",
+                    "born": {
                         "$type": "ConfigBornByCollisionPoint"
                     }
                 },
                 {
                     "$type": "TriggerAttackEvent",
-                    "DMCJDGELKBC": {
+                    "attackEvent": {
                         "attackPattern": {
                             "$type": "ConfigAttackBox",
                             "lifeTime": "TriggerNoRepeat",
-                            "MLOEFNBPCCH": "Both",
-                            "NGDMCBABOJA": {
+                            "checkHitLayerType": "Both",
+                            "born": {
                                 "$type": "ConfigBornByCollisionPoint",
                                 "offset": {
-                                    "AEAAJCIDPED": 0.0,
-                                    "KAAPLGBEDPM": 0.0,
-                                    "PHDCJAHHIOG": -0.5
+                                    "x": 0.0,
+                                    "y": 0.0,
+                                    "z": -0.5
                                 }
                             },
                             "size": {
-                                "AEAAJCIDPED": 0.10000000149011612,
-                                "KAAPLGBEDPM": 0.10000000149011612,
-                                "PHDCJAHHIOG": 1.0
+                                "x": 0.10000000149011612,
+                                "y": 0.10000000149011612,
+                                "z": 1.0
                             }
                         },
                         "attackInfo": {
@@ -2579,7 +2579,7 @@
                             }
                         }
                     },
-                    "OJIFKEOCJGB": "Enemy"
+                    "targetType": "Enemy"
                 }
             ]
         }
@@ -2588,52 +2588,52 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_CoverAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "DoActionByStateIDMixin",
                     "stateIDs": [
                         "CoverAttack"
                     ],
-                    "KELPBOLPMNI": [
+                    "enterActions": [
                         {
                             "$type": "AddGlobalValue",
                             "value": -100.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_COVERATTACK",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 99.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_MONSTER_TARTAGLIA_BOW_COVERATTACK",
+                            "useLimitRange": true,
+                            "maxValue": 99.0,
+                            "minValue": 1.0
                         },
                         {
                             "$type": "SetRandomOverrideMapValue",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Equal",
+                                    "logic": "Equal",
                                     "value": 105.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
                             "MOCGLDDNLKO": 15.5,
                             "DMNANPGJBJH": 7.5,
-                            "OGAHELLALBB": "Tartaglia_CoverAttack_Count"
+                            "overrideMapKey": "Tartaglia_CoverAttack_Count"
                         },
                         {
                             "$type": "SetRandomOverrideMapValue",
                             "predicates": [
                                 {
                                     "$type": "ByAnimatorFloat",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 105.0,
-                                    "MOCGJNIDDAI": "PoseID"
+                                    "parameter": "PoseID"
                                 }
                             ],
                             "MOCGLDDNLKO": 7.5,
                             "DMNANPGJBJH": 3.5,
-                            "OGAHELLALBB": "Tartaglia_CoverAttack_Count"
+                            "overrideMapKey": "Tartaglia_CoverAttack_Count"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsAttackOver"
+                            "boolID": "IsAttackOver"
                         }
                     ]
                 },
@@ -2642,17 +2642,17 @@
                     "stateIDs": [
                         "CoverAttack"
                     ],
-                    "GAIGOBCNNEE": "CoverAttack_Interrupt"
+                    "modifierName": "CoverAttack_Interrupt"
                 }
             ],
-            "EDDGGPMFDGK": {
+            "abilitySpecials": {
                 "Tartaglia_CoverAttack_Count": 3.0
             },
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "CoverAttack_Interrupt": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "FNJKJKACMCH": [
+                    "modifierMixins": [
                         {
                             "$type": "DoActionByPoseIDMixin",
                             "poseIDs": [
@@ -2663,7 +2663,7 @@
                             "MCFCEOACJEB": [
                                 {
                                     "$type": "SetAnimatorBool",
-                                    "HHFIHBEAPAP": "IsAttackOver",
+                                    "boolID": "IsAttackOver",
                                     "value": true
                                 }
                             ]
@@ -2671,51 +2671,51 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_CoverAttack"
+                    "effectPattern": "Eff_Monster_Tartaglia_Bow_CoverAttack"
                 },
                 {
                     "$type": "CreateGadget",
-                    "NPHOOPNDCAC": "SelfAttackTarget",
-                    "NGDMCBABOJA": {
+                    "target": "SelfAttackTarget",
+                    "born": {
                         "$type": "ConfigBornByTarget",
-                        "HAGMNJAHNLG": {
+                        "bornRandom": {
                             "$type": "BornRandomFromCenter",
-                            "LJCNOPEIJEF": 0.0,
-                            "MFBOELKCPDP": 2.0
+                            "minRandomRange": 0.0,
+                            "maxRandomRange": 2.0
                         },
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     },
-                    "CABLIPAKCGB": 42903004,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Enemy"
+                    "gadgetID": 42903004,
+                    "campID": 4001,
+                    "campTargetType": "Enemy"
                 },
                 {
                     "$type": "Predicated",
-                    "ELDBAFHCOBL": [
+                    "targetPredicates": [
                         {
                             "$type": "ByTargetGlobalValue",
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_COVERATTACK",
+                            "key": "_MONSTER_TARTAGLIA_BOW_COVERATTACK",
                             "value": "Tartaglia_CoverAttack_Count",
-                            "ONPJJFKDCED": "LessAndEqual"
+                            "compareType": "LessAndEqual"
                         }
                     ],
-                    "NCNDEAPMKCP": [
+                    "successActions": [
                         {
                             "$type": "AddGlobalValue",
                             "value": 1.0,
-                            "HJJEAOMEOFI": "_MONSTER_TARTAGLIA_BOW_COVERATTACK",
-                            "EODOIECEPEF": true,
-                            "JDHHMBHOOEC": 99.0,
-                            "KHAHOELDONA": 1.0
+                            "key": "_MONSTER_TARTAGLIA_BOW_COVERATTACK",
+                            "useLimitRange": true,
+                            "maxValue": 99.0,
+                            "minValue": 1.0
                         }
                     ],
-                    "BMIOBLGLPIM": [
+                    "failActions": [
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "IsAttackOver",
+                            "boolID": "IsAttackOver",
                             "value": true
                         }
                     ]
@@ -2727,45 +2727,45 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_CoverAttack_Anchor",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_CoverAttack_Damage_Handler": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.100000023841858,
+                    "modifierName": "",
+                    "duration": 1.100000023841858,
                     "elementDurability": 100.0,
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "AllPlayerAvatars",
-                            "GAIGOBCNNEE": "Tartaglia_CoverAttack_Damage"
+                            "target": "AllPlayerAvatars",
+                            "modifierName": "Tartaglia_CoverAttack_Damage"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_CoverAttack_Explosion"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_CoverAttack_Explosion"
                         }
                     ]
                 },
                 "Tartaglia_CoverAttack_Damage": {
-                    "GAIGOBCNNEE": "",
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Applier",
-                            "ELDBAFHCOBL": [
+                            "target": "Applier",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 3.0
                                 },
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "ONPJJFKDCED": "Y",
+                                    "logic": "Lesser",
+                                    "compareType": "Y",
                                     "value": 3.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "DamageByAttackValue",
                                     "attackInfo": {
@@ -2792,14 +2792,14 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_CoverAttack_Alert"
+                    "effectPattern": "Eff_Monster_Tartaglia_Bow_CoverAttack_Alert"
                 },
                 {
                     "$type": "ApplyModifier",
-                    "GAIGOBCNNEE": "Tartaglia_CoverAttack_Damage_Handler"
+                    "modifierName": "Tartaglia_CoverAttack_Damage_Handler"
                 }
             ]
         }
@@ -2808,95 +2808,95 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_PowerAttackBS",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "PowerAttackBS",
-                    "GAIGOBCNNEE": "Tartaglia_PowerAttackBS"
+                    "stateID": "PowerAttackBS",
+                    "modifierName": "Tartaglia_PowerAttackBS"
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_PowerAttackBS": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableAfterImage",
                             "enable": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMove"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMove"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMoveBS"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMoveBS"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_PowerAttackBS_Invincible"
+                            "modifierName": "Tartaglia_PowerAttackBS_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_PowerAttackBS_DenyLockOn"
+                            "modifierName": "Tartaglia_PowerAttackBS_DenyLockOn"
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableAfterImage"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMoveAS"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMoveAS"
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 },
                 "Tartaglia_PowerAttackBS_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "Tartaglia_PowerAttackBS_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TryFindBlinkPointByBorn",
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByActionPoint",
-                        "JBPCKOKLHEB": true,
-                        "NHPNHKBMAEO": {
+                        "onGround": true,
+                        "direction": {
                             "$type": "ConfigDirectionByEntity"
                         },
                         "FJHFIALOBFM": "AureaePoint",
@@ -2938,13 +2938,13 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_PowerAttack",
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TurnDirectionToPos",
                     "FJCBIPKOKMF": {
                         "$type": "ConfigBornByActionPoint",
-                        "JBPCKOKLHEB": true,
-                        "NHPNHKBMAEO": {
+                        "onGround": true,
+                        "direction": {
                             "$type": "ConfigDirectionByLookAtEntity"
                         },
                         "FJHFIALOBFM": "AureaePoint",
@@ -2956,14 +2956,14 @@
                 },
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_PowerAttack"
+                    "effectPattern": "Eff_Monster_Tartaglia_Bow_PowerAttack"
                 },
                 {
                     "$type": "CreateGadget",
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornByActionPoint",
-                        "JBPCKOKLHEB": true,
-                        "NHPNHKBMAEO": {
+                        "onGround": true,
+                        "direction": {
                             "$type": "ConfigDirectionByEntity"
                         },
                         "FJHFIALOBFM": "AureaePoint",
@@ -2972,9 +2972,9 @@
                             "FEFAIFDFKME": 1
                         }
                     },
-                    "CABLIPAKCGB": 42903008,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Enemy"
+                    "gadgetID": 42903008,
+                    "campID": 4001,
+                    "campTargetType": "Enemy"
                 }
             ]
         }
@@ -2983,68 +2983,68 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_PowerAttack_Summon",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_PowerAttack_Monoceros": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_PowerAttack_Monoceros"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_PowerAttack_Monoceros"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_PowerAttack_Monoceros_Up"
+                            "effectPattern": "Eff_Monster_Tartaglia_Bow_PowerAttack_Monoceros_Up"
                         },
                         {
                             "$type": "SetAnimatorBool",
-                            "HHFIHBEAPAP": "Attack_Burst",
+                            "boolID": "Attack_Burst",
                             "value": true
                         },
                         {
                             "$type": "ApplyModifier",
-                            "GILFKOBKGLI": {
+                            "otherTargets": {
                                 "$type": "SelectTargetsByChildren",
-                                "APIAFGPIIHE": 42903009
+                                "configID": 42903009
                             },
-                            "GAIGOBCNNEE": "Tartaglia_PowerAttack_Monoceros_UpDamage"
+                            "modifierName": "Tartaglia_PowerAttack_Monoceros_UpDamage"
                         }
                     ]
                 },
                 "Tartaglia_PowerAttack_Monoceros_UpDamage": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "AllPlayerAvatars",
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_PowerAttack_Monoceros_UpDamage"
+                            "target": "AllPlayerAvatars",
+                            "modifierName": "UNIQUE_Tartaglia_PowerAttack_Monoceros_UpDamage"
                         }
                     ]
                 },
                 "UNIQUE_Tartaglia_PowerAttack_Monoceros_UpDamage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Applier",
-                            "ELDBAFHCOBL": [
+                            "target": "Applier",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 10.0
                                 },
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "ONPJJFKDCED": "Y",
+                                    "logic": "Lesser",
+                                    "compareType": "Y",
                                     "value": 5.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "DamageByAttackValue",
                                     "attackInfo": {
@@ -3070,14 +3070,14 @@
                     ]
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByChildren",
-                        "APIAFGPIIHE": 42903008
+                        "configID": 42903008
                     },
-                    "GAIGOBCNNEE": "Tartaglia_PowerAttack_Monoceros"
+                    "modifierName": "Tartaglia_PowerAttack_Monoceros"
                 }
             ]
         }
@@ -3086,41 +3086,41 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_PowerAttack_Monoceros",
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_PowerAttack_Monoceros_DownDamage": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "ApplyModifier",
-                            "NPHOOPNDCAC": "AllPlayerAvatars",
-                            "GAIGOBCNNEE": "UNIQUE_Tartaglia_PowerAttack_Monoceros_DownDamage"
+                            "target": "AllPlayerAvatars",
+                            "modifierName": "UNIQUE_Tartaglia_PowerAttack_Monoceros_DownDamage"
                         }
                     ]
                 },
                 "UNIQUE_Tartaglia_PowerAttack_Monoceros_DownDamage": {
-                    "GAIGOBCNNEE": "",
-                    "IEOFBCGJGEK": true,
-                    "GMIMMDOGGIO": 1.0,
+                    "modifierName": "",
+                    "isUnique": true,
+                    "duration": 1.0,
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "Predicated",
-                            "NPHOOPNDCAC": "Applier",
-                            "ELDBAFHCOBL": [
+                            "target": "Applier",
+                            "targetPredicates": [
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
+                                    "logic": "Lesser",
                                     "value": 15.0
                                 },
                                 {
                                     "$type": "ByTargetPositionToSelfPosition",
-                                    "GMFCOCAJBDM": "Lesser",
-                                    "ONPJJFKDCED": "Y",
+                                    "logic": "Lesser",
+                                    "compareType": "Y",
                                     "value": 5.0
                                 }
                             ],
-                            "NCNDEAPMKCP": [
+                            "successActions": [
                                 {
                                     "$type": "DamageByAttackValue",
                                     "attackInfo": {
@@ -3146,52 +3146,52 @@
                     ]
                 }
             },
-            "KCICDEJLIJD": [
+            "onAdded": [
                 {
                     "$type": "FireEffect",
-                    "JBHFPDMBFHN": "Eff_Monster_Tartaglia_Bow_PowerAttack_Alert"
+                    "effectPattern": "Eff_Monster_Tartaglia_Bow_PowerAttack_Alert"
                 },
                 {
                     "$type": "CreateGadget",
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": -10.0
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": -10.0
                         },
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     },
-                    "CABLIPAKCGB": 42903009,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Enemy"
+                    "gadgetID": 42903009,
+                    "campID": 4001,
+                    "campTargetType": "Enemy"
                 },
                 {
                     "$type": "CreateGadget",
                     "NJEOPILMKCN": true,
-                    "NGDMCBABOJA": {
+                    "born": {
                         "$type": "ConfigBornBySelf",
                         "offset": {
-                            "AEAAJCIDPED": 0.0,
-                            "KAAPLGBEDPM": 0.0,
-                            "PHDCJAHHIOG": 5.570000171661377
+                            "x": 0.0,
+                            "y": 0.0,
+                            "z": 5.570000171661377
                         },
-                        "JBPCKOKLHEB": true
+                        "onGround": true
                     },
-                    "CABLIPAKCGB": 42903010,
-                    "DOLAJLACEDF": 4001,
-                    "ONPOPLLHJLE": "Enemy"
+                    "gadgetID": 42903010,
+                    "campID": 4001,
+                    "campTargetType": "Enemy"
                 }
             ],
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "ApplyModifier",
-                    "GILFKOBKGLI": {
+                    "otherTargets": {
                         "$type": "SelectTargetsByChildren",
-                        "APIAFGPIIHE": 42903010
+                        "configID": 42903010
                     },
-                    "GAIGOBCNNEE": "Tartaglia_PowerAttack_Monoceros_DownDamage"
+                    "modifierName": "Tartaglia_PowerAttack_Monoceros_DownDamage"
                 },
                 {
                     "$type": "KillSelf",
@@ -3204,96 +3204,96 @@
         "Default": {
             "$type": "ConfigAbility",
             "abilityName": "Tartaglia_ExtraAttack",
-            "CHBMMFLIIGH": [
+            "abilityMixins": [
                 {
                     "$type": "AttachToNormalizedTimeMixin",
-                    "EFAJCDMGOHL": "RushMove",
-                    "GAIGOBCNNEE": "Tartaglia_RushMove",
-                    "AAIFCLGLOMO": 0.6000000238418579
+                    "stateID": "RushMove",
+                    "modifierName": "Tartaglia_RushMove",
+                    "normalizeStart": 0.6000000238418579
                 }
             ],
-            "HNEIEGHMLKH": {
+            "modifiers": {
                 "Tartaglia_RushMove": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
-                    "KCICDEJLIJD": [
+                    "onAdded": [
                         {
                             "$type": "EnableAfterImage",
                             "enable": true
                         },
                         {
                             "$type": "AttachEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMove"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMove"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMoveBS"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMoveBS"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_RushMove_Invincible"
+                            "modifierName": "Tartaglia_RushMove_Invincible"
                         },
                         {
                             "$type": "AttachModifier",
-                            "GAIGOBCNNEE": "Tartaglia_RushMove_DenyLockOn"
+                            "modifierName": "Tartaglia_RushMove_DenyLockOn"
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ]
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ]
                         }
                     ],
-                    "ILBIENDPCBG": [
+                    "onRemoved": [
                         {
                             "$type": "EnableAfterImage"
                         },
                         {
                             "$type": "FireEffect",
-                            "JBHFPDMBFHN": "Eff_Monster_Tartaglia_RushMoveAS"
+                            "effectPattern": "Eff_Monster_Tartaglia_RushMoveAS"
                         },
                         {
                             "$type": "EnableHitBoxByName",
-                            "EACGOCFODIC": [
+                            "hitBoxNames": [
                                 "HitBox",
                                 "HeadBox"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         },
                         {
                             "$type": "EnablePushColliderName",
-                            "LEHFIPJFKBC": [
+                            "pushColliderNames": [
                                 "PushCollider"
                             ],
-                            "PAHBCOACBAI": true
+                            "setEnable": true
                         }
                     ]
                 },
                 "Tartaglia_RushMove_Invincible": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "Invincible"
                 },
                 "Tartaglia_RushMove_DenyLockOn": {
-                    "GAIGOBCNNEE": "",
+                    "modifierName": "",
                     "elementDurability": 100.0,
                     "state": "DenyLockOn"
                 }
             },
-            "HKBHLMNEMKM": [
+            "onAbilityStart": [
                 {
                     "$type": "TryFindBlinkPointByBorn",
-                    "NPHOOPNDCAC": "SelfAttackTarget",
-                    "NGDMCBABOJA": {
+                    "target": "SelfAttackTarget",
+                    "born": {
                         "$type": "ConfigBornByTargetLinearPoint",
-                        "JBPCKOKLHEB": true,
+                        "onGround": true,
                         "FOILCBGLNDF": -1.0,
                         "JBNMHNDDJJC": 0.0,
                         "GCJBBHLBLLG": 50.0
