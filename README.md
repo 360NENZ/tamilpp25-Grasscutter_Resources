@@ -1,6 +1,6 @@
 # Grasscutter_Resources
-> <em>Resource Version - Certain Anime Game V3.0.0</em><br/>
-> BinOuput is not "Fully" Updated to V3.0.0, Only Embryos & Scene Points
+> <em>Resource Version - Certain Anime Game V3.1.0</em><br/>
+> BinOuput is not "Fully" Updated to V3.1.0, Only Embryos & Scene Points
 
 - ExcelBinOutput - [ V2.8 QuestExcelConfigData ]
 - BinOutput
@@ -11,7 +11,7 @@
 - CutsceneKeys
 
 ## Known Issue
-1. Cannot play V3.0 Quest
+1. Cannot play Quest from V3.0 or Later 
 
 ## Credits 
  - [Grasscutter](https://github.com/Grasscutters/Grasscutter) <br/>
