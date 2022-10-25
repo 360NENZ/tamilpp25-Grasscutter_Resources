@@ -62,24 +62,11 @@ L1_1[1] = L2_1
 suites = L1_1
 function L1_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2
-  L2_2 = ScriptLib
-  L2_2 = L2_2.GetEntityType
-  L3_2 = A1_2.target_eid
-  L2_2 = (A0_2, L3_2)
-  L3_2 = EntityType
-  L3_2 = L3_2.AVATAR
-  if L2_2 == L3_2 then
-    L2_2 = ScriptLib
-    L2_2 = L2_2.GetQuestState
-    L3_2 = A0_2
-    L4_2 = A1_2.target_eid
-    L5_2 = 48606
-    L2_2 = L2_2(L3_2, L4_2, L5_2)
-    L3_2 = QuestState
-    L3_2 = L3_2.UNFINISHED
-    if L2_2 == L3_2 then
-      L2_2 = A1_2.param1
-      if L2_2 == 4 then
+  L2_2 = ScriptLib.GetEntityType(A0_2, A1_2.target_eid)
+  if L2_2 == EntityType.AVATAR then
+    L2_2 = ScriptLib.GetQuestState(A0_2, A1_2.target_eid, 48606)
+    if L2_2 == QuestState.UNFINISHED then
+      if A1_2.param1 == 4 then
         L2_2 = true
         return L2_2
       end

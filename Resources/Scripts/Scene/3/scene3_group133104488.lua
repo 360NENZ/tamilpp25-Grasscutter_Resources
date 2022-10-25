@@ -943,180 +943,44 @@ function L2_1(A0_2, A1_2)
   return L2_2
 end
 condition_EVENT_GADGET_STATE_CHANGE_488016 = L2_1
-function L2_1(A0_2, A1_2)
-  local L2_2, L3_2, L4_2, L5_2
-  L2_2 = GadgetState
-  L2_2 = L2_2.Default
-  L3_2 = A1_2.param1
-  if L2_2 == L3_2 then
-    L2_2 = L1_1.gadget_1
-    L3_2 = A1_2.param2
-    if L2_2 ~= L3_2 then
-      L2_2 = L1_1.gadget_2
-      L3_2 = A1_2.param2
-      if L2_2 ~= L3_2 then
-        L2_2 = L1_1.gadget_3
-        L3_2 = A1_2.param2
-        if L2_2 ~= L3_2 then
-          goto lbl_32
-        end
-      end
-    end
-    L2_2 = ScriptLib
-    L2_2 = L2_2.GetGroupVariableValue
-    L3_2 = A0_2
-    L4_2 = "correct"
-    L2_2 = L2_2(L3_2, L4_2)
-    if 0 < L2_2 then
-      L2_2 = ScriptLib
-      L2_2 = L2_2.ChangeGroupVariableValue
-      L3_2 = A0_2
-      L4_2 = "correct"
-      L5_2 = -1
-      L2_2(L3_2, L4_2, L5_2)
-      goto lbl_65
-      ::lbl_32::
-      L2_2 = L1_1.gadget_4
-      L3_2 = A1_2.param2
-      if L2_2 ~= L3_2 then
-        L2_2 = L1_1.gadget_5
-        L3_2 = A1_2.param2
-        if L2_2 ~= L3_2 then
-          L2_2 = L1_1.gadget_6
-          L3_2 = A1_2.param2
-          if L2_2 ~= L3_2 then
-            L2_2 = L1_1.gadget_7
-            L3_2 = A1_2.param2
-            if L2_2 ~= L3_2 then
-              L2_2 = L1_1.gadget_8
-              L3_2 = A1_2.param2
-              if L2_2 ~= L3_2 then
-                goto lbl_65
-              end
+function action_EVENT_GADGET_STATE_CHANGE_488016(A0_2, A1_2)
+    local L2_2, L3_2, L4_2, L5_2
+    if GadgetState.Default == A1_2.param1 then
+        if L1_1.gadget_1 == A1_2.param2 or L1_1.gadget_2 == A1_2.param2 or L1_1.gadget_3 == A1_2.param2 then
+            if ScriptLib.GetGroupVariableValue(A0_2, "correct") > 0 then
+                ScriptLib.ChangeGroupVariableValue(A0_2, "correct", -1)
             end
-          end
-        end
-      end
-      L2_2 = ScriptLib
-      L2_2 = L2_2.GetGroupVariableValue
-      L3_2 = A0_2
-      L4_2 = "incorrect"
-      L2_2 = L2_2(L3_2, L4_2)
-      if 0 < L2_2 then
-        L2_2 = ScriptLib
-        L2_2 = L2_2.ChangeGroupVariableValue
-        L3_2 = A0_2
-        L4_2 = "incorrect"
-        L5_2 = -1
-        L2_2(L3_2, L4_2, L5_2)
-      end
-    end
-    ::lbl_65::
-    L2_2 = ScriptLib
-    L2_2 = L2_2.GetGroupVariableValue
-    L3_2 = A0_2
-    L4_2 = "activeCount"
-    L2_2 = L2_2(L3_2, L4_2)
-    if 0 < L2_2 then
-      L2_2 = ScriptLib
-      L2_2 = L2_2.ChangeGroupVariableValue
-      L3_2 = A0_2
-      L4_2 = "activeCount"
-      L5_2 = -1
-      L2_2(L3_2, L4_2, L5_2)
-    end
-  else
-    L2_2 = GadgetState
-    L2_2 = L2_2.GearStart
-    L3_2 = A1_2.param1
-    if L2_2 == L3_2 then
-      L2_2 = L1_1.gadget_1
-      L3_2 = A1_2.param2
-      if L2_2 ~= L3_2 then
-        L2_2 = L1_1.gadget_2
-        L3_2 = A1_2.param2
-        if L2_2 ~= L3_2 then
-          L2_2 = L1_1.gadget_3
-          L3_2 = A1_2.param2
-          if L2_2 ~= L3_2 then
-            goto lbl_111
-          end
-        end
-      end
-      L2_2 = ScriptLib
-      L2_2 = L2_2.GetGroupVariableValue
-      L3_2 = A0_2
-      L4_2 = "correct"
-      L2_2 = L2_2(L3_2, L4_2)
-      L3_2 = L1_1.correct_count
-      if L2_2 < L3_2 then
-        L2_2 = ScriptLib
-        L2_2 = L2_2.ChangeGroupVariableValue
-        L3_2 = A0_2
-        L4_2 = "correct"
-        L5_2 = 1
-        L2_2(L3_2, L4_2, L5_2)
-        goto lbl_147
-        ::lbl_111::
-        L2_2 = L1_1.gadget_4
-        L3_2 = A1_2.param2
-        if L2_2 ~= L3_2 then
-          L2_2 = L1_1.gadget_5
-          L3_2 = A1_2.param2
-          if L2_2 ~= L3_2 then
-            L2_2 = L1_1.gadget_6
-            L3_2 = A1_2.param2
-            if L2_2 ~= L3_2 then
-              L2_2 = L1_1.gadget_7
-              L3_2 = A1_2.param2
-              if L2_2 ~= L3_2 then
-                L2_2 = L1_1.gadget_8
-                L3_2 = A1_2.param2
-                if L2_2 ~= L3_2 then
-                  goto lbl_147
-                end
-              end
+        elseif
+            L1_1.gadget_4 == A1_2.param2 or L1_1.gadget_5 == A1_2.param2 or L1_1.gadget_6 == A1_2.param2 or
+                L1_1.gadget_7 == A1_2.param2 or L1_1.gadget_8 == A1_2.param2
+         then
+            if ScriptLib.GetGroupVariableValue(A0_2, "incorrect") > 0 then
+                ScriptLib.ChangeGroupVariableValue(A0_2, "incorrect", -1)
             end
-          end
         end
-        L2_2 = ScriptLib
-        L2_2 = L2_2.GetGroupVariableValue
-        L3_2 = A0_2
-        L4_2 = "incorrect"
-        L2_2 = L2_2(L3_2, L4_2)
-        L3_2 = L1_1.total_count
-        L4_2 = L1_1.correct_count
-        L3_2 = L3_2 - L4_2
-        if L2_2 < L3_2 then
-          L2_2 = ScriptLib
-          L2_2 = L2_2.ChangeGroupVariableValue
-          L3_2 = A0_2
-          L4_2 = "incorrect"
-          L5_2 = 1
-          L2_2(L3_2, L4_2, L5_2)
+        if ScriptLib.GetGroupVariableValue(A0_2, "activeCount") > 0 then
+            ScriptLib.ChangeGroupVariableValue(A0_2, "activeCount", -1)
         end
-      end
-      ::lbl_147::
-      L2_2 = ScriptLib
-      L2_2 = L2_2.GetGroupVariableValue
-      L3_2 = A0_2
-      L4_2 = "activeCount"
-      L2_2 = L2_2(L3_2, L4_2)
-      L3_2 = L1_1.reset_count
-      if L2_2 < L3_2 then
-        L2_2 = ScriptLib
-        L2_2 = L2_2.ChangeGroupVariableValue
-        L3_2 = A0_2
-        L4_2 = "activeCount"
-        L5_2 = 1
-        L2_2(L3_2, L4_2, L5_2)
-      end
+    elseif GadgetState.GearStart == A1_2.param1 then
+        if L1_1.gadget_1 == A1_2.param2 or L1_1.gadget_2 == A1_2.param2 or L1_1.gadget_3 == A1_2.param2 then
+            if ScriptLib.GetGroupVariableValue(A0_2, "correct") < L1_1.correct_count then
+                ScriptLib.ChangeGroupVariableValue(A0_2, "correct", 1)
+            end
+        elseif
+            L1_1.gadget_4 == A1_2.param2 or L1_1.gadget_5 == A1_2.param2 or L1_1.gadget_6 == A1_2.param2 or
+                L1_1.gadget_7 == A1_2.param2 or L1_1.gadget_8 == A1_2.param2
+         then
+            if ScriptLib.GetGroupVariableValue(A0_2, "incorrect") < L1_1.total_count - L1_1.correct_count then
+                ScriptLib.ChangeGroupVariableValue(A0_2, "incorrect", 1)
+            end
+        end
+        if ScriptLib.GetGroupVariableValue(A0_2, "activeCount") < L1_1.reset_count then
+            ScriptLib.ChangeGroupVariableValue(A0_2, "activeCount", 1)
+        end
     end
-  end
-  L2_2 = 0
-  return L2_2
+    return 0
 end
-action_EVENT_GADGET_STATE_CHANGE_488016 = L2_1
+
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2, L4_2
   L2_2 = A1_2.param1

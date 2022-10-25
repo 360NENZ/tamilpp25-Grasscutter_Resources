@@ -276,252 +276,62 @@ L4_1.rand_weight = 100
 L2_1[1] = L3_1
 L2_1[2] = L4_1
 suites = L2_1
-function L2_1(A0_2, A1_2)
+function action_EVENT_GADGET_STATE_CHANGE_585006(A0_2, A1_2)
   local L2_2, L3_2, L4_2, L5_2, L6_2, L7_2, L8_2, L9_2
-  L2_2 = ScriptLib
-  L2_2 = L2_2.PrintContextLog
-  L3_2 = A0_2
-  L4_2 = "## SEAL_STATE | "
-  L5_2 = A1_2.param2
-  L6_2 = " : "
-  L7_2 = A1_2.param3
-  L8_2 = "->"
-  L9_2 = A1_2.param1
-  L4_2 = L4_2 .. L5_2 .. L6_2 .. L7_2 .. L8_2 .. L9_2
-  L2_2(L3_2, L4_2)
-  L2_2 = 0
-  L3_2 = A1_2.param2
-  L4_2 = L1_1.gadget_light_1
-  if L3_2 ~= L4_2 then
-    L3_2 = A1_2.param2
-    L4_2 = L1_1.gadget_light_2
-    if L3_2 ~= L4_2 then
-      L3_2 = A1_2.param2
-      L4_2 = L1_1.gadget_light_3
-      if L3_2 ~= L4_2 then
-        goto lbl_77
-      end
-    end
-  end
-  L3_2 = A1_2.param1
-  L4_2 = GadgetState
-  L4_2 = L4_2.GearStart
-  if L3_2 == L4_2 then
-    L3_2 = ScriptLib
-    L3_2 = L3_2.GetGadgetStateByConfigId
-    L4_2 = A0_2
-    L5_2 = L1_1.group_id
-    L6_2 = L1_1.gadget_seal_id
-    L3_2 = L3_2(L4_2, L5_2, L6_2)
-    L4_2 = ScriptLib
-    L4_2 = L4_2.SetGroupGadgetStateByConfigId
-    L5_2 = A0_2
-    L6_2 = L1_1.group_id
-    L7_2 = L1_1.gadget_seal_id
-    L8_2 = GadgetState
-    L8_2 = L8_2.ChestTrap
-    L4_2(L5_2, L6_2, L7_2, L8_2)
-    L4_2 = ScriptLib
-    L4_2 = L4_2.SetGroupGadgetStateByConfigId
-    L5_2 = A0_2
-    L6_2 = L1_1.group_id
-    L7_2 = L1_1.gadget_seal_id
-    L8_2 = L3_2
-    L4_2(L5_2, L6_2, L7_2, L8_2)
-    L4_2 = A1_2.param2
-    L5_2 = L1_1.gadget_light_1
-    if L4_2 == L5_2 then
-      L2_2 = 1
-    else
-      L4_2 = A1_2.param2
-      L5_2 = L1_1.gadget_light_2
-      if L4_2 == L5_2 then
-        L2_2 = 2
-      else
-        L4_2 = A1_2.param2
-        L5_2 = L1_1.gadget_light_3
-        if L4_2 == L5_2 then
-          L2_2 = 4
-        end
-      end
-    end
-    L4_2 = ScriptLib
-    L4_2 = L4_2.ChangeGroupVariableValue
-    L5_2 = A0_2
-    L6_2 = "Temp_Point_Value"
-    L7_2 = L2_2
-    L4_2(L5_2, L6_2, L7_2)
-    L4_2 = 0
-    do return L4_2 end
-    goto lbl_237
-    ::lbl_77::
-    L3_2 = A1_2.param2
-    L4_2 = L1_1.gadget_seal_id
-    if L3_2 == L4_2 then
-      L3_2 = A1_2.param1
-      L4_2 = GadgetState
-      L4_2 = L4_2.Action01
-      if L3_2 ~= L4_2 then
-        L3_2 = A1_2.param1
-        L4_2 = GadgetState
-        L4_2 = L4_2.Action02
-        if L3_2 ~= L4_2 then
-          goto lbl_121
-        end
-      end
-      L3_2 = A1_2.param1
-      L4_2 = GadgetState
-      L4_2 = L4_2.ChestTrap
-      if L3_2 ~= L4_2 then
-        L3_2 = A1_2.param3
-        L4_2 = GadgetState
-        L4_2 = L4_2.ChestTrap
-        if L3_2 ~= L4_2 then
-          L3_2 = ScriptLib
-          L3_2 = L3_2.GetGroupVariableValue
-          L4_2 = A0_2
-          L5_2 = "Temp_Point_Value"
-          L3_2 = L3_2(L4_2, L5_2)
-          L2_2 = L3_2
-          L3_2 = ScriptLib
-          L3_2 = L3_2.SetGroupVariableValue
-          L4_2 = A0_2
-          L5_2 = "Point_Value"
-          L6_2 = L2_2
-          L3_2(L4_2, L5_2, L6_2)
-          L3_2 = ScriptLib
-          L3_2 = L3_2.SetGroupGadgetStateByConfigId
-          L4_2 = A0_2
-          L5_2 = L1_1.group_id
-          L6_2 = L1_1.gadget_seal_model
-          L7_2 = A1_2.param1
-          L3_2(L4_2, L5_2, L6_2, L7_2)
-          goto lbl_232
-          ::lbl_121::
-          L3_2 = A1_2.param1
-          L4_2 = GadgetState
-          L4_2 = L4_2.ChestLocked
-          if L3_2 == L4_2 then
-            L3_2 = ScriptLib
-            L3_2 = L3_2.GetGroupVariableValue
-            L4_2 = A0_2
-            L5_2 = "Point_Value"
-            L3_2 = L3_2(L4_2, L5_2)
-            L4_2 = ScriptLib
-            L4_2 = L4_2.SetGroupVariableValue
-            L5_2 = A0_2
-            L6_2 = "Temp_Point_Value"
-            L7_2 = L3_2
-            L4_2(L5_2, L6_2, L7_2)
-            L4_2 = L3_2 % 2
-            if L4_2 == 0 then
-              L4_2 = ScriptLib
-              L4_2 = L4_2.CreateGadget
-              L5_2 = A0_2
-              L6_2 = {}
-              L7_2 = L1_1.gadget_light_1
-              L6_2.config_id = L7_2
-              L4_2(L5_2, L6_2)
-            end
-            L4_2 = L3_2 % 4
-            if L4_2 < 2 then
-              L4_2 = ScriptLib
-              L4_2 = L4_2.CreateGadget
-              L5_2 = A0_2
-              L6_2 = {}
-              L7_2 = L1_1.gadget_light_2
-              L6_2.config_id = L7_2
-              L4_2(L5_2, L6_2)
-            end
-            if L3_2 < 4 then
-              L4_2 = ScriptLib
-              L4_2 = L4_2.CreateGadget
-              L5_2 = A0_2
-              L6_2 = {}
-              L7_2 = L1_1.gadget_light_3
-              L6_2.config_id = L7_2
-              L4_2(L5_2, L6_2)
-            end
-          else
-            L3_2 = A1_2.param1
-            L4_2 = GadgetState
-            L4_2 = L4_2.Action03
-            if L3_2 == L4_2 then
-              L3_2 = ScriptLib
-              L3_2 = L3_2.SetGroupGadgetStateByConfigId
-              L4_2 = A0_2
-              L5_2 = L1_1.group_id
-              L6_2 = L1_1.gadget_seal_model
-              L7_2 = A1_2.param1
-              L3_2(L4_2, L5_2, L6_2, L7_2)
-              L3_2 = ScriptLib
-              L3_2 = L3_2.GetGroupVariableValue
-              L4_2 = A0_2
-              L5_2 = "Temp_Point_Value"
-              L3_2 = L3_2(L4_2, L5_2)
-              L2_2 = L3_2
-              L3_2 = ScriptLib
-              L3_2 = L3_2.SetGroupVariableValue
-              L4_2 = A0_2
-              L5_2 = "Point_Value"
-              L6_2 = L2_2
-              L3_2(L4_2, L5_2, L6_2)
-              L3_2 = ScriptLib
-              L3_2 = L3_2.SetGroupVariableValue
-              L4_2 = A0_2
-              L5_2 = "Quest_Flag"
-              L6_2 = 1
-              L3_2(L4_2, L5_2, L6_2)
-              L3_2 = ScriptLib
-              L3_2 = L3_2.KillEntityByConfigId
-              L4_2 = A0_2
-              L5_2 = {}
-              L6_2 = L1_1.group_id
-              L5_2.group_id = L6_2
-              L6_2 = L1_1.gadget_seal_id
-              L5_2.config_id = L6_2
-              L3_2(L4_2, L5_2)
-              L3_2 = ScriptLib
-              L3_2 = L3_2.CreateGroupTimerEvent
-              L4_2 = A0_2
-              L5_2 = 133104585
-              L6_2 = "QuestFinish"
-              L7_2 = 4
-              L3_2(L4_2, L5_2, L6_2, L7_2)
-              L3_2 = ScriptLib
-              L3_2 = L3_2.SetGroupGadgetStateByConfigId
-              L4_2 = A0_2
-              L5_2 = 133104440
-              L6_2 = 440008
-              L7_2 = GadgetState
-              L7_2 = L7_2.GearStart
-              L3_2(L4_2, L5_2, L6_2, L7_2)
-              L3_2 = ScriptLib
-              L3_2 = L3_2.AddQuestProgress
-              L4_2 = A0_2
-              L5_2 = "QuestFinish21025"
-              L3_2(L4_2, L5_2)
-              L3_2 = ScriptLib
-              L3_2 = L3_2.RemoveExtraGroupSuite
-              L4_2 = A0_2
-              L5_2 = L1_1.group_id
-              L6_2 = 2
-              L3_2(L4_2, L5_2, L6_2)
-            end
-          end
-        end
-      end
-      ::lbl_232::
-      L3_2 = 0
-      return L3_2
-    else
-      L3_2 = -1
-      return L3_2
-    end
-  end
-  ::lbl_237::
+  ScriptLib.PrintContextLog(A0_2, "## SEAL_STATE | "..A1_2.param2.." : "..A1_2.param3.."->"..A1_2.param1)
+	
+	L2_2 = 0
+	if A1_2.param2 == L1_1.gadget_light_1 or A1_2.param2 == L1_1.gadget_light_2 or A1_2.param2 == L1_1.gadget_light_3 then
+		if A1_2.param1 == GadgetState.GearStart then
+			L3_2 = ScriptLib.GetGadgetStateByConfigId(A0_2, L1_1.group_id, L1_1.gadget_seal_id)
+			ScriptLib.SetGroupGadgetStateByConfigId(A0_2, L1_1.group_id, L1_1.gadget_seal_id, GadgetState.ChestTrap)
+			ScriptLib.SetGroupGadgetStateByConfigId(A0_2, L1_1.group_id, L1_1.gadget_seal_id, L3_2)
+			if A1_2.param2 == L1_1.gadget_light_1 then
+				L2_2 = 1
+			elseif A1_2.param2 == L1_1.gadget_light_2 then
+				L2_2 = 2
+			elseif A1_2.param2 == L1_1.gadget_light_3 then
+				L2_2 = 4
+			end	
+			ScriptLib.ChangeGroupVariableValue(A0_2, "Temp_Point_Value", L2_2)
+			return 0
+		end
+	elseif A1_2.param2 == L1_1.gadget_seal_id then
+		if A1_2.param1 == GadgetState.Action01 or A1_2.param1 == GadgetState.Action02 then
+			if A1_2.param1 ~= GadgetState.ChestTrap and A1_2.param3 ~= GadgetState.ChestTrap then
+				L2_2 = ScriptLib.GetGroupVariableValue(A0_2, "Temp_Point_Value")
+				ScriptLib.SetGroupVariableValue(A0_2, "Point_Value", L2_2)
+				ScriptLib.SetGroupGadgetStateByConfigId(A0_2, L1_1.group_id, L1_1.gadget_seal_model, A1_2.param1)
+			end	
+		elseif A1_2.param1 == GadgetState.ChestLocked then
+			L3_2 = ScriptLib.GetGroupVariableValue(A0_2, "Point_Value")
+			ScriptLib.SetGroupVariableValue(A0_2, "Temp_Point_Value", L3_2)
+			if L3_2%2 == 0 then
+				ScriptLib.CreateGadget(A0_2, {config_id = L1_1.gadget_light_1})
+			end
+			if L3_2%4 < 2 then
+				ScriptLib.CreateGadget(A0_2, {config_id = L1_1.gadget_light_2})
+			end
+			if L3_2 < 4 then
+				ScriptLib.CreateGadget(A0_2, {config_id = L1_1.gadget_light_3})
+			end
+		elseif A1_2.param1 == GadgetState.Action03 then
+			ScriptLib.SetGroupGadgetStateByConfigId(A0_2, L1_1.group_id, L1_1.gadget_seal_model, A1_2.param1)
+			L2_2 = ScriptLib.GetGroupVariableValue(A0_2, "Temp_Point_Value")
+			ScriptLib.SetGroupVariableValue(A0_2, "Point_Value", L2_2)
+			ScriptLib.SetGroupVariableValue(A0_2, "Quest_Flag", 1)
+			ScriptLib.KillEntityByConfigId(A0_2, { group_id = L1_1.group_id, config_id = L1_1.gadget_seal_id })
+			ScriptLib.CreateGroupTimerEvent(A0_2, 133104585, "QuestFinish", 4)
+			ScriptLib.SetGroupGadgetStateByConfigId(A0_2, 133104440, 440008, GadgetState.GearStart)
+			ScriptLib.AddQuestProgress(A0_2, "QuestFinish21025")
+			ScriptLib.RemoveExtraGroupSuite(A0_2, L1_1.group_id, 2)
+		
+		end
+		return 0
+	else
+		return -1
+	end
 end
-action_EVENT_GADGET_STATE_CHANGE_585006 = L2_1
 function L2_1(A0_2, A1_2)
   local L2_2, L3_2
   L2_2 = A1_2.param1
